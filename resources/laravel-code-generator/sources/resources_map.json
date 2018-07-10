@@ -1,0 +1,36 @@
+[
+    {
+        "model-name": "Pool",
+        "resource-file": "pool.json",
+        "table-name": "mk_pools"
+    },
+    {
+        "model-name": "Profile",
+        "resource-file": "profile.json",
+        "table-name": "mk_profiles"
+    },
+    {
+        "model-name": "Router",
+        "resource-file": "router.json",
+        "table-name": "mk_routers"
+    },
+    {
+        "model-name": "Test",
+        "resource-file": "test.json"
+    },
+    {
+        "model-name": "Cliente",
+        "resource-file": "mk_cliente.json",
+        "table-name": "mk_clientes"
+    },
+    {
+        "model-name": "Grupo",
+        "resource-file": "mk_grupo.json",
+        "table-name": "mk_grupos"
+    },
+    {
+        "model-name": "Debitos",
+        "resource-file": "fin_debitos.json",
+        "table-name": "fin_debitos"
+    }
+]

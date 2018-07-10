@@ -1,0 +1,4 @@
+<div class="card-body">
+    [% form_fields_html %]
+</div>
+
