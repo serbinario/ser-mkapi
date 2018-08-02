@@ -177,7 +177,7 @@ class ClienteController extends Controller
     public function update($id, Request $request)
     {
         try {
-
+            $this->affirm($request);
             $data = $this->getData($request);
 
             $cliente = Cliente::findOrFail($id);
@@ -194,11 +194,9 @@ class ClienteController extends Controller
             return redirect()->route('cliente.cliente.index')
                              ->with('success_message', 'Cliente was successfully updated!');
 
-        } catch (Exception $exception) {
-            dd($exception->getMessage());
-            return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
-        }        
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message', $e->getMessage());
+        }
     }
 
     /**
