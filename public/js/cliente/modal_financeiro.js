@@ -29,11 +29,19 @@ $(document).on("click", ".btnModalFinanceiro", function () {
             }
         },
         columns: [
-            {data: 'numero_cobranca', name: 'numero_cobranca'},
+            {data: 'code', name: 'code'},
             {data: 'valor_debito', name: 'valor_debito'},
-            {data: 'valor_pago', name: 'valor_pago'},
             {data: 'data_vencimento', name: 'data_vencimento'},
-            {data: 'status', name: 'status'},
+            {data: 'valor_pago', name: 'valor_pago'},
+            {data: 'data_pagamento', name: 'data_pagamento'},
+            {data: 'link', name: 'link', "render": function(data, type, row, meta){
+                    if(type === 'display'){
+                        if (data != null)
+                        data = '<a target="_blank" href="' + data + '">' + 'link' + '</a>';
+                    }
+                    return data;
+                }},
+            {data: 'nome', name: 'nome'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

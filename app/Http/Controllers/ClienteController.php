@@ -6,7 +6,13 @@ namespace Serbinario\Http\Controllers;
 //meu teste
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Serbinario\Entities\Cliente;
+use Serbinario\Entities\Debitos;
+use Serbinario\Entities\FinCarne;
+use Serbinario\Entities\FinContasBancaria;
+use Serbinario\Entities\FinFormasPagamento;
+use Serbinario\Entities\FinLocaisPagamento;
 use Serbinario\Entities\Grupo;
 use Serbinario\Entities\PessoaFisica;
 use Serbinario\Entities\PessoaJuridica;
@@ -37,9 +43,13 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::with('mkrouter','mkprofile','mkvencimentodium')->paginate(25);
+        $mkClientes = Cliente::pluck('nome','id')->all();
+        $finContasBancarias = FinContasBancaria::pluck('nome','id')->all();
+        $finFormasPagamentos = FinFormasPagamento::pluck('nome','id')->all();
+        $finCarnes = FinCarne::pluck('id','id')->all();
+        $finLocaisPagamentos = FinLocaisPagamento::pluck('nome','id')->all();
 
-        return view('cliente.index', compact('clientes'));
+        return view('cliente.index', compact('clientes','mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
     }
 
     /**
@@ -54,7 +64,7 @@ class ClienteController extends Controller
             #Criando a consulta
             $rows = \DB::table('mk_clientes')
                 ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
-                ->select(['mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.login', 'mk_profiles.nome as profile']);
+                ->select(['mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.cpf', 'mk_clientes.login', 'mk_profiles.nome as profile']);
 
             #Editando a grid
             return Datatables::of($rows)->addColumn('action', function ($row) {
@@ -69,6 +79,9 @@ class ClienteController extends Controller
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </a>
                                 <button type="button" class="btn btn-primary btnModalFinanceiro" id="' . $row->id   . '" data-toggle="modal" title="Financeiro">
+                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-primary btnModalFinanceiroDebito" id="' . $row->id   . '" data-toggle="modal" title="Lançamento">
                                     <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                 </button>
                                 <button type="submit" class="btn btn-danger delete" id="' . $row->id   . '" title="Delete">
@@ -104,16 +117,20 @@ class ClienteController extends Controller
     {
         try {
 
-            $entitiePeople = $this->getTypePeople($request->get('tipo'));
-            $pessoaTipo = $entitiePeople::create($request->all());
-            $pessoaTipo->clienteable()->create($request->all());
+            $this->affirm($request);
+            $data = $this->getData($request);
+            //dd($data);
+            Cliente::create($data);
+
+//            $entitiePeople = $this->getTypePeople($request->get('tipo'));
+//            $pessoaTipo = $entitiePeople::create($request->all());
+//            $pessoaTipo->clienteable()->create($request->all());
 
             return redirect()->route('cliente.cliente.index')
                              ->with('success_message', 'Cliente was successfully added!');
 
-        } catch (Exception $exception) {
-            return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message', $e->getMessage());
         }
     }
 
@@ -206,6 +223,35 @@ class ClienteController extends Controller
                          ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
+
+    /**
+     * Remove the specified cliente from the storage.
+     *
+     * @param  int $id
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     */
+    public function getCliente($id)
+    {
+        try {
+            $cliente = Cliente::with('mkGrupo', 'mkProfile')->findOrFail($id);
+            //dd($cliente);
+            $cpf = $cliente->cpf;
+            $descricao = $cliente->mkProfile->descricao;
+            $valor = $cliente->mkProfile->valor;
+            $diaVencimento = $cliente->mkVencimentoDium->nome;
+            $date = date('m/Y');
+            $diaVencimento = $diaVencimento . "/" . $date;
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true,'descricao' => $descricao, 'diaVenci' => $diaVencimento, 'valor' => $valor,
+                        'cpf' => $cpf
+            ]);
+        } catch (Exception $exception) {
+
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        }
+    }
     
     /**
      * Validate the given request with the defined rules.
@@ -216,30 +262,32 @@ class ClienteController extends Controller
      */
     protected function affirm(Request $request)
     {
+        //dd($request->all());
+
         $rules = [
             'nome' => 'required|string|min:1|max:255',
-            'login' => 'nullable|string|min:0|max:20',
-            'senha' => 'nullable|string|min:0|max:20',
+            'login' => 'required|string|min:0|max:20',
+            'senha' => 'required|string|min:0|max:20',
             'email' => 'nullable|string|min:0|max:50',
             'tipo' => 'nullable',
             'phone01', 'nullable|string|min:0|max:20',
             'phone02', 'nullable|string|min:0|max:20',
-            'data_nascimento' => 'nullable|string|min:0',
+            'data_nascimento' => 'required|string|min:0',
             'cep' => 'nullable|string|min:0|max:10',
             'logradouro' => 'nullable|string|min:0|max:200',
             'complemanto' => 'nullable|string|min:0|max:200',
             'bairro' => 'nullable|string|min:0|max:50',
             'cidade' => 'nullable|string|min:0|max:50',
-            'data_instalacao' => 'nullable|string|min:0',
-            'grupo_id' => 'nullable',
-            'router_id' => 'nullable',
-            'profile_id' => 'nullable',
+            'data_instalacao' => 'required|string|min:0',
+            'grupo_id' => 'required',
+            'router_id' => 'required',
+            'profile_id' => 'required',
             'tipo_autenticacao' => 'nullable',
             'ip_pppoe' => 'nullable|string|min:0|max:20',
             'ip_hotspot' => 'nullable|string|min:0|max:20',
             'mac' => 'nullable|string|min:0|max:20',
-            'vencimento_dia_id' => 'nullable',
-            'dias_bloqueio' => 'nullable|numeric|min:-2147483648|max:2147483647',
+            'vencimento_dia_id' => 'required',
+            'dias_bloqueio' => 'required|numeric|min:-2147483648|max:2147483647',
             'dias_msg_pendencia' => 'nullable|numeric|min:-2147483648|max:2147483647',
             'inseto_mensalidade' => 'nullable|boolean',
             'mensalidade_automatica' => 'nullable|boolean',
@@ -250,9 +298,10 @@ class ClienteController extends Controller
             'desconto_mensali_ate_venci' => 'nullable|numeric|min:-999.99|max:999.99',
             'is_ativo' => 'nullable|boolean',
             'obs' => 'nullable',
+            'cpf' =>  'required_if:tipo,!=,Fisica',
+            'cnpj' =>  'required_if:tipo,!=,Juridico',
      
         ];
-
 
         return $this->validate($request, $rules);
     }

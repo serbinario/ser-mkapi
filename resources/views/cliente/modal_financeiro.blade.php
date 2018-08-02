@@ -16,8 +16,10 @@
                                 <tr>
                                     <th>N. Cobrança</th>
                                     <th>Valor</th>
-                                    <th>V. Pago</th>
                                     <th>Data Ven.</th>
+                                    <th>V. Pago</th>
+                                    <th>Data Pag.</th>
+                                    <th>Link Boleto</th>
                                     <th>Status</th>
                                     <th style="width: 50%;">Acao</th>
                                 </tr>

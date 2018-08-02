@@ -43,7 +43,10 @@ class Profile extends Model
                   'queue_type',
                   'script_on_up',
                   'script_on_down',
-                  'is_ativo'
+                  'is_ativo',
+        'descricao',
+        'valor'
+
               ];
 
     /**
@@ -80,6 +83,38 @@ class Profile extends Model
     {
         return $this->routers->pluck('id')->all();
     }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setValorAttribute($value)
+    {
+        if(!$value == null){
+            $value = str_replace(".","",$value);
+            $value = str_replace(",",".",$value);
+            $this->attributes['valor'] =  $value;
+        }
+    }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getValorAttribute($value)
+    {
+        if(!$value == null){
+            return str_replace(".",",",$value);
+
+
+        }
+    }
+
+
 
 
 }

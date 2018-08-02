@@ -1,4 +1,21 @@
 @extends('layouts.menu')
+@section("css")
+    <style type="text/css">
+        .carregamento{
+            display:    none;
+            position:   fixed;
+            z-index:    1000000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url("{{ asset('/img/pre-loader/load.gif') }}")
+            50% 50%
+            no-repeat;
+        }
+    </style>
+@stop
 
 @section('content')
 
@@ -54,7 +71,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
-                                                    <th>Nome</th>
+                                                    <th style="width: 30%;" >Nome</th>
+                                                    <th>CPF/CNPJ</th>
                                                     <th>Login</th>
                                                     <th>Profile</th>
                                                     <th style="width: 15%;">Acao</th>
@@ -82,7 +100,10 @@
         </div><!--end .row -->
         <!-- END HORIZONTAL FORM -->
 
+
+
     @include('cliente.modal_financeiro')
+    @include('cliente.modal_financeiro_debito')
 
 
 @endsection
@@ -91,4 +112,6 @@
 
     <script src="{{ asset('/js/cliente/index.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('/js/cliente/modal_financeiro_debito.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('/js/mascaras.js')}}" type="text/javascript"></script>
 @stop

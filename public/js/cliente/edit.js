@@ -4,6 +4,10 @@ $(document).ready(function () {
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
     $('.ip').mask('099.099.099.099');
+    $('.date').mask('00/00/0000');
+
+
+    $('.date').datepicker({autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"});
 
     //Verifica se o cpf esta preenchido os campos juridico sao acultados
     if($( "input[name='tipo']").val() == 'Fisica'){
@@ -29,7 +33,7 @@ $(document).ready(function () {
         $('.money').unmask();
     });
 
-    $('.date').datepicker({autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"});
+
 
     $("input[name=cep]").blur(function(){
         var cep_code = $(this).val();

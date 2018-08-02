@@ -8,14 +8,28 @@
         </div>
     </div>
 
+    <div class="form-group {{ $errors->has('nome') ? 'has-error' : '' }}">
+        <label for="valor" class="col-md-2 control-label">Valor</label>
+        <div class="col-md-10">
+            <input class="form-control money" name="valor" type="text" id="valor" value="{{ old('valor', isset($profile->valor) ? $profile->valor : null) }}" minlength="1" maxlength="200" required="true" placeholder="Enter valor here...">
+            {!! $errors->first('valor', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
+
+    <div class="form-group {{ $errors->has('nome') ? 'has-error' : '' }}">
+        <label for="descricao" class="col-md-2 control-label">Descriçao</label>
+        <div class="col-md-10">
+            <input class="form-control" name="descricao" type="text" id="descricao" value="{{ old('descricao', isset($profile->descricao) ? $profile->descricao : null) }}" minlength="1" maxlength="200" required="true" placeholder="Enter descricao here...">
+            {!! $errors->first('descricao', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="servidor" class="col-md-2 control-label">Servidor</label>
         <div class="col-md-10">
             {!! Form::select('routers[]', $routers,  isset($profile->routers) ? $profile->RoutersList : null, ['id' => 'tag_list', 'class' => 'form-control select2-list', 'multiple']) !!}
             {!! $errors->first('script_on_up', '<p class="help-block">:message</p>') !!}
         </div>
-
-
 
     </div>
 

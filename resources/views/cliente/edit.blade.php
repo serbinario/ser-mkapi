@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @if(Session::has('success_message'))
+    @if(Session::has('message'))
         <div class="alert alert-success">
             <span class="glyphicon glyphicon-ok"></span>
             {!! session('success_message') !!}

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FinBoleto extends Model
 {
-    
+
     /**
      * Indicates if the model should be timestamped.
      *
@@ -21,10 +21,10 @@ class FinBoleto extends Model
     protected $table = 'fin_boletos';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -33,10 +33,15 @@ class FinBoleto extends Model
      * @var array
      */
     protected $fillable = [
-                  'nome',
-                  'ip_inicial',
-                  'ip_final'
-              ];
+        'link',
+        'reference',
+        'payNumber',
+        'barcodeNumber',
+        'checkoutUrl',
+        'code',
+        'ourNumber'
+
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -44,14 +49,14 @@ class FinBoleto extends Model
      * @var array
      */
     protected $dates = [];
-    
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
-    
+
     /**
      * Get the mkPoolsHasMkProfile for this model.
      */

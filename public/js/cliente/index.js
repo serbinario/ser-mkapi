@@ -1,4 +1,3 @@
-$(document).ready(function () {
     //Retona o elemento que foi clicado com a class "delete", uso o "on" pois os elementos
     //sao criados dinamicamente
     $(document).on( 'click', '.delete', function( event ) {
@@ -40,10 +39,13 @@ $(document).ready(function () {
         columns: [
             {data: 'id', name: 'mk_clientes.id'},
             {data: 'nome', name: 'mk_clientes.nome'},
+            {data: 'cpf', name: 'mk_clientes.cpf'},
             {data: 'login', name: 'mk_clientes.login'},
             {data: 'profile', name: 'mk_profiles.nome'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
 
-});
+
+
+

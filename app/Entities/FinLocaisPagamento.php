@@ -18,7 +18,7 @@ class FinLocaisPagamento extends Model
      *
      * @var string
      */
-    protected $table = 'fin_contas_bancarias';
+    protected $table = 'fin_locais_pagamentos';
 
     /**
     * The database primary key value.

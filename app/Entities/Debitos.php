@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Debitos extends Model
 {
-    
+
 
     /**
      * The database table used by the model.
@@ -16,10 +16,10 @@ class Debitos extends Model
     protected $table = 'fin_debitos';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -28,20 +28,24 @@ class Debitos extends Model
      * @var array
      */
     protected $fillable = [
-                  'mk_cliente_id',
-                  'numero_cobranca',
-                  'conta_bancaria_id',
-                  'valor_debito',
-                  'valor_pago',
-                  'valor_desconto',
-                  'data_vencimento',
-                  'data_pagamento',
-                  'pago',
-                  'forma_pagamento_id',
-                  'carne_id',
-                  'local_pagamento_id',
-                  'status'
-              ];
+        'mk_cliente_id',
+        'numero_cobranca',
+        'descricao',
+        'conta_bancaria_id',
+        'valor_debito',
+        'valor_pago',
+        'valor_desconto',
+        'data_vencimento',
+        'data_pagamento',
+        'data_competencia',
+        'pago',
+        'forma_pagamento_id',
+        'carne_id',
+        'local_pagamento_id',
+        'status',
+        'boleto_id',
+        'status_id'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -49,14 +53,14 @@ class Debitos extends Model
      * @var array
      */
     protected $dates = [];
-    
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
-    
+
     /**
      * Get the mkCliente for this model.
      */
@@ -121,7 +125,7 @@ class Debitos extends Model
      */
     public function setDataVencimentoAttribute($value)
     {
-        $this->attributes['data_vencimento'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
+        $this->attributes['data_vencimento'] =  !empty($value) ? substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2) : null;
     }
 
     /**
@@ -134,6 +138,26 @@ class Debitos extends Model
     {
         $this->attributes['data_pagamento'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setDataCompetenciaAttribute($value)
+    {
+        $this->attributes['data_competencia'] =  !empty($value) ? substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2) : null;
+    }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+
+
 
     /**
      * Get data_vencimento in array format
@@ -177,6 +201,23 @@ class Debitos extends Model
     public function getUpdatedAtAttribute($value)
     {
         return date('j/n/Y g:i A', strtotime($value));
+    }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setValorDebitoAttribute($value)
+    {
+
+        if(!$value == null){
+            $value = str_replace(".","",$value);
+            $value = str_replace(",",".",$value);
+            //dd($value);
+            $this->attributes['valor_debito'] =  $value;
+        }
     }
 
 }

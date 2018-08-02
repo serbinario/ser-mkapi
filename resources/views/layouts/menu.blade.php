@@ -39,6 +39,8 @@
 		<script src="{{ asset('/assets/js/libs/utils/html5shiv.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/libs/utils/respond.min.js')}}" type="text/javascript"></script>
 		<![endif]-->
+
+		@yield('css')
 	</head>
 	<body class="menubar-hoverable header-fixed menubar-pin ">
 	@if(Auth::check())

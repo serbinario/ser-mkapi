@@ -228,7 +228,7 @@ class ProfileController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['nome','local_address','pool_id','dns1_server','dns2_server','rate_limit_tx_tx','queue_parent','queue_type','script_on_up','script_on_down','is_ativo']);
+        $data = $request->only(['nome','local_address','pool_id','dns1_server','dns2_server','rate_limit_tx_tx','queue_parent','queue_type','script_on_up','script_on_down','is_ativo', 'descricao', 'valor']);
         $data['is_ativo'] = $request->has('is_ativo');
 
         return $data;

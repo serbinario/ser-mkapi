@@ -6,27 +6,36 @@ namespace Serbinario\Http\Controllers;
 //meu teste
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Serbinario\Entities\Debitos;
+use Serbinario\Entities\FinBoleto;
 use Serbinario\Entities\FinCarne;
-use Serbinario\Entities\MkCliente;
+use Serbinario\Entities\Cliente;
+use Serbinario\Http\Controllers\BoletoFacil\BoletoFacil;
+use Serbinario\Http\Controllers\BoletoFacil\BoletoFacilApi;
 use Serbinario\Http\Controllers\Controller;
 use Serbinario\Entities\FinContasBancaria;
 use Serbinario\Entities\FinFormasPagamento;
 use Serbinario\Entities\FinLocaisPagamento;
+use serbinario\Services\teste;
 use Yajra\DataTables\DataTables;
 use Exception;
 
 class DebitosController extends Controller
 {
     private $token;
+    private $boletoFacilApi;
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param BoletoFacilApi $boletoFacil
      */
-    public function __construct()
+    public function __construct(BoletoFacilApi $boletoFacilApi)
     {
         $this->middleware('auth');
+        $this->boletoFacilApi = $boletoFacilApi;
+
     }
 
     /**
@@ -98,14 +107,16 @@ class DebitosController extends Controller
     {
         $this->token = csrf_token();
         #Criando a consulta
-        $rows = \DB::table('fin_debitos');
+        $rows = \DB::table('fin_debitos')
+            ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
+            ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id');
 
         #Editando a grid
         return Datatables::of($rows)
             ->filter(function ($query) use ($request) {
                 # Filtranto por disciplina
-                if ($request->has('cliente_id')) {
-                    $query->where('mk_cliente_id', '=', $request->get('cliente_id'));
+                if ($request->has('cliente_id')){
+                    $query->where('fin_debitos.mk_cliente_id', '=', $request->get('cliente_id'));
                 }
             })
 
@@ -132,12 +143,11 @@ class DebitosController extends Controller
      */
     public function create()
     {
-        $mkClientes = MkCliente::pluck('nome','id')->all();
-        $finContasBancarias = FinContasBancaria::pluck('id','id')->all();
-        $finFormasPagamentos = FinFormasPagamento::pluck('id','id')->all();
+        $mkClientes = Cliente::pluck('nome','id')->all();
+        $finContasBancarias = FinContasBancaria::pluck('nome','id')->all();
+        $finFormasPagamentos = FinFormasPagamento::pluck('nome','id')->all();
         $finCarnes = FinCarne::pluck('id','id')->all();
-        $finLocaisPagamentos = FinLocaisPagamento::pluck('id','id')->all();
-
+        $finLocaisPagamentos = FinLocaisPagamento::pluck('nome','id')->all();
         return view('debitos.create', compact('mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
     }
 
@@ -151,16 +161,28 @@ class DebitosController extends Controller
     public function store(Request $request)
     {
         try {
+
             $this->affirm($request);
             $data = $this->getData($request);
 
+            //Cria um boleto
+            $boleto = $this->boletoFacilApi->createBoleto($data);
+
+            //Se falhar retorna um erro e a mensagem do erro
+            if(!$boleto['success']) return Response::json(['success' => false, 'msg' => $boleto['msg']]);
+
+            $boletoGerado = FinBoleto::create($boleto);
+
+
+            $data = array_merge($data, [ 'boleto_id' => $boletoGerado->id, 'status_id' => '2']);
+
             Debitos::create($data);
 
-            return redirect()->route('debitos.debitos.index')
-                ->with('success_message', 'Debitos was successfully added!');
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true, 'msg' => 'Edição realizada com sucesso!']);
 
         } catch (Exception $exception) {
-
+            dd($exception->getMessage());
             return back()->withInput()
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
@@ -189,13 +211,14 @@ class DebitosController extends Controller
      */
     public function edit($id)
     {
-        $debitos = Debitos::findOrFail($id);
-        $mkClientes = MkCliente::pluck('nome','id')->all();
+        $debitos = Debitos::with('mkCliente.mkProfile')->findOrFail($id);
+        $mkClientes = Cliente::pluck('nome','id')->all();
         $finContasBancarias = FinContasBancaria::pluck('id','id')->all();
         $finFormasPagamentos = FinFormasPagamento::pluck('id','id')->all();
         $finCarnes = FinCarne::pluck('id','id')->all();
         $finLocaisPagamentos = FinLocaisPagamento::pluck('id','id')->all();
 
+        //dd($debitos->mkCliente->mkProfile->descricao);
         return view('debitos.edit', compact('debitos','mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
     }
 
@@ -258,15 +281,16 @@ class DebitosController extends Controller
      */
     protected function affirm(Request $request)
     {
+
         $rules = [
             'mk_cliente_id' => 'nullable',
             'numero_cobranca' => 'nullable|string|min:0|max:50',
             'conta_bancaria_id' => 'nullable',
-            'valor_debito' => 'nullable|numeric|min:-99999999.99|max:99999999.99',
+            'valor_debito' => 'nullable',
             'valor_pago' => 'nullable|numeric|min:-99999999.99|max:99999999.99',
             'valor_desconto' => 'nullable|numeric|min:-99999999.99|max:99999999.99',
-            'data_vencimento' => 'nullable|date_format:j/n/Y g:i A',
-            'data_pagamento' => 'nullable|date_format:j/n/Y g:i A',
+            'data_vencimento' => 'nullable|date_format:d/m/Y',
+            'data_pagamento' => 'nullable|date_format:d/m/Y',
             'pago' => 'nullable|string|min:0',
             'forma_pagamento_id' => 'nullable',
             'carne_id' => 'nullable',
@@ -288,7 +312,7 @@ class DebitosController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['mk_cliente_id','numero_cobranca','conta_bancaria_id','valor_debito','valor_pago','valor_desconto','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
+        $data = $request->only(['mk_cliente_id','status_id','boleto_id','code', 'numero_cobranca', 'cpf', 'nome','conta_bancaria_id','valor_debito','descricao','valor_pago','valor_desconto', 'data_competencia','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
 
         return $data;
     }

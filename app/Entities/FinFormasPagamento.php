@@ -18,7 +18,7 @@ class FinFormasPagamento extends Model
      *
      * @var string
      */
-    protected $table = 'fin_contas_bancarias';
+    protected $table = 'fin_formas_pagamentos';
 
     /**
     * The database primary key value.

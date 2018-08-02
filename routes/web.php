@@ -264,6 +264,10 @@ Route::group(
          ->name('cliente.cliente.update')
          ->where('id', '[0-9]+');
 
+    Route::post('getCliente/{cliente}', 'ClienteController@getCliente')
+        ->name('cliente.getCliente.update')
+        ->where('id', '[0-9]+');
+
     Route::delete('/{cliente}/destroy','ClienteController@destroy')
          ->name('cliente.cliente.destroy')
          ->where('id', '[0-9]+');
