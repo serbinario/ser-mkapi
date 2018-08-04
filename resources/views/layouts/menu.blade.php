@@ -149,7 +149,7 @@
 
 						<!-- BEGIN DASHBOARD -->
 						<li>
-							<a href="../../html/dashboards/dashboard.html" >
+							<a href="{{ route('dashboard.index') }}" >
 								<div class="gui-icon"><i class="md md-home"></i></div>
 								<span class="title">Dashboard</span>
 							</a>

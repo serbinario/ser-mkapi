@@ -25,9 +25,7 @@
                         <header>Financeiro</header>
                         <div class="tools">
                             <div class="btn-group">
-                                <a href="{{ route('debitos.debitos.create') }}" class="btn btn-primary" title="Novo Fornecedor">
-                                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                                </a>
+
                             </div>
                         </div>
                     </div>

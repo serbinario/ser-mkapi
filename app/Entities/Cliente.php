@@ -123,16 +123,18 @@ class Cliente extends Model
     }
 
 
-    public function getDataInstalacaoAttribute($value)
+    /*public function getDataInstalacaoAttribute($value)
     {
         return date("d/m/Y", strtotime($value));
     }
+
+
     public function setDataInstalacaoAttribute($value)
     {
         if($value){
             return $this->attributes['data_instalacao'] = substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2);
         }
-    }
+    }*/
 
     public function getDataNascimentoAttribute($value)
     {

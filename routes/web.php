@@ -22,6 +22,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 
 
+
+Route::group(
+    [
+        'prefix' => 'dashboard',
+    ], function () {
+
+    Route::get('/', 'Dashboard@index')
+        ->name('dashboard.index');
+
+    Route::get('/clientesPorMes','Dashboard@clientesPorMes')
+        ->name('dashboard.clientesPorMes');
+
+    Route::get('/grid', 'RouterController@grid')
+        ->name('dashboard.router.grid');
+
+
+});
+
 Route::group(
 [
     'prefix' => 'router',

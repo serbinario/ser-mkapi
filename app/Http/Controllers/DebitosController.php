@@ -6,6 +6,7 @@ namespace Serbinario\Http\Controllers;
 //meu teste
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Serbinario\Entities\Debitos;
 use Serbinario\Entities\FinBoleto;
@@ -166,9 +167,9 @@ class DebitosController extends Controller
         $rows = \DB::table('fin_debitos')
             ->select([
                 \DB::raw('
-                        COUNT(IF(status_id="2","2", 0)) "aguardando", 
-                        COUNT(IF(status_id="3","3", 0)) "pagos",
-                        COUNT(IF(status_id="4","4", 0)) "inadiplentes",
+                        COUNT(IF(status_id="2","2", NULL)) "aguardando", 
+                        COUNT(IF(status_id="3","3", NULL)) "pagas",
+                        COUNT(IF(status_id="4","4", NULL)) "inadiplentes",
                         SUM(IF(status_id="3",valor_pago, NULL)) "total_pagos",
                         SUM(IF(status_id="2",valor_debito, NULL)) "total_aguardando",
                         SUM(IF(status_id="4",valor_debito, NULL)) "total_inadiplentes",
@@ -178,12 +179,16 @@ class DebitosController extends Controller
 
         ->get();
 
+        Log::info(
+            $rows
+        );
+
        /* COUNT(IF(status_id='2',2, NULL)) 'aguardando',
 COUNT(IF(status_id='3',3, NULL)) 'pagos' */
 
        foreach ($rows as $row){
            return \Illuminate\Support\Facades\Response::json([
-               'success' => true, 'total' => $row->total, 'pagas' => $row->pagos, 'inadiplentes' => $row->inadiplentes,
+               'success' => true, 'total' => $row->total, 'pagas' => $row->pagas, 'inadiplentes' => $row->inadiplentes,
                'aReceber' => $row->aguardando, 'dinheiro' => '10',
                'total_pagos' => $row->total_pagos, 'total_aguardando' => $row->total_aguardando, 'total_inadiplentes' => $row->total_inadiplentes
            ]);
