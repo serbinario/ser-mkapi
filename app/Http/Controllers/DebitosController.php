@@ -166,9 +166,9 @@ class DebitosController extends Controller
         $rows = \DB::table('fin_debitos')
             ->select([
                 \DB::raw('
-                        COUNT(IF(status_id="2","2", NULL)) "aguardando", 
-                        COUNT(IF(status_id="3","3", NULL)) "pagos",
-                        COUNT(IF(status_id="4","4", NULL)) "inadiplentes",
+                        COUNT(IF(status_id="2","2", 0)) "aguardando", 
+                        COUNT(IF(status_id="3","3", 0)) "pagos",
+                        COUNT(IF(status_id="4","4", 0)) "inadiplentes",
                         SUM(IF(status_id="3",valor_pago, NULL)) "total_pagos",
                         SUM(IF(status_id="2",valor_debito, NULL)) "total_aguardando",
                         SUM(IF(status_id="4",valor_debito, NULL)) "total_inadiplentes",
