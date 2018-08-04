@@ -19,6 +19,8 @@ Route::get('/', 'RouterController@index')
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
+
 
 Route::group(
 [
@@ -336,6 +338,9 @@ Route::group(
 
     Route::post('/', 'DebitosController@store')
          ->name('debitos.debitos.store');
+
+    Route::get('/knob', 'DebitosController@knob')
+        ->name('debitos.debitos.knob');
                
     Route::put('debitos/{debitos}', 'DebitosController@update')
          ->name('debitos.debitos.update')
@@ -344,5 +349,6 @@ Route::group(
     Route::delete('/{debitos}/destroy','DebitosController@destroy')
          ->name('debitos.debitos.destroy')
          ->where('id', '[0-9]+');
+
 
 });

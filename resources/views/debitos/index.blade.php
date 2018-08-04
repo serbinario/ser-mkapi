@@ -128,11 +128,11 @@
                                     <em class="text-primary">Pagas</em>
                                     <br/>
                                     <div class="knob knob-support2 knob-inverse-track size-2">
-                                        <input id="pagas" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="222">
+                                        <input id="pagas" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="">
 
                                     </div>
                                     <br>
-                                    <em class="text-primary">Temperature</em>
+                                    <em class="text-primary pagas">Temperature</em>
 
                                 </div><!--end .col -->
                             </div><!-- END SERVER STATUS -->
@@ -151,7 +151,7 @@
 
                                     </div>
                                     <br>
-                                    <em class="text-primary">R$ 15.720,10</em>
+                                    <em class="text-primary areceber"></em>
 
                                 </div><!--end .col -->
                             </div><!-- END SERVER STATUS -->
@@ -166,11 +166,11 @@
                                     <em class="text-primary">Inadiplentes</em>
                                     <br/>
                                     <div class="knob knob-support2 knob-inverse-track size-2">
-                                        <input id="inadiplente" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="222">
+                                        <input id="inadiplentes" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="">
 
                                     </div>
                                     <br>
-                                    <em class="text-primary">Temperature</em>
+                                    <em class="text-primary inadiplentes"></em>
 
                                 </div><!--end .col -->
                             </div><!-- END SERVER STATUS -->
@@ -185,11 +185,11 @@
                                     <em class="text-primary">Pagos Dinheiro</em>
                                     <br/>
                                     <div class="knob knob-support2 knob-inverse-track size-2">
-                                        <input id="dinheiro" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="222">
+                                        <input id="dinheiro" ata-fgColor="chartreuse" data-height="100%" data-thickness=".2" readonly value="">
 
                                     </div>
                                     <br>
-                                    <em class="text-primary">Temperature</em>
+                                    <em class="text-primary dinheiro"></em>
 
                                 </div><!--end .col -->
                             </div><!-- END SERVER STATUS -->
@@ -209,8 +209,9 @@
                                         <tr>
                                             <th>Cliente</th>
                                             <th>Valor</th>
-                                            <th>Data Venciemento</th>
-                                            <th>Data Pagamento</th>
+                                            <th>Data Compet.</th>
+                                            <th>Data Venc.</th>
+                                            <th>Data Pag.</th>
                                             <th>Valor Pago</th>
                                             <th>Status</th>
                                             <th>Acao</th>
@@ -222,15 +223,11 @@
                         </div><!--end .col -->
                     </div><!--end .row -->
                     <!-- END DATATABLE 1 -->
-
-
-
-
-                    <div class="card-actionbar">
+                   {{-- <div class="card-actionbar">
                         <div class="card-actionbar-row">
                             <a href="{{ route('debitos.debitos.create') }}" type="button" class="btn btn-flat btn-primary ink-reaction">Novo Fornecedor</a>
                         </div>
-                    </div>
+                    </div>--}}
                 </div><!--end .card -->
 
             </form>

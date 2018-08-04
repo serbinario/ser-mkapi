@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
-                                        <input class="form-control input-sm" name="valor_debito" type="text" id="valor_debito" value="" placeholder="Valor Debito..." step="any">
+                                        <input class="form-control input-sm money" name="valor_debito" type="text" id="valor_debito" value="" placeholder="Valor Debito..." step="any">
                                         {!! $errors->first('valor_debito', '<p class="help-block">:message</p>') !!}
                                         <label for="descricao" class="control-label">Valor *</label>
                                     </div>
@@ -69,14 +69,14 @@
                             </div>
 
 
-                            <div class="col-lg-12">
+              {{--              <div class="col-lg-12">
                                 <h4 class="text-bold">Pago</h4>
                                 <hr class=""/>
                             </div>
 
-                            <br> <br><br>
+                            <br> <br><br>--}}
 
-                            <div class="row">
+                            {{--<div class="row">
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <input class="form-control input-sm date" name="data_pagamento" type="text" id="data_pagamento" value="{{ old('data_pagamento', isset($debitos->data_pagamento) ? $debitos->data_pagamento : null) }}" placeholder="Data Pagamento...">
@@ -120,16 +120,6 @@
                                 </div>
                             </div>
 
-
-
-
-
-
-
-
-
-
-
                             <div class="form-group {{ $errors->has('local_pagamento_id') ? 'has-error' : '' }}">
                                 <label for="local_pagamento_id" class="col-md-2 control-label">Local Pagamento</label>
                                 <div class="col-md-10">
@@ -145,17 +135,18 @@
                                     {!! $errors->first('local_pagamento_id', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-
+--}}
 
 
 
 
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="btnSaveDebito">Salvar</button>
+                            <button type="button" class="btn btn-primary" id="btnCancelAditivos" data-dismiss="modal">Cancelar</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id="btnSaveDebito">Salvar</button>
-                        <button type="button" class="btn btn-primary" id="btnCancelAditivos" data-dismiss="modal">Cancelar</button>
-                    </div>
+
                 </form>
 
             </div><!--end .row -->

@@ -45,7 +45,8 @@ class Debito extends Model
         'carne_id',
         'local_pagamento_id',
         'numero_cobranca',
-        'status'
+        'status',
+        'paymentToken'
     ];
 
     /**
@@ -61,19 +62,6 @@ class Debito extends Model
      * @var array
      */
     protected $casts = [];
-
-    /**
-     * Get the mkRouter for this model.
-     */
-
-    /**
-
-
-    /**
-     * Get the mkProfile for this model.
-     */
-
-
 
 
     public function setDataPagamentoAttribute($value)
@@ -104,7 +92,6 @@ class Debito extends Model
     public function setValorPagoAttribute($value)
     {
         if(!$value == null){
-            $value = str_replace(".","",$value);
             $value = str_replace(",",".",$value);
             $this->attributes['valor_pago'] =  $value;
         }

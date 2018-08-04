@@ -62,9 +62,12 @@ class DebitosController extends Controller
         #Criando a consulta
         $rows = \DB::table('fin_debitos')
             ->Join('mk_clientes', 'mk_clientes.id', '=', 'fin_debitos.mk_cliente_id')
+            ->Join('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
+            ->Join('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
             ->select([
-                'fin_debitos.id', 'fin_debitos.numero_cobranca', 'fin_debitos.valor_debito', 'fin_debitos.status as status',
-                'fin_debitos.data_vencimento', 'fin_debitos.data_pagamento', 'fin_debitos.valor_pago' , 'mk_clientes.nome'
+                'fin_debitos.id', 'fin_debitos.numero_cobranca', 'fin_debitos.valor_debito', 'fin_status.nome as status',
+                'fin_debitos.data_vencimento', 'fin_debitos.data_pagamento', 'fin_debitos.valor_pago' , 'mk_clientes.nome',
+                'fin_debitos.data_competencia'
             ]);
 
         #Editando a grid
@@ -151,6 +154,46 @@ class DebitosController extends Controller
         return view('debitos.create', compact('mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
     }
 
+
+    /**
+     * Show the form for creating a new debitos.
+     *
+     * @return Illuminate\View\View
+     */
+    public function knob()
+    {
+
+        $rows = \DB::table('fin_debitos')
+            ->select([
+                \DB::raw('
+                        COUNT(IF(status_id="2","2", NULL)) "aguardando", 
+                        COUNT(IF(status_id="3","3", NULL)) "pagos",
+                        COUNT(IF(status_id="4","4", NULL)) "inadiplentes",
+                        SUM(IF(status_id="3",valor_pago, NULL)) "total_pagos",
+                        SUM(IF(status_id="2",valor_debito, NULL)) "total_aguardando",
+                        SUM(IF(status_id="4",valor_debito, NULL)) "total_inadiplentes",
+                        COUNT(*) "total"
+                    ')
+            ])
+
+        ->get();
+
+       /* COUNT(IF(status_id='2',2, NULL)) 'aguardando',
+COUNT(IF(status_id='3',3, NULL)) 'pagos' */
+
+       foreach ($rows as $row){
+           return \Illuminate\Support\Facades\Response::json([
+               'success' => true, 'total' => $row->total, 'pagas' => $row->pagos, 'inadiplentes' => $row->inadiplentes,
+               'aReceber' => $row->aguardando, 'dinheiro' => '10',
+               'total_pagos' => $row->total_pagos, 'total_aguardando' => $row->total_aguardando, 'total_inadiplentes' => $row->total_inadiplentes
+           ]);
+       }
+
+
+
+
+    }
+
     /**
      * Store a new debitos in the storage.
      *
@@ -165,17 +208,21 @@ class DebitosController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
 
-            //Cria um boleto
+            //$this->boletoFacilApi->fetchPaymentDetails();
+            //dd("www");
+            //Cria um boleto Pelo BoletoFacil
             $boleto = $this->boletoFacilApi->createBoleto($data);
 
-            //Se falhar retorna um erro e a mensagem do erro
+            //Se falhar a criaçao do boleto, retorna um erro e a mensagem do erro
             if(!$boleto['success']) return Response::json(['success' => false, 'msg' => $boleto['msg']]);
 
+            //Gera um boleto a partir dos daos de retorno do BoletoFacil
             $boletoGerado = FinBoleto::create($boleto);
 
-
+            //Com os dados do formulario, adiciono o id do boleto + o status de aguardando que e 2 ao debito
             $data = array_merge($data, [ 'boleto_id' => $boletoGerado->id, 'status_id' => '2']);
 
+            //Salva o debito vinculado ao boleto gerado
             Debitos::create($data);
 
 

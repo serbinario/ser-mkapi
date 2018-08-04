@@ -39,7 +39,8 @@ class FinBoleto extends Model
         'barcodeNumber',
         'checkoutUrl',
         'code',
-        'ourNumber'
+        'ourNumber',
+        'fee'
 
     ];
 
@@ -63,6 +64,11 @@ class FinBoleto extends Model
     public function mkPoolsHasMkProfile()
     {
         return $this->hasOne('Serbinario\Entities\MkPoolsHasMkProfile','mk_pool_id','id');
+    }
+
+    public function debito()
+    {
+        return $this->hasOne('Serbinario\Entities\Debito','boleto_id','id');
     }
 
 

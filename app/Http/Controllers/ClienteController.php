@@ -119,12 +119,8 @@ class ClienteController extends Controller
 
             $this->affirm($request);
             $data = $this->getData($request);
-            //dd($data);
-            Cliente::create($data);
 
-//            $entitiePeople = $this->getTypePeople($request->get('tipo'));
-//            $pessoaTipo = $entitiePeople::create($request->all());
-//            $pessoaTipo->clienteable()->create($request->all());
+            Cliente::create($data);
 
             return redirect()->route('cliente.cliente.index')
                              ->with('success_message', 'Cliente was successfully added!');
@@ -183,13 +179,6 @@ class ClienteController extends Controller
             $cliente = Cliente::findOrFail($id);
             //$pessoaFisica = PessoaFisica::find($cliente->clienteable_id);
             $cliente->update($data);
-
-            //dd($data, $id);
-
-            //$pessoaFisica->clienteable->update($request->all());
-            //$pessoaFisica->update($request->all());
-
-
 
             return redirect()->route('cliente.cliente.index')
                              ->with('success_message', 'Cliente was successfully updated!');

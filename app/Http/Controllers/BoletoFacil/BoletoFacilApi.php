@@ -25,32 +25,40 @@ class BoletoFacilApi
      */
     public function __construct()
     {
+        //Tokem do boleto facil
+        //sandbox = true para desenvolvimento e fase para produçao
+        //Colocar esses dados no .env
         $this->boletofacil = new BoletoFacil("B49E4B606E713E2EA1BCF345874BF4DBB36A234A106FB5FD4262AAE8CB912C64", $sandbox = true);
     }
 
-    public function fetchPaymentDetails()
+    //Consulta de um boleto
+    public function fetchPaymentDetails($data)
     {
-        dd($this->boletofacil->fetchPaymentDetails('18636400:c177f9127d98d685238e6f5010638bfe6f1df5dfdc5f5e03c2d6cc7e3695f587'));
+        return $paymentDetails = $this->boletofacil->fetchPaymentDetails($data);
+
+       // $array = json_decode($paymentDetails, true);
+
 
     }
 
     public function createBoleto($data)
     {
-
+        //Prepara com os dados do cliente
         $this->boletofacil->createCharge($data['nome'] ,$data['cpf'], $data['descricao'], $this->trataValor($data['valor_debito']), $data['data_vencimento']);
 
-        $restorno = $this->boletofacil->issueCharge();
-        $array = json_decode($restorno, true);
+        //Gera um boleto a partir dos dados do cliente
+        $retorno = $this->boletofacil->issueCharge();
 
+        $array = json_decode($retorno, true);
+
+        //Verifica se deu sucesso na requisiçao de gerar o boleto
         if($array['success'])
         {
-
-            //dd($array['data']['charges']['0']['code']);
+            //Recupera os dados de resposta ao gerar um boleto
             $code =         $array['data']['charges']['0']['code'];
             $checkoutUrl =  $array['data']['charges']['0']['checkoutUrl'];
             $link =         $array['data']['charges']['0']['link'];
             $payNumber =    $array['data']['charges']['0']['payNumber'];
-
             $ourNumber =    $array['data']['charges']['0']['billetDetails']['ourNumber'];
             $barcodeNumber = $array['data']['charges']['0']['billetDetails']['barcodeNumber'];
 
@@ -58,18 +66,17 @@ class BoletoFacilApi
                         'ourNumber' => $ourNumber, 'barcodeNumber' =>$barcodeNumber,
                         '$payNumber' => $payNumber
                     ];
-
         }else{
             return ['success' => false, 'msg' => $array['errorMessage']];
-
         }
-//  create a new collection instance from the array
-        $retornCole = collect($array);
+
+       /* $retornCole = collect($array);
         dd($retornCole['data']['charges'][0]['code']);
-        return dd($data);
+        return dd($data);*/
 
     }
 
+    //Trata os campos valores, transformando "vigula" em "ponto"
     public function trataValor($value)
     {
             $value = str_replace(",",".",$value);
