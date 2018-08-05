@@ -1,40 +1,26 @@
-var options = {
-    shadowSize: 0,
-    lines: {
-        show: true,
-        lineWidth: false,
-        fill: true
-    },
-    legend: {
-        show: false
-    },
-    points: {
-        show: true,
-        radius: 3,
-        lineWidth: 2
-    },
-    xaxis: {
-        tickDecimals: false,
-        color: 'rgba(0, 0, 0, 0)',
-        tickSize: 1
-    },
-    grid: {
-        borderWidth: 0,
-        hoverable: true
-    }
-};
-
-var data = [];
-
-function onDataReceived(series) {
-
-    data.push(series);
-    $.plot("#placeholder", data, options);
-}
-
+//http://morrisjs.github.io/morris.js/index.html
 $.ajax({
-    url: '/dashboard/clientesPorMes',
+    url: "dashboard/clientesPorMes",
     type: "GET",
     dataType: "json",
-    success: onDataReceived
+    success: function (data) {
+        ShowGrpah(data);
+    },
 });
+
+
+function ShowGrpah(data) {
+    Morris.Bar({
+        element: 'IcecastGraph',
+        data: data,
+        xkey: 'MONTH',
+        ykeys: ['Total'],
+        labels: ['Total'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'auto'
+    });
+}
+
+
+

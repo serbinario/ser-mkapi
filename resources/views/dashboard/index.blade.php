@@ -1,59 +1,19 @@
 @extends('layouts.menu')
-@section("css")
-    <style type="text/css">
-        .carregamento{
-            display:    none;
-            position:   fixed;
-            z-index:    1000000;
-            top:        0;
-            left:       0;
-            height:     100%;
-            width:      100%;
-            background: rgba( 255, 255, 255, .8 )
-            url("{{ asset('/img/pre-loader/load.gif') }}")
-            50% 50%
-            no-repeat;
-        }
-    </style>
-@stop
 
 @section('content')
 
-    @if(Session::has('success_message'))
-        <div class="alert alert-success">
-            <span class="glyphicon glyphicon-ok"></span>
-            {!! session('success_message') !!}
-
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-
-        </div>
-    @endif
-
-    @if(Session::has('error_message'))
-        <div class="alert alert-success">
-            <span class="glyphicon glyphicon-ok"></span>
-            {!! session('error_message') !!}
-
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-
-        </div>
-    @endif
 
     <!-- BEGIN SITE ACTIVITY -->
-    <div class="col-md-8">
+    <div class="col-md-6">
         <div class="card ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-head">
-                        <header>Historico Instalaçao Clientes</header>
+                        <header>Histórico de Instalações por Mês</header>
                     </div><!--end .card-head -->
                     <div class="card-body height-8">
                         <div id="flot-visitors-legend" class="flot-legend-horizontal stick-top-right no-y-padding"></div>
-                        <div id="placeholder" class="flot height-7" data-title="Activity entry" data-color="#7dd8d2,#0aa89e"></div>
+                        <div id="IcecastGraph" class="flot height-7" data-title="Activity entry" data-color="#7dd8d2,#0aa89e"></div>
                     </div><!--end .card-body -->
                 </div><!--end .col -->
             </div><!--end .row -->
@@ -61,20 +21,6 @@
     </div><!--end .col -->
     <!-- END SITE ACTIVITY -->
 
-   <div class="col-md-6">
-        <div class="card">
-            <div class="card-head">
-                <header>Registration history</header>
-            </div><!--end .card-head -->
-            <div class="card-body no-padding height-8">
-
-                <div class="stick-bottom-left-right force-padding">
-                    <div id="" class="flot height-5" data-title="Registration history" data-color="#0aa89e"></div>
-                </div>
-            </div><!--end .card-body -->
-        </div><!--end .card -->
-    </div><!--end .col -->
-    <!-- END REGISTRATION HISTORY -->
 
 
   {{--  @include('cliente.modal_financeiro')
@@ -88,6 +34,12 @@
     {{--<script src="{{ asset('/js/cliente/index.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro_debito.js')}}" type="text/javascript"></script>--}}
+    //http://morrisjs.github.io/morris.js/index.html
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+
 
     <script src="{{ asset('/assets/js/libs/flot/jquery.flot.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/dashboard/index.js')}}" type="text/javascript"></script>

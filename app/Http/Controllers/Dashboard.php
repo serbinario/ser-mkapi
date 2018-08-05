@@ -7,6 +7,7 @@
  */
 
 namespace serbinario\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use Serbinario\Http\Controllers\Controller;
 
 
@@ -33,13 +34,15 @@ class Dashboard extends Controller
     }
 
     /**
-     * Display a listing of the clientes.
-     *
-     * @return Illuminate\View\View
+     * Chama a procudere qtdInstalacaoes passando dois paramentros, data inicio e data fim
+     * retorna a quantidade de instalaçoes mes
+     * Falta corrigir as datas pois estao fixas, deveria retornar dos utimos 6 meses ou colocar um botao para escolher
      */
     public function clientesPorMes()
     {
-        return \Illuminate\Support\Facades\Response::json(['label' => "Teste", 'data' => [['1', 22.0], ['2', 30.0], ['3', 35.3]] ]);
+        $result = DB::select('call qtdInstalacaoes("2018-02-01", "2018-12-17")');
+
+        return \Illuminate\Support\Facades\Response::json($result);
     }
 
 
