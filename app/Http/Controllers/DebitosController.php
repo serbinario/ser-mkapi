@@ -59,6 +59,7 @@ class DebitosController extends Controller
      */
     public function grid(Request $request)
     {
+
         $this->token = csrf_token();
         #Criando a consulta
         $rows = \DB::table('fin_debitos')
@@ -83,7 +84,9 @@ class DebitosController extends Controller
                 }
             })
             ->addColumn('action', function ($row) {
-            return '<form id="' . $row->id   . '" method="POST" action="debitos/' . $row->id   . '/destroy" accept-charset="UTF-8">
+
+
+                $html       = '<form id="' . $row->id   . '" method="POST" action="debitos/' . $row->id   . '/destroy" accept-charset="UTF-8">
                             <input name="_method" value="DELETE" type="hidden">
                             <input name="_token" value="'.$this->token .'" type="hidden">
                             <div class="btn-group btn-group-xs pull-right" role="group">
@@ -92,12 +95,20 @@ class DebitosController extends Controller
                                 </a>
                                 <a href="debitos/'.$row->id.'/edit" class="btn btn-primary" title="Edit">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                </a>
-                                <button type="submit" class="btn btn-danger delete" id="' . $row->id   . '" title="Delete">
+                                </a>';
+
+                //$disciplina = $this->service->find($row->id);
+                # Verificando se existe vinculo com o currículo
+                if(FinBoleto::find($row->id)) {
+                    $html .= '<button type="submit" class="btn btn-danger delete" id="' . $row->id . '" title="Delete">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                 </button>
-                        </form>
-                        ';
+                              </form>';
+                }
+
+
+
+            return $html;
         })->make(true);
     }
 
@@ -159,11 +170,10 @@ class DebitosController extends Controller
     /**
      * Show the form for creating a new debitos.
      *
-     * @return Illuminate\View\View
+     * Retorna com a quantidade de boletos pagos, a receber inadiplente
      */
     public function knob()
     {
-
         $rows = \DB::table('fin_debitos')
             ->select([
                 \DB::raw('
@@ -179,13 +189,6 @@ class DebitosController extends Controller
 
         ->get();
 
-        Log::info(
-            $rows
-        );
-
-       /* COUNT(IF(status_id='2',2, NULL)) 'aguardando',
-COUNT(IF(status_id='3',3, NULL)) 'pagos' */
-
        foreach ($rows as $row){
            return \Illuminate\Support\Facades\Response::json([
                'success' => true, 'total' => $row->total, 'pagas' => $row->pagas, 'inadiplentes' => $row->inadiplentes,
@@ -193,10 +196,6 @@ COUNT(IF(status_id='3',3, NULL)) 'pagos' */
                'total_pagos' => $row->total_pagos, 'total_aguardando' => $row->total_aguardando, 'total_inadiplentes' => $row->total_inadiplentes
            ]);
        }
-
-
-
-
     }
 
     /**
@@ -311,14 +310,16 @@ COUNT(IF(status_id='3',3, NULL)) 'pagos' */
     public function destroy($id)
     {
         try {
+
+            //Corrigir isso por nao estar funcionando o o with, ai tive que colocar para localizar o boleto_id em boletos de depois deletar
             $debitos = Debitos::findOrFail($id);
-            $debitos->delete();
+            $result = FinBoleto::findOrFail($debitos->boleto_id);
 
             return redirect()->route('debitos.debitos.index')
                 ->with('success_message', 'Debitos was successfully deleted!');
 
         } catch (Exception $exception) {
-
+            dd("ssss");
             return back()->withInput()
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }

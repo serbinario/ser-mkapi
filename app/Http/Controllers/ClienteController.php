@@ -84,9 +84,7 @@ class ClienteController extends Controller
                                 <button type="button" class="btn btn-primary btnModalFinanceiroDebito" id="' . $row->id   . '" data-toggle="modal" title="Lançamento">
                                     <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                 </button>
-                                <button type="submit" class="btn btn-danger delete" id="' . $row->id   . '" title="Delete">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                </button>
+                        
                         </form>
                         ';
                             })->make(true);

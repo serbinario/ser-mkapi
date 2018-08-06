@@ -106,7 +106,7 @@ class Debitos extends Model
      */
     public function finBoleto()
     {
-        return $this->hasOne('Serbinario\Entities\FinBoleto','debito_id','id');
+        return $this->hasMany('Serbinario\Entities\FinBoleto','debito_id','id');
     }
 
     /**
