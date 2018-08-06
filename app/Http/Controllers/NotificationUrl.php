@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Log;
 use Serbinario\Entities\Debitos;
 use Serbinario\Entities\FinBoleto;
+use Serbinario\Entities\LogDb;
 use Serbinario\Http\Controllers\BoletoFacil\BoletoFacilApi;
 
 
@@ -21,18 +22,16 @@ class NotificationUrl extends Controller
 
             $resp = $request->all();
 
-            Log::info(
-                $resp
-            );
+            //Loga no banco para fazer um debug, depois pode desativar
+            $this->LogBanco($resp);
+
             $boletos = FinBoleto::with('debito')->where('code', '=', $resp['chargeCode'])->get();
             //$boletos = FinBoleto::with('debito')->where('code', '=', '30031043')->get();
-
 
             foreach ($boletos as $boleto){
                //$boleto->paymentToken = 'CD3DA4F76EB4867643B9AEFB9852D814';
                $boleto->paymentToken = $resp['paymentToken'];
                //$boleto->fee =;
-
 
                 $boletoFacilApi = new BoletoFacilApi();
 
@@ -40,15 +39,10 @@ class NotificationUrl extends Controller
                 $paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
                 //$paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
 
+                $this->LogBanco($paymentDetails);
 
                 //Transforma em uma array
                 $array = json_decode($paymentDetails, true);
-
-                Log::info(
-                    $array
-                );
-
-
 
                 //Falta terminar abaixo, pegar os dados de retorno do pagameto e jogar no banco,
                 //colocar isso dentro de fetchPaymentDetails
@@ -68,9 +62,6 @@ class NotificationUrl extends Controller
                     $boleto->debito->status_id = '3';
                     $boleto->debito->save();
                 }
-
-
-
             }
 
             return \Illuminate\Support\Facades\Response::json(['success' => true]);
@@ -78,6 +69,21 @@ class NotificationUrl extends Controller
         } catch (Exception $exception) {
             return \Illuminate\Support\Facades\Response::json(['success' => false]);
         }
+
+
+    }
+
+    public function LogBanco($array)
+    {
+        Log::info(
+            $array
+        );
+
+        $date = date("Y-m-d h:i:s");
+        $log = new LogDb();
+        $log->log = json_encode($array);
+        $log->date = $date;
+        $log->save();
     }
 
 }

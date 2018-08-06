@@ -3,13 +3,18 @@
 namespace Serbinario\Console\Commands;
 
 use Illuminate\Console\Command;
+use MikrotikAPI\MikrotikAPI;
 use Serbinario\Entities\Cobranca;
 use Serbinario\Entities\Debitos;
 use Serbinario\Http\Controllers\RouterosApi;
 use Serbinario\Entities\Cliente;
+use Serbinario\Services\MikrotikAPI\PPP\TraitSecret;
+use Serbinario\Services\RouterosService;
+use Serbinario\Services\teste;
 
 class Mikrotik extends Command
 {
+    use TraitSecret;
     /**
      * The name and signature of the console command.
      *
@@ -29,7 +34,7 @@ class Mikrotik extends Command
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(teste $teste)
     {
         parent::__construct();
     }
@@ -56,7 +61,7 @@ class Mikrotik extends Command
 
         }
 
-        $router = new RouterosApi();
+        $router = new RouterosService();
         $router->debug = false;
 
         $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
@@ -83,13 +88,14 @@ class Mikrotik extends Command
     public function queuesCount()
     {
 
-        $router = new RouterosApi();
+
+        $router = new RouterosService();
         $router->debug = false;
 
         $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
-        $router->write('/ppp/active/print',false);
-        $router->write('=count-only=',true);
+        $router->write('/ppp/secret/print',true);
+        //$router->write('=count-only=',true);
 
         $READ = $router->read(false);
         $countQueues = $router->parseResponse($READ);
@@ -101,38 +107,36 @@ class Mikrotik extends Command
     public function listClients()
     {
 
-
-        $router = new RouterosApi();
+        $router = new RouterosService();
         $router->debug = false;
-
         $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
-        $router->write('/ppp/active/print',true);
-        $READ = $router->read(false);
-        $ARRAY = $router->parseResponse($READ);
+        //Esse funciona
+        $rest = $router->comm("/ppp/secret/set", array(
+            "numbers"     => "paulovaz",
+            "profile" => "Bloqueados",
+        ));
 
-        $list = array();
-
-        for ($i = 0; $i < count($ARRAY); $i ++)
-        {
-            $login = $ARRAY[$i]['name'];
-            echo $i . ";" . $login . ";";
-
-            //$login = "ewertton";
-            //Verifico na tabela mk_cliente se existe o login
-            $clientes =  Cliente::where('login', '=' , $login)->limit(1)->get();
+        dd($rest);
+        //dd("wwwwwwwwww");
+        $this->set($router);
+       // $rest = $secret->getAll($router);
 
 
 
-            if($clientes->isNotEmpty()){
-                foreach ($clientes as $cliente){
-                    echo $cliente->nome . ";";
-                    $this->cobranca($cliente);
-                };
-            }else{
-                echo ";" . "\n";
-            }
-        }
+        //Esse funciona
+        $router->comm("/ppp/secret/add", array(
+            "numbers"     => "paulovaz",
+            "profile" => "Bloqueados",
+            "remote-address" => "172.16.1.10",
+            "comment"  => "{new VPN user}",
+            "service"  => "pptp",
+        ));
+
+
+
+
+
 
     }
 
