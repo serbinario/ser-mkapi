@@ -28,7 +28,7 @@ class BoletoFacilApi
         //Tokem do boleto facil
         //sandbox = true para desenvolvimento e fase para produçao
         //Colocar esses dados no .env
-        $this->boletofacil = new BoletoFacil("B49E4B606E713E2EA1BCF345874BF4DBB36A234A106FB5FD4262AAE8CB912C64", $sandbox = true);
+        $this->boletofacil = new BoletoFacil("7A5DCDDB10B0050CD26DE5E763EB264E3D47F31518E59C668A3712142805D457", $sandbox = false);
     }
 
     //Consulta de um boleto
