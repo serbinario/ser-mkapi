@@ -29,32 +29,40 @@ class MikrotikController extends Controller
     public function enableDisableSecret($id)
     {
 
-        $cliente = Cliente::with('mkProfile')->findOrFail($id);
-        $login = $cliente->login;
-        $profileNome = $cliente->mkProfile->nome;
-        $status_secret = $cliente->status_secret;
-        //dd($cliente->status_secret);
-        ($status_secret == "1" ? $profileNome = "Bloqueados" : $profileNome = $cliente->mkProfile->nome);
+        try {
+            $cliente = Cliente::with('mkProfile')->findOrFail($id);
+            $login = $cliente->login;
+            $profileNome = $cliente->mkProfile->nome;
+            $status_secret = $cliente->status_secret;
+            //dd($cliente->status_secret);
+            ($status_secret == "1" ? $profileNome = "Bloqueados" : $profileNome = $cliente->mkProfile->nome);
 
-        $cliente->status_secret = !$cliente->status_secret;
+            $cliente->status_secret = !$cliente->status_secret;
 
-        //dd($profileNome);
-        $router = new RouterosService();
-        $router->debug = false;
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+            //dd($profileNome);
+            $router = new RouterosService();
+            $router->debug = false;
+            $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
-        //Esse funciona
-        $rest = $router->comm("/ppp/secret/set", array(
-            "numbers"     => $login,
-            "profile" => $profileNome
-        ));
+            //Esse funciona
+            $rest = $router->comm("/ppp/secret/set", array(
+                "numbers"     => $login,
+                "profile" => $profileNome
+            ));
 
-        $this->removePPP($router, $login);
+            $this->removePPP($router, $login);
 
-        $cliente->save();
+            $cliente->save();
 
-        $router->disconnect();
-        //dd($rest);
+            $router->disconnect();
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true ]);
+
+        } catch (Exception $exception) {
+
+            return \Illuminate\Support\Facades\Response::json(['error' => true ]);
+        }
+
     }
 
     public function removePPP($router, $name)
