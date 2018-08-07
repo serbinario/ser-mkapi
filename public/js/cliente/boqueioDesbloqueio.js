@@ -18,7 +18,6 @@ $(document).on( 'click', '.enableDisableSecret', function( event ) {
         function(isConfirm) {
             if (isConfirm) {
                 boqueioDesbloqueio()
-                table.ajax.reload();
             }
         });
 });
@@ -40,9 +39,11 @@ function boqueioDesbloqueio()
     }).done(function (retorno) {
         if(retorno.success) {
             swal("", "Usuario Bloqueado com sucesso", "success");
+            table.ajax.reload();
 
         } else {
             swal("Error", "Click no botão abaixo!", "error");
+            table.ajax.reload();
         }
     });
 }
