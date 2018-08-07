@@ -75,9 +75,9 @@ class ClienteController extends Controller
 
             ->addColumn('status', function ($row) {
 
-                if($row->status_secret == 1) {
+                if($row->status_secret == 0) {
                     $html = '<div class="btn-group btn-group-xs pull-right" role="group">
-                                    <a href="" class="btn btn-default-light enableDisableSecret" id="' . $row->id . '" title="Bloquer">
+                                    <a href="" class="btn btn-default-light enableDisableSecret" id="' . $row->id . '" title="Bloquear">
                                         <span class="glyphicon md-thumb-up" aria-hidden="true"></span>
                                     </a>
                                 </div>';
