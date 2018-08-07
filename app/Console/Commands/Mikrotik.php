@@ -9,7 +9,7 @@ use Serbinario\Entities\Debitos;
 use Serbinario\Http\Controllers\RouterosApi;
 use Serbinario\Entities\Cliente;
 use Serbinario\Services\MikrotikAPI\PPP\TraitSecret;
-use Serbinario\Services\RouterosService;
+use Serbinario\Services\MikrotikAPI\RouterosService;
 use Serbinario\Services\teste;
 
 class Mikrotik extends Command
@@ -111,6 +111,31 @@ class Mikrotik extends Command
         $router->debug = false;
         $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
+
+
+        $router->write("/ppp/active/getall",false);
+        $router->write('?name=davi',true);
+        $READ = $router->read(false);
+        $ARRAY = $router->parseResponse($READ);
+        if(count($ARRAY)>0){ // si el usuario esta activo lo pateo.
+            $router->write("/ppp/active/remove",false);
+            $router->write("=.id=".$ARRAY[0]['.id'],true);
+            $READ = $router->read(false);
+            $ARRAY = $router->parseResponse($READ);
+        }
+        var_dump($ARRAY);
+
+
+
+        //$router->write('/ppp/active/remove', false);
+        //$router->write('=.id=' . $return['0']['.id']);
+        //$READ = $router->read();
+        //var_dump($READ);
+
+
+
+
+        dd("dddd");
         //Esse funciona
         $rest = $router->comm("/ppp/secret/set", array(
             "numbers"     => "paulovaz",

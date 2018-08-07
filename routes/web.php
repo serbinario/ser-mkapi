@@ -21,7 +21,23 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 
+//Route::any('/enableDisableSecret', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 
+
+
+Route::group(
+    [
+        'prefix' => 'mikrotik',
+    ], function () {
+
+    Route::POST('/enableDisableSecret/{id}', 'MikrotikController@enableDisableSecret')
+        ->name('mikrotik.enableDisableSecret');
+
+    Route::get('/clientesPorMes','MikrotikController@clientesPorMes')
+        ->name('mikrotik.clientesPorMes');
+
+
+});
 
 Route::group(
     [

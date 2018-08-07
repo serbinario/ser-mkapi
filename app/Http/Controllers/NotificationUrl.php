@@ -16,6 +16,7 @@ class NotificationUrl extends Controller
     //e coloco o debito como pago
     //Ha um problema, pois ele so coloca como pago nao retorna qual valor foi pago e nem  dia
     //Ai tem que fazer uma consulta com o paymentToken para saber os dados desse boleto
+    // Regra RN-0002
     public function notificationUrl(Request $request)
     {
         try {

@@ -31,11 +31,11 @@ class ClienteController extends Controller
      *
      * @return void
      */
-	public function __construct()
-	{
-	    $this->middleware('auth');
-	}
-	
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the clientes.
      *
@@ -53,21 +53,48 @@ class ClienteController extends Controller
     }
 
     /**
-         * Display a listing of the fornecedors.
-         *
-         * @return Illuminate\View\View
-         * @throws Exception
-         */
-        public function grid()
-        {
-            $this->token = csrf_token();
-            #Criando a consulta
-            $rows = \DB::table('mk_clientes')
-                ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
-                ->select(['mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.cpf', 'mk_clientes.login', 'mk_profiles.nome as profile']);
+     * Display a listing of the fornecedors.
+     *
+     * @return Illuminate\View\View
+     * @throws Exception
+     */
+    public function grid()
+    {
+        $this->token = csrf_token();
+        #Criando a consulta
+        $rows = \DB::table('mk_clientes')
+            ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
+            ->select([
+                'mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.cpf', 'mk_clientes.login',
+                'mk_profiles.nome as profile', 'mk_clientes.status_secret'
 
-            #Editando a grid
-            return Datatables::of($rows)->addColumn('action', function ($row) {
+            ]);
+
+        #Editando a grid
+        return Datatables::of($rows)
+
+            ->addColumn('status', function ($row) {
+
+                if($row->status_secret == 1) {
+                    $html = '<div class="btn-group btn-group-xs pull-right" role="group">
+                                    <a href="" class="btn btn-default-light enableDisableSecret" id="' . $row->id . '" title="Bloquer">
+                                        <span class="glyphicon md-thumb-up" aria-hidden="true"></span>
+                                    </a>
+                                </div>';
+                }else{
+                    $html       = '<div class="btn-group btn-group-xs pull-right" role="group">
+                                    <a href="" class="btn btn-danger enableDisableSecret" id="' . $row->id   . '" title="Desbloquear">
+                                        <span class="glyphicon md-thumb-down" aria-hidden="true"></span>
+                                    </a>
+                                </div>';
+                }
+
+
+
+                return $html;
+            })->escapeColumns([])
+
+            ->addColumn('action', function ($row) {
                 return '<form id="' . $row->id   . '" method="POST" action="cliente/' . $row->id   . '/destroy" accept-charset="UTF-8">
                             <input name="_method" value="DELETE" type="hidden">
                             <input name="_token" value="'.$this->token .'" type="hidden">
@@ -84,11 +111,11 @@ class ClienteController extends Controller
                                 <button type="button" class="btn btn-primary btnModalFinanceiroDebito" id="' . $row->id   . '" data-toggle="modal" title="Lançamento">
                                     <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                 </button>
+                            </div>
                         
-                        </form>
-                        ';
-                            })->make(true);
-        }
+                        </form>';
+            })->make(true);
+    }
 
     /**
      * Show the form for creating a new cliente.
@@ -121,7 +148,7 @@ class ClienteController extends Controller
             Cliente::create($data);
 
             return redirect()->route('cliente.cliente.index')
-                             ->with('success_message', 'Cliente was successfully added!');
+                ->with('success_message', 'Cliente was successfully added!');
 
         } catch (Exception $e) {
             return redirect()->back()->with('error_message', $e->getMessage());
@@ -179,7 +206,7 @@ class ClienteController extends Controller
             $cliente->update($data);
 
             return redirect()->route('cliente.cliente.index')
-                             ->with('success_message', 'Cliente was successfully updated!');
+                ->with('success_message', 'Cliente was successfully updated!');
 
         } catch (Exception $e) {
             return redirect()->back()->with('error_message', $e->getMessage());
@@ -200,12 +227,12 @@ class ClienteController extends Controller
             $cliente->delete();
 
             return redirect()->route('cliente.cliente.index')
-                             ->with('success_message', 'Cliente was successfully deleted!');
+                ->with('success_message', 'Cliente was successfully deleted!');
 
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
 
@@ -229,7 +256,7 @@ class ClienteController extends Controller
             $diaVencimento = $diaVencimento . "/" . $date;
 
             return \Illuminate\Support\Facades\Response::json(['success' => true,'descricao' => $descricao, 'diaVenci' => $diaVencimento, 'valor' => $valor,
-                        'cpf' => $cpf
+                'cpf' => $cpf
             ]);
         } catch (Exception $exception) {
 
@@ -237,7 +264,7 @@ class ClienteController extends Controller
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
-    
+
     /**
      * Validate the given request with the defined rules.
      *
@@ -285,17 +312,17 @@ class ClienteController extends Controller
             'obs' => 'nullable',
             'cpf' =>  'required_if:tipo,!=,Fisica',
             'cnpj' =>  'required_if:tipo,!=,Juridico',
-     
+
         ];
 
         return $this->validate($request, $rules);
     }
 
-    
+
     /**
      * Get the request's data from the request.
      *
-     * @param Illuminate\Http\Request\Request $request 
+     * @param Illuminate\Http\Request\Request $request
      * @return array
      */
     protected function getData(Request $request)

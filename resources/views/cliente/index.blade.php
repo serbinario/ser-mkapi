@@ -75,6 +75,7 @@
                                                     <th>CPF/CNPJ</th>
                                                     <th>Login</th>
                                                     <th>Profile</th>
+                                                    <th>Status</th>
                                                     <th style="width: 15%;">Acao</th>
                                                 </tr>
                                             </thead>
@@ -111,6 +112,7 @@
 @section('javascript')
 
     <script src="{{ asset('/js/cliente/index.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('/js/cliente/boqueioDesbloqueio.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro_debito.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/mascaras.js')}}" type="text/javascript"></script>
