@@ -58,20 +58,38 @@ class ClienteController extends Controller
      * @return Illuminate\View\View
      * @throws Exception
      */
-    public function grid()
+    public function grid(Request $request)
     {
         $this->token = csrf_token();
         #Criando a consulta
         $rows = \DB::table('mk_clientes')
             ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
+            ->leftJoin('mk_grupos', 'mk_grupos.id', '=', 'mk_clientes.grupo_id')
             ->select([
                 'mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.cpf', 'mk_clientes.login',
-                'mk_profiles.nome as profile', 'mk_clientes.status_secret'
+                'mk_profiles.nome as profile', 'mk_clientes.status_secret', 'mk_grupos.nome as grupo'
 
             ]);
 
         #Editando a grid
         return Datatables::of($rows)
+
+            ->filter(function ($query) use ($request) {
+                # recuperando o valor da requisição
+                $localizar = $request->get('localizar');
+                $status = $request->get('status');
+                #condição
+                $query->where(function ($where) use ($localizar) {
+                    $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
+                        ->orWhere('mk_clientes.cpf', 'like', "%$localizar%")
+                        ->orWhere('mk_clientes.login', 'like', "%$localizar%")
+                        ->orWhere('mk_profiles.nome', 'like', "%$localizar%");
+                });
+
+                if ($request->has('status')){
+                    $query->where('mk_clientes.status_secret', '=', $status);
+                }
+            })
 
             ->addColumn('status', function ($row) {
 
@@ -201,6 +219,7 @@ class ClienteController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
 
+            //dd($data);
             $cliente = Cliente::findOrFail($id);
             //$pessoaFisica = PessoaFisica::find($cliente->clienteable_id);
             $cliente->update($data);
@@ -327,7 +346,7 @@ class ClienteController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['nome','login','senha','email','cpf', 'rg', 'insc_estadual','tipo','data_nascimento','cep', 'phone01', 'phone02','logradouro','complemanto','bairro','cidade','data_instalacao','router_id', 'grupo_id','profile_id','tipo_autenticacao','ip_pppoe','ip_hotspot','mac','vencimento_dia_id','dias_bloqueio','dias_msg_pendencia','inseto_mensalidade','mensalidade_automatica','msg_bloqueio_automatica','msg_pendencia_automatica','perm_alter_senha','desconto_mensalidade','desconto_mensali_ate_venci','is_ativo','obs']);
+        $data = $request->only(['nome','login','senha','email','cpf', 'rg', 'insc_estadual','tipo','data_nascimento','cep', 'phone01', 'phone02','logradouro','complemanto','bairro','cidade', 'estado', 'numero_casa','data_instalacao','router_id', 'grupo_id','profile_id','tipo_autenticacao','ip_pppoe','ip_hotspot','mac','vencimento_dia_id','dias_bloqueio','dias_msg_pendencia','inseto_mensalidade','mensalidade_automatica','msg_bloqueio_automatica','msg_pendencia_automatica','perm_alter_senha','desconto_mensalidade','desconto_mensali_ate_venci','is_ativo','obs']);
         $data['inseto_mensalidade'] = $request->has('inseto_mensalidade');
         $data['mensalidade_automatica'] = $request->has('mensalidade_automatica');
         $data['msg_bloqueio_automatica'] = $request->has('msg_bloqueio_automatica');

@@ -29,11 +29,11 @@ $(document).on("click", ".btnModalFinanceiro", function () {
             }
         },
         columns: [
-            {data: 'code', name: 'code'},
-            {data: 'valor_debito', name: 'valor_debito'},
-            {data: 'data_vencimento', name: 'data_vencimento'},
-            {data: 'valor_pago', name: 'valor_pago'},
-            {data: 'data_pagamento', name: 'data_pagamento'},
+            {data: 'code', name: 'fin_boletos.code'},
+            {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
+            {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},
+            {data: 'valor_pago', name: 'fin_debitos.valor_pago'},
+            {data: 'data_pagamento', name: 'fin_debitos.data_pagamento'},
             {data: 'link', name: 'link', "render": function(data, type, row, meta){
                     if(type === 'display'){
                         if (data != null)
@@ -41,7 +41,7 @@ $(document).on("click", ".btnModalFinanceiro", function () {
                     }
                     return data;
                 }},
-            {data: 'nome', name: 'nome'},
+            {data: 'nome', name: 'fin_status.nome'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

@@ -10,6 +10,7 @@ namespace Serbinario\Http\Controllers\BoletoFacil;
 
 
 use Illuminate\Support\Facades\Response;
+use Serbinario\Entities\Cliente;
 use Serbinario\Http\Controllers\BoletoFacil\BoletoFacil;
 
 class BoletoFacilApi
@@ -29,6 +30,9 @@ class BoletoFacilApi
         //sandbox = true para desenvolvimento e fase para produçao
         //Colocar esses dados no .env
         $this->boletofacil = new BoletoFacil("7A5DCDDB10B0050CD26DE5E763EB264E3D47F31518E59C668A3712142805D457", $sandbox = false);
+        //$this->boletofacil = new BoletoFacil("B49E4B606E713E2E8EE31D44D999EEF2178CE4F078D0B249951AB148533F0B7D", $sandbox = true);
+
+
     }
 
     //Consulta de um boleto
@@ -43,6 +47,18 @@ class BoletoFacilApi
 
     public function createBoleto($data)
     {
+        $cliente = Cliente::find($data['mk_cliente_id']);
+
+        $this->boletofacil->billingAddressStreet = $cliente->logradouro;
+        $this->boletofacil->billingAddressComplement = $cliente->complemanto;
+        $this->boletofacil->billingAddressNumber = $cliente->numero_casa;
+        $this->boletofacil->billingAddressPostcode = $cliente->cep;
+        $this->boletofacil->billingAddressCity = $cliente->cidade;
+        $this->boletofacil->billingAddressState = $cliente->estado;
+
+        //Falta colocar a cidade e o estado como obrigatprios
+        //Verificar se vamos colcoar para pagar apos o vencimento
+
         //Prepara com os dados do cliente
         $this->boletofacil->createCharge($data['nome'] ,$data['cpf'], $data['descricao'], $this->trataValor($data['valor_debito']), $data['data_vencimento']);
 
@@ -69,11 +85,6 @@ class BoletoFacilApi
         }else{
             return ['success' => false, 'msg' => $array['errorMessage']];
         }
-
-       /* $retornCole = collect($array);
-        dd($retornCole['data']['charges'][0]['code']);
-        return dd($data);*/
-
     }
 
     //Trata os campos valores, transformando "vigula" em "ponto"

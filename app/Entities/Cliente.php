@@ -73,7 +73,9 @@ class Cliente extends Model
         'is_ativo',
         'obs',
         'clienteable_id',
-        'clienteable_type'
+        'clienteable_type',
+        'estado',
+        'numero_casa'
     ];
 
     /**

@@ -120,16 +120,23 @@
     <br> <br><br>
 
     <div class="form-group {{ $errors->has('cep') ? 'has-error' : '' }}">
-        <label for="cep" class="col-md-2 control-label">Cep</label>
+        <label for="cep" class="col-md-2 control-label">Cep *</label>
         <div class="col-md-10">
             <input class="form-control input-sm" name="cep" type="text" id="cep" value="{{ old('cep', isset($cliente->cep) ? $cliente->cep : null) }}" maxlength="10" placeholder="Enter cep here...">
         </div>
     </div>
 
     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : '' }}">
-        <label for="logradouro" class="col-md-2 control-label">Logradouro</label>
+        <label for="logradouro" class="col-md-2 control-label">Logradouro *</label>
         <div class="col-md-10">
             <input class="form-control input-sm" name="logradouro" type="text" id="logradouro" value="{{ old('logradouro', isset($cliente->logradouro) ? $cliente->logradouro : null) }}" maxlength="200" placeholder="Enter logradouro here...">
+        </div>
+    </div>
+
+    <div class="form-group {{ $errors->has('numero_casa') ? 'has-error' : '' }}">
+        <label for="numero_casa" class="col-md-2 control-label">Numero *</label>
+        <div class="col-md-10">
+            <input class="form-control input-sm" name="numero_casa" type="text" id="numero_casa" value="{{ old('logradouro', isset($cliente->numero_casa) ? $cliente->numero_casa : null) }}" maxlength="200" placeholder="Enter logradouro here...">
         </div>
     </div>
 
@@ -150,9 +157,15 @@
     </div>
 
     <div class="form-group {{ $errors->has('cidade') ? 'has-error' : '' }}">
-        <label for="cidade" class="col-md-2 control-label">Cidade</label>
+        <label for="cidade" class="col-md-2 control-label">Cidade *</label>
         <div class="col-md-10">
             <input class="form-control input-sm" name="cidade" type="text" id="cidade" value="{{ old('cidade', isset($cliente->cidade) ? $cliente->cidade : null) }}" maxlength="50" placeholder="Enter cidade here...">
+        </div>
+    </div>
+    <div class="form-group {{ $errors->has('estado') ? 'has-error' : '' }}">
+        <label for="estado" class="col-md-2 control-label">Estado *</label>
+        <div class="col-md-10">
+            <input class="form-control input-sm" name="estado" type="text" id="estado" value="{{ old('estado', isset($cliente->estado) ? $cliente->estado : null) }}" maxlength="50" placeholder="Enter estado here...">
         </div>
     </div>
 

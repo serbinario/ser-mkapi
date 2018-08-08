@@ -70,7 +70,8 @@ $(document).on("click", ".btnModalFinanceiroDebito", function () {
     });
 });
 
-// Evento para salvar o aditivo
+// Evento para salvar o Debito
+//Controller = DebitoController metodo store
 $('#btnSaveDebito').click(function() {
     // Recuperando valores do formulário
     var descricao = $("#descricao").val();
@@ -81,6 +82,7 @@ $('#btnSaveDebito').click(function() {
 
     // Preparando o array de dados
     var dados = {
+        'id' : cliente_id,
         'nome' : fornecedorNome,
         'cpf' : cpf,
         'mk_cliente_id' : cliente_id,

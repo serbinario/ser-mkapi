@@ -45,6 +45,9 @@
 
 
 
+
+
+
     <!-- BEGIN HORIZONTAL FORM -->
         <div class="row">
             <div class="col-lg-12">
@@ -63,6 +66,46 @@
                             </div>
                         </div>
 
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="localizar"  class="col-sm-4 control-label">Localizar</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control input-sm"  name="localizar" type="text" id="localizar" value="{{ old('localizar') }}" placeholder="Localizar">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="status" class="col-sm-4 control-label">Status</label>
+                                    <div class="col-md-8">
+                                        <select id="status" name="status" class="form-control input-sm">
+                                            <option value="">Selecione</option>
+                                            <option value="1">Ativos</option>
+                                            <option value="0">Bloqueados</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group {{ $errors->has('login') ? 'has-error' : '' }}">
+                                    <label for="login" class="col-sm-4 control-label">Data Ini.:</label>
+                                    <div class="col-md-8">
+                                        <select id="select13" name="status" class="form-control input-sm">
+                                            <option value="">Todos</option>
+                                            <option value="">Pago</option>
+                                            <option value="Aguardando">Aguardando</option>
+                                            <option value="Cancelado">Cancelado</option>
+                                            <option value="Marcado como pago">Marcado como pago</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="panel-body panel-body-with-table">
@@ -70,6 +113,7 @@
                                         <table id="cliente" class="table order-column hover">
                                             <thead>
                                                 <tr>
+                                                    <th>+</th>
                                                     <th>Id</th>
                                                     <th style="width: 30%;" >Nome</th>
                                                     <th>CPF/CNPJ</th>

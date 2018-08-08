@@ -109,6 +109,7 @@ class DebitosController extends Controller
      *
      * @return Illuminate\View\View
      * @throws Exception
+     * Carrega a modal com os debitos do cliente
      */
     public function modalGrid(Request $request)
     {
@@ -116,7 +117,20 @@ class DebitosController extends Controller
         #Criando a consulta
         $rows = \DB::table('fin_debitos')
             ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
-            ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id');
+            ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
+            ->select([
+                'fin_debitos.id',
+                'fin_boletos.code',
+                'fin_debitos.valor_debito',
+                \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                'fin_debitos.valor_pago',
+                \DB::raw('DATE_FORMAT(fin_debitos.data_pagamento,"%d/%m/%Y") as data_pagamento'),
+                'fin_status.nome',
+                'fin_boletos.link'
+                //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
+
+
+            ]);
 
         #Editando a grid
         return Datatables::of($rows)
