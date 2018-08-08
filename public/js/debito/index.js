@@ -1,4 +1,4 @@
-
+var boletoCode
 
 $('.date').datepicker({autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"});
 
@@ -26,6 +26,65 @@ $(document).on( 'click', '.delete', function( event ) {
             }
         });
 });
+
+//Cancela o boleto
+// RN-0003
+$(document).on( 'click', '.cancelBoleto', function( event ) {
+    event.preventDefault();
+
+      boletoCode  = $(this).attr('id');
+
+        swal({
+            title: "Deseja cancelar o boleto?",
+            text: "",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Cancelar o Boleto",
+            cancelButtonText: "Nao, cancel!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                cancelCharge()
+            }
+        });
+});
+
+function cancelCharge()
+{
+    //Recupera o id do registro
+
+    //Necessario para que o ajax envie o csrf-token
+    //Para isso coloquei no form <meta name="csrf-token" content="{{ csrf_token() }}">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var dados = {
+        'code': boletoCode
+    }
+
+    jQuery.ajax({
+        type: 'POST',
+        data: dados,
+        url: '/index.php/debitos/cancelCharge/',
+        datatype: 'json'
+    }).done(function (retorno) {
+
+        if(retorno.success) {
+            table.draw();
+            swal(retorno.msg, "Click no botão abaixo!", "success");
+        } else {
+            swal(retorno.msg, "Click no botão abaixo!", "error");
+        }
+
+    });
+
+}
 
 
 // Requisição ajax
@@ -88,9 +147,6 @@ $.fn.dataTable.ext.search.push(
     }
 );
 
-
-
-console.log("index");
 var table = $('#debitos').DataTable({
     //"dom": 'lCfrtip',
     "searching": false,

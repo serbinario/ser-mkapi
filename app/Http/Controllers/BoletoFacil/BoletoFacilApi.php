@@ -11,6 +11,8 @@ namespace Serbinario\Http\Controllers\BoletoFacil;
 
 use Illuminate\Support\Facades\Response;
 use Serbinario\Entities\Cliente;
+use Serbinario\Entities\Debitos;
+use Serbinario\Entities\FinBoleto;
 use Serbinario\Http\Controllers\BoletoFacil\BoletoFacil;
 
 class BoletoFacilApi
@@ -82,6 +84,27 @@ class BoletoFacilApi
                         'ourNumber' => $ourNumber, 'barcodeNumber' =>$barcodeNumber,
                         '$payNumber' => $payNumber
                     ];
+        }else{
+            return ['success' => false, 'msg' => $array['errorMessage']];
+        }
+    }
+
+
+
+    /**
+     * @param $data
+     * @return array Cancela um boleto passando o parametro code do boleto RN-0003
+     */
+    public function cancelCharge($code)
+    {
+        //dd($code);
+        $retorno = $this->boletofacil->cancelCharge($code);
+
+        $array = json_decode($retorno, true);
+        //dd($array);
+        if($array['success'])
+        {
+            return ['success' => true];
         }else{
             return ['success' => false, 'msg' => $array['errorMessage']];
         }

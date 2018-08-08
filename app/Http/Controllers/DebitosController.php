@@ -8,6 +8,7 @@ namespace Serbinario\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
+use Serbinario\Entities\Debito;
 use Serbinario\Entities\Debitos;
 use Serbinario\Entities\FinBoleto;
 use Serbinario\Entities\FinCarne;
@@ -69,7 +70,7 @@ class DebitosController extends Controller
             ->select([
                 'fin_debitos.id', 'fin_debitos.numero_cobranca', 'fin_debitos.valor_debito', 'fin_status.nome as status',
                 'fin_debitos.data_vencimento', 'fin_debitos.data_pagamento', 'fin_debitos.valor_pago' , 'mk_clientes.nome',
-                'fin_debitos.data_competencia'
+                'fin_debitos.data_competencia', 'fin_boletos.code', 'fin_debitos.status_id', 'fin_debitos.boleto_id'
             ]);
 
         #Editando a grid
@@ -91,15 +92,24 @@ class DebitosController extends Controller
                                 <a href="debitos/show/'.$row->id.'" class="btn btn-info" title="Show">
                                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                                 </a>';
-
+                //Se o boleto ja foi pago nao aparece o botao para cancelar
+                // RN-0003
+                if($row->status_id != '3' && $row->status_id != '7') {
+                    $html .= '<button type="submit" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
+                                    <span class="glyphicon md-cancel" aria-hidden="true"></span>
+                                </button>';
+                }
                 //$disciplina = $this->service->find($row->id);
                 # Verificando se existe vinculo com o currículo
-                if(FinBoleto::find($row->id)) {
-                    $html .= '<button type="submit" class="btn btn-danger delete" id="' . $row->id . '" title="Delete">
+
+                if($row->boleto_id == "") {
+                    $html .= '<button class="btn btn-danger delete" id="' . $row->id . '" title="Delete">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                 </button>
-                              </form>';
+                              ';
                 }
+
+                $html .= '</div></form>';
             return $html;
         })->make(true);
     }
@@ -203,6 +213,30 @@ class DebitosController extends Controller
            ]);
        }
     }
+    /**
+     * Display a listing of the fornecedors.
+     *
+     * @return Illuminate\View\View
+     * @throws Exception RN-0003
+     */
+    public function cancelCharge(Request $request)
+    {
+        $code = $request->get('code');
+
+        $return = $this->boletoFacilApi->cancelCharge($code);
+        if($return['success'])
+        {
+            $boleto = FinBoleto::with('debito')->where('code', '=' , $code)->first();
+            //($boleto->debito);
+            $boleto->debito->status_id = '7';
+            $boleto->debito->save();
+            return \Illuminate\Support\Facades\Response::json(['success' => true, 'msg' => 'Boleto Cancelado com sucesso!']);
+        }else{
+            return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => $return['msg']]);
+        }
+
+    }
+
 
     /**
      * Store a new debitos in the storage.

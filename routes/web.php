@@ -373,6 +373,10 @@ Route::group(
     Route::post('/', 'DebitosController@store')
          ->name('debitos.debitos.store');
 
+    Route::post('/cancelCharge', 'DebitosController@cancelCharge')
+        ->name('debitos.cancelCharge');
+
+
     Route::get('/knob', 'DebitosController@knob')
         ->name('debitos.debitos.knob');
                

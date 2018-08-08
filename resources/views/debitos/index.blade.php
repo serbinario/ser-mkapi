@@ -19,7 +19,7 @@
         <div class="col-lg-12">
             <form method="POST" action="" accept-charset="UTF-8">
                 <input name="_method" value="DELETE" type="hidden">
-                {{ csrf_field() }}
+                <meta name="csrf-token" content="{{ csrf_token() }}">
                 <div class="card">
                     <div class="card-head style-primary">
                         <header>Financeiro</header>
