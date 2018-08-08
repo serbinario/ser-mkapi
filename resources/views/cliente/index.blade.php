@@ -51,7 +51,7 @@
     <!-- BEGIN HORIZONTAL FORM -->
         <div class="row">
             <div class="col-lg-12">
-                <form method="POST" action="" accept-charset="UTF-8">
+                <form method="GET" action="#" accept-charset="UTF-8">
                     <input name="_method" value="DELETE" type="hidden">
                     {{ csrf_field() }}
                     <div class="card">
@@ -59,7 +59,7 @@
                             <header>Lista de Clientes</header>
                             <div class="tools">
                                 <div class="btn-group">
-                                    <a href="{{ route('cliente.cliente.create') }}" class="btn btn-primary" title="Novo Cliente">
+                                    <a href="" class="btn btn-primary" title="Novo Cliente">
                                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                                     </a>
                                 </div>
