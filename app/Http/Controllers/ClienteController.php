@@ -163,6 +163,9 @@ class ClienteController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
 
+            //Criptografo o cpf com os "." para a autenticaçao do usuario
+            $data['password'] = bcrypt($request->get('cpf'));
+
             Cliente::create($data);
 
             return redirect()->route('cliente.cliente.index')
@@ -222,6 +225,9 @@ class ClienteController extends Controller
             //dd($data);
             $cliente = Cliente::findOrFail($id);
             //$pessoaFisica = PessoaFisica::find($cliente->clienteable_id);
+
+            //Criptografo o cpf com os "." para a autenticaçao do usuario
+            $cliente->password = bcrypt($request->get('cpf'));
             $cliente->update($data);
 
             return redirect()->route('cliente.cliente.index')

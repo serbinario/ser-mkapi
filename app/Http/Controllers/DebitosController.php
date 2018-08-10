@@ -85,7 +85,7 @@ class DebitosController extends Controller
                 }
             })
             ->addColumn('action', function ($row) {
-                $html       = '<form id="' . $row->id   . '" method="POST" action="debitos/' . $row->id   . '/destroy" accept-charset="UTF-8">
+                $html       = '<form id="' . $row->id   . '" method="POST" action="#' . $row->id   . '/destroy" accept-charset="UTF-8">
                             <input name="_method" value="DELETE" type="hidden">
                             <input name="_token" value="'.$this->token .'" type="hidden">
                             <div class="btn-group btn-group-xs pull-right" role="group">

@@ -70,7 +70,7 @@
             <div class="form-group {{ $errors->has('cpf') ? 'has-error' : '' }}">
                 <label for="cpf" class="col-md-4 control-label">CPF *</label>
                 <div class="col-md-8">
-                    <input class="form-control input-sm cpf" name="cpf" type="text" id="cpf" value="{{ old('cpg', isset($cliente->cpf) ? $cliente->cpf : null) }}"  placeholder="Entre com o CPF...">
+                    <input class="form-control input-sm cpf" name="cpf" type="text" id="cpf" value="{{ old('cpf', isset($cliente->cpf) ? $cliente->cpf : null) }}"  placeholder="Entre com o CPF...">
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
     <div class="form-group {{ $errors->has('numero_casa') ? 'has-error' : '' }}">
         <label for="numero_casa" class="col-md-2 control-label">Numero *</label>
         <div class="col-md-10">
-            <input class="form-control input-sm" name="numero_casa" type="text" id="numero_casa" value="{{ old('logradouro', isset($cliente->numero_casa) ? $cliente->numero_casa : null) }}" maxlength="200" placeholder="Enter logradouro here...">
+            <input class="form-control input-sm" name="numero_casa" type="text" id="numero_casa" value="{{ old('numero_casa', isset($cliente->numero_casa) ? $cliente->numero_casa : null) }}" maxlength="200" placeholder="Enter logradouro here...">
         </div>
     </div>
 

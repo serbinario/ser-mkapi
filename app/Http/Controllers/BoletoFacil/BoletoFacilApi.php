@@ -31,8 +31,8 @@ class BoletoFacilApi
         //Tokem do boleto facil
         //sandbox = true para desenvolvimento e fase para produçao
         //Colocar esses dados no .env
-        $this->boletofacil = new BoletoFacil("7A5DCDDB10B0050CD26DE5E763EB264E3D47F31518E59C668A3712142805D457", $sandbox = false);
-        //$this->boletofacil = new BoletoFacil("B49E4B606E713E2E8EE31D44D999EEF2178CE4F078D0B249951AB148533F0B7D", $sandbox = true);
+        //$this->boletofacil = new BoletoFacil("7A5DCDDB10B0050CD26DE5E763EB264E3D47F31518E59C668A3712142805D457", $sandbox = false);
+        $this->boletofacil = new BoletoFacil("B49E4B606E713E2E8EE31D44D999EEF2178CE4F078D0B249951AB148533F0B7D", $sandbox = true);
 
 
     }

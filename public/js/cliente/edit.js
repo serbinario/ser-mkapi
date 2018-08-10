@@ -29,8 +29,13 @@ $(document).ready(function () {
     })
 
     //Ao submeter tirar as mascaras
-    $("#contrato").submit(function (event) {
-        $('.money').unmask();
+    $("#edit_cliente_form").submit(function (event) {
+        $('.cpf').unmask();
+    });
+
+    //Ao submeter tirar as mascaras
+    $("#create_cliente_form").submit(function (event) {
+        $('.cpf').unmask();
     });
 
 
