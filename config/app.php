@@ -180,6 +180,9 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        //https://laravelcollective.com/docs/5.4/ssh
+        Collective\Remote\RemoteServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -240,6 +243,8 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //https://laravelcollective.com/docs/5.4/ssh
+        'SSH' => Collective\Remote\RemoteFacade::class,
 
         /*
          * https://github.com/yajra/laravel-datatables
