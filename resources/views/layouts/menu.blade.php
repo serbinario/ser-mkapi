@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Material Admin - Blank page</title>
+		<title>Netstart - Provedor de Internet</title>
 
 		<!-- BEGIN META -->
 		<meta charset="utf-8">
@@ -54,7 +54,7 @@
 						<li class="header-nav-brand" >
 							<div class="brand-holder">
 								<a href="../../html/dashboards/dashboard.html">
-									<span class="text-lg text-bold text-primary">CONTRATOS</span>
+									<span class="text-lg text-bold text-primary">NETSTART</span>
 								</a>
 							</div>
 						</li>
@@ -165,13 +165,13 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="md md-computer"></i></div>
-								<span class="title">IP</span>
+								<span class="title">Controle</span>
 							</a>
 							<!--start submenu -->
 
 							<ul>
-								<li><a href="{{ route('cliente.cliente.index') }}" class="active"><span class="title">Cliente</span></a></li>
-								<li><a href="{{ route('pool.pool.index') }}" class="active"><span class="title">Pool</span></a></li>
+								<li><a href="{{ route('cliente.cliente.index') }}" class="active"><span class="title">Clientes</span></a></li>
+								<li><a href="{{ route('pool.pool.index') }}" class="active"><span class="title">Pools</span></a></li>
 								<li><a href="{{ route('router.router.index') }}" class="active"><span class="title">Routers</span></a></li>
 								<li><a href="{{ route('profile.profile.index') }}" class="active"><span class="title">Profiles</span></a></li>
 								<li><a href="{{ route('grupo.grupo.index') }}" class="active"><span class="title">Grupos</span></a></li>

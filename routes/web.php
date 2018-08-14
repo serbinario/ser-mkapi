@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', 'RouterController@index')
     ->name('router.router.index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 

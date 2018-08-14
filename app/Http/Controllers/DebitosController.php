@@ -68,9 +68,18 @@ class DebitosController extends Controller
             ->Join('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
             ->Join('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
             ->select([
-                'fin_debitos.id', 'fin_debitos.numero_cobranca', 'fin_debitos.valor_debito', 'fin_status.nome as status',
-                'fin_debitos.data_vencimento', 'fin_debitos.data_pagamento', 'fin_debitos.valor_pago' , 'mk_clientes.nome',
-                'fin_debitos.data_competencia', 'fin_boletos.code', 'fin_debitos.status_id', 'fin_debitos.boleto_id'
+                'fin_debitos.id',
+                'fin_debitos.numero_cobranca',
+                'fin_debitos.valor_debito',
+                'fin_status.nome as status',
+                \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                \DB::raw('DATE_FORMAT(fin_debitos.data_pagamento,"%d/%m/%Y") as data_pagamento'),
+                'fin_debitos.valor_pago',
+                'mk_clientes.nome',
+                \DB::raw('DATE_FORMAT(fin_debitos.data_competencia,"%d/%m/%Y") as data_competencia'),
+                'fin_boletos.code',
+                'fin_debitos.status_id',
+                'fin_debitos.boleto_id'
             ]);
 
         #Editando a grid
@@ -156,10 +165,8 @@ class DebitosController extends Controller
                             <input name="_method" value="DELETE" type="hidden">
                             <input name="_token" value="'.$this->token .'" type="hidden">
                             <div class="btn-group btn-group-xs pull-right" role="group">
-                                <a href="debitos/show/'.$row->id.'" class="btn btn-info" title="Show">
-                                    <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
-                                </a>
-                                <a href="debitos/'.$row->id.'/edit" class="btn btn-primary" title="Edit">
+                              
+                                <a href="#" class="btn btn-primary" title="Edit">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </a>
                         </form>

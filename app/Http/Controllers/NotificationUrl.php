@@ -40,6 +40,7 @@ class NotificationUrl extends Controller
                 $paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
                 //$paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
 
+                //Loga no banco
                 $this->LogBanco($paymentDetails);
 
                 //Transforma em uma array
