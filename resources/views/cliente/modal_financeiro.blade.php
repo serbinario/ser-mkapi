@@ -21,7 +21,7 @@
                                     <th>Data Pag.</th>
                                     <th>Link Boleto</th>
                                     <th>Status</th>
-                                    <th style="width: 50%;">Acao</th>
+                                    <th style="width: 5%;">Acao</th>
                                 </tr>
                                 </thead>
                             </table>
