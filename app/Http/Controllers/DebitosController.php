@@ -5,6 +5,7 @@ namespace Serbinario\Http\Controllers;
 
 //meu teste
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
@@ -197,7 +198,9 @@ class DebitosController extends Controller
      */
     public function knob()
     {
+
         $rows = \DB::table('fin_debitos')
+            //->where(\DB::raw('data_vencimento BETWEEN  DATE_FORMAT(NOW() ,\'%Y-%m-01\') AND DATE_FORMAT(NOW() ,\'%Y-%m-31\')'))
             ->select([
                 \DB::raw('
                         COUNT(IF(status_id="2","2", NULL)) "aguardando", 
@@ -211,6 +214,7 @@ class DebitosController extends Controller
             ])
 
         ->get();
+        //dd($rows);
 
        foreach ($rows as $row){
            return \Illuminate\Support\Facades\Response::json([

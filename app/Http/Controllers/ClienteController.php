@@ -66,8 +66,13 @@ class ClienteController extends Controller
             ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
             ->leftJoin('mk_grupos', 'mk_grupos.id', '=', 'mk_clientes.grupo_id')
             ->select([
-                'mk_clientes.nome', 'mk_clientes.id', 'mk_clientes.cpf', 'mk_clientes.login',
-                'mk_profiles.nome as profile', 'mk_clientes.status_secret', 'mk_grupos.nome as grupo'
+                'mk_clientes.nome',
+                'mk_clientes.id',
+                'mk_clientes.cpf',
+                'mk_clientes.login',
+                'mk_profiles.nome as profile',
+                'mk_clientes.status_secret',
+                'mk_grupos.nome as grupo'
 
             ]);
 
