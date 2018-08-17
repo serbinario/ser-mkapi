@@ -88,7 +88,7 @@
     <div class="form-group juridico {{ $errors->has('cnpj') ? 'has-error' : '' }}">
         <label for="cnpj" class="col-md-2 control-label">CNPJ *</label>
         <div class="col-md-10">
-            <input class="form-control input-sm cnpj" name="cnpj" type="text" id="cnpj" value="{{ old('cnpj', isset($cliente->clienteable->cnpj) ? $cliente->clienteable->cnpj : null) }}"   placeholder="Entre com o CPF...">
+            <input class="form-control input-sm cnpj" name="cpf" type="text" id="cpf" value="{{ old('cnpj', isset($cliente->cpf) ? $cliente->cpf : null) }}"   placeholder="Entre com o CNPJ...">
         </div>
     </div>
 

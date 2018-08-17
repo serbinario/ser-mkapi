@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log($( "input[name='tipo']").val());
+    console.log($( "input[name='tipo']:checked").val());
     $('.phone').mask('(00)000000000');
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('.date').datepicker({autoclose: true, todayHighlight: true, format: "dd/mm/yyyy"});
 
     //Verifica se o cpf esta preenchido os campos juridico sao acultados
-    if($( "input[name='tipo']").val() == 'Fisica'){
+    if($( "input[name='tipo']:checked").val() == 'Fisica'){
         $('.fisica').show()
         $('.juridico').hide()
     }else{
