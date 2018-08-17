@@ -59,7 +59,7 @@ class BoletoFacilApi
         //Verificar se vamos colcoar para pagar apos o vencimento
 
         //Prepara com os dados do cliente
-        $this->boletofacil->createCharge($data['nome'] ,$data['cpf'], $data['descricao'], $this->trataValor($data['valor_debito']), $data['data_vencimento']);
+        $this->boletofacil->createCharge($data['nome'] ,$cliente->cpf, $data['descricao'], $this->trataValor($data['valor_debito']), $data['data_vencimento']);
 
         //Gera um boleto a partir dos dados do cliente
         $retorno = $this->boletofacil->issueCharge();

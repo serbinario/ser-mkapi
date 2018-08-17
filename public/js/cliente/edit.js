@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log("edit");
+    console.log($( "input[name='tipo']").val());
     $('.phone').mask('(00)000000000');
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
