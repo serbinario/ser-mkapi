@@ -47,7 +47,7 @@ class BoletoFacilApi
     public function createBoleto($data)
     {
         $cliente = Cliente::find($data['mk_cliente_id']);
-        dd($cliente);
+        //dd($cliente);
 
         $this->boletofacil->billingAddressStreet = $cliente->logradouro;
         $this->boletofacil->billingAddressComplement = $cliente->complemanto;
