@@ -160,6 +160,11 @@ var table = $('#debitos').DataTable({
         data: function (d) {
             d.status = $('select[name=status] option:selected').val();
             d.nome = $('input[name=nome]').val();
+            d.data_pag_ini = dateToEN($('input[name=data_pag_ini]').val());
+            d.data_pag_fim = dateToEN($('input[name=data_pag_fim]').val());
+            d.data_venc_ini = dateToEN($('input[name=data_venc_ini]').val());
+            d.data_venc_fim = dateToEN($('input[name=data_venc_fim]').val());
+
         }
     },
     columns: [
@@ -176,3 +181,8 @@ var table = $('#debitos').DataTable({
         console.log(json);
     }
 });
+
+function dateToEN(date)
+{
+    return date.split('/').reverse().join('-');
+}

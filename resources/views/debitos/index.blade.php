@@ -35,7 +35,7 @@
                     <div class="col-md-12">
                         <div class="panel-group" id="accordion">
                             <div class="card panel">
-                                <div class="card-head card-head-xs collapsed"" data-toggle="collapse" data-parent="#accordion7" data-target="#accordion7-1">
+                                <div class="card-head card-head-xs collapsed" data-toggle="collapse" data-parent="#accordion7" data-target="#accordion7-1">
                                 <header>Filtro</header>
                                 <div class="tools">
                                     <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
@@ -44,65 +44,72 @@
                             <div id="accordion7-1" class="collapse">
                                 <div class="card-body">
 
+
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-sm-9">
                                             <div class="form-group">
-                                                <label for="login" class="col-sm-1 control-label">Nome:</label>
-                                                <div class="col-md-11">
+                                                <label for="nome" class="col-sm-2 control-label">Nome:</label>
+                                                <div class="col-md-10">
                                                     <input class="form-control input-sm" name="nome" type="text" id="nome" maxlength="20" placeholder="nome">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br>
-
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group {{ $errors->has('login') ? 'has-error' : '' }}">
-                                                <label for="login" class="col-sm-4 control-label">Data Ini.:</label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control input-sm date" name="data_inicio" type="text" id="data_inicio" value="{{ old('login', isset($cliente->login) ? $cliente->login : null) }}" maxlength="20" placeholder="Data Inicio">
-                                                    {!! $errors->first('login', '<p class="help-block">:message</p>') !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group {{ $errors->has('login') ? 'has-error' : '' }}">
-                                                <label for="login" class="col-sm-4 control-label">Data Fim.:</label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control input-sm date" name="data_inicio" type="text" id="data_inicio" value="{{ old('login', isset($cliente->login) ? $cliente->login : null) }}" maxlength="20" placeholder="Data Inicio">
-                                                    {!! $errors->first('login', '<p class="help-block">:message</p>') !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group {{ $errors->has('login') ? 'has-error' : '' }}">
-                                                <label for="login" class="col-sm-4 control-label">Data Ini.:</label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control input-sm date" name="data_inicio" type="text" id="data_inicio" value="{{ old('login', isset($cliente->login) ? $cliente->login : null) }}" maxlength="20" placeholder="Data Inicio">
-                                                    {!! $errors->first('login', '<p class="help-block">:message</p>') !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label for="select13" class="col-md-4 control-label">Status</label>
                                                 <div class="col-md-8">
-                                                    <select id="select13" name="status" class="form-control input-sm">
+                                                    <select id="status" name="status" class="form-control input-sm">
                                                         <option value="">Todos</option>
-                                                        <option value="Pago">Pago</option>
-                                                        <option value="Aguardando">Aguardando</option>
-                                                        <option value="Cancelado">Cancelado</option>
-                                                        <option value="Marcado como pago">Marcado como pago</option>
+                                                        <option value="3">Pago</option>
+                                                        <option value="2">Aguardando</option>
+                                                        <option value="7">Cancelado</option>
+                                                        <option value="4">Nao Pagos</option>
 
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="data_pag_ini" class="col-sm-6 control-label">Pag. De.:</label>
+                                                <div class="col-md-6">
+                                                    <input class="form-control input-sm date" name="data_pag_ini" type="text" id="data_pag_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="PAG. DE">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="data_pag_fim" class="col-sm-6 control-label">Pag. Até:</label>
+                                                <div class="col-md-6">
+                                                    <input class="form-control input-sm date" name="data_pag_fim" type="text" id="data_pag_fim" value="{{ old('login',  null) }}" maxlength="20" placeholder="PAG. ATE">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="data_venc_ini" class="col-sm-6 control-label">Venc. De:</label>
+                                                <div class="col-md-6">
+                                                    <input class="form-control input-sm date" name="data_venc_ini" type="text" id="data_venc_ini" value="{{ old('data_venc_ini',  null) }}" maxlength="20" placeholder="VENC. DE">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="data_venc_fim" class="col-sm-6 control-label">Venc. Até:</label>
+                                                <div class="col-md-6">
+                                                    <input class="form-control input-sm date" name="data_venc_fim" type="text" id="data_venc_fim" value="{{ old('login', null) }}" maxlength="20" placeholder="VENC. ATE">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <div class="col-md-8">

@@ -61,7 +61,7 @@ class DebitosController extends Controller
      */
     public function grid(Request $request)
     {
-
+        //dd($request->all());
         $this->token = csrf_token();
         #Criando a consulta
         $rows = \DB::table('fin_debitos')
@@ -88,10 +88,16 @@ class DebitosController extends Controller
             ->filter(function ($query) use ($request) {
                 # Filtranto por disciplina
                 if ($request->has('status')) {
-                    $query->where('status', '=', $request->get('status'));
+                    $query->where('status_id', '=', $request->get('status'));
                 }
                 if ($request->has('nome')) {
                     $query->where('mk_clientes.nome', 'like', "%" . $request->get('nome') . "%");
+                }
+                if ($request->has('data_pag_ini')) {
+                    $query->whereBetween('fin_debitos.data_pagamento', [$request->get('data_pag_ini'), $request->get('data_pag_fim')])->get();
+                }
+                if ($request->has('data_venc_ini')) {
+                    $query->whereBetween('fin_debitos.data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')])->get();
                 }
             })
             ->addColumn('action', function ($row) {
