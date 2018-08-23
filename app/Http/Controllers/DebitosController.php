@@ -204,7 +204,6 @@ class DebitosController extends Controller
      */
     public function knob(Request $request)
     {
-
         $rows = \DB::table('fin_debitos');
             if ( $request->has('data_venc_ini') && $request->has('data_venc_fim')) {
                 $rows->whereBetween('data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')]);
