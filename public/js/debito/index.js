@@ -87,47 +87,56 @@ function cancelCharge()
 }
 
 
-// Requisição ajax
-jQuery.ajax({
-    type: 'GET',
-    url: '/index.php/debitos/knob',
-    datatype: 'json'
-}).done(function (retorno) {
-    if(retorno.success) {
+function chartKnob()
+{
+    var dados = {
+        'data_venc_ini' : dateToEN($('input[name=data_venc_ini]').val()),
+        'data_venc_fim' : dateToEN($('input[name=data_venc_fim]').val())
 
-        var max = retorno.total
-
-        $("em.pagas").html('<h4>' + retorno.total_pagos + '</h4>');
-        $("em.areceber").html('<h4>' + retorno.total_aguardando + '</h4>');
-        $("em.inadiplentes").html('<h4>' + retorno.total_inadiplentes + '</h4>');
-
-        //KNOD PAGAS
-        $("#pagas").knob({
-            max:max,
-        });
-        $('#pagas').val(retorno.pagas).trigger('change');
-
-        $("#inadiplentes").knob({
-            max:max,
-        });
-        $('#inadiplentes').val(retorno.inadiplentes).trigger('change');
-
-
-        $("#aReceber").knob({
-            max:max,
-        });
-        $('#aReceber').val(retorno.aReceber).trigger('change');
-
-        $("#dinheiro").knob({
-            max:max,
-        });
-        $('#dinheiro').val(retorno.dinheiro).trigger('change');
-        //$(".inadiplente").knob().val(37).trigger('change');
-
-    } else {
-        swal(retorno.msg, "Click no botão abaixo!", "error");
     }
-});
+    // Requisição ajax
+    jQuery.ajax({
+        type: 'GET',
+        data: dados,
+        url: '/index.php/debitos/knob',
+        datatype: 'json'
+    }).done(function (retorno) {
+        if(retorno.success) {
+
+            var max = retorno.total
+
+            $("em.pagas").html('<h4>' + retorno.total_pagos + '</h4>');
+            $("em.areceber").html('<h4>' + retorno.total_aguardando + '</h4>');
+            $("em.inadiplentes").html('<h4>' + retorno.total_inadiplentes + '</h4>');
+
+            //KNOD PAGAS
+            $("#pagas").knob({
+                max:max,
+            });
+            $('#pagas').val(retorno.pagas).trigger('change');
+
+            $("#inadiplentes").knob({
+                max:max,
+            });
+            $('#inadiplentes').val(retorno.inadiplentes).trigger('change');
+
+
+            $("#aReceber").knob({
+                max:max,
+            });
+            $('#aReceber').val(retorno.aReceber).trigger('change');
+
+            $("#dinheiro").knob({
+                max:max,
+            });
+            $('#dinheiro').val(retorno.dinheiro).trigger('change');
+            //$(".inadiplente").knob().val(37).trigger('change');
+
+        } else {
+            swal(retorno.msg, "Click no botão abaixo!", "error");
+        }
+    });
+}
 
 
 // $('.knob-chart').val(27).trigger('change');
@@ -135,6 +144,7 @@ jQuery.ajax({
 $(document).on("click", "#search", function () {
     console.log("ddddddddddddddddd");
     table.draw();
+    chartKnob();
 });
 
 $(document).on("click", "#clear", function (event) {
@@ -187,7 +197,7 @@ var table = $('#debitos').DataTable({
         {data: 'action', name: 'action', orderable: false, searchable: false}
     ],
     "fnInitComplete": function(oSettings, json) {
-        console.log(json);
+        chartKnob();
     }
 });
 

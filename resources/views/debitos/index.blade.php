@@ -110,7 +110,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <a href="#" type="button" id="search" class="btn btn-flat btn-primary ink-reaction">Localizar</a>

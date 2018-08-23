@@ -202,12 +202,20 @@ class DebitosController extends Controller
      *
      * Retorna com a quantidade de boletos pagos, a receber inadiplente
      */
-    public function knob()
+    public function knob(Request $request)
     {
 
-        $rows = \DB::table('fin_debitos')
+        $rows = \DB::table('fin_debitos');
+            if ( $request->has('data_venc_ini') && $request->has('data_venc_fim')) {
+                $rows->whereBetween('data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')]);
+            }else{
+                $date_ini = date('Y-m-01');
+                dd($date_fim = date('Y-m-t'));
+                $rows->whereBetween('data_vencimento', [$date_ini, $date_fim]);
+            }
+
             //->where(\DB::raw('data_vencimento BETWEEN  DATE_FORMAT(NOW() ,\'%Y-%m-01\') AND DATE_FORMAT(NOW() ,\'%Y-%m-31\')'))
-            ->select([
+            $rows->select([
                 \DB::raw('
                         COUNT(IF(status_id="2","2", NULL)) "aguardando", 
                         COUNT(IF(status_id="3","3", NULL)) "pagas",
@@ -217,9 +225,9 @@ class DebitosController extends Controller
                         SUM(IF(status_id="4",valor_debito, NULL)) "total_inadiplentes",
                         COUNT(*) "total"
                     ')
-            ])
+            ]);
 
-        ->get();
+        $rows = $rows->get();
         //dd($rows);
 
        foreach ($rows as $row){
