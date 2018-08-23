@@ -209,7 +209,7 @@ class DebitosController extends Controller
                 $rows->whereBetween('data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')]);
             }else{
                 $date_ini = date('Y-m-01');
-                dd($date_fim = date('Y-m-t'));
+                $date_fim = date('Y-m-t');
                 $rows->whereBetween('data_vencimento', [$date_ini, $date_fim]);
             }
 
