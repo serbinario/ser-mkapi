@@ -113,23 +113,23 @@ function chartKnob()
             $("#pagas").knob({
                 max:max,
             });
-            $('#pagas').val(retorno.pagas).trigger('change');
+            $('#pagas').val(retorno.pagas).trigger('draw');
 
             $("#inadiplentes").knob({
                 max:max,
             });
-            $('#inadiplentes').val(retorno.inadiplentes).trigger('change');
+            $('#inadiplentes').val(retorno.inadiplentes).trigger('draw');
 
 
             $("#aReceber").knob({
                 max:max,
             });
-            $('#aReceber').val(retorno.aReceber).trigger('change');
+            $('#aReceber').val(retorno.aReceber).trigger('draw');
 
             $("#dinheiro").knob({
                 max:max,
             });
-            $('#dinheiro').val(retorno.dinheiro).trigger('change');
+            $('#dinheiro').val(retorno.dinheiro).trigger('draw');
             //$(".inadiplente").knob().val(37).trigger('change');
 
         } else {
