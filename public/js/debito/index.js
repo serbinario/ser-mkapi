@@ -131,10 +131,19 @@ jQuery.ajax({
 
 
 // $('.knob-chart').val(27).trigger('change');
-
+//Executado no filtro
 $(document).on("click", "#search", function () {
     console.log("ddddddddddddddddd");
     table.draw();
+});
+
+$(document).on("click", "#clear", function (event) {
+    event.preventDefault();
+    $('input[name=data_pag_ini]').val("");
+    $('input[name=data_pag_fim]').val("")
+    $('input[name=data_venc_ini]').val("")
+    $('input[name=data_venc_fim]').val("")
+    $('input[name=nome]').val("")
 });
 
 $.fn.dataTable.ext.search.push(

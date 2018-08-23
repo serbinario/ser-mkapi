@@ -24,7 +24,7 @@
 
 
 
-		<link href="{{ asset('/assets/css/theme-3/libs/bootstrap-datepicker/datepicker3.css')}}" rel="stylesheet">
+		<link href="{{ asset('/assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css')}}" rel="stylesheet">
 
 		<script src="../../assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 

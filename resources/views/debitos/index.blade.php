@@ -113,7 +113,8 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <div class="col-md-8">
-                                                    <p><button type="button" id="search" class="btn ink-reaction btn-flat btn-primary">Aplicar</button></p>
+                                                    <a href="#" type="button" id="search" class="btn btn-flat btn-primary ink-reaction">Localizar</a>
+                                                    <input class="btn btn-primary"  id="clear" type="button" value="Limpar">
                                                 </div>
                                             </div>
                                         </div>
