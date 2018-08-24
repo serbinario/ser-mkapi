@@ -30,11 +30,16 @@ class MikrotikController extends Controller
     {
 
         try {
+            //Consulta o cliente passando o id
             $cliente = Cliente::with('mkProfile')->findOrFail($id);
+
+            //Pego os parametros login e profile do cliente e o status do cliente em relaçao ao mikrotik se esta bloqueado ou nao
             $login = $cliente->login;
             $profileNome = $cliente->mkProfile->nome;
             $status_secret = $cliente->status_secret;
+
             //dd($cliente->status_secret);
+            //Inverte o status do da variavel status_secret
             ($status_secret == "1" ? $profileNome = "Bloqueados" : $profileNome = $cliente->mkProfile->nome);
 
             $cliente->status_secret = !$cliente->status_secret;
@@ -44,14 +49,16 @@ class MikrotikController extends Controller
             $router->debug = false;
             $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
-            //Esse funciona
+            //Altera o profile do cliente
             $rest = $router->comm("/ppp/secret/set", array(
                 "numbers"     => $login,
                 "profile" => $profileNome
             ));
 
+            //Remove o cliente conectado
             $this->removePPP($router, $login);
 
+            //Salva
             $cliente->save();
 
             $router->disconnect();
@@ -65,6 +72,9 @@ class MikrotikController extends Controller
 
     }
 
+    /*
+     * remove um secret do mikrotik
+     */
     public function removePPP($router, $name)
     {
         $router->write("/ppp/active/getall",false);

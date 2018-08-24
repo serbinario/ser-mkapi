@@ -120,17 +120,23 @@ class Mikrotik extends Command
 
 
 
-        $router->write("/ppp/active/getall",false);
-        $router->write('?name=davi',true);
+        $router->write('/ppp/secret/print',true);
         $READ = $router->read(false);
         $ARRAY = $router->parseResponse($READ);
-        if(count($ARRAY)>0){ // si el usuario esta activo lo pateo.
-            $router->write("/ppp/active/remove",false);
-            $router->write("=.id=".$ARRAY[0]['.id'],true);
-            $READ = $router->read(false);
-            $ARRAY = $router->parseResponse($READ);
+
+        $list = array();
+
+        for ($i = 0; $i < count($ARRAY); $i ++)
+        {
+            //$list['login'] = $ARRAY[$i]['name'];
+            //$list['senha'] = $ARRAY[$i]['password'];
+            //$coment = " \" " .  $ARRAY[$i]['comment'] . "\" ";
+            //S$list['obs'] = $coment;
+            // dd($list);
+            $this->seExisteCobranca($ARRAY[$i]['name'], $i);
+
+            //$list = '';
         }
-        var_dump($ARRAY);
 
 
 
@@ -156,15 +162,49 @@ class Mikrotik extends Command
 
 
 
-        //Esse funciona
+       /* //Esse funciona
         $router->comm("/ppp/secret/add", array(
             "numbers"     => "paulovaz",
             "profile" => "Bloqueados",
             "remote-address" => "172.16.1.10",
             "comment"  => "{new VPN user}",
             "service"  => "pptp",
-        ));
+        ));*/
 
+    }
+
+    public function seExisteCobranca($login, $i)
+    {
+
+        $cliente =  Cliente::where('login', '=' , $login)->limit(1)->first();
+        //dd($cliente->nome);
+        if(!empty($cliente)){
+
+            $cobranca =  Cobranca::where('nome', '=' , $cliente->nome)->limit(1)->first();
+            if(empty($cobranca)){
+                echo "Sem Cobranca: " . $cliente->nome . " " . $login . "\n";
+            }
+
+
+
+        }else{
+            //Imprimi  o que nao econtrou
+            echo $i . " " . $login . " --- " . "\n";
+        };
+
+
+
+
+       /* $cobrancas =  Cobranca::where('mk_cliente_id', '=' , $cliente)->limit(1)->get();
+        //dd($cobrancas);
+        if($cobrancas->isNotEmpty()){
+            foreach ($cobrancas as $cobranca){
+                echo $cobranca->numero_cobranca . ";" . $cobranca->valor_debito . ";" . $cobranca->status . ";" . $cobranca->data_vencimento . ";" . $cobranca->data_pagamento . ";" . "\n";
+            };
+        }else{
+
+            echo ";;;;;" . "\n";
+        }*/
     }
 
     public function cobranca($cliente)

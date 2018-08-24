@@ -47,10 +47,10 @@ class Clientes extends Command
         //
         //$this->listaFaltantesMKClientes();
         // $this->importCobranca();
-        //$this->importCsv();
+        $this->importCsv();
         //$this->importCsvClientDrop();
         //$this->atualizaTabelaMKClientes();
-        $this->importSisClienteToMkClientes();
+        //$this->importSisClienteToMkClientes();
         //$this->importSisClienteToMkClientesFaltantes();
 
     }
@@ -165,7 +165,7 @@ class Clientes extends Command
     //Foi gerado com os campos cancelados, aguandando, pagos, etc......
     public function importCsv()
     {
-        $file = public_path('julho04.csv');
+        $file = public_path('Agosto01.csv');
 
         $customerArr = $this->csvToArray($file);
 
