@@ -373,7 +373,7 @@ Route::group(
     Route::post('/', 'DebitosController@store')
          ->name('debitos.debitos.store');
 
-    Route::post('/cancelCharge', 'DebitosController@cancelCharge')
+    Route::get('/cancelCharge/{code}', 'DebitosController@cancelCharge')
         ->name('debitos.cancelCharge');
 
 

@@ -243,9 +243,10 @@ class DebitosController extends Controller
      * @return Illuminate\View\View
      * @throws Exception RN-0003
      */
-    public function cancelCharge(Request $request)
+    public function cancelCharge($code)
     {
-        $code = $request->get('code');
+        //dd($code);
+        //$code = $request->get('code');
 
         $return = $this->boletoFacilApi->cancelCharge($code);
         if($return['success'])

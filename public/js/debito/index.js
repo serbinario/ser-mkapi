@@ -69,9 +69,9 @@ function cancelCharge()
     }
 
     jQuery.ajax({
-        type: 'POST',
+        type: 'GET',
         data: dados,
-        url: '/index.php/debitos/cancelCharge/',
+        url: '/index.php/debitos/cancelCharge/' + boletoCode,
         datatype: 'json'
     }).done(function (retorno) {
 
