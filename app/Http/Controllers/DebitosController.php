@@ -111,7 +111,7 @@ class DebitosController extends Controller
                 //Se o boleto ja foi pago nao aparece o botao para cancelar
                 // RN-0003
                 if($row->status_id != '3' && $row->status_id != '7') {
-                    $html .= '<button type="submit" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
+                    $html .= '<button type="button" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
                                     <span class="glyphicon md-cancel" aria-hidden="true"></span>
                                 </button>';
                 }
