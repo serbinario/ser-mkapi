@@ -167,7 +167,7 @@ class Debitos extends Model
      */
     public function getDataVencimentoAttribute($value)
     {
-        return date('j/n/Y g:i A', strtotime($value));
+        return date('Y-m-d', strtotime($value));
     }
 
     /**

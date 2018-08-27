@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         //
         Commands\Clientes::class,
         Commands\Mikrotik::class,
+        Commands\LogCron::class
     ];
 
     /**

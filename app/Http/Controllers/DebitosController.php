@@ -259,7 +259,6 @@ class DebitosController extends Controller
         }else{
             return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => $return['msg']]);
         }
-
     }
 
 
@@ -360,7 +359,6 @@ class DebitosController extends Controller
                 ->with('success_message', 'Debitos was successfully updated!');
 
         } catch (Exception $exception) {
-
             return back()->withInput()
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
@@ -400,7 +398,6 @@ class DebitosController extends Controller
      */
     protected function affirm(Request $request)
     {
-
         $rules = [
             'mk_cliente_id' => 'nullable',
             'numero_cobranca' => 'nullable|string|min:0|max:50',
@@ -417,8 +414,6 @@ class DebitosController extends Controller
             'status' => 'nullable|string|min:0|max:50',
 
         ];
-
-
         return $this->validate($request, $rules);
     }
 
