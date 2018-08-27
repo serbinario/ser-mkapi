@@ -308,7 +308,7 @@ class ClienteController extends Controller
 
         $rules = [
             'nome' => 'required|string|min:1|max:255',
-            'login' => 'required|string|min:0|max:20',
+            'login' => 'required|string|min:0|max:50',
             'senha' => 'required|string|min:0|max:50',
             'email' => 'nullable|string|min:0|max:50',
             'tipo' => 'nullable',
