@@ -36,7 +36,7 @@ class NotificationUrl extends Controller
 
                 $boletoFacilApi = new BoletoFacilApi();
 
-                //Consulta a um boleto para saber o status
+                //Consulta a um boleto para saber o status4
                 $paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
                 //$paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
 

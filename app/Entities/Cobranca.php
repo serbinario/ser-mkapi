@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cobranca extends Model
 {
-
+    
     /**
      * Indicates if the model should be timestamped.
      *
@@ -21,10 +21,10 @@ class Cobranca extends Model
     protected $table = 'cobrancas';
 
     /**
-     * The database primary key value.
-     *
-     * @var string
-     */
+    * The database primary key value.
+    *
+    * @var string
+    */
     protected $primaryKey = 'id';
 
     /**
@@ -33,15 +33,19 @@ class Cobranca extends Model
      * @var array
      */
     protected $fillable = [
-        'nome',
-        'numero_cobranca',
-        'valor',
-        'status',
-        'identificador',
-        'data_vencimento',
-        'valor_pago',
-        'data_pagamento'
-    ];
+                  'numero_cobranca',
+                  'valor',
+                  'status',
+                  'identificador',
+                  'nome',
+                  'data_vencimento',
+                  'valor_pago',
+                  'data_pagamento',
+                  'login',
+                  'link_pagamento',
+        'obs',
+        'data_envio'
+              ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -49,43 +53,21 @@ class Cobranca extends Model
      * @var array
      */
     protected $dates = [];
-
+    
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
+    
 
     /**
-     * Get the mkRouter for this model.
+     * Set the data_vencimento.
+     *
+     * @param  string  $value
+     * @return void
      */
-
-    /**
-
-
-    /**
-     * Get the mkProfile for this model.
-     */
-
-
-
-    public function getDataInstalacaoAttribute($value)
-    {
-        return date("d/m/Y", strtotime($value));
-    }
-    public function setDataPagamentoAttribute($value)
-    {
-        if($value){
-            return $this->attributes['data_pagamento'] = substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2);
-        }
-    }
-
-    public function getDataNascimentoAttribute($value)
-    {
-        return date("d/m/Y", strtotime($value));
-    }
-
     public function setDataVencimentoAttribute($value)
     {
         if($value){
@@ -93,8 +75,39 @@ class Cobranca extends Model
         }
     }
 
+    /**
+     * Set the data_pagamento.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setDataPagamentoAttribute($value)
+    {
+        if($value){
+            return $this->attributes['data_pagamento'] = substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2);
+        }
+    }
 
+    /**
+     * Get data_vencimento in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getDataVencimentoAttribute($value)
+    {
+        return date('j/n/Y', strtotime($value));
+    }
 
-
+    /**
+     * Get data_pagamento in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getDataPagamentoAttribute($value)
+    {
+        return date('j/n/Y', strtotime($value));
+    }
 
 }

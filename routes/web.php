@@ -19,7 +19,18 @@ Route::get('/', 'RouterController@index')
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
+//Url para receber reuqest do boletofacil
 Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
+
+Route::get('/cobrancasAPI', 'CobrancasAPIController@gerenciant')->name('cobrancasAPI.gerencianet');
+Route::any('/cobrancasAPISend', 'CobrancasAPIController@cobrancasAPISend')->name('cobrancasAPI.cobrancasAPISend');
+Route::any('/cobrancasAPIMsg', 'CobrancasAPIController@cobrancasAPIMsg')->name('cobrancasAPI.cobrancasAPIMsg');
+Route::any('/cobrancasAPIMsgBoleto', 'CobrancasAPIController@cobrancasAPIMsgBoleto')->name('cobrancasAPI.cobrancasAPIMsgBoleto');
+Route::any('/cobrancasPendentes', 'CobrancasAPIController@cobrancasPendentes')->name('cobrancasAPI.cobrancasPendentes');
+
+
+
+
 
 //Route::any('/enableDisableSecret', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 
@@ -38,6 +49,19 @@ Route::group(
 
 
 });
+Route::group(
+    [
+        'prefix' => 'inadimplente',
+    ], function () {
+
+    Route::get('/grid', 'DebitosController@inadimplentes')
+        ->name('inadimplentes.index');
+    Route::get('/', 'DebitosController@inadimplentesIndex')
+        ->name('inadimplentes.index');
+
+
+});
+
 
 Route::group(
     [
@@ -388,5 +412,40 @@ Route::group(
          ->name('debitos.debitos.destroy')
          ->where('id', '[0-9]+');
 
+
+});
+
+Route::group(
+[
+    'prefix' => 'cobranca',
+], function () {
+
+    Route::get('/', 'CobrancaController@index')
+         ->name('cobranca.cobranca.index');
+
+    Route::get('/create','CobrancaController@create')
+         ->name('cobranca.cobranca.create');
+
+    Route::get('/grid', 'CobrancaController@grid')
+         ->name('[% grid_route_name %]');
+
+    Route::get('/show/{cobranca}','CobrancaController@show')
+         ->name('cobranca.cobranca.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{cobranca}/edit','CobrancaController@edit')
+         ->name('cobranca.cobranca.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'CobrancaController@store')
+         ->name('cobranca.cobranca.store');
+               
+    Route::put('cobranca/{cobranca}', 'CobrancaController@update')
+         ->name('cobranca.cobranca.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/{cobranca}/destroy','CobrancaController@destroy')
+         ->name('cobranca.cobranca.destroy')
+         ->where('id', '[0-9]+');
 
 });

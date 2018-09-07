@@ -365,6 +365,64 @@ class DebitosController extends Controller
     }
 
     /**
+     * Update the specified debitos in the storage.
+     *
+     * @param  int $id
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     */
+    public function inadimplentesIndex(Request $request)
+    {
+        try {
+            return view('inadimplente.index');
+
+        } catch (Exception $exception) {
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        }
+    }
+
+    /**
+     * Update the specified debitos in the storage.
+     *
+     * @param  int $id
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     */
+    public function inadimplentes(Request $request)
+    {
+        try {
+
+            $cur_date = Carbon::now();
+
+            $rows = \DB::table('fin_debitos')
+                ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
+                ->where('fin_debitos.data_vencimento', '<=', $cur_date)
+                ->where('fin_debitos.status_id', '=', '4')
+                ->orderBy('dias_atraso', 'DESC')
+                ->select([
+                    'fin_debitos.id',
+                    'mk_clientes.nome',
+                    \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                    'fin_debitos.valor_debito',
+                    \DB::raw('DATEDIFF(data_vencimento, NOW()) AS dias_atraso')
+                    //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
+
+
+                ]);
+
+            #Editando a grid
+            return Datatables::of($rows)->make(true);
+
+
+        } catch (Exception $e) {
+            return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => 'Edição realizada com sucesso!']);
+        }
+    }
+
+    /**
      * Remove the specified debitos from the storage.
      *
      * @param  int $id

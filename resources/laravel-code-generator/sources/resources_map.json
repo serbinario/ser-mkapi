@@ -32,5 +32,10 @@
         "model-name": "Debitos",
         "resource-file": "fin_debitos.json",
         "table-name": "fin_debitos"
+    },
+    {
+        "model-name": "Cobranca",
+        "resource-file": "cobranca.json",
+        "table-name": "cobrancas"
     }
 ]

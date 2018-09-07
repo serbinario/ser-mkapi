@@ -165,7 +165,7 @@ class Clientes extends Command
     //Foi gerado com os campos cancelados, aguandando, pagos, etc......
     public function importCsv()
     {
-        $file = public_path('Agosto01.csv');
+        $file = public_path('Cobranca_10-09-2018.csv');
 
         $customerArr = $this->csvToArray($file);
 
@@ -176,7 +176,7 @@ class Clientes extends Command
             $customerArr[$i]['valor'] = str_replace(",", ".", $customerArr[$i]['valor']);
             //$customerArr[$i]['valor_pago'] = str_replace(",", ".", $customerArr[$i]['valor_pago']);
             //dd($customerArr[$i]['valor_pago']);
-            Cobranca::firstOrCreate($customerArr[$i]);
+            Cobranca::create($customerArr[$i]);
         }
 
         return 'Jobi done or what ever';

@@ -175,19 +175,18 @@
 								<li><a href="{{ route('router.router.index') }}" class="active"><span class="title">Routers</span></a></li>
 								<li><a href="{{ route('profile.profile.index') }}" class="active"><span class="title">Profiles</span></a></li>
 								<li><a href="{{ route('grupo.grupo.index') }}" class="active"><span class="title">Grupos</span></a></li>
-								<li><a href="{{ route('debitos.debitos.index') }}" class="active"><span class="title">Financeiro</span></a></li>
+
 
 
 
 								<li class="gui-folder">
 									<a href="javascript:void(0);">
-										<span class="title">Contacts</span>
+										<span class="title">Financeiro</span>
 									</a>
 									<!--start submenu -->
 									<ul>
-										<li><a href="../../html/pages/contacts/search.html" ><span class="title">Search</span></a></li>
-										<li><a href="../../html/pages/contacts/details.html" ><span class="title">Contact card</span></a></li>
-										<li><a href="../../html/pages/contacts/add.html" ><span class="title">Insert contact</span></a></li>
+										<li><a href="{{ route('debitos.debitos.index') }}" class="active"><span class="title">Financeiro</span></a></li>
+										<li><a href="{{ route('inadimplentes.index') }}" class="active"><span class="title">Inadimplentes</span></a></li>
 									</ul><!--end /submenu -->
 								</li><!--end /menu-li -->
 							</ul><!--end /submenu -->
