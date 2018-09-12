@@ -172,7 +172,7 @@ var table = $('#debitos').DataTable({
     processing: true,
     serverSide: true,
     bFilter: true,
-    order: [[ 1, "asc" ]],
+    order: [[ 5, "desc" ]],
     ajax: {
         url: "/index.php/debitos/grid",
         data: function (d) {
