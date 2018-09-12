@@ -6,7 +6,7 @@ var table = $('#paidDay').DataTable({
     processing: true,
     serverSide: true,
     bFilter: true,
-    order: [[ 1, "asc" ]],
+    order: [[ 4, "desc" ]],
     ajax: {
         url: "/index.php/paidDay/grid",
         data: function (d) {
