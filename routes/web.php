@@ -22,8 +22,12 @@ Route::get('/', 'RouterController@index')
 //Url para receber reuqest do boletofacil
 Route::any('/notificationUrl', 'NotificationUrl@notificationUrl')->name('notificationUrl');
 
+//RN-0001
 Route::get('/cobrancasAPI', 'CobrancasAPIController@gerenciant')->name('cobrancasAPI.gerencianet');
+
 Route::any('/cobrancasAPISend', 'CobrancasAPIController@cobrancasAPISend')->name('cobrancasAPI.cobrancasAPISend');
+
+//RN-0002
 Route::any('/cobrancasAPIMsg', 'CobrancasAPIController@cobrancasAPIMsg')->name('cobrancasAPI.cobrancasAPIMsg');
 Route::any('/cobrancasAPIMsgBoleto', 'CobrancasAPIController@cobrancasAPIMsgBoleto')->name('cobrancasAPI.cobrancasAPIMsgBoleto');
 Route::any('/cobrancasPendentes', 'CobrancasAPIController@cobrancasPendentes')->name('cobrancasAPI.cobrancasPendentes');
@@ -58,6 +62,19 @@ Route::group(
         ->name('inadimplentes.index');
     Route::get('/', 'DebitosController@inadimplentesIndex')
         ->name('inadimplentes.index');
+
+
+});
+
+Route::group(
+    [
+        'prefix' => 'paidDay',
+    ], function () {
+
+    Route::get('/grid', 'DebitosController@paidDay')
+        ->name('paidDay.grid');
+    Route::get('/', 'DebitosController@paidDayIndex')
+        ->name('paidDay.index');
 
 
 });

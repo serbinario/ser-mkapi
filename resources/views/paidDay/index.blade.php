@@ -22,7 +22,7 @@
                     {{ csrf_field() }}
                     <div class="card">
                         <div class="card-head style-primary">
-                            <header>Inadimplemtes</header>
+                            <header>Pagos Hoje</header>
                             <div class="tools">
                                 <div class="btn-group">
                                 </div>
@@ -33,14 +33,14 @@
                             <div class="col-lg-12">
                                 <div class="panel-body panel-body-with-table">
                                     <div class="table-responsive">
-                                        <table id="inadimplente" class="table order-column hover">
+                                        <table id="paidDay" class="table order-column hover">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Nome</th>
                                                     <th>Valor</th>
                                                     <th>Data Vencimento</th>
                                                     <th>Status</th>
-                                                    <th>Dias atraso</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -60,5 +60,5 @@
 @endsection
 
 @section('javascript')
-    <script src="{{ asset('/js/inadimplente/index.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('/js/paidDay/index.js')}}" type="text/javascript"></script>
 @stop

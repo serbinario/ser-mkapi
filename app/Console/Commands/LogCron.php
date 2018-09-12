@@ -101,6 +101,8 @@ class LogCron extends Command
 
     /*
      * Atualiza a tabela fin_debitos se algum debito na data atual + 2 dias, nao estiver como pago, e colocado como inadimplente
+     * RN-0005
+     *
      */
     public function updateInadiplentes()
     {

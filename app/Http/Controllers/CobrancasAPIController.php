@@ -16,6 +16,10 @@ use Serbinario\Http\Controllers\BoletoFacil\BoletoFacilApi;
 class CobrancasAPIController extends Controller
 {
 
+    /*
+     * RN-0001
+     * Retorna as cobranças importados pelo command "Clientes" metodo importCsv()
+     */
     public function gerenciant()
     {
         try {
@@ -30,7 +34,8 @@ class CobrancasAPIController extends Controller
                     'cobrancas.valor',
                     \DB::raw('DATE_FORMAT(cobrancas.data_vencimento,"%d/%m/%Y") as data_vencimento'),
                     'cobrancas.status',
-                    'cobrancas.id'
+                    'cobrancas.id',
+                    'cobrancas.link_pagamento'
                 ]);
 
             //$path = storage_path() . "/json/file}.json"; // ie: /var/www/laravel/app/storage/json/filename.json
@@ -48,6 +53,10 @@ class CobrancasAPIController extends Controller
         }
     }
 
+    /*
+     * Retorna os debitos
+     *
+     */
     public function cobrancasPendentes()
     {
         try {
@@ -65,11 +74,6 @@ class CobrancasAPIController extends Controller
                     'fin_boletos.link'
                 ]);
 
-            $cobrancas = Cobranca::all();
-
-            Log::info(
-                $rows->get()->toJson()
-            );
 
             return \Illuminate\Support\Facades\Response::json(['success' => true, 'data' => $rows->get()]);
 
@@ -106,6 +110,9 @@ class CobrancasAPIController extends Controller
 
     /*
      * Responsavel por salvar o status do envio da msg pelo whatsaap
+     * #################
+     * #### RN-0002 ####
+     * #################
      */
     public function cobrancasAPIMsg(Request $request)
     {

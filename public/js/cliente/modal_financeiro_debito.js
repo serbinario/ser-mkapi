@@ -37,6 +37,8 @@ $(document).on("click", ".btnModalFinanceiroDebito", function () {
     var valor_debito = $("#valor_debito").val();
 
 
+
+
     //Limpar os campos
     $("#descricao").val("");
     $("#data_vencimento").val("");

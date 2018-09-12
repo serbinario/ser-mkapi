@@ -329,10 +329,11 @@ class DebitosController extends Controller
     {
         $debitos = Debitos::with('mkCliente.mkProfile')->findOrFail($id);
         $mkClientes = Cliente::pluck('nome','id')->all();
-        $finContasBancarias = FinContasBancaria::pluck('id','id')->all();
-        $finFormasPagamentos = FinFormasPagamento::pluck('id','id')->all();
-        $finCarnes = FinCarne::pluck('id','id')->all();
-        $finLocaisPagamentos = FinLocaisPagamento::pluck('id','id')->all();
+        $finContasBancarias = FinContasBancaria::pluck('nome','id')->all();
+        $finFormasPagamentos = FinFormasPagamento::pluck('nome','id')->all();
+        $finCarnes = FinCarne::pluck('nome','id')->all();
+        $finLocaisPagamentos = FinLocaisPagamento::pluck('nome','id')->all();
+
 
         //dd($debitos->mkCliente->mkProfile->descricao);
         return view('debitos.edit', compact('debitos','mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
@@ -371,6 +372,10 @@ class DebitosController extends Controller
      * @param Illuminate\Http\Request $request
      *
      * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     *
+     * ############################
+     * ######### RN-0005 ##########
+     * ############################
      */
     public function inadimplentesIndex(Request $request)
     {
@@ -390,6 +395,10 @@ class DebitosController extends Controller
      * @param Illuminate\Http\Request $request
      *
      * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     * ############################
+     * ######### RN-0005 ##########
+     * ############################
+     * Retorna a quantidade de dias que o cliente esta inadimplente
      */
     public function inadimplentes(Request $request)
     {
@@ -405,22 +414,80 @@ class DebitosController extends Controller
                 ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
+                    \DB::raw('IF(mk_clientes.status_secret < 0, "Bloqueado", "Ativo") as status_secret'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
                     'fin_debitos.valor_debito',
                     \DB::raw('DATEDIFF(data_vencimento, NOW()) AS dias_atraso')
                     //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
-
-
                 ]);
-
             #Editando a grid
             return Datatables::of($rows)->make(true);
-
-
         } catch (Exception $e) {
-            return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => 'Edição realizada com sucesso!']);
+            return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => 'Error']);
         }
     }
+
+    /**
+     * Update the specified debitos in the storage.
+     *
+     * @param  int $id
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     *
+     * ############################
+     * ######### RN-0005 ##########
+     * ############################
+     */
+    public function paidDayIndex(Request $request)
+    {
+        try {
+            return view('paidDay.index');
+
+        } catch (Exception $exception) {
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        }
+    }
+
+
+    /**
+     * Update the specified debitos in the storage.
+     *
+     * @param  int $id
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     * ############################
+     * ######### RN-000x ##########
+     * ############################
+     * Retorna os clientes que pagaram da data atual
+     */
+    public function paidDay(Request $request)
+    {
+        try {
+
+            $cur_date = Carbon::now();
+
+            $rows = \DB::table('fin_debitos')
+                ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
+                ->where('fin_debitos.data_vencimento', '=', $cur_date)
+                ->where('fin_debitos.status_id', '=', '3')
+                ->select([
+                    'fin_debitos.id',
+                    'mk_clientes.nome',
+                    \DB::raw('IF(mk_clientes.status_secret < 0, "Bloqueado", "Ativo") as status_secret'),
+                    \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                    'fin_debitos.valor_debito'
+                    //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
+                ]);
+            #Editando a grid
+            return Datatables::of($rows)->make(true);
+        } catch (Exception $e) {
+            return \Illuminate\Support\Facades\Response::json(['success' => false, 'msg' => 'Error']);
+        }
+    }
+
 
     /**
      * Remove the specified debitos from the storage.

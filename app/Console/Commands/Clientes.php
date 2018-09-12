@@ -163,9 +163,14 @@ class Clientes extends Command
 
     //Importa para a tabela cobrança a partir do relatorio do gerencianet
     //Foi gerado com os campos cancelados, aguandando, pagos, etc......
+    /* #####################
+     * ###### RN-0001 ######
+     * #####################
+     */
+
     public function importCsv()
     {
-        $file = public_path('Cobranca_10-09-2018.csv');
+        $file = public_path('Cobranca_02_10-09-2018.csv');
 
         $customerArr = $this->csvToArray($file);
 
