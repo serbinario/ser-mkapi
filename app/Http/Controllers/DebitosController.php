@@ -173,9 +173,9 @@ class DebitosController extends Controller
                             <input name="_token" value="'.$this->token .'" type="hidden">
                             <div class="btn-group btn-group-xs pull-right" role="group">
                               
-                                <a href="#" class="btn btn-primary" title="Edit">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                </a>
+                                <button type="button" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
+                                    <span class="glyphicon md-cancel" aria-hidden="true"></span>
+                                </button>
                         </form>
                         ';
         })->make(true);

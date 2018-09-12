@@ -49,6 +49,62 @@ $(document).on("click", ".btnModalFinanceiro", function () {
 
 });
 
+$(document).on( 'click', '.cancelBoleto', function( event ) {
+    event.preventDefault();
+
+    boletoCode  = $(this).attr('id');
+
+    swal({
+            title: "Deseja cancelar o boleto?",
+            text: "",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Cancelar o Boleto",
+            cancelButtonText: "Nao, cancel!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                cancelCharge()
+            }
+        });
+});
+
+function cancelCharge()
+{
+    //Recupera o id do registro
+
+    //Necessario para que o ajax envie o csrf-token
+    //Para isso coloquei no form <meta name="csrf-token" content="{{ csrf_token() }}">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var dados = {
+        'code': boletoCode
+    }
+
+    jQuery.ajax({
+        type: 'GET',
+        data: dados,
+        url: '/index.php/debitos/cancelCharge/' + boletoCode,
+        datatype: 'json'
+    }).done(function (retorno) {
+
+        if(retorno.success) {
+            table.draw();
+            swal(retorno.msg, "Click no botão abaixo!", "success");
+        } else {
+            swal(retorno.msg, "Click no botão abaixo!", "error");
+        }
+    });
+
+}
+
 
 
 
