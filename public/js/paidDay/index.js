@@ -24,6 +24,7 @@ var table = $('#paidDay').DataTable({
         {data: 'nome', name: 'mk_clientes.nome'},
         {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
         {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},
+        {data: 'data_pagamento', name: 'fin_debitos.data_pagamento'},
         {data: 'status_secret', name: 'fin_debitos.status_secret'}
     ],
     "fnInitComplete": function(oSettings, json) {

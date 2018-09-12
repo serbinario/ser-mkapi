@@ -40,6 +40,7 @@
                                                     <th>Nome</th>
                                                     <th>Valor</th>
                                                     <th>Data Vencimento</th>
+                                                    <th>Data Pagamento</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
