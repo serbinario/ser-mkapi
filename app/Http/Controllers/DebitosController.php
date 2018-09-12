@@ -473,7 +473,6 @@ class DebitosController extends Controller
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
                 ->where('fin_debitos.data_vencimento', '<=', $cur_date)
                 ->where('fin_debitos.status_id', '=', '3')
-                ->orderBy('data_pagamento', 'DESC')
                 ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
