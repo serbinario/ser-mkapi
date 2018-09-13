@@ -149,6 +149,7 @@
 
     @include('cliente.modal_financeiro')
     @include('cliente.modal_financeiro_debito')
+    @include('cliente.modal_financeiro_baixa_debito')
 
 
 @endsection
@@ -159,5 +160,7 @@
     <script src="{{ asset('/js/cliente/boqueioDesbloqueio.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro.js')}}" type="text/javascript"></script>
     <script src="{{ asset('/js/cliente/modal_financeiro_debito.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('/js/cliente/modal_financeiro_baixa_debito.js')}}" type="text/javascript"></script>
+
     <script src="{{ asset('/js/mascaras.js')}}" type="text/javascript"></script>
 @stop

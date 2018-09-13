@@ -175,6 +175,9 @@ class DebitosController extends Controller
                               
                                 <button type="button" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
                                     <span class="glyphicon md-cancel" aria-hidden="true"></span>
+                                </button>                                
+                                <button type="button" class="btn btn-primary btModalBaixaDebito" id="' . $row->code   . '" title="Baixar Debito">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
                                 </button>
                         </form>
                         ';

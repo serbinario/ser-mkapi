@@ -2,6 +2,7 @@
 // Variável que armazenará o id da Contrato
 var contrato_id;
 
+
 // Evento para abrir o modal de btnAditvoModal
 // este botao e criado no controller dinamicamente
 $(document).on("click", ".btnModalFinanceiro", function () {
@@ -12,9 +13,19 @@ $(document).on("click", ".btnModalFinanceiro", function () {
 
     //Recupera o id do registro
     cliente_id = $(this).attr('id');
-    console.log(cliente_id);
+    fornecedorNome   = table.row($(this).parents('tr')).data().nome;
 
-    var table = $('#tableModalFinanceiro').DataTable({
+
+    var varHead = " Financeiro: " + " - " + fornecedorNome;
+
+    //Limpa Primeiro antes de colocar o texto
+    $('#titleModalFianceiro').empty();
+    // prenchendo o titulo do modal
+    $('#titleModalFianceiro').append(varHead);
+
+
+
+    gridDebitostable = $('#tableModalFinanceiro').DataTable({
         "destroy": true,
         "pageLength": 5,
         "lengthChange": false,
@@ -67,6 +78,7 @@ $(document).on( 'click', '.cancelBoleto', function( event ) {
         },
         function(isConfirm) {
             if (isConfirm) {
+                gridDebitostable.ajax.reload();
                 cancelCharge()
             }
         });

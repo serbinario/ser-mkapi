@@ -1,3 +1,5 @@
+var gridDebitostable;
+var fornecedorNome;
 function template(d){
     console.log(d);
     //Retirar os "&quot" da array aditivos
