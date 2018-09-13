@@ -145,18 +145,20 @@ class LogCron extends Command
             $end = Carbon::createFromFormat('d/m/Y', $debito->data_vencimento);
 
 
-            //if($now > $end){
+            if($now > $end){
                 //Clientes que ainda vai vencer
                 //$length = -$length;
                // $this->vencidos($debito, $length);
                 echo   "Vencidos " . $debito->nome . " " . $debito->data_vencimento . " " . " - " . $debito->id . " - " . $debito->dias_atraso."\n";
+                $this->geraMsgBanco($debito, "1");
 
 
 
-           // }else{
+            }else{
                // $this->aVencer($debito, $length);
-                //echo   $debito->mkCliente->nome ." - " . $debito->id . " - ". $debito->status_id . " - ". $debito->data_vencimento . " - " . $length . "\n" ;
-           // }
+                echo   "A Vencer " . $debito->nome . " " . $debito->data_vencimento . " " . " - " . $debito->id . " - " . $debito->dias_atraso."\n";
+                $this->geraMsgBanco($debito, "2");
+            }
         }
 
     }
@@ -183,8 +185,8 @@ class LogCron extends Command
 
     public function geraMsgBanco($debito, $mgs)
     {
-        SendMessage::create(['nome' => $debito->mkCliente->nome, 'debito_id' => $debito->id, 'mensagem_id' => $mgs]);
-        $this->printTela($debito, $mgs);
+        SendMessage::create(['nome' => $debito->nome, 'debito_id' => $debito->id, 'mensagem_id' => $mgs]);
+       // $this->printTela($debito, $mgs);
     }
 
     public function printTela($debito, $mgs)

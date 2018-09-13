@@ -474,7 +474,7 @@ class DebitosController extends Controller
 
             $rows = \DB::table('fin_debitos')
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
-                ->where('fin_debitos.data_vencimento', '<=', $cur_date)
+                ->where('fin_debitos.data_pagamento', '<=', $cur_date)
                 ->where('fin_debitos.status_id', '=', '3')
                 ->select([
                     'fin_debitos.id',
