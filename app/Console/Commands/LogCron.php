@@ -145,7 +145,7 @@ class LogCron extends Command
             $end = Carbon::createFromFormat('d/m/Y', $debito->data_vencimento);
 
 
-            if($now > $end){
+            //if($now > $end){
                 //Clientes que ainda vai vencer
                 //$length = -$length;
                // $this->vencidos($debito, $length);
@@ -153,10 +153,10 @@ class LogCron extends Command
 
 
 
-            }else{
+           // }else{
                // $this->aVencer($debito, $length);
                 //echo   $debito->mkCliente->nome ." - " . $debito->id . " - ". $debito->status_id . " - ". $debito->data_vencimento . " - " . $length . "\n" ;
-            }
+           // }
         }
 
     }
