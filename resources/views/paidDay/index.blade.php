@@ -41,6 +41,7 @@
                                                     <th>Valor</th>
                                                     <th>Data Vencimento</th>
                                                     <th>Data Pagamento</th>
+                                                    <th>Forma Pag.</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>

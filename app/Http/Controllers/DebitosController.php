@@ -521,11 +521,13 @@ class DebitosController extends Controller
 
             $rows = \DB::table('fin_debitos')
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
+                ->leftJoin('fin_formas_pagamentos', 'fin_formas_pagamentos.id', '=', 'fin_debitos.forma_pagamento_id')
                 ->where('fin_debitos.data_pagamento', '<=', $cur_date)
                 ->where('fin_debitos.status_id', '=', '3')
                 ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
+                    'fin_formas_pagamentos.nome as form_pag_nome',
                     \DB::raw('IF(mk_clientes.status_secret < 0, "Bloqueado", "Ativo") as status_secret'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_pagamento,"%d/%m/%Y") as data_pagamento'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
