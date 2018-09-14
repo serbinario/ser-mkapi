@@ -1,5 +1,8 @@
 var gridDebitostable;
 var fornecedorNome;
+var valor_debito;
+var numero_cobranca;
+var id_debito; //id do debito
 function template(d){
     console.log(d);
     //Retirar os "&quot" da array aditivos

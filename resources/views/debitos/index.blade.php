@@ -219,6 +219,7 @@
                                             <th>Data Venc.</th>
                                             <th>Data Pag.</th>
                                             <th>Valor Pago</th>
+                                            <th>Form Pag.</th>
                                             <th>Status</th>
                                             <th>Acao</th>
                                         </tr>

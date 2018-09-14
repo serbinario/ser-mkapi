@@ -10,104 +10,54 @@ $(document).on("click", ".btModalBaixaDebito", function () {
     $("#modalFinanceiroBaixaDebito").modal({show:true});
 
     //Recupera a coluna
-    code   = gridDebitostable.row($(this).parents('tr')).data().code;
+    numero_cobranca   = gridDebitostable.row($(this).parents('tr')).data().code;
+    valor_debito = gridDebitostable.row($(this).parents('tr')).data().valor_debito;
+    id_debito = gridDebitostable.row($(this).parents('tr')).data().id;
 
-    var varHead = "Baixa Débito: " + code + " Cliente: "+ fornecedorNome;
+    var varHead = "Baixa Débito: " + numero_cobranca + " Cliente: "+ fornecedorNome + " Valor: R$ " + valor_debito;
     //Limpa Primeiro antes de colocar o texto
     $('#titleModalFianceiroBaixaDebito').empty();
     // prenchendo o titulo do modal
     $('#titleModalFianceiroBaixaDebito').append(varHead);
 
-  console.log(code)
-
-    /*
-      //Recupera o id do registro
-      cliente_id = $(this).attr('id'); //$(this) refers the clicked button element*/
-
-/*    //Adiciono um campo hidden com o id do registro do contrato
-    //$("input[type='hidden']").remove();
-    $('#modalFinanceiroDebito').append('<input type="hidden" name="id" value="' + cliente_id + '" />');
-
-    var varHead = " Novo Pagamento: " + " - " + fornecedorNome + " Login: " + login;
-
-    //Limpa Primeiro antes de colocar o texto
-    $('#titleModalFianceiroDebito').empty();
-    // prenchendo o titulo do modal
-    $('#titleModalFianceiroDebito').append(varHead);
-
-
-    // Recuperando valores do formulário
-    var descricao = $("#descricao").val();
-    var data_vencimento = $("#data_vencimento").val();
-    var data_competencia = $("#data_competencia").val();
-    var valor_debito = $("#valor_debito").val();
-
-
-
 
     //Limpar os campos
-    $("#descricao").val("");
-    $("#data_vencimento").val("");
-    $("#data_competencia").val("");
-    $("#valor_debito").val("");
-    $("#categoria").val("");
+    $("#data_pagamento").val("");
+    $("#forma_pagamento_id").val("");
+    $("#conta_bancaria_id").val("");
+    $("#multa").val("");
+    $("#desconto").val("");
+    $("#valor_pago").val(valor_debito);
 
-
-    //Necessario para que o ajax envie o csrf-token
-    //Para isso coloquei no form <meta name="csrf-token" content="{{ csrf_token() }}">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    // Requisição ajax
-    jQuery.ajax({
-        type: 'POST',
-        url: '/index.php/cliente/getCliente/' + cliente_id,
-        datatype: 'json'
-    }).done(function (retorno) {
-        if(retorno.success) {
-            $("#descricao").val(retorno.descricao);
-            $("#data_vencimento").val(retorno.diaVenci);
-            $("#data_competencia").val(retorno.diaVenci);
-            $("#valor_debito").val(retorno.valor);
-        } else {
-
-        }
-    });*/
 });
 
 // Evento para salvar o Debito
 //Controller = DebitoController metodo store
-$('#btnSaveDebito').click(function() {
+$('#btnSaveBaixa').click(function() {
     // Recuperando valores do formulário
-    var descricao = $("#descricao").val();
-    var data_vencimento = $("#data_vencimento").val();
-    var data_competencia = $("#data_competencia").val();
-    var valor_debito = $("#valor_debito").val();
+    var data_pagamento = $("#data_pagamento").val();
+    var forma_pagamento_id = $("#forma_pagamento_id").val();
+    var conta_bancaria_id = $("#conta_bancaria_id").val();
+    var multa = $("#multa").val();
+    var desconto = $("#desconto").val();
+    var valor_pago = $("#valor_pago").val();
+
 
 
     // Preparando o array de dados
     var dados = {
-        'id' : cliente_id,
-        'nome' : fornecedorNome,
-        'cpf' : cpf,
-        'mk_cliente_id' : cliente_id,
-        'descricao' : descricao,
-        'data_vencimento' : data_vencimento,
-        'data_competencia' : data_competencia,
-        'valor_debito' : valor_debito
+        'id_debito': id_debito,
+        'data_pagamento' : data_pagamento,
+        'forma_pagamento_id' : forma_pagamento_id,
+        'conta_bancaria_id' : conta_bancaria_id,
+        'multa' : multa,
+        'desconto' : desconto,
+        'valor_pago' : valor_pago
     };
 
-    //Valida se algum campo veio vazio
-    if(!cpf){
-        swal("CPF nao Informado", "Click no botão abaixo!", "error");
-        return false
-    }
 
     //Valida se algum campo veio vazio
-     if( !descricao  || !data_vencimento  || !data_competencia  || !valor_debito || !cpf){
+     if( !data_pagamento  || !forma_pagamento_id  || !valor_pago ){
         swal("Existe campos obrigatorios", "Click no botão abaixo!", "error");
          return false
      }
@@ -123,7 +73,7 @@ $('#btnSaveDebito').click(function() {
     // Requisição ajax
     jQuery.ajax({
         type: 'POST',
-        url: '/index.php/debitos',
+        url: '/index.php/debitos/baixa',
         data: dados,
         datatype: 'json',
         beforeSend: function() {
@@ -145,7 +95,8 @@ $('#btnSaveDebito').click(function() {
             $("#categoria").val("");
 
 
-            $('#modalFinanceiroDebito').modal('hide');
+            $('#modalFinanceiroBaixaDebito').modal('hide');
+            gridDebitostable.ajax.reload();
             swal(retorno.msg, "Click no botão abaixo!", "success");
         } else {
             swal(retorno.msg, "Click no botão abaixo!", "error");

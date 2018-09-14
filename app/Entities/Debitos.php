@@ -44,7 +44,9 @@ class Debitos extends Model
         'local_pagamento_id',
         'status',
         'boleto_id',
-        'status_id'
+        'status_id',
+        'multa',
+        'desconto'
     ];
 
     /**
@@ -136,7 +138,8 @@ class Debitos extends Model
      */
     public function setDataPagamentoAttribute($value)
     {
-        $this->attributes['data_pagamento'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
+        $this->attributes['data_pagamento'] =  !empty($value) ? substr($value,6,4)."-".substr($value,3,2)."-".substr($value,0,2) : null;
+
     }
 
     /**
@@ -217,6 +220,21 @@ class Debitos extends Model
             $value = str_replace(",",".",$value);
             //dd($value);
             $this->attributes['valor_debito'] =  $value;
+        }
+    }
+
+    /**
+     * Set the data_final.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setValorPagoAttribute($value)
+    {
+
+        if(!$value == null){
+            $value = str_replace(",",".",$value);
+            $this->attributes['valor_pago'] =  $value;
         }
     }
 

@@ -68,6 +68,7 @@ class DebitosController extends Controller
             ->Join('mk_clientes', 'mk_clientes.id', '=', 'fin_debitos.mk_cliente_id')
             ->Join('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
             ->Join('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
+            ->leftJoin('fin_formas_pagamentos', 'fin_formas_pagamentos.id', '=', 'fin_debitos.forma_pagamento_id')
             ->select([
                 'fin_debitos.id',
                 'fin_debitos.numero_cobranca',
@@ -80,7 +81,8 @@ class DebitosController extends Controller
                 \DB::raw('DATE_FORMAT(fin_debitos.data_competencia,"%d/%m/%Y") as data_competencia'),
                 'fin_boletos.code',
                 'fin_debitos.status_id',
-                'fin_debitos.boleto_id'
+                'fin_debitos.boleto_id',
+                'fin_formas_pagamentos.nome as form_pag_nome'
             ]);
 
         #Editando a grid
@@ -126,8 +128,8 @@ class DebitosController extends Controller
                 }
 
                 $html .= '</div></form>';
-            return $html;
-        })->make(true);
+                return $html;
+            })->make(true);
     }
 
     /**
@@ -146,6 +148,7 @@ class DebitosController extends Controller
             ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
             ->select([
                 'fin_debitos.id',
+                'fin_debitos.status_id',
                 'fin_boletos.code',
                 'fin_debitos.valor_debito',
                 \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
@@ -168,20 +171,26 @@ class DebitosController extends Controller
             })
 
             ->addColumn('action', function ($row) {
-            return '<form id="' . $row->id   . '" method="POST" action="debitos/' . $row->id   . '/destroy" accept-charset="UTF-8">
+
+                //Se o status_id do debito = 3 "Pago"
+                if($row->status_id == 3){
+                    return '';
+                }else{
+                    return '<form id="' . $row->id   . '" method="POST" action="debitos/' . $row->id   . '/destroy" accept-charset="UTF-8">
                             <input name="_method" value="DELETE" type="hidden">
                             <input name="_token" value="'.$this->token .'" type="hidden">
-                            <div class="btn-group btn-group-xs pull-right" role="group">
-                              
-                                <button type="button" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar">
+                            <div class="btn-group btn-group-xs pull-right" role="group">                              
+                                <button type="button" class="btn btn-danger cancelBoleto" id="' . $row->code   . '" title="Cancelar"  >
                                     <span class="glyphicon md-cancel" aria-hidden="true"></span>
                                 </button>                                
                                 <button type="button" class="btn btn-primary btModalBaixaDebito" id="' . $row->code   . '" title="Baixar Debito">
                                     <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
                                 </button>
-                        </form>
-                        ';
-        })->make(true);
+                            </div>
+                        </form>';
+                }
+
+            })->make(true);
     }
 
     /**
@@ -208,17 +217,17 @@ class DebitosController extends Controller
     public function knob(Request $request)
     {
         $rows = \DB::table('fin_debitos');
-            if ( $request->has('data_venc_ini') && $request->has('data_venc_fim')) {
-                $rows->whereBetween('data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')]);
-            }else{
-                $date_ini = date('Y-m-01');
-                $date_fim = date('Y-m-t');
-                $rows->whereBetween('data_vencimento', [$date_ini, $date_fim]);
-            }
+        if ( $request->has('data_venc_ini') && $request->has('data_venc_fim')) {
+            $rows->whereBetween('data_vencimento', [$request->get('data_venc_ini'), $request->get('data_venc_fim')]);
+        }else{
+            $date_ini = date('Y-m-01');
+            $date_fim = date('Y-m-t');
+            $rows->whereBetween('data_vencimento', [$date_ini, $date_fim]);
+        }
 
-            //->where(\DB::raw('data_vencimento BETWEEN  DATE_FORMAT(NOW() ,\'%Y-%m-01\') AND DATE_FORMAT(NOW() ,\'%Y-%m-31\')'))
-            $rows->select([
-                \DB::raw('
+        //->where(\DB::raw('data_vencimento BETWEEN  DATE_FORMAT(NOW() ,\'%Y-%m-01\') AND DATE_FORMAT(NOW() ,\'%Y-%m-31\')'))
+        $rows->select([
+            \DB::raw('
                         COUNT(IF(status_id="2","2", NULL)) "aguardando", 
                         COUNT(IF(status_id="3","3", NULL)) "pagas",
                         COUNT(IF(status_id="4","4", NULL)) "inadiplentes",
@@ -227,18 +236,18 @@ class DebitosController extends Controller
                         SUM(IF(status_id="4",valor_debito, NULL)) "total_inadiplentes",
                         COUNT(*) "total"
                     ')
-            ]);
+        ]);
 
         $rows = $rows->get();
         //dd($rows);
 
-       foreach ($rows as $row){
-           return \Illuminate\Support\Facades\Response::json([
-               'success' => true, 'total' => $row->total, 'pagas' => $row->pagas, 'inadiplentes' => $row->inadiplentes,
-               'aReceber' => $row->aguardando, 'dinheiro' => '10',
-               'total_pagos' => $row->total_pagos, 'total_aguardando' => $row->total_aguardando, 'total_inadiplentes' => $row->total_inadiplentes
-           ]);
-       }
+        foreach ($rows as $row){
+            return \Illuminate\Support\Facades\Response::json([
+                'success' => true, 'total' => $row->total, 'pagas' => $row->pagas, 'inadiplentes' => $row->inadiplentes,
+                'aReceber' => $row->aguardando, 'dinheiro' => '10',
+                'total_pagos' => $row->total_pagos, 'total_aguardando' => $row->total_aguardando, 'total_inadiplentes' => $row->total_inadiplentes
+            ]);
+        }
     }
     /**
      * Display a listing of the fornecedors.
@@ -306,6 +315,44 @@ class DebitosController extends Controller
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
+
+    /**
+     * Salva  um baixa de debito
+     *
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     * Regra de negocio - RN-0001
+     */
+    public function debitoBaixa(Request $request)
+    {
+        try {
+
+            $this->affirm($request);
+            //$data = $this->getData($request);
+            //dd($request->all());
+            $debito = Debitos::find($request->get('id_debito'));
+            //dd($debito);
+            $debito->valor_pago = $request->get('valor_pago');
+            $debito->data_pagamento = $request->get('data_pagamento');
+            $debito->conta_bancaria_id = $request->get('conta_bancaria_id');
+            $debito->forma_pagamento_id = $request->get('forma_pagamento_id');
+            $debito->multa = $request->get('multa');
+            $debito->desconto = $request->get('desconto');
+            $debito->local_pagamento_id = 4;
+            $debito->status_id = 3;
+            $debito->save();
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true, 'msg' => 'Edição realizada com sucesso!']);
+
+        } catch (Exception $exception) {
+            dd($exception->getMessage());
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        }
+    }
+
+
 
     /**
      * Display the specified debitos.
@@ -532,7 +579,7 @@ class DebitosController extends Controller
             'numero_cobranca' => 'nullable|string|min:0|max:50',
             'conta_bancaria_id' => 'nullable',
             'valor_debito' => 'nullable',
-            'valor_pago' => 'nullable|numeric|min:-99999999.99|max:99999999.99',
+            'valor_pago' => 'nullable|min:-99999999.99|max:99999999.99',
             'valor_desconto' => 'nullable|numeric|min:-99999999.99|max:99999999.99',
             'data_vencimento' => 'nullable|date_format:d/m/Y',
             'data_pagamento' => 'nullable|date_format:d/m/Y',
@@ -555,7 +602,7 @@ class DebitosController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['mk_cliente_id','status_id','boleto_id','code', 'numero_cobranca', 'cpf', 'nome','conta_bancaria_id','valor_debito','descricao','valor_pago','valor_desconto', 'data_competencia','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
+        $data = $request->only(['mk_cliente_id','status_id','multa', 'desconto','boleto_id','code', 'numero_cobranca', 'cpf', 'nome','conta_bancaria_id','valor_debito','descricao','valor_pago','valor_desconto', 'data_competencia','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
 
         return $data;
     }

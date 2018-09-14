@@ -14,6 +14,7 @@
                             <table id="tableModalFinanceiro" class="table order-column hover">
                                 <thead>
                                 <tr>
+                                    <th>id</th>
                                     <th>N. Cobrança</th>
                                     <th>Valor</th>
                                     <th>Data Ven.</th>

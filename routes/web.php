@@ -414,6 +414,9 @@ Route::group(
     Route::post('/', 'DebitosController@store')
          ->name('debitos.debitos.store');
 
+    Route::post('/baixa', 'DebitosController@debitoBaixa')
+        ->name('debito.baixa');
+
     Route::get('/cancelCharge/{code}', 'DebitosController@cancelCharge')
         ->name('debitos.cancelCharge');
 

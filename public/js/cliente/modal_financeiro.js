@@ -29,6 +29,7 @@ $(document).on("click", ".btnModalFinanceiro", function () {
         "destroy": true,
         "pageLength": 5,
         "lengthChange": false,
+        "autoWidth": true,
         processing: true,
         serverSide: true,
         bFilter: true,
@@ -40,6 +41,7 @@ $(document).on("click", ".btnModalFinanceiro", function () {
             }
         },
         columns: [
+            {data: 'id', name: 'fin_debitos.id', 'visible': true},
             {data: 'code', name: 'fin_boletos.code'},
             {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
             {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},

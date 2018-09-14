@@ -192,6 +192,7 @@ var table = $('#debitos').DataTable({
         {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},
         {data: 'data_pagamento', name: 'fin_debitos.data_pagamento'},
         {data: 'valor_pago', name: 'fin_debitos.valor_pago'},
+        {data: 'form_pag_nome', name: 'fin_formas_pagamentos.form_pag_nome'},
         {data: 'status', name: 'fin_status.nome'},
         {data: 'action', name: 'action', orderable: false, searchable: false}
     ],

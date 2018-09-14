@@ -13,6 +13,7 @@ $(document).on("click", ".btnModalFinanceiroDebito", function () {
     fornecedorNome   = table.row($(this).parents('tr')).data().nome;
     login   = table.row($(this).parents('tr')).data().login;
     cpf   = table.row($(this).parents('tr')).data().cpf;
+
     console.log(fornecedorNome);
 
     //Recupera o id do registro
