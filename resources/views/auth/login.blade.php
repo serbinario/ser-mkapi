@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="your,keywords">
     <meta name="description" content="Short explanation about this website">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
     <!-- BEGIN STYLESHEETS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>

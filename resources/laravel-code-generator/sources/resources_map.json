@@ -37,5 +37,10 @@
         "model-name": "Cobranca",
         "resource-file": "cobranca.json",
         "table-name": "cobrancas"
+    },
+    {
+        "model-name": "Log",
+        "resource-file": "syslog.json",
+        "table-name": "SystemEvents"
     }
 ]

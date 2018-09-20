@@ -53,6 +53,17 @@ class CobrancasAPIController extends Controller
         }
     }
 
+    public function mkapi(Request $request)
+    {
+
+        $manage = (array) json_decode($request->get('data'));
+        //echo "eeeeeeee";
+        Log::info(
+            $manage
+        );
+        return \Response::make('message', 200);
+    }
+
     /*
      * Retorna os debitos
      *

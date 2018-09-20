@@ -38,6 +38,8 @@ class DebitosController extends Controller
     {
         $this->middleware('auth');
         $this->boletoFacilApi = $boletoFacilApi;
+        // check if session expired for ajax request
+
 
     }
 

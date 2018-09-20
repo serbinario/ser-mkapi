@@ -32,6 +32,8 @@ Route::any('/cobrancasAPIMsg', 'CobrancasAPIController@cobrancasAPIMsg')->name('
 Route::any('/cobrancasAPIMsgBoleto', 'CobrancasAPIController@cobrancasAPIMsgBoleto')->name('cobrancasAPI.cobrancasAPIMsgBoleto');
 Route::any('/cobrancasPendentes', 'CobrancasAPIController@cobrancasPendentes')->name('cobrancasAPI.cobrancasPendentes');
 
+Route::any('/mkapi', 'CobrancasAPIController@mkapi')->name('cobrancasAPI.mkapi');
+
 
 
 
@@ -466,6 +468,41 @@ Route::group(
 
     Route::delete('/{cobranca}/destroy','CobrancaController@destroy')
          ->name('cobranca.cobranca.destroy')
+         ->where('id', '[0-9]+');
+
+});
+
+Route::group(
+[
+    'prefix' => 'log',
+], function () {
+
+    Route::get('/', 'LogController@index')
+         ->name('log.log.index');
+
+    Route::get('/create','LogController@create')
+         ->name('log.log.create');
+
+    Route::get('/grid', 'LogController@grid')
+         ->name('[% grid_route_name %]');
+
+    Route::get('/show/{log}','LogController@show')
+         ->name('log.log.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{log}/edit','LogController@edit')
+         ->name('log.log.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'LogController@store')
+         ->name('log.log.store');
+               
+    Route::put('log/{log}', 'LogController@update')
+         ->name('log.log.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/{log}/destroy','LogController@destroy')
+         ->name('log.log.destroy')
          ->where('id', '[0-9]+');
 
 });

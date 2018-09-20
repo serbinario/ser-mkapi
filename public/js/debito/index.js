@@ -175,6 +175,8 @@ var table = $('#debitos').DataTable({
     order: [[ 1, "asc" ]],
     ajax: {
         url: "/index.php/debitos/grid",
+        error: function (jqXHR, textStatus, errorThrown) {
+        },
         data: function (d) {
             d.status = $('select[name=status] option:selected').val();
             d.nome = $('input[name=nome]').val();
@@ -198,7 +200,7 @@ var table = $('#debitos').DataTable({
     ],
     "fnInitComplete": function(oSettings, json) {
         chartKnob();
-    }
+    },
 });
 
 function dateToEN(date)

@@ -190,6 +190,16 @@
 										<li><a href="{{ route('paidDay.index') }}" class="active"><span class="title">Pagos Hoje</span></a></li>
 									</ul><!--end /submenu -->
 								</li><!--end /menu-li -->
+
+								<li class="gui-folder">
+									<a href="javascript:void(0);">
+										<span class="title">PPPP</span>
+									</a>
+									<!--start submenu -->
+									<ul>
+										<li><a href="{{ route('log.log.index') }}" class="active"><span class="title">Log</span></a></li>
+									</ul><!--end /submenu -->
+								</li><!--end /menu-li -->
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END FORMS -->
@@ -254,6 +264,7 @@
 
 		<script src="{{ asset('/assets/js/libs/sweetalert/sweetalert.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/libs/jquery-mask-plugin/dist/jquery.mask.js')}}" type="text/javascript"></script>
+		<script src="{{ asset('/js/ajaxError.js')}}" type="text/javascript"></script>
 
 		<!-- END JAVASCRIPT -->
 		@yield('javascript')
