@@ -42,7 +42,7 @@ $(document).ready(function () {
             {data: 'status', name: 'Message'},
             {data: 'ip', name: 'Message'},
             {data: 'ReceivedAt', name: 'ReceivedAt'},
-            {data: 'nome', name: 'nome'}
+            {data: 'nome', name: 'mk_grupos.nome'}
 
         ]
     });
