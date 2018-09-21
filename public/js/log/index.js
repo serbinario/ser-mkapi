@@ -30,7 +30,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         bFilter: true,
-        order: [[ 1, "asc" ]],
+        order: [[ 4, "DESC" ]],
         ajax: {
             url: "/index.php/log/grid",
             data: function (d) {
@@ -41,7 +41,9 @@ $(document).ready(function () {
             {data: 'user', name: 'Message'},
             {data: 'status', name: 'Message'},
             {data: 'ip', name: 'Message'},
-            {data: 'ReceivedAt', name: 'ReceivedAt'}
+            {data: 'ReceivedAt', name: 'ReceivedAt'},
+            {data: 'nome', name: 'nome'}
+
         ]
     });
 

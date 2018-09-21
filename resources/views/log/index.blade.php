@@ -24,14 +24,8 @@
                     {{ csrf_field() }}
                     <div class="card">
                         <div class="card-head style-primary">
-                            <header>Lista de Fornecedores</header>
-                            <div class="tools">
-                                <div class="btn-group">
-                                    <a href="{{ route('log.log.create') }}" class="btn btn-primary" title="Novo Fornecedor">
-                                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                                    </a>
-                                </div>
-                            </div>
+                            <header>Log Mikrotik</header>
+
                         </div>
 
                         <div class="row">
@@ -45,6 +39,7 @@
                                                     <th>Status</th>
                                                     <th>IP</th>
                                                     <th>Data</th>
+                                                    <th>Grupo</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -54,14 +49,6 @@
                         </div><!--end .row -->
                         <!-- END DATATABLE 1 -->
 
-
-
-
-                        <div class="card-actionbar">
-                            <div class="card-actionbar-row">
-                                <a href="{{ route('log.log.create') }}" type="button" class="btn btn-flat btn-primary ink-reaction">Novo Fornecedor</a>
-                            </div>
-                        </div>
                     </div><!--end .card -->
 
                 </form>

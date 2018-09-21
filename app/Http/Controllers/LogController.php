@@ -48,13 +48,15 @@ class LogController extends Controller
         #Criando a consulta
         $rows = \DB::table('SystemEvents')
             ->where('FromHost', '=', '170.245.65.134')
-            ->orderBy('SystemEvents.ReceivedAt','DESC')
+            ->leftJoin('mk_clientes', 'mk_clientes.login', '=', 'SystemEvents.pppoe_user')
+            ->leftJoin('mk_grupos', 'mk_grupos.id', '=', 'mk_clientes.grupo_id')
             ->select([
                 'SystemEvents.ID',
                 //'SystemEvents.Message',
-                'SystemEvents.ReceivedAt',
+                //'SystemEvents.ReceivedAt',
                 'SystemEvents.Message',
-                //\DB::raw('DATE_FORMAT(SystemEvents.ReceivedAt,"%d/%m/%Y %H:%m:%s") as ReceivedAt'),
+                'mk_grupos.nome',
+                \DB::raw('DATE_FORMAT(SystemEvents.ReceivedAt,"%d/%m/%Y %H:%m:%s") as ReceivedAt'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 1) as status'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 2) as user'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 3) as ip'),
