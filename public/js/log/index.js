@@ -40,8 +40,8 @@ $(document).ready(function () {
         columns: [
             {data: 'ID', name: 'ID'},
             {data: 'user', name: 'Message'},
-            {data: 'status', name: 'status'},
-            {data: 'ip', name: 'ip'},
+            {data: 'status', name: 'Message'},
+            {data: 'ip', name: 'Message'},
             {data: 'ReceivedAt', name: 'ReceivedAt'},
             {data: 'Message', name: 'Message'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
