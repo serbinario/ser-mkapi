@@ -15,6 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         'notificationUrl',
         'cobrancasAPISend',
         'cobrancasAPIError',
-        'mkapi'
+        'logMikrotik'
     ];
 }

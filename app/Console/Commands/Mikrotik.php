@@ -272,9 +272,9 @@ class Mikrotik extends Command
 
     public function ssh2()
     {
-        \SSH::run('ppp active print without-paging', function($line)
+        \SSH::run('log print without-paging', function($line)
         {
-            echo $line.PHP_EOL;
+            dd($line);
         });
         /*\SSH::run([
             'ppp active print without-paging',

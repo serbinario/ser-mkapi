@@ -39,8 +39,11 @@ $(document).ready(function () {
         },
         columns: [
             {data: 'ID', name: 'ID'},
-            {data: 'Message', name: 'Message'},
+            {data: 'user', name: 'Message'},
+            {data: 'status', name: 'status'},
+            {data: 'ip', name: 'ip'},
             {data: 'ReceivedAt', name: 'ReceivedAt'},
+            {data: 'Message', name: 'Message'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

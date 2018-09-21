@@ -19,11 +19,11 @@ class LogController extends Controller
      *
      * @return void
      */
-	public function __construct()
-	{
-	    $this->middleware('auth');
-	}
-	
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the logs.
      *
@@ -37,23 +37,45 @@ class LogController extends Controller
     }
 
     /**
-         * Display a listing of the fornecedors.
-         *
-         * @return Illuminate\View\View
-         * @throws Exception
-         */
-        public function grid()
-        {
-            $this->token = csrf_token();
-            #Criando a consulta
-            $rows = \DB::table('SystemEvents')
-                ->where('FromHost', '=', '170.245.65.134');
+     * Display a listing of the fornecedors.
+     *
+     * @return Illuminate\View\View
+     * @throws Exception
+     */
+    public function grid()
+    {
+        $this->token = csrf_token();
+        #Criando a consulta
+        $rows = \DB::table('SystemEvents')
+            ->leftJoin('mk_clientes', 'mk_clientes.login', '=', 'user')
+            ->where('FromHost', '=', '170.245.65.134')
+            ->select([
+                'SystemEvents.ID',
+                //'SystemEvents.Message',
+                'SystemEvents.ReceivedAt',
+                'SystemEvents.Message',
+                \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 1) as status'),
+                \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 2) as user'),
+                \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 3) as ip'),
+            ]);;
 
-            #Editando a grid
-            return Datatables::of($rows)->addColumn('action', function ($row) {
-                return '';
-                            })->make(true);
-        }
+        #Editando a grid
+        return Datatables::of($rows)->addColumn('action', function ($row) {
+            return '';
+        })->make(true);
+    }
+
+    public function logMikrotik(Request $request)
+    {
+        $manage = (array) json_decode($request->get('data'));
+        //echo "eeeeeeee";
+        Log::info(
+            $manage
+        );
+        return \Response::make('message', 200);
+    }
+
+
 
     /**
      * Show the form for creating a new log.
@@ -62,8 +84,8 @@ class LogController extends Controller
      */
     public function create()
     {
-        
-        
+
+
         return view('log.create');
     }
 
@@ -79,16 +101,16 @@ class LogController extends Controller
         try {
             $this->affirm($request);
             $data = $this->getData($request);
-            
+
             Log::create($data);
 
             return redirect()->route('log.log.index')
-                             ->with('success_message', 'Log was successfully added!');
+                ->with('success_message', 'Log was successfully added!');
 
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
 
@@ -116,7 +138,7 @@ class LogController extends Controller
     public function edit($id)
     {
         $log = Log::findOrFail($id);
-        
+
 
         return view('log.edit', compact('log'));
     }
@@ -134,18 +156,18 @@ class LogController extends Controller
         try {
             $this->affirm($request);
             $data = $this->getData($request);
-            
+
             $log = Log::findOrFail($id);
             $log->update($data);
 
             return redirect()->route('log.log.index')
-                             ->with('success_message', 'Log was successfully updated!');
+                ->with('success_message', 'Log was successfully updated!');
 
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
-        }        
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+        }
     }
 
     /**
@@ -162,15 +184,15 @@ class LogController extends Controller
             $log->delete();
 
             return redirect()->route('log.log.index')
-                             ->with('success_message', 'Log was successfully deleted!');
+                ->with('success_message', 'Log was successfully deleted!');
 
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
-    
+
     /**
      * Validate the given request with the defined rules.
      *
@@ -204,18 +226,18 @@ class LogController extends Controller
             'EventLogType' => 'nullable|string|min:0|max:60',
             'GenericFileName' => 'nullable|string|min:0|max:60',
             'SystemID' => 'nullable|numeric|min:-2147483648|max:2147483647',
-     
+
         ];
 
 
         return $this->validate($request, $rules);
     }
 
-    
+
     /**
      * Get the request's data from the request.
      *
-     * @param Illuminate\Http\Request\Request $request 
+     * @param Illuminate\Http\Request\Request $request
      * @return array
      */
     protected function getData(Request $request)

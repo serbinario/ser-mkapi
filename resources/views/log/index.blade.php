@@ -42,7 +42,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
-                                                    <th>Log</th>
+                                                    <th>Usuario</th>
+                                                    <th>Status</th>
+                                                    <th>IP</th>
+                                                    <th>Data</th>
                                                     <th>Data</th>
                                                     <th>Acao</th>
                                                 </tr>

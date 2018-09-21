@@ -32,7 +32,8 @@ Route::any('/cobrancasAPIMsg', 'CobrancasAPIController@cobrancasAPIMsg')->name('
 Route::any('/cobrancasAPIMsgBoleto', 'CobrancasAPIController@cobrancasAPIMsgBoleto')->name('cobrancasAPI.cobrancasAPIMsgBoleto');
 Route::any('/cobrancasPendentes', 'CobrancasAPIController@cobrancasPendentes')->name('cobrancasAPI.cobrancasPendentes');
 
-Route::any('/mkapi', 'CobrancasAPIController@mkapi')->name('cobrancasAPI.mkapi');
+Route::any('/logMikrotik', 'SyslogAPIController@logMikrotik')->name('logMikrotik');
+
 
 
 
