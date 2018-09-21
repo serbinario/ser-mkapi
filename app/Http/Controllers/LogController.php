@@ -47,7 +47,6 @@ class LogController extends Controller
         $this->token = csrf_token();
         #Criando a consulta
         $rows = \DB::table('SystemEvents')
-            ->leftJoin('mk_clientes', 'mk_clientes.login', '=', 'user')
             ->where('FromHost', '=', '170.245.65.134')
             ->select([
                 'SystemEvents.ID',
