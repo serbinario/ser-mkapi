@@ -52,9 +52,9 @@ class LogController extends Controller
             ->select([
                 'SystemEvents.ID',
                 //'SystemEvents.Message',
-                //'SystemEvents.ReceivedAt',
+                'SystemEvents.ReceivedAt',
                 'SystemEvents.Message',
-                \DB::raw('DATE_FORMAT(SystemEvents.ReceivedAt,"%d/%m/%Y - %H:%m:%s") as ReceivedAt'),
+                //\DB::raw('DATE_FORMAT(SystemEvents.ReceivedAt,"%d/%m/%Y %H:%m:%s") as ReceivedAt'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 1) as status'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 2) as user'),
                 \DB::raw('SPLIT_STRING(SystemEvents.Message, \',\', 3) as ip'),
