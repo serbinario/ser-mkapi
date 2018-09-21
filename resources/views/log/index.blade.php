@@ -41,13 +41,10 @@
                                         <table id="log" class="table order-column hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
                                                     <th>Usuario</th>
                                                     <th>Status</th>
                                                     <th>IP</th>
                                                     <th>Data</th>
-                                                    <th>Data</th>
-                                                    <th>Acao</th>
                                                 </tr>
                                             </thead>
                                         </table>
