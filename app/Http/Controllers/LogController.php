@@ -48,6 +48,7 @@ class LogController extends Controller
         #Criando a consulta
         $rows = \DB::table('SystemEvents')
             ->where('FromHost', '=', '170.245.65.134')
+            ->orderBy('SystemEvents.ReceivedAt','DESC')
             ->select([
                 'SystemEvents.ID',
                 //'SystemEvents.Message',
