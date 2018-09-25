@@ -16,13 +16,24 @@ $(document).ready(function () {
         $('.fisica').show()
         $('.juridico').hide()
 
-    }else{
+    }
+    if($( "input[name='tipo']:checked").val() == 'Juridico')
+    {
         document.getElementById('cpf').remove()
         $('.tipo_fisica').hide()
         $('.juridico').show()
         $('.fisica').hide()
     }
-    
+
+    //ao clicar aculta algum campo de cpf ou cnpj
+    $('.tipoF').click(function () {
+        $('.fisica').show()
+        $('.juridico').hide()
+    })
+    $('.tipoJ').click(function () {
+        $('.juridico').show()
+        $('.fisica').hide()
+    })
 
     //Ao submeter tirar as mascaras
     $("#edit_cliente_form").submit(function (event) {
