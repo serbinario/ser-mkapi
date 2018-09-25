@@ -9,12 +9,12 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Tipo Pessoa *</label>
         <div class="col-sm-10">
-            <label class="radio-inline radio-styled radio-primary">
-                <input {{ isset($cliente->tipo) ? 'disabled' : '' }} id="tipo_fisica" class="tipoF" name="tipo" type="radio" value="Fisica" required="true" {{ old('tipo', isset($cliente->tipo) ? $cliente->tipo : null) == 'Fisica' ? 'checked' : '' }}>
+            <label class="radio-inline radio-styled radio-primary tipo_fisica">
+                <input {{ isset($cliente->tipo) ? 'disabeeled' : '' }} id="tipo_fisica" class="tipoF" name="tipo" type="radio" value="Fisica" required="true" {{ old('tipo', isset($cliente->tipo) ? $cliente->tipo : null) == 'Fisica' ? 'checked' : '' }}>
                 Fisica
             </label>
-            <label class="radio-inline radio-styled radio-success">
-                <input {{ isset($cliente->tipo) ? 'disabled' : '' }} id="tipo_juridico" class="tipoJ" name="tipo" type="radio" value="Juridico" required="true" {{ old('tipo', isset($cliente->tipo) ? $cliente->tipo : null) == 'Juridico' ? 'checked' : '' }}>
+            <label class="radio-inline radio-styled radio-success tipo_juridico">
+                <input {{ isset($cliente->tipo) ? 'disableeed' : '' }} id="tipo_juridico" class="tipoJ" name="tipo" type="radio" value="Juridico" required="true" {{ old('tipo', isset($cliente->tipo) ? $cliente->tipo : null) == 'Juridico' ? 'checked' : '' }}>
                 Juridico
             </label>
         </div><!--end .col -->

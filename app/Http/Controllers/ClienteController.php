@@ -227,9 +227,17 @@ class ClienteController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
 
-            //dd($data);
+
             $cliente = Cliente::findOrFail($id);
             //$pessoaFisica = PessoaFisica::find($cliente->clienteable_id);
+
+            if(empty(!$request->get('cpf')))
+            {
+                $data['cpf'] = $request->get('cpf');
+            }else{
+                $data['cpf']  = $request->get('cnpj');
+            }
+            //dd($data);
 
             //Criptografo o cpf com os "." para a autenticaçao do usuario
             $cliente->password = bcrypt($request->get('cpf'));
