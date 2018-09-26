@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Material Admin - Blank page</title>
+    <title>NetStart - Provedor de Internet</title>
 
     <!-- BEGIN META -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="your,keywords">
-    <meta name="description" content="Short explanation about this website">
+    <meta name="keywords" content="Provedor,Internet, igarassu, fibra, otica, fibra otica">
+    <meta name="description" content="Netstart, o Primeiro provedor de internet de Igarassu">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
     <!-- BEGIN STYLESHEETS -->
