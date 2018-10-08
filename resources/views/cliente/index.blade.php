@@ -90,16 +90,20 @@
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="form-group {{ $errors->has('login') ? 'has-error' : '' }}">
-                                    <label for="login" class="col-sm-4 control-label">Data Ini.:</label>
+                                <div class="form-group {{ $errors->has('vencimento') ? 'has-error' : '' }}">
+                                    <label for="vencimento" class="col-sm-4 control-label">Vencimento.:</label>
                                     <div class="col-md-8">
-                                        <select id="select13" name="status" class="form-control input-sm">
-                                            <option value="">Todos</option>
-                                            <option value="">Pago</option>
-                                            <option value="Aguardando">Aguardando</option>
-                                            <option value="Cancelado">Cancelado</option>
-                                            <option value="Marcado como pago">Marcado como pago</option>
-
+                                        <select id="vencimento" name="vencimento" class="form-control input-sm">
+                                            <option value="">Selecione</option>
+                                            <option value="NULL">Sem Vencimento</option>
+                                            <option value="01">01</option>
+                                            <option value="05">05</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="29">20</option>
+                                            <option value="25">25</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
                                         </select>
                                     </div>
                                 </div>

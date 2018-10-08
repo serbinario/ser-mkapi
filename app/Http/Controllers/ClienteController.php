@@ -65,6 +65,7 @@ class ClienteController extends Controller
         $rows = \DB::table('mk_clientes')
             ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
             ->leftJoin('mk_grupos', 'mk_grupos.id', '=', 'mk_clientes.grupo_id')
+            ->leftJoin('mk_vencimento_dia', 'mk_vencimento_dia.id', '=', 'mk_clientes.vencimento_dia_id')
             ->select([
                 'mk_clientes.nome',
                 'mk_clientes.id',
@@ -83,6 +84,7 @@ class ClienteController extends Controller
                 # recuperando o valor da requisição
                 $localizar = $request->get('localizar');
                 $status = $request->get('status');
+                $vencimento = $request->get('vencimento');
                 #condição
                 $query->where(function ($where) use ($localizar) {
                     $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
@@ -93,6 +95,14 @@ class ClienteController extends Controller
 
                 if ($request->has('status')){
                     $query->where('mk_clientes.status_secret', '=', $status);
+                }
+                if ($request->has('vencimento')){
+                    if($vencimento == "NULL"){
+                        $query->whereNull('mk_clientes.vencimento_dia_id');
+                    }else{
+                        $query->where('mk_vencimento_dia.nome', '=', $vencimento);
+                    }
+
                 }
             })
 

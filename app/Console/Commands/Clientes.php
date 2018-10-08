@@ -170,7 +170,7 @@ class Clientes extends Command
 
     public function importCsv()
     {
-        $file = public_path('Cobranca_02_10-09-2018.csv');
+        $file = public_path('Combraca_setembro.csv');
 
         $customerArr = $this->csvToArray($file);
 

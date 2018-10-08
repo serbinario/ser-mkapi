@@ -38,6 +38,7 @@ var table = $('#cliente').DataTable({
         data: function (d) {
             d.status = $('select[name=status] option:selected').val();
             d.localizar = $('input[name=localizar]').val();
+            d.vencimento = $('select[name=vencimento] option:selected').val();
         }
     },
     columns: [
@@ -79,6 +80,9 @@ $(document).on("keyup", "#localizar", function () {
 });
 
 $(document).on("change", "#status", function () {
+    table.draw();
+});
+$(document).on("change", "#vencimento", function () {
     table.draw();
 });
 
