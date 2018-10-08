@@ -466,7 +466,8 @@ class DebitosController extends Controller
                 ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
-                    \DB::raw('IF(mk_clientes.status_secret < 0, "Bloqueado", "Ativo") as status_secret'),
+                    'mk_clientes.login',
+                    \DB::raw('IF(mk_clientes.status_secret = 0, "Bloqueado", "Ativo") as status_secret'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
                     'fin_debitos.valor_debito',
                     \DB::raw('DATEDIFF(data_vencimento, NOW()) AS dias_atraso')

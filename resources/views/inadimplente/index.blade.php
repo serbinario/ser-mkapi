@@ -37,6 +37,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nome</th>
+                                                    <th>Login</th>
                                                     <th>Valor</th>
                                                     <th>Data Vencimento</th>
                                                     <th>Status</th>
