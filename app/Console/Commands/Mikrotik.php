@@ -62,6 +62,8 @@ class Mikrotik extends Command
                 $this->ssh2();
                     //$this->cfgssh('170.245.65.134', 'NetSerb', 'nets@2017#', 'ppp active print  without-paging', '22', 'TUDO');
                     break;
+            case "activeclients":
+                $this->activeClients();
             default:
                 echo "not commands \n";
 
@@ -108,6 +110,60 @@ class Mikrotik extends Command
         $countQueues = $router->parseResponse($READ);
 
         dd($countQueues);
+
+    }
+
+    public function activeClients()
+    {
+
+        $router = new RouterosService();
+        $router->debug = false;
+        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+
+
+        $router->write('/ppp/secret/print', true);
+        $READ = $router->read(false);
+        $ARRAY = $router->parseResponse($READ);
+
+        $list = array();
+
+        for ($i = 0; $i < count($ARRAY); $i++) {
+            //echo $i ." " . $list['login'] = $ARRAY[$i]['name'] . "\n";
+            //$list['senha'] = $ARRAY[$i]['password'];
+            //$coment = " \" " .  $ARRAY[$i]['comment'] . "\" ";
+            //S$list['obs'] = $coment;
+            // dd($list);
+            $this->seExisteNaBase($ARRAY[$i]['name'], $i);
+
+            //$list = '';
+        }
+    }
+
+    public function seExisteNaBase($login, $i)
+    {
+        //echo $i . " N " . $login . "\n";
+
+        $cliente = Cliente::where('login', '=', $login)->limit(1)->first();
+        if(!empty($cliente)){
+
+            $debitos = Debitos::where('mk_cliente_id', '=', $cliente->id)
+                ->whereBetween('data_vencimento', ["2018-10-01", "2018-10-31"])
+                ->get();
+            if(!$debitos->count()){
+                echo $i . ";" . "NULL" . ";" . $login . ";" . $cliente->nome . ";" . $cliente->id . "\n";
+            }
+            foreach ($debitos as $debito){
+                if(!empty($debito)){
+                    echo $i . ";" . $debito->valor_debito . ";" . $login . ";" . $cliente->nome . ";" . $cliente->id . "\n";
+                }else{
+                    echo $i . ";" . "NULL" . ";" . $login . ";" . $cliente->nome . ";" . $cliente->id . "\n";
+                }
+
+            }
+
+        }else{
+            //echo $i . " N " . $login . "\n";
+        }
 
     }
 
