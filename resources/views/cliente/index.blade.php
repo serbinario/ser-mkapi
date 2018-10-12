@@ -95,7 +95,7 @@
                                     <div class="col-md-8">
                                         <select id="vencimento" name="vencimento" class="form-control input-sm">
                                             <option value="">Selecione</option>
-                                            <option value="NULL">Sem Vencimento</option>
+                                            <option value="NULL">Sem Vencimento </option>
                                             <option value="01">01</option>
                                             <option value="05">05</option>
                                             <option value="10">10</option>
