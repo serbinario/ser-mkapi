@@ -110,6 +110,7 @@ class ClienteController extends Controller
                     if($vencimento == "ALL-AT"){
                         $query->whereNotNull('mk_clientes.vencimento_dia_id');
                         $query->where('mk_clientes.is_ativo', '=', '1');
+                        $query->where('mk_clientes.inseto_mensalidade', '<>', '1');
                     }
 
                 }
