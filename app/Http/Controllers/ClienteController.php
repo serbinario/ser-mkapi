@@ -99,8 +99,17 @@ class ClienteController extends Controller
                 if ($request->has('vencimento')){
                     if($vencimento == "NULL"){
                         $query->whereNull('mk_clientes.vencimento_dia_id');
-                    }else{
+
+                    }
+                    if($vencimento == "ALL"){
+                       $query->whereNotNull('mk_clientes.vencimento_dia_id');
+                    }
+                    if($vencimento != "ALL" && $vencimento != "NULL" && $vencimento != "ALL-AT"){
                         $query->where('mk_vencimento_dia.nome', '=', $vencimento);
+                    }
+                    if($vencimento == "ALL-AT"){
+                        $query->whereNotNull('mk_clientes.vencimento_dia_id');
+                        $query->where('mk_clientes.is_ativo', '=', '1');
                     }
 
                 }
