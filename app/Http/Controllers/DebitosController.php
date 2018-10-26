@@ -97,6 +97,12 @@ class DebitosController extends Controller
                 if ($request->has('nome')) {
                     $query->where('mk_clientes.nome', 'like', "%" . $request->get('nome') . "%");
                 }
+                if ($request->has('code')) {
+                    $query->where('fin_boletos.code', '=', $request->get('code'));
+                }
+                if ($request->has('loc_pagamento')) {
+                    $query->where('fin_debitos.local_pagamento_id', '=', $request->get('loc_pagamento'));
+                }
                 if ($request->has('data_pag_ini')) {
                     $query->whereBetween('fin_debitos.data_pagamento', [$request->get('data_pag_ini'), $request->get('data_pag_fim')])->get();
                 }

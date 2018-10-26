@@ -179,7 +179,9 @@ var table = $('#debitos').DataTable({
         },
         data: function (d) {
             d.status = $('select[name=status] option:selected').val();
+            d.loc_pagamento = $('select[name=loc_pagamento] option:selected').val();
             d.nome = $('input[name=nome]').val();
+            d.code = $('input[name=code]').val();
             d.data_pag_ini = dateToEN($('input[name=data_pag_ini]').val());
             d.data_pag_fim = dateToEN($('input[name=data_pag_fim]').val());
             d.data_venc_ini = dateToEN($('input[name=data_venc_ini]').val());
@@ -189,6 +191,7 @@ var table = $('#debitos').DataTable({
     },
     columns: [
         {data: 'nome', name: 'mk_clientes.nome'},
+        {data: 'code', name: 'fin_boletos.code'},
         {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
         {data: 'data_competencia', name: 'fin_debitos.data_competencia'},
         {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},

@@ -73,6 +73,52 @@ class MikrotikController extends Controller
     }
 
     /*
+     * Desbloqueio do cliente
+     * Seta o cliente com o profile dele e desconecta o cliente
+     */
+    public function enableSecret($id)
+    {
+
+        try {
+            //Consulta o cliente passando o id
+            $cliente = Cliente::with('mkProfile')->findOrFail($id);
+
+            //Pego os parametros login e profile do cliente e o status do cliente em relaçao ao mikrotik se esta bloqueado ou nao
+            $login = $cliente->login;
+            $profileNome = $cliente->mkProfile->nome;
+
+            //Coloca o status para 1 como besbloqueado
+            $cliente->status_secret = 1;
+
+            //dd($profileNome);
+            $router = new RouterosService();
+            $router->debug = false;
+            $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+
+            //Altera o profile do cliente
+            $rest = $router->comm("/ppp/secret/set", array(
+                "numbers"     => $login,
+                "profile" => $profileNome
+            ));
+
+            //Remove o cliente conectado
+            $this->removePPP($router, $login);
+
+            //Salva
+            $cliente->save();
+
+            $router->disconnect();
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true ]);
+
+        } catch (Exception $exception) {
+
+            return \Illuminate\Support\Facades\Response::json(['error' => true ]);
+        }
+
+    }
+
+    /*
      * remove um secret do mikrotik
      */
     public function removePPP($router, $name)

@@ -108,6 +108,7 @@ class ClienteController extends Controller
                         $query->where('mk_vencimento_dia.nome', '=', $vencimento);
                     }
                     if($vencimento == "ALL-AT"){
+                        //So retorna os clientes com vencimento + ativos - os isentos de mensalidade
                         $query->whereNotNull('mk_clientes.vencimento_dia_id');
                         $query->where('mk_clientes.is_ativo', '=', '1');
                         $query->where('mk_clientes.inseto_mensalidade', '<>', '1');

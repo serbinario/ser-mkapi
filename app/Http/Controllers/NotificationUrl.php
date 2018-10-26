@@ -7,7 +7,7 @@ use Serbinario\Entities\Debitos;
 use Serbinario\Entities\FinBoleto;
 use Serbinario\Entities\LogDb;
 use Serbinario\Http\Controllers\BoletoFacil\BoletoFacilApi;
-
+use Serbinario\Http\Controllers\MikrotikController;
 
 class NotificationUrl extends Controller
 {
@@ -26,45 +26,53 @@ class NotificationUrl extends Controller
             //Loga no banco para fazer um debug, depois pode desativar
             $this->LogBanco($resp);
 
-            $boletos = FinBoleto::with('debito')->where('code', '=', $resp['chargeCode'])->get();
-            //$boletos = FinBoleto::with('debito')->where('code', '=', '30031043')->get();
+            //$boleto = FinBoleto::with('debito')->where('code', '=', $resp['chargeCode'])->first();
+            $boleto = FinBoleto::with('debito')->where('code', '=', '20748944')->first();
 
-            foreach ($boletos as $boleto){
-               //$boleto->paymentToken = 'CD3DA4F76EB4867643B9AEFB9852D814';
-               $boleto->paymentToken = $resp['paymentToken'];
-               //$boleto->fee =;
 
-                $boletoFacilApi = new BoletoFacilApi();
+            $boleto->paymentToken = '1B2128554368D6A339A49E0B76F993FECCD99D894826DC58';
+            //$boleto->paymentToken = $resp['paymentToken'];
+            //$boleto->fee =;
 
-                //Consulta a um boleto para saber o status4
-                $paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
-                //$paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
+            //dd($boleto);
+            $boletoFacilApi = new BoletoFacilApi();
 
-                //Loga no banco
-                $this->LogBanco($paymentDetails);
+            //Consulta a um boleto para saber o status4
+            //$paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
+            $paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
+            //dd($paymentDetails);
+            //Loga no banco
+            $this->LogBanco($paymentDetails);
 
-                //Transforma em uma array
-                $array = json_decode($paymentDetails, true);
+            //Transforma em uma array
+            $array = json_decode($paymentDetails, true);
 
-                //Falta terminar abaixo, pegar os dados de retorno do pagameto e jogar no banco,
-                //colocar isso dentro de fetchPaymentDetails
-                if($array['success'])
-                {
-                    //dd($array);
-                    //Data do pagamento
-                    $boleto->debito->data_pagamento = $array['data']['payment']['date'];
-                    //Valor Pago
-                    $boleto->debito->valor_pago = $array['data']['payment']['amount'];
-                    //Taxa
-                    $boleto->fee = $array['data']['payment']['fee'];
+            //Falta terminar abaixo, pegar os dados de retorno do pagameto e jogar no banco,
+            //colocar isso dentro de fetchPaymentDetails
+            if($array['success'])
+            {
+                //dd($array);
+                //Data do pagamento
+                $boleto->debito->data_pagamento = $array['data']['payment']['date'];
+                //Valor Pago
+                $boleto->debito->valor_pago = $array['data']['payment']['amount'];
+                //Local Pagamento
+                $boleto->debito->local_pagamento_id = 5;
+                //Taxa
+                $boleto->fee = $array['data']['payment']['fee'];
 
-                    $boleto->save();
+                $boleto->save();
 
-                    //Coloco o debito como pago
-                    $boleto->debito->status_id = '3';
-                    $boleto->debito->save();
-                }
+                //Coloco o debito como pago
+                $boleto->debito->status_id = '3';
+                $boleto->debito->save();
+
+                //Desbloqueia o cliente se estiver bloqueado
+                $mk = new MikrotikController();
+                //dd($boleto->debito->mk_cliente_id);
+                $mk->enableSecret($boleto->debito->mk_cliente_id);
             }
+
 
             return \Illuminate\Support\Facades\Response::json(['success' => true]);
 

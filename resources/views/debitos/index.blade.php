@@ -46,11 +46,19 @@
 
 
                                     <div class="row">
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label for="nome" class="col-sm-2 control-label">Nome:</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control input-sm" name="nome" type="text" id="nome" maxlength="20" placeholder="nome">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="code" class="col-sm-4 control-label">N. Cobra.</label>
+                                                <div class="col-md-7">
+                                                    <input class="form-control input-sm" name="code" type="text" id="code" maxlength="20" placeholder="N. Cobrança">
                                                 </div>
                                             </div>
                                         </div>
@@ -65,6 +73,18 @@
                                                         <option value="7">Cancelado</option>
                                                         <option value="4">Nao Pagos</option>
 
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="select13" class="col-md-4 control-label">L. Pag.</label>
+                                                <div class="col-md-8">
+                                                    <select id="loc_pagamento" name="loc_pagamento" class="form-control input-sm">
+                                                        <option value="">Todos</option>
+                                                        <option value="5">Boletofacil</option>
+                                                        <option value="4">Caixa NetStart</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -214,11 +234,12 @@
                                         <thead>
                                         <tr>
                                             <th>Cliente</th>
+                                            <th>Cobr. N</th>
                                             <th>Valor</th>
                                             <th>Data Compet.</th>
                                             <th>Data Venc.</th>
                                             <th>Data Pag.</th>
-                                            <th>Valor Pago</th>
+                                            <th>V. Pago</th>
                                             <th>Form Pag.</th>
                                             <th>Status</th>
                                             <th>Acao</th>
