@@ -26,20 +26,20 @@ class NotificationUrl extends Controller
             //Loga no banco para fazer um debug, depois pode desativar
             $this->LogBanco($resp);
 
-            //$boleto = FinBoleto::with('debito')->where('code', '=', $resp['chargeCode'])->first();
-            $boleto = FinBoleto::with('debito')->where('code', '=', '20748944')->first();
+            $boleto = FinBoleto::with('debito')->where('code', '=', $resp['chargeCode'])->first();
+            //$boleto = FinBoleto::with('debito')->where('code', '=', '20748944')->first();
 
 
-            $boleto->paymentToken = '1B2128554368D6A339A49E0B76F993FECCD99D894826DC58';
-            //$boleto->paymentToken = $resp['paymentToken'];
+            //$boleto->paymentToken = '1B2128554368D6A339A49E0B76F993FECCD99D894826DC58';
+            $boleto->paymentToken = $resp['paymentToken'];
             //$boleto->fee =;
 
             //dd($boleto);
             $boletoFacilApi = new BoletoFacilApi();
 
             //Consulta a um boleto para saber o status4
-            //$paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
-            $paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
+            $paymentDetails = $boletoFacilApi->fetchPaymentDetails($resp['paymentToken']);
+            //$paymentDetails = $boletoFacilApi->fetchPaymentDetails('CD3DA4F76EB4867643B9AEFB9852D814');
             //dd($paymentDetails);
             //Loga no banco
             $this->LogBanco($paymentDetails);
