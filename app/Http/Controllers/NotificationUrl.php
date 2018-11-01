@@ -60,7 +60,7 @@ class NotificationUrl extends Controller
                 $boleto->debito->local_pagamento_id = 5;
 
                 //Forma de pagamento Pagamento
-                $boleto->debito->forma_pagamento_id = 5;
+                $boleto->debito->forma_pagamento_id = 2;
 
                 //Taxa
                 $boleto->fee = $array['data']['payment']['fee'];
