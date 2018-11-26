@@ -41,6 +41,7 @@
                                         <table id="profile" class="table order-column hover">
                                             <thead>
                                                 <tr>
+                                                    <th>Descricao</th>
                                                     <th>Nome</th>
                                                     <th>Local IP</th>
                                                     <th>Rate Limit (TX RX)</th>

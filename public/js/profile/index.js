@@ -38,6 +38,7 @@ $(document).ready(function () {
             }
         },
         columns: [
+            {data: 'descricao', name: 'descricao'},
             {data: 'nome', name: 'nome'},
             {data: 'local_address', name: 'local_address'},
             {data: 'rate_limit_tx_tx', name: 'rate_limit_tx_tx'},
