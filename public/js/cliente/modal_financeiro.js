@@ -33,7 +33,7 @@ $(document).on("click", ".btnModalFinanceiro", function () {
         processing: true,
         serverSide: true,
         bFilter: true,
-        order: [[ 1, "asc" ]],
+        order: [[ 1, "desc" ]],
         ajax: {
             url: "/index.php/debitos/modalGrid" ,
             data: function (d) {
