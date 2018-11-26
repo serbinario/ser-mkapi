@@ -56,6 +56,11 @@ class BoletoFacilApi
         $this->boletofacil->billingAddressCity = $cliente->cidade;
         $this->boletofacil->billingAddressState = $cliente->estado;
 
+        $this->boletofacil->maxOverdueDays = 20;
+        $this->boletofacil->fine = "2.00";
+        $this->boletofacil->interest = "0.33";
+
+
         //Falta colocar a cidade e o estado como obrigatprios
         //Verificar se vamos colcoar para pagar apos o vencimento
 
