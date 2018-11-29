@@ -37,6 +37,8 @@ var table = $('#cliente').DataTable({
         url: "/index.php/cliente/grid",
         data: function (d) {
             d.status = $('select[name=status] option:selected').val();
+            d.data_instalacao_ini = dateToEN($('input[name=data_instalacao_ini]').val());
+            d.data_instalacao_fin = dateToEN($('input[name=data_instalacao_fin]').val())
             d.localizar = $('input[name=localizar]').val();
             d.vencimento = $('select[name=vencimento] option:selected').val();
         }
@@ -85,6 +87,15 @@ $(document).on("change", "#status", function () {
 $(document).on("change", "#vencimento", function () {
     table.draw();
 });
+
+$(document).on("change", "#data_instalacao_fin", function () {
+    table.draw();
+});
+
+function dateToEN(date)
+{
+    return date.split('/').reverse().join('-');
+}
 
 
 

@@ -111,6 +111,26 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="data_instalacao_ini"  class="col-sm-4 control-label">D. Inst. Ini</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control input-sm date datepicker"  name="data_instalacao_ini" type="text" id="data_instalacao_ini" value="{{ old('data_instalacao_ini') }}" placeholder="Data Inicial">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="data_instalacao_fin"  class="col-sm-4 control-label">D. Inst. Fin</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control input-sm date datepicker"  name="data_instalacao_fin" type="text" id="data_instalacao_fin" value="{{ old('data_instalacao_fin') }}" placeholder="Data Final">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-12">

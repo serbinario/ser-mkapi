@@ -85,6 +85,8 @@ class ClienteController extends Controller
                 $localizar = $request->get('localizar');
                 $status = $request->get('status');
                 $vencimento = $request->get('vencimento');
+                $data_instalacao_ini = $request->get('data_instalacao_ini');
+                $data_instalacao_fin = $request->get('data_instalacao_fin');
                 #condição
                 $query->where(function ($where) use ($localizar) {
                     $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
@@ -96,6 +98,11 @@ class ClienteController extends Controller
                 if ($request->has('status')){
                     $query->where('mk_clientes.status_secret', '=', $status);
                 }
+
+                if ($request->has('data_instalacao_ini') && $request->has('data_instalacao_fin')){
+                    $query->whereBetween('mk_clientes.data_instalacao', [$data_instalacao_ini, $data_instalacao_fin]);
+                }
+
                 if ($request->has('vencimento')){
                     if($vencimento == "NULL"){
                         $query->whereNull('mk_clientes.vencimento_dia_id');
