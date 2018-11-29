@@ -43,6 +43,7 @@
                                                 <tr>
                                                     <th>Descricao</th>
                                                     <th>Nome</th>
+                                                    <th>Valor</th>
                                                     <th>Local IP</th>
                                                     <th>Rate Limit (TX RX)</th>
                                                     <th>Acao</th>

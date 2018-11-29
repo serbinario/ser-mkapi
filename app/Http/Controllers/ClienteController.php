@@ -89,7 +89,7 @@ class ClienteController extends Controller
                 $data_instalacao_ini = $request->get('data_instalacao_ini');
                 $data_instalacao_fin = $request->get('data_instalacao_fin');
                 $grupo_id = $request->get('grupo_id');
-                
+
                 #condição
                 $query->where(function ($where) use ($localizar) {
                     $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
