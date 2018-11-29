@@ -41,6 +41,7 @@ var table = $('#cliente').DataTable({
             d.data_instalacao_fin = dateToEN($('input[name=data_instalacao_fin]').val())
             d.localizar = $('input[name=localizar]').val();
             d.vencimento = $('select[name=vencimento] option:selected').val();
+            d.grupo_id = $('select[name=grupo_id] option:selected').val();
         }
     },
     columns: [
@@ -89,6 +90,10 @@ $(document).on("change", "#vencimento", function () {
 });
 
 $(document).on("change", "#data_instalacao_fin", function () {
+    table.draw();
+});
+
+$(document).on("change", "#grupo_id", function () {
     table.draw();
 });
 

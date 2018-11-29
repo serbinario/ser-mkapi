@@ -48,8 +48,9 @@ class ClienteController extends Controller
         $finFormasPagamentos = FinFormasPagamento::pluck('nome','id')->all();
         $finCarnes = FinCarne::pluck('id','id')->all();
         $finLocaisPagamentos = FinLocaisPagamento::pluck('nome','id')->all();
+        $mkGrupos = Grupo::pluck('nome','id')->all();
 
-        return view('cliente.index', compact('clientes','mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos'));
+        return view('cliente.index', compact('clientes','mkClientes','finContasBancarias','finFormasPagamentos','finCarnes','finLocaisPagamentos', 'mkGrupos'));
     }
 
     /**
@@ -87,6 +88,8 @@ class ClienteController extends Controller
                 $vencimento = $request->get('vencimento');
                 $data_instalacao_ini = $request->get('data_instalacao_ini');
                 $data_instalacao_fin = $request->get('data_instalacao_fin');
+                $grupo_id = $request->get('grupo_id');
+                
                 #condição
                 $query->where(function ($where) use ($localizar) {
                     $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
@@ -97,6 +100,10 @@ class ClienteController extends Controller
 
                 if ($request->has('status')){
                     $query->where('mk_clientes.status_secret', '=', $status);
+                }
+
+                if ($request->has('grupo_id')){
+                    $query->where('mk_clientes.grupo_id', '=', $grupo_id);
                 }
 
                 if ($request->has('data_instalacao_ini') && $request->has('data_instalacao_fin')){

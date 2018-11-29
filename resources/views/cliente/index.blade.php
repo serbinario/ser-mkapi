@@ -130,6 +130,25 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group {{ $errors->has('vencimento') ? 'has-error' : '' }}">
+                                    <label for="grupo_id" class="col-sm-4 control-label">Grupo.:</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control input-sm" id="grupo_id" name="grupo_id">
+                                            <option value="">Selecione</option>
+                                            @foreach ($mkGrupos as $key => $mkGrupo)
+                                                <option value="{{ $key }}">
+                                                    {{ $mkGrupo }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         </div>
 
                         <div class="row">
