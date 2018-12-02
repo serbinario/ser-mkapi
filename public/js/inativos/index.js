@@ -1,8 +1,8 @@
 console.log("wwwwwwwwwwwwwwwwwwwww")
 var tableInativos = $('#inativos').DataTable({
     //"dom": 'lCfrtip',
-    "searching": false,
-    "bLengthChange": false,
+    "searching": true,
+    "bLengthChange": true,
     processing: true,
     serverSide: true,
     bFilter: true,

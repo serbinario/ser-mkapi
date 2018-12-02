@@ -42,6 +42,7 @@ var table = $('#cliente').DataTable({
             d.localizar = $('input[name=localizar]').val();
             d.vencimento = $('select[name=vencimento] option:selected').val();
             d.grupo_id = $('select[name=grupo_id] option:selected').val();
+            d.inativo = $('.inativo:checked').val();
         }
     },
     columns: [
@@ -95,6 +96,12 @@ $(document).on("change", "#data_instalacao_fin", function () {
 
 $(document).on("change", "#grupo_id", function () {
     table.draw();
+});
+
+$(document).on("change", "#inativo", function () {
+    table.draw();
+
+
 });
 
 function dateToEN(date)

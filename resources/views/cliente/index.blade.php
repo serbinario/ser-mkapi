@@ -69,7 +69,7 @@
                         <br>
 
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="localizar"  class="col-sm-4 control-label">Localizar</label>
                                     <div class="col-md-8">
@@ -77,7 +77,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <div class="checkbox checkbox-styled">
+                                            <label for="inativo">
+                                                <input id="inativo" class="inativo" name="inativo" type="checkbox" value="1">
+                                                Inativos
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="status" class="col-sm-4 control-label">Status</label>
                                     <div class="col-md-8">
