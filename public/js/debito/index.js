@@ -191,7 +191,15 @@ var table = $('#debitos').DataTable({
     },
     columns: [
         {data: 'nome', name: 'mk_clientes.nome'},
-        {data: 'code', name: 'fin_boletos.code'},
+        {
+            "data": "code",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a target="_blank" href="' + row.link + '">' + data + '</a>';
+                }
+                return data;
+            }
+        },
         {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
         {data: 'data_competencia', name: 'fin_debitos.data_competencia'},
         {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},

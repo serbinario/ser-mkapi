@@ -82,6 +82,7 @@ class DebitosController extends Controller
                 'mk_clientes.nome',
                 \DB::raw('DATE_FORMAT(fin_debitos.data_competencia,"%d/%m/%Y") as data_competencia'),
                 'fin_boletos.code',
+                'fin_boletos.link',
                 'fin_debitos.status_id',
                 'fin_debitos.boleto_id',
                 'fin_formas_pagamentos.nome as form_pag_nome'
