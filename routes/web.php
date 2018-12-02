@@ -69,6 +69,7 @@ Route::group(
 
 });
 
+
 Route::group(
     [
         'prefix' => 'paidDay',
@@ -322,6 +323,12 @@ Route::group(
 
     Route::get('/', 'ClienteController@index')
          ->name('cliente.cliente.index');
+
+    Route::get('/inativos', 'ClienteController@inativos')
+        ->name('cliente.inativos');
+
+    Route::get('/inativos/grid', 'ClienteController@inativosGrid')
+        ->name('cliente.inativos.grid');
 
     Route::get('/create','ClienteController@create')
          ->name('cliente.cliente.create');

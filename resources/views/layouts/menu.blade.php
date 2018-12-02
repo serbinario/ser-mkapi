@@ -187,6 +187,7 @@
 									<!--start submenu -->
 									<ul>
 										<li><a href="{{ route('debitos.debitos.index') }}" class="active"><span class="title">Financeiro</span></a></li>
+										<li><a href="{{ route('cliente.inativos') }}" class="active"><span class="title">Desativados</span></a></li>
 										<li><a href="{{ route('inadimplentes.index') }}" class="active"><span class="title">Inadimplentes</span></a></li>
 										<li><a href="{{ route('paidDay.index') }}" class="active"><span class="title">Pagos Hoje</span></a></li>
 									</ul><!--end /submenu -->

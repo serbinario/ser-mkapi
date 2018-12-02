@@ -54,6 +54,94 @@ class ClienteController extends Controller
     }
 
     /**
+     * Display a listing of the clientes.
+     *
+     * @return Illuminate\View\View
+     */
+    public function inativos()
+    {
+
+        return view('cliente.inativos.index');
+    }
+
+    /**
+     * Display a listing of the fornecedors.
+     *
+     * @return Illuminate\View\View
+     * @throws Exception
+     */
+    public function inativosGrid(Request $request)
+    {
+        $this->token = csrf_token();
+        #Criando a consulta
+        $rows = \DB::table('mk_clientes')
+            ->leftJoin('mk_profiles', 'mk_profiles.id', '=', 'mk_clientes.profile_id')
+            ->leftJoin('mk_grupos', 'mk_grupos.id', '=', 'mk_clientes.grupo_id')
+            ->leftJoin('mk_vencimento_dia', 'mk_vencimento_dia.id', '=', 'mk_clientes.vencimento_dia_id')
+            ->whereNull('mk_clientes.is_ativo')
+            ->select([
+                'mk_clientes.nome',
+                'mk_clientes.id',
+                'mk_clientes.cpf',
+                'mk_clientes.login',
+                'mk_profiles.nome as profile',
+                'mk_clientes.status_secret',
+                'mk_grupos.nome as grupo'
+
+            ]);
+
+        #Editando a grid
+        return Datatables::of($rows)
+
+            ->filter(function ($query) use ($request) {
+
+            })
+
+            ->addColumn('status', function ($row) {
+
+                if($row->status_secret == 1) {
+                    $html = '<div class="btn-group btn-group-xs pull-right" role="group">
+                                    <a href="" class="btn btn-default-light enableDisableSecret" id="' . $row->id . '" title="Bloquear">
+                                        <span class="glyphicon md-thumb-up" aria-hidden="true"></span>
+                                    </a>
+                                </div>';
+                }else{
+                    $html       = '<div class="btn-group btn-group-xs pull-right" role="group">
+                                    <a href="" class="btn btn-danger enableDisableSecret" id="' . $row->id   . '" title="Desbloquear">
+                                        <span class="glyphicon md-thumb-down" aria-hidden="true"></span>
+                                    </a>
+                                </div>';
+                }
+
+
+
+                return $html;
+            })->escapeColumns([])
+
+            ->addColumn('action', function ($row) {
+                return '<form id="' . $row->id   . '" method="POST" action="cliente/' . $row->id   . '/destroy" accept-charset="UTF-8">
+                            <input name="_method" value="DELETE" type="hidden">
+                            <input name="_token" value="'.$this->token .'" type="hidden">
+                            <div class="btn-group btn-group-xs pull-right" role="group">
+                                <a href="cliente/show/'.$row->id.'" class="btn btn-info" title="Show">
+                                    <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                                </a>
+                                <a href="cliente/'.$row->id.'/edit" class="btn btn-primary" title="Edit">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                                <button type="button" class="btn btn-primary btnModalFinanceiro" id="' . $row->id   . '" data-toggle="modal" title="Financeiro">
+                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-primary btnModalFinanceiroDebito" id="' . $row->id   . '" data-toggle="modal" title="Lançamento">
+                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        
+                        </form>';
+            })->make(true);
+    }
+
+    /**
      * Display a listing of the fornecedors.
      *
      * @return Illuminate\View\View
