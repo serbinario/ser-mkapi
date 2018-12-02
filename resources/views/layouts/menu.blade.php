@@ -172,6 +172,7 @@
 
 							<ul>
 								<li><a href="{{ route('cliente.cliente.index') }}" class="active"><span class="title">Clientes</span></a></li>
+								<li><a href="{{ route('cliente.inativos') }}" class="active"><span class="title">Desativados</span></a></li>
 								<li><a href="{{ route('pool.pool.index') }}" class="active"><span class="title">Pools</span></a></li>
 								<li><a href="{{ route('router.router.index') }}" class="active"><span class="title">Routers</span></a></li>
 								<li><a href="{{ route('profile.profile.index') }}" class="active"><span class="title">Profiles</span></a></li>
@@ -187,7 +188,6 @@
 									<!--start submenu -->
 									<ul>
 										<li><a href="{{ route('debitos.debitos.index') }}" class="active"><span class="title">Financeiro</span></a></li>
-										<li><a href="{{ route('cliente.inativos') }}" class="active"><span class="title">Desativados</span></a></li>
 										<li><a href="{{ route('inadimplentes.index') }}" class="active"><span class="title">Inadimplentes</span></a></li>
 										<li><a href="{{ route('paidDay.index') }}" class="active"><span class="title">Pagos Hoje</span></a></li>
 									</ul><!--end /submenu -->
