@@ -467,6 +467,7 @@ class DebitosController extends Controller
 
             $rows = \DB::table('fin_debitos')
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
+                ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
                 ->where('fin_debitos.data_vencimento', '<=', $cur_date)
                 ->where('fin_debitos.status_id', '=', '4')
                 ->orderBy('dias_atraso', 'DESC')
@@ -477,6 +478,8 @@ class DebitosController extends Controller
                     \DB::raw('IF(mk_clientes.status_secret = 0, "Bloqueado", "Ativo") as status_secret'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
                     'fin_debitos.valor_debito',
+                    'fin_boletos.link',
+                    'fin_boletos.code',
                     \DB::raw('DATEDIFF(data_vencimento, NOW()) AS dias_atraso')
                     //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
                 ]);

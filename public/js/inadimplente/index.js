@@ -22,6 +22,15 @@ var table = $('#inadimplente').DataTable({
     columns: [
         {data: 'nome', name: 'mk_clientes.nome'},
         {data: 'login', name: 'mk_clientes.login'},
+        {
+            "data": "code",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a target="_blank" href="' + row.link + '">' + data + '</a>';
+                }
+                return data;
+            }
+        },
         {data: 'valor_debito', name: 'fin_debitos.valor_debito'},
         {data: 'data_vencimento', name: 'fin_debitos.data_vencimento'},
         {data: 'status_secret', name: 'fin_debitos.status_secret'},

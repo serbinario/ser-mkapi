@@ -38,6 +38,7 @@
                                                 <tr>
                                                     <th>Nome</th>
                                                     <th>Login</th>
+                                                    <th>Cobrança N</th>
                                                     <th>Valor</th>
                                                     <th>Data Vencimento</th>
                                                     <th>Status</th>
