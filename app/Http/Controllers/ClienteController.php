@@ -191,7 +191,7 @@ class ClienteController extends Controller
     public function create()
     {
         $mkRouters = Router::pluck('nome','id')->all();
-        $mkProfiles = Profile::pluck('nome','id')->all();
+        $mkProfiles = Profile::pluck('descricao','id')->all();
         $mkGrupos = Grupo::pluck('nome','id')->all();
         $mkVencimentoDia = VencimentoDia::where('is_ativo', '=' ,'1')->pluck('nome','id')->all();
         return view('cliente.create', compact('mkRouters','mkProfiles','mkVencimentoDia', 'mkGrupos'));
