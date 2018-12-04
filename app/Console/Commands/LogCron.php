@@ -108,7 +108,7 @@ class LogCron extends Command
     {
         $rows = \DB::table('fin_debitos')
             ->where('status_id', 2)
-            ->whereRaw('data_vencimento = CURRENT_DATE()-2')
+            ->whereRaw('data_vencimento = CURRENT_DATE - INTERVAL 2 DAY')
             ->update(['status_id' => 4]);
     }
 
