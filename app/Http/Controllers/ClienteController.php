@@ -332,11 +332,15 @@ class ClienteController extends Controller
             $cpf = $cliente->cpf;
             $descricao = $cliente->mkProfile->descricao;
             $valor = $cliente->mkProfile->valor;
-            $diaVencimento = $cliente->mkVencimentoDium->nome;
-            $date = date('m/Y');
-            $diaVencimento = $diaVencimento . "/" . $date;
+            $dia = $cliente->mkVencimentoDium->nome;
+            $date = date('m/Y', strtotime('+1 month'));
+            $diaVencimento = $dia . "/" . $date;
 
-            return \Illuminate\Support\Facades\Response::json(['success' => true,'descricao' => $descricao, 'diaVenci' => $diaVencimento, 'valor' => $valor,
+
+            $dateCom = date('m/Y');
+            $diaCompetencia = $dia . "/" . $dateCom;
+
+            return \Illuminate\Support\Facades\Response::json(['success' => true,'descricao' => $descricao, 'diaVenci' => $diaVencimento, 'diaCompe' => $diaCompetencia, 'valor' => $valor,
                 'cpf' => $cpf
             ]);
         } catch (Exception $exception) {

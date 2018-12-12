@@ -1,5 +1,28 @@
 @extends('layouts.menu')
 
+@section("css")
+    <style type="text/css">
+        .list .tile .tile-text{
+            padding: 8px 0px;
+            font-size: 12px;
+            padding-right: 0px;
+        }
+        .list .tile .tile-text small {
+            font-size: 12px;
+        }
+
+        .list .tile .tile-content:last-child {
+            padding-right: 0px;
+        }
+        .list .tile .tile-content {
+            padding-left: 7px;
+        }
+        .list {
+            line-height: 15px;
+        }
+    </style>
+@stop
+
 @section('content')
 
 
@@ -21,52 +44,323 @@
     </div><!--end .col -->
     <!-- END SITE ACTIVITY -->
 
-    <!-- BEGIN ALERT - REVENUE -->
-    <div class="col-md-12 col-sm-6">
+    <!-- BEGIN SITE ACTIVITY -->
+    <div class="col-md-2">
         <div class="card">
+            <div class="card-head">
+                <header>Centro</header>
+            </div><!--end .card-head -->
             <div class="card-body no-padding">
-                <div class="alert alert-callout alert-info no-margin">
-                    <strong class="pull-right text-success text-lg">0,38% <i class="md md-trending-up"></i></strong><br>
-                    <strong class="text-xl">$ 32,829</strong><br/>
-                    <span class="opacity-50">Revenue</span>
-                </div>
-            </div><!--end
+                <ul class="list" data-sortable="true">
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile ">
+                        <a class="tile-content ink-reaction style-danger" href="#2">
+                            <div class="tile-text ">
+                                abner
+                                <small>08:80:2019</small>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile ">
+                        <a class="tile-content ink-reaction style-danger" href="#2">
+                            <div class="tile-text ">
+                                abner
+                                <small>08:80:2019</small>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile ">
+                        <a class="tile-content ink-reaction style-danger" href="#2">
+                            <div class="tile-text ">
+                                abner
+                                <small>08:80:2019</small>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile ">
+                        <a class="tile-content ink-reaction style-danger" href="#2">
+                            <div class="tile-text ">
+                                abner
+                                <small>08:80:2019</small>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile ">
+                        <a class="tile-content ink-reaction style-danger" href="#2">
+                            <div class="tile-text ">
+                                abner
+                                <small>08:80:2019</small>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div style="font-size: 10px" class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--end .card-body -->
         </div><!--end .card -->
     </div><!--end .col -->
-    <!-- END ALERT - REVENUE -->
-
-        <!-- BEGIN ALERT - REVENUE -->
-        <div class="col-sm-12">
-            <div class="">
-                <div class="card-body no-padding">
-                    <div class="alert alert-callout alert-info no-margin">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="col-sm-4">
-                                    <strong class="text-success">Cobrança: 20445889</strong>
-                                </div>
-                                <div class="col-sm-3">
-                                    <strong class="text">Valor: 59,90</strong>
-                                </div>
+    <!-- END SITE ACTIVITY -->
 
 
+    <div class="col-md-2">
+        <div class="card">
+            <div class="card-head">
+                <header>Centro</header>
+            </div><!--end .card-head -->
+            <div class="card-body no-padding">
+                <ul class="list">
+                    <li class="tile">
+                        <a class="btn btn-danger">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="col-sm-3">
-                                    <strong class="pull-right text-success text">0,38% <i class="md md-trending-up"></i></strong>
-                                </div>
-
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-success">
+                            <i class="glyphicon glyphicon-ok"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                Alex Nelson
+                                <small>Last visit: Yesterday</small>
                             </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-flat btn-danger ink-reaction">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--end .card-body -->
+        </div><!--end .card -->
 
-                        </div>
+
+    </div><!--end .card -->
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-head">
+                <header>Centro</header>
+            </div><!--end .card-head -->
+            <div class="card-body no-padding">
+                <ul class="list">
+                    <li class="tile">
+                        <a class="btn btn-danger">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-success">
+                            <i class="glyphicon glyphicon-ok"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                Alex Nelson
+                                <small>Last visit: Yesterday</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-flat btn-danger ink-reaction">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--end .card-body -->
+        </div><!--end .card -->
+    </div><!--end .card -->
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-head">
+                <header>Centro</header>
+            </div><!--end .card-head -->
+            <div class="card-body no-padding">
+                <ul class="list">
+                    <li class="tile">
+                        <a class="btn btn-danger">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                        <a class="tile-content ink-reaction" href="#2">
+                            <div class="tile-text">
+                                Abbey Johnson
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-success">
+                            <i class="glyphicon glyphicon-ok"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                Alex Nelson
+                                <small>Last visit: Yesterday</small>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="btn btn-flat btn-danger ink-reaction">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+                        <a class="tile-content ink-reaction">
+                            <div class="tile-text">
+                                <small>Last visit: Today</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--end .card-body -->
+        </div><!--end .card -->
+    </div><!--end .card -->
 
 
 
-                    </div>
-                </div><!--end .card-body -->
-            </div><!--end .card -->
-        </div><!--end .col -->
-        <!-- END ALERT - REVENUE -->
+
 
 
 

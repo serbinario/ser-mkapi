@@ -65,7 +65,7 @@ $(document).on("click", ".btnModalFinanceiroDebito", function () {
         if(retorno.success) {
             $("#descricao").val(retorno.descricao);
             $("#data_vencimento").val(retorno.diaVenci);
-            $("#data_competencia").val(retorno.diaVenci);
+            $("#data_competencia").val(retorno.diaCompe);
             $("#valor_debito").val(retorno.valor);
         } else {
 

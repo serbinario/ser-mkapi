@@ -17,6 +17,8 @@ use Ssh\Auth\Password;
 
 class Mikrotik extends Command
 {
+
+    protected $teste;
     use TraitSecret;
     /**
      * The name and signature of the console command.
@@ -178,6 +180,7 @@ class Mikrotik extends Command
 
         $router->write('/ppp/secret/print',true);
         $READ = $router->read(false);
+        dd($READ);
         $ARRAY = $router->parseResponse($READ);
 
         $list = array();
@@ -189,7 +192,7 @@ class Mikrotik extends Command
             //$coment = " \" " .  $ARRAY[$i]['comment'] . "\" ";
             //S$list['obs'] = $coment;
             // dd($list);
-            $this->seExisteCobranca($ARRAY[$i]['name'], $i);
+            //$this->seExisteCobranca($ARRAY[$i]['name'], $i);
 
             //$list = '';
         }
@@ -328,10 +331,13 @@ class Mikrotik extends Command
 
     public function ssh2()
     {
-        \SSH::run('log print without-paging', function($line)
+        $teste = "";
+        \SSH::run('ppp active print detail', function($line)
         {
-            dd($line);
+            $this->teste .= $line;
+            //echo $line . "\n";
         });
+        dd($this->teste);
         /*\SSH::run([
             'ppp active print without-paging',
         ]);*/
