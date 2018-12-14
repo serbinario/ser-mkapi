@@ -53,9 +53,21 @@ Route::group(
 
     Route::get('/clientesPorMes','MikrotikController@clientesPorMes')
         ->name('mikrotik.clientesPorMes');
-
-
 });
+
+Route::group(
+    [
+        'prefix' => 'mikrotikMonitor',
+    ], function () {
+
+    Route::get('/pppoeStatus', 'MikrotikMonitorController@pppoeStatus')
+        ->name('mikrotikMonitor.pppoeStatus');
+
+    Route::get('/', 'MikrotikMonitorController@index')
+        ->name('mikrotikMonitor.index');
+});
+
+
 Route::group(
     [
         'prefix' => 'inadimplente',

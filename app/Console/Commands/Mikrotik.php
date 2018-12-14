@@ -66,6 +66,8 @@ class Mikrotik extends Command
                     break;
             case "activeclients":
                 $this->activeClients();
+            case "teste":
+                $this->teste();
             default:
                 echo "not commands \n";
 
@@ -93,6 +95,18 @@ class Mikrotik extends Command
             Cliente::firstOrCreate($list);
             $list = '';
         }
+
+    }
+
+    public function teste()
+    {
+
+        $cpf = "02850179426";
+        $queries = \DB::select("SELECT pppoe_user, SPLIT_STRING(Message, ',', 1) AS STATUS, SPLIT_STRING(Message, ',', 3) AS ip, ReceivedAt 
+                                FROM SystemEvents 
+                                WHERE id IN(SELECT MAX(id) FROM SystemEvents WHERE  FromHost = '170.245.65.134' GROUP BY pppoe_user)");
+        //$queries = \DB::select("SPLIT_STRING($cpf)");
+        dd($queries);
 
     }
 
