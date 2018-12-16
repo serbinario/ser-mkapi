@@ -12,7 +12,8 @@
         "spatie/laravel-permission": "^2.12",
         "yajra/laravel-datatables-oracle": "~8.0",
         "oncesk/ssh2": "dev-master",
-        "laravelcollective/remote": "5.4.*"
+        "laravelcollective/remote": "5.4.*",
+	"barryvdh/laravel-dompdf": "^0.7.0"
     },
     "require-dev": {
         "crestapps/laravel-code-generator": "^2.2",

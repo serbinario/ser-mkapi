@@ -183,6 +183,10 @@ return [
         //https://laravelcollective.com/docs/5.4/ssh
         Collective\Remote\RemoteServiceProvider::class,
 
+        //Gerador PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
+
+
         /*
          * Application Service Providers...
          */
@@ -250,6 +254,9 @@ return [
          * https://github.com/yajra/laravel-datatables
          */
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+        //Gerador PDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

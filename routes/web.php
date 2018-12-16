@@ -57,6 +57,18 @@ Route::group(
 
 Route::group(
     [
+        'prefix' => 'report',
+    ], function () {
+
+    Route::get('/financeiro', 'ReportController@reportPdfFinanceiro')
+        ->name('report.financeiro');
+
+    Route::get('/clientesPorMes','MikrotikController@clientesPorMes')
+        ->name('mikrotik.clientesPorMes');
+});
+
+Route::group(
+    [
         'prefix' => 'mikrotikMonitor',
     ], function () {
 
