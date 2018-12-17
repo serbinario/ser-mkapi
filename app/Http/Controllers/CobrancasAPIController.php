@@ -58,9 +58,12 @@ class CobrancasAPIController extends Controller
      * Retorna os debitos
      *
      */
-    public function cobrancasPendentes()
+    public function cobrancasPendentes(Request $request)
     {
         try {
+            Log::info(
+                $request->all()
+            );
             $rows = \DB::table('send_messages')
                 ->leftJoin('fin_debitos', 'fin_debitos.id', '=', 'send_messages.debito_id')
                 ->leftJoin('mk_clientes', 'mk_clientes.id', '=', 'fin_debitos.mk_cliente_id')
@@ -80,6 +83,49 @@ class CobrancasAPIController extends Controller
 
         } catch (Exception $exception) {
             return \Illuminate\Support\Facades\Response::json(['success' => false]);
+        }
+    }
+
+    public function inadimplentes(Request $request)
+    {
+        //dd(array($request->get('status')));
+        try {
+
+            $data_ini = $request->get('data_ini');
+            $data_fin = $request->get('data_fin');
+            //dd($status[0]);
+            //dd($this->vencimento_ini, $this->vencimento_fim);
+
+            $cur_date = Carbon::now();
+
+            $clientes = \DB::table('fin_debitos')
+                ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
+                ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
+                ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
+                ->whereBetween('fin_debitos.data_vencimento', [$data_ini, $data_fin])
+                ->where('fin_debitos.status_id', '4')
+                ->orderBy('mk_clientes.nome', 'ASC')
+                ->select([
+                    'fin_debitos.id',
+                    'mk_clientes.nome',
+                    'mk_clientes.phone01',
+                    \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                    \DB::raw('DATE_FORMAT(fin_debitos.data_pagamento,"%d/%m/%Y") as data_pagamento'),
+                    'fin_debitos.valor_debito',
+                    'fin_debitos.valor_pago',
+                    'fin_boletos.link',
+                    'fin_boletos.code',
+                    'fin_status.nome as status'
+                    //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
+                ])->get();
+
+            //dd($clientes);
+            //dd($clientes);
+            return \Illuminate\Support\Facades\Response::json(['success' => true, 'data' => $clientes]);
+            # Retornando para página
+
+        } catch (\Throwable $e) {
+            return $e->getMessage();
         }
     }
 

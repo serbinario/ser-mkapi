@@ -277,7 +277,6 @@
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <input class="form-control input-sm date" name="data_ini" type="text" id="data_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="DATA INI.">
-
                                             </div>
                                         </div>
                                     </div>
