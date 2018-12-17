@@ -194,6 +194,16 @@
 
 								<li class="gui-folder">
 									<a href="javascript:void(0);">
+										<span class="title">Relatorios</span>
+									</a>
+									<!--start submenu -->
+									<ul>
+										<li><a href="{{ route('report.financeiro') }}" class="active"><span class="title">Financeiro</span></a></li>
+									</ul><!--end /submenu -->
+								</li><!--end /menu-li -->
+
+								<li class="gui-folder">
+									<a href="javascript:void(0);">
 										<span class="title">PPPP</span>
 									</a>
 									<!--start submenu -->

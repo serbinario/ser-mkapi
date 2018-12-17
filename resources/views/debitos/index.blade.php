@@ -259,7 +259,119 @@
                 </div><!--end .card -->
 
             </form>
-        </div><!--end .col -->
+
+            <!--Accordion -->
+            <div class="col-md-12">
+                <div class="panel-group" id="accordion">
+                    <div class="card panel">
+                        <div class="card-head card-head-xs collapsed" data-toggle="collapse" data-parent="#accordion7" data-target="#accordion7-12">
+                            <header>Relatorio</header>
+                            <div class="tools">
+                                <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
+                            </div>
+                        </div>
+                        <div id="accordion7-12" class="collapse">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input class="form-control input-sm date" name="data_pag_ini" type="text" id="data_pag_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="DATA INI PAG.">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input class="form-control input-sm date" name="data_pag_fim" type="text" id="data_pag_fim" value="{{ old('login',  null) }}" maxlength="20" placeholder="DATA FIM PAG.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="select13" class="col-md-4 control-label">Por data de</label>
+                                            <div class="col-md-8">
+                                                <select id="data_de" name="data_de" class="form-control input-sm">
+                                                    <option value="v">Vencimento</option>
+                                                    <option value="P">Pagamento</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Status</label>
+                                            <label class="checkbox-inline checkbox-styled checkbox-primary">
+                                                <input type="checkbox" value="option1" checked><span>Pagos</span>
+                                            </label>
+                                            <label class="checkbox-inline checkbox-styled checkbox-success">
+                                                <input type="checkbox" value="option3" checked><span>Aguardando</span>
+                                            </label>
+                                            <label class="checkbox-inline checkbox-styled checkbox-warning">
+                                                <input type="checkbox" value="option3" checked><span>Cancelados</span>
+                                            </label>
+                                        </div><!--end .col -->
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <a href="#" type="button" id="gerarRelatorioCliente" class="btn btn-primary ink-reaction">Gerar Relatorio</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end .panel -->
+                </div><!--end .panel-group -->
+            </div><!--end .col -->
+
+            <!--Accordion -->
+            <div class="col-md-12">
+                <div class="panel-group" id="accordion">
+                    <div class="card panel">
+                        <div class="card-head card-head-xs collapsed" data-toggle="collapse" data-parent="#accordion7" data-target="#accordion7-13">
+                            <header>Relatorio - Clientes sem boleto</header>
+                            <div class="tools">
+                                <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
+                            </div>
+                        </div>
+                        <div id="accordion7-13" class="collapse">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input class="form-control input-sm date" name="vencimento_ini" type="text" id="vencimento_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="DATA INI PAG.">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input class="form-control input-sm date" name="vencimento_fim" type="text" id="vencimento_fim" value="{{ old('login',  null) }}" maxlength="20" placeholder="DATA FIM PAG.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <a href="{{ route('report.financeiro') }}" type="button" id="gerarRelatorio" class="btn btn-primary ink-reaction">Gerar Relatorio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end .panel -->
+                </div><!--end .panel-group -->
+            </div><!--end .col -->
     </div><!--end .row -->
     <!-- END HORIZONTAL FORM -->
 

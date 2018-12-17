@@ -214,6 +214,16 @@ var table = $('#debitos').DataTable({
     },
 });
 
+$('#gerarRelatorio').on('click', function (e) {
+    //e.preventDefault();
+    vencimento_ini = dateToEN($('input[name=vencimento_ini]').val());
+    vencimento_fim = dateToEN($('input[name=vencimento_fim]').val());
+    vencimento_id = $('select[name=vencimento_id] option:selected').val();
+
+   $(this).attr("href", "/report/financeiro?vencimento_ini=" + vencimento_ini + "&vencimento_fim=" + vencimento_fim + "&vencimento_id=" + vencimento_id);
+   $(this).attr("target", "_blank");
+})
+
 function dateToEN(date)
 {
     return date.split('/').reverse().join('-');
