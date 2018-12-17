@@ -232,6 +232,8 @@ $('#gerarRelatorioCliente').on('click', function (e) {
     data_ini = dateToEN($('input[name=data_ini]').val());
     data_fim = dateToEN($('input[name=data_fim]').val());
     data_de = $('select[name=data_de] option:selected').val();
+    ordePorC = $('select[name=ordePorC] option:selected').val();
+
 
     var status = [];
     $('#status input:checked').each(function() {
@@ -241,7 +243,8 @@ $('#gerarRelatorioCliente').on('click', function (e) {
 
 
 
-    $(this).attr("href", "/report/financeiroCliente?data_ini=" + data_ini + "&data_fim=" + data_fim + "&data_de=" + data_de + "&status=" + status);
+    $(this).attr("href", "/report/financeiroCliente?data_ini=" +
+        data_ini + "&data_fim=" + data_fim + "&data_de=" + data_de + "&status=" + status + "&ordePorC=" + ordePorC );
     $(this).attr("target", "_blank");
 })
 

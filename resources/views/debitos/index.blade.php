@@ -299,6 +299,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="ordePor" class="col-md-4 control-label">Ordenar Por:</label>
+                                            <div class="col-md-8">
+                                                <select id="ordePorC" name="ordePorC" class="form-control input-sm">
+                                                    <option value="mk_clientes.nome">Nome</option>
+                                                    <option value="fin_boletos.code">Cobrança</option>
+                                                    <option value="mk_clientes.data_vencimento">Data Vencimento</option>
+                                                    <option value="mk_clientes.data_pagamento">Data Pagamento</option>
+                                                    <option value="status">Status</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <br>
 

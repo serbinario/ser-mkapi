@@ -87,19 +87,20 @@ class ReportController extends Controller
             $data_fim = $request->get('data_fim');
             $data_de = $request->get('data_de');
             $status = $request->get('status');
+            $ordePorC = $request->get('ordePorC');
             //dd($status[0]);
             //dd($this->vencimento_ini, $this->vencimento_fim);
 
             $cur_date = Carbon::now();
 
-            $rows = \DB::table('fin_debitos')
+            $clientes = \DB::table('fin_debitos')
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
                 ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
                 ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
                 ->whereBetween($data_de, [$data_ini, $data_fim])
-                ->whereRaw("fin_debitos.status_id IN ($status)");
-                //->orderBy('dias_atraso', 'DESC');
-            $clientes = $rows->select([
+                ->whereRaw("fin_debitos.status_id IN ($status)")
+                ->orderBy($ordePorC, 'ASC')
+                ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),

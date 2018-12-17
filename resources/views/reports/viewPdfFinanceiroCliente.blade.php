@@ -81,8 +81,8 @@
         <th>N</th>
         <th>Cliente</th>
         <th>N Cobrança</th>
-        <th>Data Vencimento</th>
-        <th>Data Pagamento</th>
+        <th>Data Ven.</th>
+        <th>Data Paga.</th>
         <th>Val. Debito</th>
         <th>Val. Pago</th>
         <th>Status</th>
