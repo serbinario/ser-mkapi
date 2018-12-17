@@ -104,7 +104,7 @@ class CobrancasAPIController extends Controller
                 ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
                 ->whereBetween('fin_debitos.data_vencimento', [$data_ini, $data_fin])
                 ->where('fin_debitos.status_id', '4')
-                ->orderBy('fin_debitos.data_venciment', 'ASC')
+                ->orderBy('fin_debitos.data_vencimento', 'ASC')
                 ->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
