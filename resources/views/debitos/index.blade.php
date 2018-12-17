@@ -359,6 +359,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="ordePor" class="col-md-4 control-label">Ordenar Por:</label>
+                                            <div class="col-md-8">
+                                                <select id="ordePor" name="ordePor" class="form-control input-sm">
+                                                    <option value="mk_vencimento_dia.nome">Vencimento</option>
+                                                    <option value="mk_clientes.nome">Nome</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <div class="col-md-12">

@@ -42,6 +42,8 @@ class ReportController extends Controller
 
             $vencimento_ini = $request->get('vencimento_ini');
             $vencimento_fim = $request->get('vencimento_fim');
+            $ordePor = $request->get('ordePor');
+            //dd($ordePor);
             //dd($this->vencimento_ini, $this->vencimento_fim);
 
             $clientes = \DB::table('mk_clientes')
@@ -53,7 +55,7 @@ class ReportController extends Controller
                 ])
                 ->where('mk_clientes.is_ativo', '1')
                 ->whereIn('vencimento_dia_id', [2,6,11,16,21,26,31,33])
-                ->orderBy('mk_vencimento_dia.nome', 'ASC')
+                ->orderBy($ordePor, 'ASC')
                 ->whereNotIn('mk_clientes.id', function($q) use ($vencimento_fim, $vencimento_ini) {
                 $q->select('fin_debitos.mk_cliente_id')
                     ->whereBetween('data_vencimento', [$vencimento_ini, $vencimento_fim])

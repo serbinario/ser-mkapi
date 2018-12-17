@@ -218,9 +218,11 @@ $('#gerarRelatorio').on('click', function (e) {
     //e.preventDefault();
     vencimento_ini = dateToEN($('input[name=vencimento_ini]').val());
     vencimento_fim = dateToEN($('input[name=vencimento_fim]').val());
-    vencimento_id = $('select[name=vencimento_id] option:selected').val();
+    ordePor = $('select[name=ordePor] option:selected').val();
 
-   $(this).attr("href", "/report/financeiro?vencimento_ini=" + vencimento_ini + "&vencimento_fim=" + vencimento_fim + "&vencimento_id=" + vencimento_id);
+
+
+   $(this).attr("href", "/report/financeiro?vencimento_ini=" + vencimento_ini + "&vencimento_fim=" + vencimento_fim + "&ordePor=" + ordePor);
    $(this).attr("target", "_blank");
 })
 
