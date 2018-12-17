@@ -306,8 +306,8 @@
                                                 <select id="ordePorC" name="ordePorC" class="form-control input-sm">
                                                     <option value="mk_clientes.nome">Nome</option>
                                                     <option value="fin_boletos.code">Cobrança</option>
-                                                    <option value="mk_clientes.data_vencimento">Data Vencimento</option>
-                                                    <option value="mk_clientes.data_pagamento">Data Pagamento</option>
+                                                    <option value="fin_debitos.data_vencimento">Data Vencimento</option>
+                                                    <option value="fin_debitos.data_pagamento">Data Pagamento</option>
                                                     <option value="status">Status</option>
                                                 </select>
                                             </div>
