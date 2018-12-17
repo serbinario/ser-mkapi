@@ -54,19 +54,38 @@
 
 <h3 style="text-align: center">Netstart Soluçoes em Tecnologia</h3>
 
-<h4 style="text-align: center">{{ \Carbon\Carbon::parse($vencimento_ini)->format('d/m/Y')}} - {{ \Carbon\Carbon::parse($vencimento_fim)->format('d/m/Y')}}</h4>
+<h4 style="text-align: center">{{ \Carbon\Carbon::parse($data_ini)->format('d/m/Y')}} - {{ \Carbon\Carbon::parse($data_fim)->format('d/m/Y')}}</h4>
 
-<p>
+<table class="" border="1">
+    <thead>
+    <tr>
+        <th>Cobranças encontradas</th>
+        <th>Montante total emitido</th>
+        <th>N Montante total pago</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
 
-</p>
+<br>
 
 <table class="" border="1">
     <thead>
     <tr>
         <th>N</th>
         <th>Cliente</th>
-        <th>Dia</th>
-        <th>Data Instalaçao</th>
+        <th>N Cobrança</th>
+        <th>Data Vencimento</th>
+        <th>Data Pagamento</th>
+        <th>Val. Debito</th>
+        <th>Val. Pago</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
@@ -74,8 +93,12 @@
         <tr>
             <th>{{ $key+1 }}</th>
             <th>{{ $cliente->nome }}</th>
-            <th>{{ $cliente->dia }}</th>
-            <th>{{ $cliente->data_instalacao }}</th>
+            <th>{{ $cliente->code }}</th>
+            <th>{{ $cliente->data_vencimento }}</th>
+            <th>{{ $cliente->data_pagamento }}</th>
+            <th>{{ $cliente->valor_debito }}</th>
+            <th>{{ $cliente->valor_pago }}</th>
+            <th>{{ $cliente->status }}</th>
         </tr>
     @endforeach
     </tbody>

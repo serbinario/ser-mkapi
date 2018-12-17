@@ -276,7 +276,7 @@
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input class="form-control input-sm date" name="data_pag_ini" type="text" id="data_pag_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="DATA INI PAG.">
+                                                <input class="form-control input-sm date" name="data_ini" type="text" id="data_ini" value="{{ old('data_pag_ini',  null) }}" maxlength="20" placeholder="DATA INI.">
 
                                             </div>
                                         </div>
@@ -284,7 +284,7 @@
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input class="form-control input-sm date" name="data_pag_fim" type="text" id="data_pag_fim" value="{{ old('login',  null) }}" maxlength="20" placeholder="DATA FIM PAG.">
+                                                <input class="form-control input-sm date" name="data_fim" type="text" id="data_fim" value="{{ old('login',  null) }}" maxlength="20" placeholder="DATA FIM.">
                                             </div>
                                         </div>
                                     </div>
@@ -293,23 +293,30 @@
                                             <label for="select13" class="col-md-4 control-label">Por data de</label>
                                             <div class="col-md-8">
                                                 <select id="data_de" name="data_de" class="form-control input-sm">
-                                                    <option value="v">Vencimento</option>
-                                                    <option value="P">Pagamento</option>
+                                                    <option value="data_vencimento">Vencimento</option>
+                                                    <option value="data_pagamento">Pagamento</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Status</label>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="status">
+                                            <label class="col-sm-2 control-label">Status</label>
                                             <label class="checkbox-inline checkbox-styled checkbox-primary">
-                                                <input type="checkbox" value="option1" checked><span>Pagos</span>
+                                                <input type="checkbox" value="3" checked><span>Pagos</span>
                                             </label>
                                             <label class="checkbox-inline checkbox-styled checkbox-success">
-                                                <input type="checkbox" value="option3" checked><span>Aguardando</span>
+                                                <input type="checkbox" value="2" checked><span>Aguardando</span>
                                             </label>
                                             <label class="checkbox-inline checkbox-styled checkbox-warning">
-                                                <input type="checkbox" value="option3" checked><span>Cancelados</span>
+                                                <input type="checkbox" value="7" checked><span>Cancelados</span>
+                                            </label>
+                                            <label class="checkbox-inline checkbox-styled checkbox-warning">
+                                                <input type="checkbox" value="4" checked><span>Nao Pagos</span>
                                             </label>
                                         </div><!--end .col -->
                                     </div>
@@ -319,7 +326,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <div class="col-md-8">
-                                                <a href="#" type="button" id="gerarRelatorioCliente" class="btn btn-primary ink-reaction">Gerar Relatorio</a>
+                                                <a href="{{ route('report.financeiroCliente') }}" type="button" id="gerarRelatorioCliente" class="btn btn-primary ink-reaction">Gerar Relatorio</a>
 
                                             </div>
                                         </div>

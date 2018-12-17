@@ -222,9 +222,30 @@ $('#gerarRelatorio').on('click', function (e) {
 
 
 
+
    $(this).attr("href", "/report/financeiro?vencimento_ini=" + vencimento_ini + "&vencimento_fim=" + vencimento_fim + "&ordePor=" + ordePor);
    $(this).attr("target", "_blank");
 })
+
+$('#gerarRelatorioCliente').on('click', function (e) {
+   // e.preventDefault();
+    data_ini = dateToEN($('input[name=data_ini]').val());
+    data_fim = dateToEN($('input[name=data_fim]').val());
+    data_de = $('select[name=data_de] option:selected').val();
+
+    var status = [];
+    $('#status input:checked').each(function() {
+        status.push($(this).attr('value'));
+    });
+    //console.log(selected)
+
+
+
+    $(this).attr("href", "/report/financeiroCliente?data_ini=" + data_ini + "&data_fim=" + data_fim + "&data_de=" + data_de + "&status=" + status);
+    $(this).attr("target", "_blank");
+})
+
+
 
 function dateToEN(date)
 {

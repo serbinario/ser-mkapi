@@ -9,6 +9,7 @@
 namespace Serbinario\Http\Controllers;
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -79,11 +80,14 @@ class ReportController extends Controller
      */
     public function reportPdfFinanceiroCliente(Request $request)
     {
-        //dd($request->all());
+        //dd(array($request->get('status')));
         try {
 
-            $vencimento_ini = $request->get('vencimento_ini');
-            $vencimento_fim = $request->get('vencimento_fim');
+            $data_ini = $request->get('data_ini');
+            $data_fim = $request->get('data_fim');
+            $data_de = $request->get('data_de');
+            $status = $request->get('status');
+            //dd($status[0]);
             //dd($this->vencimento_ini, $this->vencimento_fim);
 
             $cur_date = Carbon::now();
@@ -91,26 +95,27 @@ class ReportController extends Controller
             $rows = \DB::table('fin_debitos')
                 ->leftJoin('mk_clientes', 'fin_debitos.mk_cliente_id', '=', 'mk_clientes.id')
                 ->leftJoin('fin_boletos', 'fin_boletos.id', '=', 'fin_debitos.boleto_id')
-                //->where('fin_debitos.data_vencimento', '<=', $cur_date)
-                ->where('fin_debitos.status_id', '=', '4')
-                ->orderBy('dias_atraso', 'DESC')
-                ->select([
+                ->leftJoin('fin_status', 'fin_status.id', '=', 'fin_debitos.status_id')
+                ->whereBetween($data_de, [$data_ini, $data_fim])
+                ->whereRaw("fin_debitos.status_id IN ($status)");
+                //->orderBy('dias_atraso', 'DESC');
+            $clientes = $rows->select([
                     'fin_debitos.id',
                     'mk_clientes.nome',
-                    'mk_clientes.login',
-                    \DB::raw('IF(mk_clientes.status_secret = 0, "Bloqueado", "Ativo") as status_secret'),
                     \DB::raw('DATE_FORMAT(fin_debitos.data_vencimento,"%d/%m/%Y") as data_vencimento'),
+                    \DB::raw('DATE_FORMAT(fin_debitos.data_pagamento,"%d/%m/%Y") as data_pagamento'),
                     'fin_debitos.valor_debito',
+                    'fin_debitos.valor_pago',
                     'fin_boletos.link',
                     'fin_boletos.code',
-                    \DB::raw('DATEDIFF(data_vencimento, NOW()) AS dias_atraso')
+                    'fin_status.nome as status'
                     //\DB::raw('DATE_FORMAT(bib_emprestimos.data,"%d/%m/%Y") as data'),
                 ])->get();
 
             //dd($clientes);
-            return \PDF::loadView('reports.viewPdfFinanceiro', compact('clientes', 'vencimento_ini', 'vencimento_fim'))->stream();
+            //dd($clientes);
+            return \PDF::loadView('reports.viewPdfFinanceiroCliente', compact('clientes', 'data_ini', 'data_fim'))->stream();
             # Retornando para página
-            // return $PDF->stream();
 
         } catch (\Throwable $e) {
             return $e->getMessage();

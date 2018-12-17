@@ -63,8 +63,8 @@ Route::group(
     Route::get('/financeiro', 'ReportController@reportPdfFinanceiro')
         ->name('report.financeiro');
 
-    Route::get('/clientesPorMes','MikrotikController@clientesPorMes')
-        ->name('mikrotik.clientesPorMes');
+    Route::get('/financeiroCliente', 'ReportController@reportPdfFinanceiroCliente')
+        ->name('report.financeiroCliente');
 });
 
 Route::group(
