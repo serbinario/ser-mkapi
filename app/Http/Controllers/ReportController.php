@@ -51,6 +51,7 @@ class ReportController extends Controller
                 ->join('mk_vencimento_dia', 'mk_vencimento_dia.id', '=', 'mk_clientes.vencimento_dia_id')
                 ->select([
                     'mk_clientes.nome',
+                    'mk_clientes.is_ativo',
                     'mk_vencimento_dia.nome as dia',
                     \DB::raw('DATE_FORMAT(mk_clientes.data_instalacao,"%d/%m/%Y") as data_instalacao')
                 ])
