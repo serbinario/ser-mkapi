@@ -40,7 +40,7 @@ class Dashboard extends Controller
      */
     public function clientesPorMes()
     {
-        $result = DB::select('call qtdInstalacaoes("2018-02-01", "2019-06-31")');
+        $result = DB::select('call qtdInstalacaoes("2019-01-01", "2019-12-31")');
 
         return \Illuminate\Support\Facades\Response::json($result);
     }
