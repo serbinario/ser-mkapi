@@ -81,6 +81,7 @@ $('#btnSaveDebito').click(function() {
     var data_vencimento = $("#data_vencimento").val();
     var data_competencia = $("#data_competencia").val();
     var valor_debito = $("#valor_debito").val();
+    var parcelas = $('select[name=parcelas] option:selected').val();
 
 
     // Preparando o array de dados
@@ -92,7 +93,8 @@ $('#btnSaveDebito').click(function() {
         'descricao' : descricao,
         'data_vencimento' : data_vencimento,
         'data_competencia' : data_competencia,
-        'valor_debito' : valor_debito
+        'valor_debito' : valor_debito,
+        'parcelas' : parcelas
     };
 
     //Valida se algum campo veio vazio

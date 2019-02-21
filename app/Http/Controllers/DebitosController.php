@@ -299,21 +299,22 @@ class DebitosController extends Controller
             $data = $this->getData($request);
 
             //$this->boletoFacilApi->fetchPaymentDetails();
-            //dd("www");
+            //dd($request->all());
             //Cria um boleto Pelo BoletoFacil
             $boleto = $this->boletoFacilApi->createBoleto($data);
 
+            //dd($data);
             //Se falhar a criaçao do boleto, retorna um erro e a mensagem do erro
             if(!$boleto['success']) return Response::json(['success' => false, 'msg' => $boleto['msg']]);
 
-            //Gera um boleto a partir dos daos de retorno do BoletoFacil
-            $boletoGerado = FinBoleto::create($boleto);
+            //Gera um boleto a partir dos dados de retorno do BoletoFacil
+            //$boletoGerado = FinBoleto::create($boleto);
 
             //Com os dados do formulario, adiciono o id do boleto + o status de aguardando que e 2 ao debito
-            $data = array_merge($data, [ 'boleto_id' => $boletoGerado->id, 'status_id' => '2']);
+            //$data = array_merge($data, [ 'boleto_id' => $boletoGerado->id, 'status_id' => '2']);
 
             //Salva o debito vinculado ao boleto gerado
-            Debitos::create($data);
+            //Debitos::create($data);
 
 
             return \Illuminate\Support\Facades\Response::json(['success' => true, 'msg' => 'Edição realizada com sucesso!']);
@@ -617,7 +618,7 @@ class DebitosController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['mk_cliente_id','status_id','multa', 'desconto','boleto_id','code', 'numero_cobranca', 'cpf', 'nome','conta_bancaria_id','valor_debito','descricao','valor_pago','valor_desconto', 'data_competencia','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
+        $data = $request->only(['mk_cliente_id','parcelas','status_id','multa', 'desconto','boleto_id','code', 'numero_cobranca', 'cpf', 'nome','conta_bancaria_id','valor_debito','descricao','valor_pago','valor_desconto', 'data_competencia','data_vencimento','data_pagamento','pago','forma_pagamento_id','carne_id','local_pagamento_id','status']);
 
         return $data;
     }

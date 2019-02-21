@@ -42,6 +42,8 @@ class Dashboard extends Controller
     {
         $result = DB::select('call qtdInstalacaoes("2019-01-01", "2019-12-31")');
 
+        $result2018 = DB::select('call qtdInstalacaoes("2019-01-01", "2019-12-31")');
+
         return \Illuminate\Support\Facades\Response::json($result);
     }
 

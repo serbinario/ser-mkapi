@@ -56,37 +56,75 @@ class BoletoFacilApi
         $this->boletofacil->billingAddressCity = $cliente->cidade;
         $this->boletofacil->billingAddressState = $cliente->estado;
 
-        $this->boletofacil->maxOverdueDays = 20;
+        $this->boletofacil->maxOverdueDays = 30;
         $this->boletofacil->fine = "2.00";
         $this->boletofacil->interest = "0.33";
+
 
 
         //Falta colocar a cidade e o estado como obrigatprios
         //Verificar se vamos colcoar para pagar apos o vencimento
 
         //Prepara com os dados do cliente
-        $this->boletofacil->createCharge($data['nome'] ,$cliente->cpf, $data['descricao'], $this->trataValor($data['valor_debito']), $data['data_vencimento']);
+        $this->boletofacil->createCharge(
+            $data['nome'],
+            $cliente->cpf,
+            $data['descricao'],
+            $this->trataValor($data['valor_debito']),
+            $data['data_vencimento']
+        );
+
+        $this->boletofacil->installments = $data['parcelas'];
 
         //Gera um boleto a partir dos dados do cliente
         $retorno = $this->boletofacil->issueCharge();
 
+        //dd($retorno);
         $array = json_decode($retorno, true);
 
+    //dd($array);
         //Verifica se deu sucesso na requisiçao de gerar o boleto
         if($array['success'])
         {
             //Recupera os dados de resposta ao gerar um boleto
-            $code =         $array['data']['charges']['0']['code'];
-            $checkoutUrl =  $array['data']['charges']['0']['checkoutUrl'];
-            $link =         $array['data']['charges']['0']['link'];
-            $payNumber =    $array['data']['charges']['0']['payNumber'];
-            $ourNumber =    $array['data']['charges']['0']['billetDetails']['ourNumber'];
-            $barcodeNumber = $array['data']['charges']['0']['billetDetails']['barcodeNumber'];
+            foreach ($array['data']['charges'] as $key => $value) {
+                //Recupera os dados de resposta ao gerar um boleto
+                $code =         $value['code'];
+                $dueDate =      $value['dueDate'];
+                $checkoutUrl =  $value['checkoutUrl'];
+                $link =         $value['link'];
+                $payNumber =    $value['payNumber'];
+                $ourNumber =    $value['billetDetails']['ourNumber'];
+                $barcodeNumber = $value['billetDetails']['barcodeNumber'];
 
-            return ['success' => true, 'code' => $code, 'checkoutUrl' => $checkoutUrl, 'link' => $link,
-                        'ourNumber' => $ourNumber, 'barcodeNumber' =>$barcodeNumber,
+                //Gera um boleto a partir dos dados de retorno do BoletoFacil
+                $boletoGerado = FinBoleto::create(
+                    [
+                        'code' => $code,
+                        'checkoutUrl' => $checkoutUrl,
+                        'link' => $link,
+                        'ourNumber' => $ourNumber,
+                        'barcodeNumber' =>$barcodeNumber,
                         '$payNumber' => $payNumber
-                    ];
+                    ]
+                );
+
+                $data['data_vencimento'] = $dueDate;
+
+                //Subtrai a data em um mes
+                $data['data_competencia'] = date('d/m/Y', strtotime(implode('-', array_reverse(explode('/', $dueDate))) . "-1 months") );
+                //dd($data);
+                //Com os dados do formulario, adiciono o id do boleto + o status de aguardando que e 2 ao debito
+                $data = array_merge($data, [ 'boleto_id' => $boletoGerado->id, 'status_id' => '2']);
+
+                //Salva o debito vinculado ao boleto gerado
+                Debitos::create($data);
+
+                //dd($boletoGerado);
+
+            }
+
+            return ['success' => true ];
         }else{
             return ['success' => false, 'msg' => $array['errorMessage']];
         }
