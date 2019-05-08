@@ -172,7 +172,7 @@
         <label for="coordenadas" class="col-md-2 control-label">Coordenadas</label>
         <div class="col-md-10">
             <input class="form-control input-sm" name="coordenadas" type="text" id="coordenadas" value="{{ old('coordenadas', isset($cliente->coordenadas) ? $cliente->coordenadas : null) }}" maxlength="50" placeholder="Enter coordenadas...">
-            <img id="map_coordenadas" src="img/redo16.gif"  style="cursor:pointer; cursor:hand;" />
+            <img id="map_coordenadas" src="/img/icons8-google-maps-48.png"  style="cursor:pointer; cursor:hand;" />
         </div>
     </div>
 
