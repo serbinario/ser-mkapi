@@ -43,7 +43,7 @@ function carregarPontos() {
             if(ponto.status == "desconectado"){
                 icon = '/img/desconectado.png'
             }else{
-                icon = '/img/conectado.png'
+                icon = '/img/conectado2.png'
             }
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
