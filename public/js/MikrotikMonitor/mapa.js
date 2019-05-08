@@ -28,42 +28,51 @@ function abrirInfoBox(id, marker) {
 
 function carregarPontos() {
     console.log("ddddd")
-	$.getJSON('127.0.0.1:8000/mikrotik/activeDesactiveClients', function(pontos) {
-        console.log("ddddd")
-		var latlngbounds = new google.maps.LatLngBounds();
+    jQuery.ajax({
+        type: 'GET',
+        url: '/mikrotik/activeDesactiveClients/',
+        datatype: 'json'
+    }).done(function (retorno) {
+        console.log(retorno)
+        var latlngbounds = new google.maps.LatLngBounds();
 
-		console.log(pontos)
-		$.each(pontos, function(index, ponto) {
-			
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
-				title: "Meu ponto personalizado! :-D",
-				icon: 'img/marcador.png'
-			});
-			
-			var myOptions = {
-				content: "<p>" + ponto.Descricao + "</p>",
-				pixelOffset: new google.maps.Size(-150, 0)
-        	};
+        //console.log(retorno.clientes)
+        $.each(retorno.clientes, function(index, ponto) {
 
-			infoBox[ponto.Id] = new InfoBox(myOptions);
-			infoBox[ponto.Id].marker = marker;
-			
-			infoBox[ponto.Id].listener = google.maps.event.addListener(marker, 'click', function (e) {
-				abrirInfoBox(ponto.Id, marker);
-			});
-			
-			markers.push(marker);
-			
-			latlngbounds.extend(marker.position);
-			
-		});
-		
-		var markerCluster = new MarkerClusterer(map, markers);
-		
-		map.fitBounds(latlngbounds);
-		
-	});
+            console.log(ponto.Id)
+            if(ponto.status == "desconectado"){
+                icon = '/img/desconectado.png'
+            }else{
+                icon = '/img/conectado.png'
+            }
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
+                title: "Nome:" + ponto.nome   + "\nLogin:" + ponto.login  + "\nEnd.::" + ponto.Descricao + "\nTempo:" + ponto.uptime,
+                icon: icon
+            });
+
+            var myOptions = {
+                content: "<p>" + "Nome:" + ponto.nome   + "<br>Login:" + ponto.login  + "<br>End.::" + ponto.Descricao + "<br>Tempo:" + ponto.uptime + "</p>",
+                pixelOffset: new google.maps.Size(-150, 0)
+            };
+
+            infoBox[ponto.Id] = new InfoBox(myOptions);
+            infoBox[ponto.Id].marker = marker;
+
+            infoBox[ponto.Id].listener = google.maps.event.addListener(marker, 'click', function (e) {
+                abrirInfoBox(ponto.Id, marker);
+            });
+
+            markers.push(marker);
+
+            latlngbounds.extend(marker.position);
+
+        });
+
+        var markerCluster = new MarkerClusterer(map, markers);
+
+        map.fitBounds(latlngbounds);
+    });
 	
 }
 

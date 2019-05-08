@@ -119,6 +119,93 @@ class MikrotikController extends Controller
     }
 
     /*
+     * Retorna todos os clientes ativos e enativos
+     */
+    public function activeDesactiveClients()
+    {
+
+        $router = new RouterosService();
+        $router->debug = false;
+        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+
+
+        $router->write('/ppp/active/print', false);
+        $router->write('=.proplist=name,address,uptime');
+
+        $READ = $router->read(false);
+        $actives = $router->parseResponse($READ);
+        $router->disconnect();
+
+        //Retorna os clients ativos
+        $users = \DB::table('mk_clientes')
+            ->where('is_ativo', 1)
+            ->select('nome','login', 'senha','coordenadas', 'logradouro')
+            ->whereNotNull('coordenadas')
+            ->get();
+
+
+        $clientes_full = array();
+        $i = 1;
+        //dd($actives);
+        foreach ($users as $user){
+
+            //dd($actives);
+            if(isset($user->coordenadas)){
+                $coordenadas = explode(",", $user->coordenadas);
+                $latitude = $coordenadas[0];
+                $longitude = $coordenadas[1];
+            }else{
+                $latitude = "";
+                $longitude = "";
+            }
+
+            //Retorna a chave
+            $key = array_search($user->login, array_column($actives, 'name'));
+
+            //Se nao achou a chave e porque nao esta desconectado
+            if($key){
+                array_push($clientes_full,
+                    [
+                        'Id' => $i,
+                        'nome' => $user->nome,
+                        'login' => $user->login,
+                        'senha' => $user->senha,
+                        'uptime' => $actives[$key]['uptime'],
+                        'address' => $actives[$key]['address'],
+                        'Latitude' => $latitude,
+                        'Longitude' => $longitude,
+                        'status' => 'conectado',
+                        'Descricao' => $user->logradouro
+                    ] );
+            }else{
+                array_push($clientes_full,
+                    [
+                        'Id' => $i,
+                        'nome' => $user->nome,
+                        'login' => $user->login,
+                        'senha' => $user->senha,
+                        'status' => 'desconectado',
+                        'Latitude' => $latitude,
+                        'Longitude' => $longitude,
+                        'Descricao' => $user->logradouro
+                    ] );
+            }
+
+            //$clientes_full['1'] = $actives[$key]['name'];
+            $i++;
+
+        }
+
+        return \Illuminate\Support\Facades\Response::json(['success' => false, 'clientes' => $clientes_full ]);
+        //dd(json_encode($clientes_full));
+        //return response()->json(
+          //  $clientes_full
+        //);
+
+
+    }
+
+    /*
      * remove um secret do mikrotik
      */
     public function removePPP($router, $name)

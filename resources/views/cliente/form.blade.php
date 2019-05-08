@@ -168,6 +168,13 @@
             <input class="form-control input-sm" name="estado" type="text" id="estado" value="{{ old('estado', isset($cliente->estado) ? $cliente->estado : null) }}" maxlength="50" placeholder="Enter estado here...">
         </div>
     </div>
+    <div class="form-group {{ $errors->has('coordenadas') ? 'has-error' : '' }}">
+        <label for="coordenadas" class="col-md-2 control-label">Coordenadas</label>
+        <div class="col-md-10">
+            <input class="form-control input-sm" name="coordenadas" type="text" id="coordenadas" value="{{ old('coordenadas', isset($cliente->coordenadas) ? $cliente->coordenadas : null) }}" maxlength="50" placeholder="Enter coordenadas...">
+            <img id="map_coordenadas" src="img/redo16.gif"  style="cursor:pointer; cursor:hand;" />
+        </div>
+    </div>
 
     <div class="col-lg-12">
         <h4 class="text-bold">Dados Adicionais</h4>

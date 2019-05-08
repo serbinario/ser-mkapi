@@ -27,7 +27,7 @@
 
 		<link href="{{ asset('/assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css')}}" rel="stylesheet">
 
-		<script src="../../assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
 
 
 		<link href="{{ asset('/assets/css/theme-default/libs/sweetalert/sweetalert.css')}}" rel="stylesheet">
@@ -208,7 +208,7 @@
 									</a>
 									<!--start submenu -->
 									<ul>
-										<li><a href="{{ route('log.log.index') }}" class="active"><span class="title">Log</span></a></li>
+										<li><a href="{{ route('mikrotikMonitor.index') }}" class="active"><span class="title">Map</span></a></li>
 									</ul><!--end /submenu -->
 								</li><!--end /menu-li -->
 							</ul><!--end /submenu -->
@@ -238,12 +238,10 @@
 		<script src="{{ asset('/assets/js/libs/jquery/jquery-1.11.2.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/libs/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
-		<script src="{{ asset('/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js')}}" type="text/javascript"></script>
 
 
 		<script src="{{ asset('/assets/js/libs/spin.js/spin.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/libs/autosize/jquery.autosize.min.js')}}" type="text/javascript"></script>
-		<script src="{{ asset('/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/core/source/App.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/core/source/AppNavigation.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('/assets/js/core/source/AppOffcanvas.js')}}" type="text/javascript"></script>

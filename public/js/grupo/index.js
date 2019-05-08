@@ -4,6 +4,7 @@ $(document).ready(function () {
     $(document).on( 'click', '.delete', function( event ) {
         event.preventDefault();
         var elem = document.getElementsByClassName("delete");
+        document.g
         swal({
                 title: "Are you sure?",
                 text: "You will not be able to recover this imaginary file!",

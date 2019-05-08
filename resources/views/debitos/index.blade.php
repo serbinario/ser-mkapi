@@ -261,7 +261,7 @@
             </form>
 
             <!--Accordion -->
-            <div class="col-md-12">
+            <div class="col-md-12">Relatorio
                 <div class="panel-group" id="accordion">
                     <div class="card panel">
                         <div class="card-head card-head-xs collapsed" data-toggle="collapse" data-parent="#accordion7" data-target="#accordion7-12">

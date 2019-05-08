@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK - AUTH :: MAPA</title>
-    <link href="estilos/leaflet.css" rel="stylesheet" type="text/css" />
+    <link href="/css/leaflet.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         html {
             height: 100%;
@@ -21,7 +21,7 @@
             width: 100%;
         }
     </style>
-    <script type="text/javascript" src="scripts/leaflet.js"></script>
+    <script type="text/javascript" src="/js/cliente/leaflet.js"></script>
 </head>
 <body>
 <div id="mapa-mka"/>

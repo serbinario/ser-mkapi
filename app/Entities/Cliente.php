@@ -33,6 +33,7 @@ class Cliente extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'nome',
         'login',
         'senha',
@@ -75,7 +76,8 @@ class Cliente extends Model
         'clienteable_id',
         'clienteable_type',
         'estado',
-        'numero_casa'
+        'numero_casa',
+        'coordenadas'
     ];
 
     /**

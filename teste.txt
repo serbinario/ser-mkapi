@@ -1,0 +1,3567 @@
+array:597 [
+  "biblioteca" => array:11 [
+    ".id" => "*7"
+    "service" => "pppoe"
+    "caller-id" => "64:66:B3:61:45:6F"
+    "password" => "123456"
+    "profile" => "6M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 10:21:41"
+    "disabled" => "false"
+    "comment" => "Prefeitura Igarassu_biblioteca"
+  ]
+  "habitacao" => array:11 [
+    ".id" => "*D"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "6M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/13/2019 10:43:02"
+    "disabled" => "false"
+    "comment" => b"Prefeitura Igarassu_habitação"
+  ]
+  "turismo" => array:11 [
+    ".id" => "*10"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "10M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 10:21:46"
+    "disabled" => "false"
+    "comment" => "Prefeitura Igarassu_Turismo"
+  ]
+  "joseanb" => array:11 [
+    ".id" => "*A4"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#joseanb@2017#"
+    "profile" => "20M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 05:33:18"
+    "disabled" => "false"
+    "comment" => "condominio floresta de Igarassu, final da rua do Rotary 8M"
+  ]
+  "meioambiente" => array:11 [
+    ".id" => "*F8"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#ambiente@2017#"
+    "profile" => "10M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 10:02:44"
+    "disabled" => "false"
+    "comment" => "sec. meio ambriente"
+  ]
+  "jane" => array:11 [
+    ".id" => "*106"
+    "service" => "pppoe"
+    "caller-id" => "E4:BE:ED:1C:2D:7E"
+    "password" => "#jane@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/02/2019 22:20:40"
+    "disabled" => "false"
+    "comment" => "Sitio 2 - Bloco B - ap 303"
+  ]
+  "simone" => array:11 [
+    ".id" => "*131"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#simone@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/05/2019 23:36:16"
+    "disabled" => "false"
+    "comment" => "sitio 2 Bloco A - ap 105 10MPF "
+  ]
+  "andrio" => array:11 [
+    ".id" => "*136"
+    "service" => "pppoe"
+    "caller-id" => "C4:A8:1D:DF:E0:99"
+    "password" => "#andrio@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 08:25:16"
+    "disabled" => "false"
+    "comment" => "Bloco O 205 10M_PF"
+  ]
+  "nelson" => array:11 [
+    ".id" => "*13F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#nelson@2017#"
+    "profile" => "12M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 10:13:45"
+    "disabled" => "false"
+    "comment" => "visinha elaine 12M"
+  ]
+  "july" => array:11 [
+    ".id" => "*145"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#july@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/09/2019 14:26:25"
+    "disabled" => "false"
+    "comment" => "Bloco D AP 104 12M"
+  ]
+  "marquinho" => array:11 [
+    ".id" => "*17C"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#marquinho@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/13/2019 11:16:48"
+    "disabled" => "false"
+    "comment" => "Marquinho Triunfo - Choop 15M"
+  ]
+  "guilherme" => array:10 [
+    ".id" => "*182"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#guilherme@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/05/2019 09:05:27"
+    "disabled" => "false"
+  ]
+  "luizm" => array:11 [
+    ".id" => "*196"
+    "service" => "pppoe"
+    "caller-id" => "58:10:8C:74:73:1D"
+    "password" => "#luizm@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:01:33"
+    "disabled" => "false"
+    "comment" => "Sitio 2 - Bloco A ap4 "
+  ]
+  "lailson" => array:11 [
+    ".id" => "*197"
+    "service" => "pppoe"
+    "caller-id" => "90:8D:78:87:2E:2B"
+    "password" => "#lailson@2017#"
+    "profile" => "20M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:46:47"
+    "disabled" => "false"
+    "comment" => "rua de elaine"
+  ]
+  "aline" => array:11 [
+    ".id" => "*1B0"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#aline@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/01/2019 15:45:23"
+    "disabled" => "false"
+    "comment" => "Siitio 2 - Bloco F - ap 04 10M PF"
+  ]
+  "artesanato2" => array:11 [
+    ".id" => "*1BB"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "5M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/10/2019 14:25:22"
+    "disabled" => "false"
+    "comment" => "CLIENTE PREFEITURA"
+  ]
+  "nice" => array:11 [
+    ".id" => "*1BD"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#nice@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/04/2019 16:13:20"
+    "disabled" => "false"
+    "comment" => b"SALÃO NA RUA DA ACADEMIA 10M"
+  ]
+  "cosmov" => array:11 [
+    ".id" => "*1C5"
+    "service" => "pppoe"
+    "caller-id" => "00:1A:3F:A6:90:50"
+    "password" => "#cosmov@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/04/2019 08:47:26"
+    "disabled" => "false"
+    "comment" => "Sitio 3 - Bloco A03 - 10 mb"
+  ]
+  "eduardoe" => array:11 [
+    ".id" => "*1CD"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#eduardoe@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/30/2019 17:24:19"
+    "disabled" => "false"
+    "comment" => "Eduardo do Espetinho de cruz de rebou�as na rua da farm�cia popular cliente edmilson 10M"
+  ]
+  "casadosconselhos" => array:11 [
+    ".id" => "*1D9"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#cdc@2017#"
+    "profile" => "6M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/08/2019 10:48:05"
+    "disabled" => "false"
+    "comment" => "Casa dos conselhos - Prefeitura de Igarassu"
+  ]
+  "barbarav" => array:11 [
+    ".id" => "*1DF"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#barbarav@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/16/2019 14:50:28"
+    "disabled" => "false"
+    "comment" => "Sitio 3 - Bloco C303"
+  ]
+  "daniell" => array:11 [
+    ".id" => "*1E5"
+    "service" => "pppoe"
+    "caller-id" => "C4:6E:1F:F4:4E:95"
+    "password" => "#daniell@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/31/2019 21:56:32"
+    "disabled" => "false"
+    "comment" => "Sitio 3 - Bloco I 206 - 10mb"
+  ]
+  "emersonb" => array:11 [
+    ".id" => "*201"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#emersonb@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 06:52:19"
+    "disabled" => "false"
+    "comment" => "prox. a feira"
+  ]
+  "veronica" => array:11 [
+    ".id" => "*20E"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#veronica@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/03/2019 07:24:35"
+    "disabled" => "false"
+    "comment" => "Sitio 3 Bloco B01"
+  ]
+  "magalhaes" => array:11 [
+    ".id" => "*20F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#magalhaes@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 03:30:04"
+    "disabled" => "false"
+    "comment" => "Sitio 3 Bloco B02"
+  ]
+  "dina" => array:11 [
+    ".id" => "*226"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#dina@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/01/2019 09:17:40"
+    "disabled" => "false"
+    "comment" => "Sitio 3 - Bloco F 202 - 10 mb"
+  ]
+  "italov" => array:11 [
+    ".id" => "*24F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#italov@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/11/2019 17:49:33"
+    "disabled" => "false"
+    "comment" => "Sitio 3    L104 10M"
+  ]
+  "aldenise" => array:11 [
+    ".id" => "*26F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#aldenise@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/29/2019 14:20:18"
+    "disabled" => "false"
+    "comment" => "EM FRENTE AO CRAZ DE IGARASSU 10MB"
+  ]
+  "controladoria2" => array:11 [
+    ".id" => "*279"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "6M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/22/2019 13:17:04"
+    "disabled" => "false"
+    "comment" => "Prefeitura Igarassu_Controladoria"
+  ]
+  "psfbeiramar2" => array:11 [
+    ".id" => "*282"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "10M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/05/2019 01:47:40"
+    "disabled" => "false"
+    "comment" => "prefeitura"
+  ]
+  "iara" => array:11 [
+    ".id" => "*283"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#iara@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/16/2019 15:04:30"
+    "disabled" => "false"
+    "comment" => "Sitio 3 Bloco M202 "
+  ]
+  "ledson" => array:11 [
+    ".id" => "*289"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#ledson@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/30/2019 19:29:36"
+    "disabled" => "false"
+    "comment" => "ao lado do CR de cruz 15MB"
+  ]
+  "franciscol" => array:11 [
+    ".id" => "*28E"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#franciscol@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/01/2019 09:56:15"
+    "disabled" => "false"
+    "comment" => "Sitio 3 m101 10MB"
+  ]
+  "fagner" => array:11 [
+    ".id" => "*28F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#fagner@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/21/2019 10:41:04"
+    "disabled" => "false"
+    "comment" => "na rua do lava jato saramadaia 10MB"
+  ]
+  "manassesa" => array:11 [
+    ".id" => "*291"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#manassesa@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:51:53"
+    "disabled" => "false"
+    "comment" => "Sitio 3 M 04 , 10M"
+  ]
+  "mariana" => array:11 [
+    ".id" => "*29E"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#mariana@2017#"
+    "profile" => "25M_pessoa_fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/29/2019 10:03:32"
+    "disabled" => "false"
+    "comment" => "Sitio 3 E204 10MB"
+  ]
+  "renan" => array:13 [
+    ".id" => "*2A6"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#renan@2017#"
+    "profile" => "Bloqueados"
+    "local-address" => "170.245.65.134"
+    "remote-address" => "170.245.65.50"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/05/2019 11:13:48"
+    "disabled" => "false"
+    "comment" => "prox. a casa de dayane mancial 15MB"
+  ]
+  "escpitanga" => array:11 [
+    ".id" => "*2AB"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "5M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/30/2019 13:05:56"
+    "disabled" => "false"
+    "comment" => "prefeitura"
+  ]
+  "edilmac" => array:11 [
+    ".id" => "*2B2"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#edilmac@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/12/2019 09:24:43"
+    "disabled" => "false"
+    "comment" => b"IRMÃ DE WILMA, LOT TRIUNFO"
+  ]
+  "amaro" => array:11 [
+    ".id" => "*2B3"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#amaro@2017#"
+    "profile" => "20M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/03/2019 10:31:25"
+    "disabled" => "false"
+    "comment" => "rua de edilma lot triunfo"
+  ]
+  "armindo" => array:11 [
+    ".id" => "*2B8"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#armindo@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/01/2019 09:38:32"
+    "disabled" => "false"
+    "comment" => "Sitio 3 G04 10MB"
+  ]
+  "nubia" => array:11 [
+    ".id" => "*2BC"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#nubia@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/15/2019 16:09:11"
+    "disabled" => "false"
+    "comment" => b"prox. deposito de gás nas cubatas"
+  ]
+  "mariaf" => array:11 [
+    ".id" => "*2C6"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#mariaf@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/02/2019 16:55:56"
+    "disabled" => "false"
+    "comment" => "prox. a casa de ibson"
+  ]
+  "gleydson" => array:11 [
+    ".id" => "*2D1"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#gleydson@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 08:52:33"
+    "disabled" => "false"
+    "comment" => "condominio shalon casa 516 10MB"
+  ]
+  "helena" => array:11 [
+    ".id" => "*2F1"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#helena@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:00:57"
+    "disabled" => "false"
+    "comment" => "Sitio 2 - Bloco F 302 10M- BARBARA HELLEN"
+  ]
+  "daniella" => array:11 [
+    ".id" => "*2F6"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#daniella@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "dec/26/2018 16:22:33"
+    "disabled" => "false"
+    "comment" => "sitio 3 N201 10MB"
+  ]
+  "angelo1" => array:11 [
+    ".id" => "*2F9"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#angelo1@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/25/2019 14:21:15"
+    "disabled" => "false"
+    "comment" => "loja de daniel angelo cruz"
+  ]
+  "lucianas" => array:11 [
+    ".id" => "*30A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#lucianas@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/11/2019 11:02:59"
+    "disabled" => "false"
+    "comment" => "sitio3 E102 20MB"
+  ]
+  "helena01" => array:11 [
+    ".id" => "*31C"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#helena01@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/14/2019 16:59:27"
+    "disabled" => "false"
+    "comment" => "sitio 2  J304  10 MB"
+  ]
+  "rafaelfm" => array:11 [
+    ".id" => "*31F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#rafaelfm@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/16/2019 08:46:03"
+    "disabled" => "false"
+    "comment" => "sitio 3  H301 10MB"
+  ]
+  "marcelly" => array:11 [
+    ".id" => "*320"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#marcelly@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/20/2019 07:34:17"
+    "disabled" => "false"
+    "comment" => "sitio 3 N205 10MB"
+  ]
+  "rickson" => array:11 [
+    ".id" => "*324"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#rickson@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/24/2019 11:07:47"
+    "disabled" => "false"
+    "comment" => "Sito 2 Bloco C103"
+  ]
+  "andersonf" => array:11 [
+    ".id" => "*325"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#andersonf@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 04:30:54"
+    "disabled" => "false"
+    "comment" => "sitio 3 C01  10MB"
+  ]
+  "alexsandra01" => array:11 [
+    ".id" => "*326"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#alexsandra01@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/27/2019 10:44:10"
+    "disabled" => "false"
+    "comment" => "Rua Angola posto do monta"
+  ]
+  "fernandov" => array:11 [
+    ".id" => "*32A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#fernandov@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/03/2019 15:29:14"
+    "disabled" => "false"
+    "comment" => "sitio 3 O102 10MB"
+  ]
+  "antoniog" => array:11 [
+    ".id" => "*338"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#antoniog@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/04/2019 14:02:17"
+    "disabled" => "false"
+    "comment" => "bar do tonho em frente loterica posto monta 10mb"
+  ]
+  "julioc" => array:11 [
+    ".id" => "*33A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#julioc@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/08/2019 10:41:10"
+    "disabled" => "false"
+    "comment" => "Sitio 2 Bloco C01"
+  ]
+  "moises" => array:11 [
+    ".id" => "*340"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#moises@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:47:12"
+    "disabled" => "false"
+    "comment" => "sitio 2 E301 10mb"
+  ]
+  "tassia01" => array:11 [
+    ".id" => "*346"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#tassia01@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/05/2019 15:55:43"
+    "disabled" => "false"
+    "comment" => "sitio 2 J106 10MB"
+  ]
+  "ivanise" => array:11 [
+    ".id" => "*347"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#ivanise@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/01/2019 19:10:37"
+    "disabled" => "false"
+    "comment" => "sitio 2 A103 10MB"
+  ]
+  "tayane" => array:11 [
+    ".id" => "*348"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#tayane@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/27/2019 16:38:41"
+    "disabled" => "false"
+    "comment" => "sitio 2 J 206 10MB"
+  ]
+  "amanda" => array:11 [
+    ".id" => "*34F"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#amanda@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/11/2019 13:47:35"
+    "disabled" => "false"
+    "comment" => "sitio 2 E303 15mb"
+  ]
+  "joanan" => array:11 [
+    ".id" => "*352"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#joanan@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 08:44:23"
+    "disabled" => "false"
+    "comment" => "sitio3 D102 10MB"
+  ]
+  "sheyllag" => array:11 [
+    ".id" => "*353"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#sheyllag@2018#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/07/2019 11:27:51"
+    "disabled" => "false"
+    "comment" => "sheylla da urbe"
+  ]
+  "deyvson" => array:11 [
+    ".id" => "*35D"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#deyvson@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/16/2019 18:17:25"
+    "disabled" => "false"
+    "comment" => "sitio2 F206 10 mb"
+  ]
+  "adilson" => array:11 [
+    ".id" => "*35E"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#adilson@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/05/2019 17:36:39"
+    "disabled" => "false"
+    "comment" => "sitio2 O05 10mb"
+  ]
+  "clebson" => array:11 [
+    ".id" => "*368"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#clebson@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/26/2019 15:40:48"
+    "disabled" => "false"
+    "comment" => "sitio3 M304 10MB"
+  ]
+  "mercia1" => array:10 [
+    ".id" => "*36A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#mercia1@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 00:29:36"
+    "disabled" => "false"
+  ]
+  "adna" => array:11 [
+    ".id" => "*36D"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#adna@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/16/2019 11:46:39"
+    "disabled" => "false"
+    "comment" => "sitio3 H06 15MB"
+  ]
+  "messias" => array:11 [
+    ".id" => "*379"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#messias@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/04/2019 17:04:05"
+    "disabled" => "false"
+    "comment" => "sitio3  104M  10mb"
+  ]
+  "alissandra" => array:11 [
+    ".id" => "*389"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#alissandra@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/06/2019 22:31:25"
+    "disabled" => "false"
+    "comment" => "Sitio 3 Bloco g ap03"
+  ]
+  "gilcelle" => array:11 [
+    ".id" => "*38A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#gilcelle@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/27/2019 17:10:47"
+    "disabled" => "false"
+    "comment" => "sv 2 M 304"
+  ]
+  "teste1" => array:10 [
+    ".id" => "*38C"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "teste1"
+    "profile" => "30M_pessoa_fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 09:32:43"
+    "disabled" => "false"
+  ]
+  "escconceicao" => array:11 [
+    ".id" => "*392"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "10M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/02/2019 09:32:03"
+    "disabled" => "false"
+    "comment" => "escola nossa senhora da concecao "
+  ]
+  "kaylanne" => array:11 [
+    ".id" => "*398"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#kaylanne@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/31/2019 13:27:45"
+    "disabled" => "false"
+    "comment" => "sitio2 B206 10MB"
+  ]
+  "nicolas" => array:11 [
+    ".id" => "*3A2"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#nicolas@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/13/2019 09:19:59"
+    "disabled" => "false"
+    "comment" => "rua jorge amado 10mb"
+  ]
+  "everaldo" => array:11 [
+    ".id" => "*3A5"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#everaldo@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/29/2019 14:50:26"
+    "disabled" => "false"
+    "comment" => "sitio 3 O03 10mb"
+  ]
+  "suelen" => array:11 [
+    ".id" => "*3B1"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#suelen@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:49:18"
+    "disabled" => "false"
+    "comment" => "sitio3 H105 10MB"
+  ]
+  "sergiov" => array:11 [
+    ".id" => "*3B3"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#sergiov@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/20/2019 06:06:36"
+    "disabled" => "false"
+    "comment" => "Sitio 2 L06 10MB"
+  ]
+  "robertov" => array:10 [
+    ".id" => "*3B7"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#robertov@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "mar/21/2019 07:54:38"
+    "disabled" => "false"
+  ]
+  "andre" => array:11 [
+    ".id" => "*3CB"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#andre@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "feb/11/2019 15:34:19"
+    "disabled" => "false"
+    "comment" => "sitio 3 i105 10MB"
+  ]
+  "edileusa" => array:11 [
+    ".id" => "*3DF"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#edileusa@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/04/2019 09:52:29"
+    "disabled" => "false"
+    "comment" => "SV 2 F 204"
+  ]
+  "mariacc" => array:11 [
+    ".id" => "*3E4"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#mariacc@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 07:04:50"
+    "disabled" => "false"
+    "comment" => "sitio3 O205 15MB"
+  ]
+  "paulaf" => array:11 [
+    ".id" => "*3E9"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#paulaf@2017#"
+    "profile" => "Bloqueados"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/01/2019 10:05:21"
+    "disabled" => "false"
+    "comment" => "sitio 3 b306 10mb"
+  ]
+  "juntamedica" => array:11 [
+    ".id" => "*3F2"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "123456"
+    "profile" => "6M_Prefeitura"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "apr/23/2019 11:52:28"
+    "disabled" => "false"
+    "comment" => "ao lado doplanejamento"
+  ]
+  "comissario" => array:11 [
+    ".id" => "*404"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#comissario@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/01/1970 00:00:00"
+    "disabled" => "false"
+    "comment" => b"comissario delegacia de cruz de rebouças"
+  ]
+  "ginaldo" => array:11 [
+    ".id" => "*405"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#ginaldo@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/06/2019 10:53:18"
+    "disabled" => "false"
+    "comment" => "sitio2 d306 10mb"
+  ]
+  "autocruz" => array:11 [
+    ".id" => "*40A"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#autocruz@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/01/1970 00:00:00"
+    "disabled" => "false"
+    "comment" => "auto escola cruz"
+  ]
+  "joaof" => array:11 [
+    ".id" => "*413"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#joaof@2017#"
+    "profile" => "15M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/07/2019 08:36:30"
+    "disabled" => "false"
+    "comment" => b"Do lado da secretaria de administração"
+  ]
+  "tulioa" => array:11 [
+    ".id" => "*418"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#tulioa@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "jan/01/1970 00:00:00"
+    "disabled" => "false"
+    "comment" => "Ao lado do CR CLUBE"
+  ]
+  "marcusv" => array:11 [
+    ".id" => "*41E"
+    "service" => "pppoe"
+    "caller-id" => ""
+    "password" => "#marcusv@2017#"
+    "profile" => "10M_Pessoa_Fisica"
+    "routes" => ""
+    "limit-bytes-in" => "0"
+    "limit-bytes-out" => "0"
+    "last-logged-out" => "may/04/2019 22:14:12"
+    "disabled" => "false"
+    "comment" => "Sitio viver 3 M01"
+  ]
+  "adelsonb" => array:4 [
+    "address" => "10.0.207.253"
+    "uptime" => "2d5h52m33s"
+    "caller-id" => "00:72:63:0F:00:98"
+    "service" => "pppoe"
+  ]
+  "viviane" => array:4 [
+    "address" => "10.0.207.251"
+    "uptime" => "2d5h52m33s"
+    "caller-id" => "00:1A:EF:54:CF:FB"
+    "service" => "pppoe"
+  ]
+  "ralf" => array:4 [
+    "address" => "10.0.207.250"
+    "uptime" => "2d5h52m33s"
+    "caller-id" => "00:72:63:2D:08:B1"
+    "service" => "pppoe"
+  ]
+  "almir" => array:4 [
+    "address" => "10.0.207.248"
+    "uptime" => "2d5h52m33s"
+    "caller-id" => "58:10:8C:6C:55:12"
+    "service" => "pppoe"
+  ]
+  "wilton" => array:4 [
+    "address" => "10.10.10.50"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "E4:6F:13:0F:9B:8C"
+    "service" => "pppoe"
+  ]
+  "aldenisia" => array:4 [
+    "address" => "10.0.207.245"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "00:1A:3F:FA:AB:90"
+    "service" => "pppoe"
+  ]
+  "wilson" => array:4 [
+    "address" => "10.0.207.244"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "58:10:8C:45:A8:AB"
+    "service" => "pppoe"
+  ]
+  "secsaude" => array:4 [
+    "address" => "10.0.250.254"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "00:1A:3F:FA:B5:8C"
+    "service" => "pppoe"
+  ]
+  "joaoh" => array:4 [
+    "address" => "10.0.207.237"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "C4:A8:1D:3B:85:2C"
+    "service" => "pppoe"
+  ]
+  "joses" => array:4 [
+    "address" => "10.0.207.236"
+    "uptime" => "2d5h52m32s"
+    "caller-id" => "00:1A:3F:7A:4A:3D"
+    "service" => "pppoe"
+  ]
+  "davi" => array:4 [
+    "address" => "10.0.207.234"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "18:0D:2C:14:C7:1C"
+    "service" => "pppoe"
+  ]
+  "miguelricardo" => array:4 [
+    "address" => "10.0.207.230"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "58:10:8C:9A:17:00"
+    "service" => "pppoe"
+  ]
+  "anna" => array:4 [
+    "address" => "10.0.207.229"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "58:10:8C:6B:41:6D"
+    "service" => "pppoe"
+  ]
+  "djan" => array:4 [
+    "address" => "10.0.207.228"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "EC:22:80:C8:22:05"
+    "service" => "pppoe"
+  ]
+  "wendalop" => array:4 [
+    "address" => "10.0.207.226"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "00:1A:3F:F6:95:20"
+    "service" => "pppoe"
+  ]
+  "roberta" => array:4 [
+    "address" => "10.0.207.224"
+    "uptime" => "2d5h52m31s"
+    "caller-id" => "58:10:8C:4D:19:7E"
+    "service" => "pppoe"
+  ]
+  "karlas" => array:4 [
+    "address" => "10.0.207.221"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "58:10:8C:7B:3A:D0"
+    "service" => "pppoe"
+  ]
+  "izabela" => array:4 [
+    "address" => "10.0.207.217"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "74:DA:DA:EC:C9:9A"
+    "service" => "pppoe"
+  ]
+  "daniele" => array:4 [
+    "address" => "10.0.207.213"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "C4:A8:1D:26:8C:05"
+    "service" => "pppoe"
+  ]
+  "carlose" => array:4 [
+    "address" => "10.0.207.210"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "58:10:8C:55:19:76"
+    "service" => "pppoe"
+  ]
+  "pauloc" => array:4 [
+    "address" => "10.0.207.209"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "C4:12:F5:D1:C4:53"
+    "service" => "pppoe"
+  ]
+  "armazem" => array:4 [
+    "address" => "10.0.207.208"
+    "uptime" => "2d5h52m30s"
+    "caller-id" => "90:8D:78:8C:EF:C3"
+    "service" => "pppoe"
+  ]
+  "sheila" => array:4 [
+    "address" => "10.0.207.206"
+    "uptime" => "2d5h52m29s"
+    "caller-id" => "58:10:8C:92:EE:84"
+    "service" => "pppoe"
+  ]
+  "adelmo" => array:4 [
+    "address" => "10.0.207.205"
+    "uptime" => "2d5h52m29s"
+    "caller-id" => "18:0D:2C:55:8A:12"
+    "service" => "pppoe"
+  ]
+  "padre" => array:4 [
+    "address" => "10.0.207.203"
+    "uptime" => "2d5h52m29s"
+    "caller-id" => "00:1A:3F:8F:27:6A"
+    "service" => "pppoe"
+  ]
+  "andersons" => array:4 [
+    "address" => "10.0.207.202"
+    "uptime" => "2d5h52m29s"
+    "caller-id" => "B0:4E:26:FA:D7:75"
+    "service" => "pppoe"
+  ]
+  "helder" => array:4 [
+    "address" => "10.0.207.194"
+    "uptime" => "2d5h52m28s"
+    "caller-id" => "00:72:63:0E:B1:21"
+    "service" => "pppoe"
+  ]
+  "dayane" => array:4 [
+    "address" => "10.0.207.193"
+    "uptime" => "2d5h52m28s"
+    "caller-id" => "A0:AB:1B:2B:07:83"
+    "service" => "pppoe"
+  ]
+  "compalt" => array:4 [
+    "address" => "10.0.207.192"
+    "uptime" => "2d5h52m28s"
+    "caller-id" => "00:1A:3F:8F:27:F6"
+    "service" => "pppoe"
+  ]
+  "iraci" => array:4 [
+    "address" => "10.0.207.191"
+    "uptime" => "2d5h52m27s"
+    "caller-id" => "58:10:8C:6B:45:B1"
+    "service" => "pppoe"
+  ]
+  "nazare" => array:4 [
+    "address" => "170.245.65.52"
+    "uptime" => "2d5h52m27s"
+    "caller-id" => "18:0D:2C:5D:2C:9A"
+    "service" => "pppoe"
+  ]
+  "serbinario" => array:4 [
+    "address" => "10.0.207.188"
+    "uptime" => "2d5h52m27s"
+    "caller-id" => "6C:3B:6B:D6:BD:01"
+    "service" => "pppoe"
+  ]
+  "ailton" => array:4 [
+    "address" => "10.0.207.187"
+    "uptime" => "2d5h52m26s"
+    "caller-id" => "E4:BE:ED:06:A6:98"
+    "service" => "pppoe"
+  ]
+  "pesanha" => array:4 [
+    "address" => "10.0.207.186"
+    "uptime" => "2d5h52m26s"
+    "caller-id" => "18:0D:2C:33:4B:C6"
+    "service" => "pppoe"
+  ]
+  "andres" => array:4 [
+    "address" => "10.0.207.183"
+    "uptime" => "2d5h52m24s"
+    "caller-id" => "00:72:63:34:82:AA"
+    "service" => "pppoe"
+  ]
+  "silene" => array:4 [
+    "address" => "10.0.207.182"
+    "uptime" => "2d5h52m24s"
+    "caller-id" => "E4:BE:ED:1D:EF:06"
+    "service" => "pppoe"
+  ]
+  "urbi" => array:4 [
+    "address" => "10.0.250.243"
+    "uptime" => "2d5h52m22s"
+    "caller-id" => "C8:3A:35:3B:A3:38"
+    "service" => "pppoe"
+  ]
+  "PauloVPN" => array:4 [
+    "address" => "10.0.249.10"
+    "uptime" => "2d5h52m21s"
+    "caller-id" => "191.252.185.45"
+    "service" => "ovpn"
+  ]
+  "iris" => array:4 [
+    "address" => "10.0.207.178"
+    "uptime" => "2d5h52m20s"
+    "caller-id" => "88:79:7E:27:D4:74"
+    "service" => "pppoe"
+  ]
+  "roberval" => array:4 [
+    "address" => "10.0.207.176"
+    "uptime" => "2d5h52m18s"
+    "caller-id" => "E4:BE:ED:29:50:EA"
+    "service" => "pppoe"
+  ]
+  "sherley" => array:4 [
+    "address" => "10.0.207.170"
+    "uptime" => "2d5h52m16s"
+    "caller-id" => "E4:BE:ED:A1:98:15"
+    "service" => "pppoe"
+  ]
+  "vivianeg" => array:4 [
+    "address" => "10.0.207.167"
+    "uptime" => "2d5h52m14s"
+    "caller-id" => "E4:BE:ED:7C:FE:A7"
+    "service" => "pppoe"
+  ]
+  "tatiane" => array:4 [
+    "address" => "10.0.207.161"
+    "uptime" => "2d5h52m12s"
+    "caller-id" => "18:D6:C7:63:0F:2D"
+    "service" => "pppoe"
+  ]
+  "pmi" => array:4 [
+    "address" => "10.0.207.160"
+    "uptime" => "2d5h52m11s"
+    "caller-id" => "E4:BE:ED:51:47:67"
+    "service" => "pppoe"
+  ]
+  "vanessa" => array:4 [
+    "address" => "10.0.207.159"
+    "uptime" => "2d5h52m11s"
+    "caller-id" => "E4:BE:ED:1B:DB:B2"
+    "service" => "pppoe"
+  ]
+  "marial" => array:4 [
+    "address" => "10.0.207.158"
+    "uptime" => "2d5h52m11s"
+    "caller-id" => "E4:BE:ED:58:B7:EE"
+    "service" => "pppoe"
+  ]
+  "ovidio" => array:4 [
+    "address" => "10.0.207.157"
+    "uptime" => "2d5h52m10s"
+    "caller-id" => "08:10:79:B5:8C:5E"
+    "service" => "pppoe"
+  ]
+  "joana" => array:4 [
+    "address" => "10.0.207.156"
+    "uptime" => "2d5h52m10s"
+    "caller-id" => "04:8D:38:1A:14:1A"
+    "service" => "pppoe"
+  ]
+  "brunos" => array:4 [
+    "address" => "10.0.207.153"
+    "uptime" => "2d5h52m8s"
+    "caller-id" => "78:44:76:2E:DA:8B"
+    "service" => "pppoe"
+  ]
+  "yolanda" => array:4 [
+    "address" => "10.0.207.152"
+    "uptime" => "2d5h52m8s"
+    "caller-id" => "E4:BE:ED:B5:38:FA"
+    "service" => "pppoe"
+  ]
+  "josemar" => array:4 [
+    "address" => "10.0.207.151"
+    "uptime" => "2d5h52m8s"
+    "caller-id" => "E4:BE:ED:1C:68:CA"
+    "service" => "pppoe"
+  ]
+  "valdir" => array:4 [
+    "address" => "10.0.207.136"
+    "uptime" => "2d5h51m45s"
+    "caller-id" => "00:1A:3F:80:67:2B"
+    "service" => "pppoe"
+  ]
+  "amiltont" => array:4 [
+    "address" => "10.0.207.135"
+    "uptime" => "2d5h51m41s"
+    "caller-id" => "F8:1A:67:82:3D:19"
+    "service" => "pppoe"
+  ]
+  "elba" => array:4 [
+    "address" => "10.0.207.133"
+    "uptime" => "2d5h51m31s"
+    "caller-id" => "C4:E9:84:52:CD:E3"
+    "service" => "pppoe"
+  ]
+  "paulor4" => array:4 [
+    "address" => "10.0.207.132"
+    "uptime" => "2d5h51m27s"
+    "caller-id" => "54:E6:FC:D6:97:73"
+    "service" => "pppoe"
+  ]
+  "ricardos" => array:4 [
+    "address" => "10.0.207.129"
+    "uptime" => "2d5h51m24s"
+    "caller-id" => "AC:84:C6:5F:C4:B5"
+    "service" => "pppoe"
+  ]
+  "robertom" => array:4 [
+    "address" => "10.0.207.128"
+    "uptime" => "2d5h51m24s"
+    "caller-id" => "C8:E7:D8:97:C9:25"
+    "service" => "pppoe"
+  ]
+  "raimundo" => array:4 [
+    "address" => "10.0.207.125"
+    "uptime" => "2d5h51m23s"
+    "caller-id" => "04:8D:39:44:CA:2C"
+    "service" => "pppoe"
+  ]
+  "joel" => array:4 [
+    "address" => "10.0.207.123"
+    "uptime" => "2d5h51m22s"
+    "caller-id" => "AC:84:C6:08:1C:EF"
+    "service" => "pppoe"
+  ]
+  "dimas" => array:4 [
+    "address" => "10.0.207.121"
+    "uptime" => "2d5h51m20s"
+    "caller-id" => "90:F6:52:A6:18:13"
+    "service" => "pppoe"
+  ]
+  "selma" => array:4 [
+    "address" => "10.0.207.118"
+    "uptime" => "2d5h51m20s"
+    "caller-id" => "30:B5:C2:8E:8C:A1"
+    "service" => "pppoe"
+  ]
+  "microart" => array:4 [
+    "address" => "10.0.207.113"
+    "uptime" => "2d5h51m16s"
+    "caller-id" => "E8:DE:27:96:E3:5D"
+    "service" => "pppoe"
+  ]
+  "erlon" => array:4 [
+    "address" => "10.0.207.111"
+    "uptime" => "2d5h51m15s"
+    "caller-id" => "F8:1A:67:35:68:FD"
+    "service" => "pppoe"
+  ]
+  "jennifer" => array:4 [
+    "address" => "10.0.207.110"
+    "uptime" => "2d5h51m14s"
+    "caller-id" => "B8:55:10:28:1E:7D"
+    "service" => "pppoe"
+  ]
+  "kelyda" => array:4 [
+    "address" => "10.0.207.108"
+    "uptime" => "2d5h51m11s"
+    "caller-id" => "10:FE:ED:64:79:8B"
+    "service" => "pppoe"
+  ]
+  "auri" => array:4 [
+    "address" => "10.0.207.107"
+    "uptime" => "2d5h51m10s"
+    "caller-id" => "64:66:B3:DC:A6:4B"
+    "service" => "pppoe"
+  ]
+  "emmersonb" => array:4 [
+    "address" => "10.0.207.106"
+    "uptime" => "2d5h51m10s"
+    "caller-id" => "0C:80:63:5B:57:85"
+    "service" => "pppoe"
+  ]
+  "tulioc" => array:4 [
+    "address" => "10.0.207.104"
+    "uptime" => "2d5h51m9s"
+    "caller-id" => "10:FE:ED:39:74:07"
+    "service" => "pppoe"
+  ]
+  "diego" => array:4 [
+    "address" => "10.0.207.103"
+    "uptime" => "2d5h51m8s"
+    "caller-id" => "0C:80:63:38:40:D1"
+    "service" => "pppoe"
+  ]
+  "rotary" => array:4 [
+    "address" => "10.0.207.102"
+    "uptime" => "2d5h51m8s"
+    "caller-id" => "C8:E7:D8:61:3A:AF"
+    "service" => "pppoe"
+  ]
+  "danielf" => array:4 [
+    "address" => "10.0.207.101"
+    "uptime" => "2d5h51m7s"
+    "caller-id" => "C4:6E:1F:5D:89:1F"
+    "service" => "pppoe"
+  ]
+  "aury" => array:4 [
+    "address" => "10.0.207.100"
+    "uptime" => "2d5h51m6s"
+    "caller-id" => "AC:84:C6:10:EC:CF"
+    "service" => "pppoe"
+  ]
+  "vanessam" => array:4 [
+    "address" => "10.0.207.97"
+    "uptime" => "2d5h51m4s"
+    "caller-id" => "14:CC:20:5C:20:7F"
+    "service" => "pppoe"
+  ]
+  "danielam" => array:4 [
+    "address" => "10.0.207.95"
+    "uptime" => "2d5h51m4s"
+    "caller-id" => "0C:80:63:4A:96:A1"
+    "service" => "pppoe"
+  ]
+  "jacira" => array:4 [
+    "address" => "10.0.207.94"
+    "uptime" => "2d5h51m3s"
+    "caller-id" => "AC:84:C6:22:FC:A1"
+    "service" => "pppoe"
+  ]
+  "tamara" => array:4 [
+    "address" => "10.0.207.93"
+    "uptime" => "2d5h51m3s"
+    "caller-id" => "E8:94:F6:CB:09:BF"
+    "service" => "pppoe"
+  ]
+  "marlene" => array:4 [
+    "address" => "10.0.207.91"
+    "uptime" => "2d5h51m2s"
+    "caller-id" => "AC:84:C6:C7:6B:DF"
+    "service" => "pppoe"
+  ]
+  "paulav" => array:4 [
+    "address" => "10.0.207.89"
+    "uptime" => "2d5h51m"
+    "caller-id" => "00:E0:20:76:AB:1B"
+    "service" => "pppoe"
+  ]
+  "romulo" => array:4 [
+    "address" => "10.0.207.87"
+    "uptime" => "2d5h50m55s"
+    "caller-id" => "58:10:8C:62:4B:92"
+    "service" => "pppoe"
+  ]
+  "escsagrado" => array:4 [
+    "address" => "10.0.250.229"
+    "uptime" => "2d5h50m54s"
+    "caller-id" => "14:CC:20:97:D7:99"
+    "service" => "pppoe"
+  ]
+  "ewertton" => array:4 [
+    "address" => "10.0.207.84"
+    "uptime" => "2d5h50m54s"
+    "caller-id" => "AC:84:C6:D0:2A:E3"
+    "service" => "pppoe"
+  ]
+  "ilba" => array:4 [
+    "address" => "10.0.207.83"
+    "uptime" => "2d5h50m54s"
+    "caller-id" => "C8:3A:35:39:5E:50"
+    "service" => "pppoe"
+  ]
+  "esccecilia" => array:4 [
+    "address" => "10.0.250.228"
+    "uptime" => "2d5h50m52s"
+    "caller-id" => "AC:84:C6:5F:C6:0F"
+    "service" => "pppoe"
+  ]
+  "alexsandro" => array:4 [
+    "address" => "10.0.207.79"
+    "uptime" => "2d5h50m51s"
+    "caller-id" => "84:16:F9:8C:DE:45"
+    "service" => "pppoe"
+  ]
+  "laelson" => array:4 [
+    "address" => "10.0.207.77"
+    "uptime" => "2d5h50m51s"
+    "caller-id" => "50:FC:9F:0F:76:55"
+    "service" => "pppoe"
+  ]
+  "lucia" => array:4 [
+    "address" => "10.0.207.74"
+    "uptime" => "2d5h50m49s"
+    "caller-id" => "C8:3A:35:1C:86:40"
+    "service" => "pppoe"
+  ]
+  "renato" => array:4 [
+    "address" => "10.0.207.72"
+    "uptime" => "2d5h50m48s"
+    "caller-id" => "C8:3A:35:2B:4B:E8"
+    "service" => "pppoe"
+  ]
+  "izaias" => array:4 [
+    "address" => "10.0.207.65"
+    "uptime" => "2d5h50m47s"
+    "caller-id" => "80:58:F8:47:8B:57"
+    "service" => "pppoe"
+  ]
+  "wendaloc" => array:4 [
+    "address" => "10.0.207.63"
+    "uptime" => "2d5h50m47s"
+    "caller-id" => "58:10:8C:B8:4F:B5"
+    "service" => "pppoe"
+  ]
+  "agrielly" => array:4 [
+    "address" => "10.0.207.61"
+    "uptime" => "2d5h50m47s"
+    "caller-id" => "AC:84:C6:B4:59:37"
+    "service" => "pppoe"
+  ]
+  "gleidson" => array:4 [
+    "address" => "10.0.207.56"
+    "uptime" => "2d5h50m46s"
+    "caller-id" => "C8:3A:35:79:74:C0"
+    "service" => "pppoe"
+  ]
+  "angelica" => array:4 [
+    "address" => "10.0.207.54"
+    "uptime" => "2d5h50m45s"
+    "caller-id" => "58:10:8C:56:5D:2F"
+    "service" => "pppoe"
+  ]
+  "anac" => array:4 [
+    "address" => "10.0.207.52"
+    "uptime" => "2d5h50m45s"
+    "caller-id" => "C8:3A:35:18:19:F0"
+    "service" => "pppoe"
+  ]
+  "dayse" => array:4 [
+    "address" => "10.0.207.51"
+    "uptime" => "2d5h50m45s"
+    "caller-id" => "C8:3A:35:3A:0A:C0"
+    "service" => "pppoe"
+  ]
+  "rafaelf" => array:4 [
+    "address" => "10.0.207.49"
+    "uptime" => "2d5h50m45s"
+    "caller-id" => "C8:3A:35:79:D9:30"
+    "service" => "pppoe"
+  ]
+  "edvanf" => array:4 [
+    "address" => "10.0.207.48"
+    "uptime" => "2d5h50m44s"
+    "caller-id" => "58:10:8C:4E:37:BD"
+    "service" => "pppoe"
+  ]
+  "renato2" => array:4 [
+    "address" => "10.0.207.46"
+    "uptime" => "2d5h50m44s"
+    "caller-id" => "C8:3A:35:22:41:30"
+    "service" => "pppoe"
+  ]
+  "francisco" => array:4 [
+    "address" => "10.0.207.42"
+    "uptime" => "2d5h50m44s"
+    "caller-id" => "CC:2D:21:3B:DB:40"
+    "service" => "pppoe"
+  ]
+  "kleber" => array:4 [
+    "address" => "10.0.207.40"
+    "uptime" => "2d5h50m43s"
+    "caller-id" => "C8:3A:35:18:2E:20"
+    "service" => "pppoe"
+  ]
+  "bruno" => array:4 [
+    "address" => "10.0.207.39"
+    "uptime" => "2d5h50m43s"
+    "caller-id" => "C8:3A:35:B2:26:90"
+    "service" => "pppoe"
+  ]
+  "olympo" => array:4 [
+    "address" => "10.0.207.35"
+    "uptime" => "2d5h50m42s"
+    "caller-id" => "EC:08:6B:C5:6C:6F"
+    "service" => "pppoe"
+  ]
+  "edrobson" => array:4 [
+    "address" => "10.0.207.34"
+    "uptime" => "2d5h50m41s"
+    "caller-id" => "00:1A:3F:A0:4D:C0"
+    "service" => "pppoe"
+  ]
+  "genatom" => array:4 [
+    "address" => "10.0.207.33"
+    "uptime" => "2d5h50m41s"
+    "caller-id" => "C8:3A:35:51:9D:68"
+    "service" => "pppoe"
+  ]
+  "galpaopmi" => array:4 [
+    "address" => "10.0.250.225"
+    "uptime" => "2d5h50m41s"
+    "caller-id" => "C8:3A:35:E0:25:D8"
+    "service" => "pppoe"
+  ]
+  "convento" => array:4 [
+    "address" => "10.0.250.224"
+    "uptime" => "2d5h50m41s"
+    "caller-id" => "18:A6:F7:63:69:A7"
+    "service" => "pppoe"
+  ]
+  "edvan" => array:4 [
+    "address" => "10.0.207.23"
+    "uptime" => "2d5h50m40s"
+    "caller-id" => "C8:3A:35:DD:DA:C0"
+    "service" => "pppoe"
+  ]
+  "lindinalva" => array:4 [
+    "address" => "10.0.207.21"
+    "uptime" => "2d5h50m40s"
+    "caller-id" => "C8:3A:35:5A:2D:A8"
+    "service" => "pppoe"
+  ]
+  "hellen" => array:4 [
+    "address" => "10.0.207.18"
+    "uptime" => "2d5h50m39s"
+    "caller-id" => "C8:3A:35:3C:36:C0"
+    "service" => "pppoe"
+  ]
+  "admsv3" => array:4 [
+    "address" => "10.0.207.16"
+    "uptime" => "2d5h50m39s"
+    "caller-id" => "58:10:8C:3D:B9:5D"
+    "service" => "pppoe"
+  ]
+  "lionara" => array:4 [
+    "address" => "10.0.207.15"
+    "uptime" => "2d5h50m39s"
+    "caller-id" => "C8:3A:35:B2:31:10"
+    "service" => "pppoe"
+  ]
+  "ruthe" => array:4 [
+    "address" => "10.0.207.14"
+    "uptime" => "2d5h50m39s"
+    "caller-id" => "C8:3A:35:48:2F:60"
+    "service" => "pppoe"
+  ]
+  "psfsaramandaia" => array:4 [
+    "address" => "10.0.250.222"
+    "uptime" => "2d5h50m39s"
+    "caller-id" => "18:A6:F7:E4:97:C9"
+    "service" => "pppoe"
+  ]
+  "antonieta" => array:4 [
+    "address" => "10.0.207.7"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "C8:3A:35:55:BB:60"
+    "service" => "pppoe"
+  ]
+  "bete" => array:4 [
+    "address" => "10.0.207.5"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "C8:3A:35:5A:07:B8"
+    "service" => "pppoe"
+  ]
+  "pablo" => array:4 [
+    "address" => "10.0.207.4"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "00:26:5A:9C:AC:D5"
+    "service" => "pppoe"
+  ]
+  "clubebossa" => array:4 [
+    "address" => "10.0.207.3"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "AC:84:C6:AF:74:5F"
+    "service" => "pppoe"
+  ]
+  "lucasp" => array:4 [
+    "address" => "10.0.207.2"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "20:AA:4B:E4:BA:E3"
+    "service" => "pppoe"
+  ]
+  "robertosm" => array:4 [
+    "address" => "10.0.207.1"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "58:10:8C:34:05:44"
+    "service" => "pppoe"
+  ]
+  "gilvan" => array:4 [
+    "address" => "10.0.207.0"
+    "uptime" => "2d5h50m38s"
+    "caller-id" => "C8:3A:35:90:0E:90"
+    "service" => "pppoe"
+  ]
+  "danilos" => array:4 [
+    "address" => "10.0.206.252"
+    "uptime" => "2d5h50m36s"
+    "caller-id" => "58:10:8C:4F:51:CD"
+    "service" => "pppoe"
+  ]
+  "anapaula" => array:4 [
+    "address" => "10.0.206.245"
+    "uptime" => "2d5h50m34s"
+    "caller-id" => "C8:3A:35:DF:D2:88"
+    "service" => "pppoe"
+  ]
+  "suzigleide" => array:4 [
+    "address" => "10.0.206.244"
+    "uptime" => "2d5h50m34s"
+    "caller-id" => "C8:3A:35:0A:3B:E0"
+    "service" => "pppoe"
+  ]
+  "edenilza" => array:4 [
+    "address" => "10.0.206.242"
+    "uptime" => "2d5h50m34s"
+    "caller-id" => "C8:3A:35:3B:55:58"
+    "service" => "pppoe"
+  ]
+  "jenifferson" => array:4 [
+    "address" => "10.0.206.240"
+    "uptime" => "2d5h50m34s"
+    "caller-id" => "C8:3A:35:7C:A9:D0"
+    "service" => "pppoe"
+  ]
+  "farmaciac" => array:4 [
+    "address" => "10.0.206.235"
+    "uptime" => "2d5h50m33s"
+    "caller-id" => "C8:3A:35:DF:E6:60"
+    "service" => "pppoe"
+  ]
+  "edilson" => array:4 [
+    "address" => "10.0.206.234"
+    "uptime" => "2d5h50m33s"
+    "caller-id" => "C8:3A:35:36:29:A8"
+    "service" => "pppoe"
+  ]
+  "debora" => array:4 [
+    "address" => "10.0.206.232"
+    "uptime" => "2d5h50m32s"
+    "caller-id" => "C8:3A:35:DF:E6:28"
+    "service" => "pppoe"
+  ]
+  "laura" => array:4 [
+    "address" => "10.0.206.231"
+    "uptime" => "2d5h50m32s"
+    "caller-id" => "C8:3A:35:51:7F:98"
+    "service" => "pppoe"
+  ]
+  "rosangela" => array:4 [
+    "address" => "10.0.206.230"
+    "uptime" => "2d5h50m32s"
+    "caller-id" => "C4:6E:1F:77:66:ED"
+    "service" => "pppoe"
+  ]
+  "fatimac" => array:4 [
+    "address" => "10.0.206.229"
+    "uptime" => "2d5h50m32s"
+    "caller-id" => "C8:3A:35:48:21:F8"
+    "service" => "pppoe"
+  ]
+  "dinho" => array:4 [
+    "address" => "10.10.10.45"
+    "uptime" => "2d5h50m32s"
+    "caller-id" => "C8:3A:35:6E:F9:40"
+    "service" => "pppoe"
+  ]
+  "angela" => array:4 [
+    "address" => "10.0.206.225"
+    "uptime" => "2d5h50m31s"
+    "caller-id" => "C8:3A:35:03:02:70"
+    "service" => "pppoe"
+  ]
+  "pedro" => array:4 [
+    "address" => "10.0.206.224"
+    "uptime" => "2d5h50m31s"
+    "caller-id" => "C8:3A:35:6F:6D:78"
+    "service" => "pppoe"
+  ]
+  "poliana" => array:4 [
+    "address" => "10.0.206.218"
+    "uptime" => "2d5h50m30s"
+    "caller-id" => "C8:3A:35:4F:1F:C8"
+    "service" => "pppoe"
+  ]
+  "erinaldo" => array:4 [
+    "address" => "10.0.206.216"
+    "uptime" => "2d5h50m29s"
+    "caller-id" => "C8:3A:35:7E:26:68"
+    "service" => "pppoe"
+  ]
+  "psfmonta" => array:4 [
+    "address" => "10.0.250.217"
+    "uptime" => "2d5h50m29s"
+    "caller-id" => "18:A6:F7:E4:6A:19"
+    "service" => "pppoe"
+  ]
+  "brunom" => array:4 [
+    "address" => "10.0.206.208"
+    "uptime" => "2d5h50m29s"
+    "caller-id" => "C8:3A:35:2A:AE:D0"
+    "service" => "pppoe"
+  ]
+  "agamenom1" => array:4 [
+    "address" => "10.0.250.216"
+    "uptime" => "2d5h50m28s"
+    "caller-id" => "80:2A:A8:60:86:48"
+    "service" => "pppoe"
+  ]
+  "patriciam" => array:4 [
+    "address" => "10.0.206.207"
+    "uptime" => "2d5h50m28s"
+    "caller-id" => "78:54:2E:EB:D8:9D"
+    "service" => "pppoe"
+  ]
+  "elidiana" => array:4 [
+    "address" => "10.0.206.201"
+    "uptime" => "2d5h50m27s"
+    "caller-id" => "50:0F:F5:02:E2:F8"
+    "service" => "pppoe"
+  ]
+  "artesanato" => array:4 [
+    "address" => "10.0.206.199"
+    "uptime" => "2d5h50m27s"
+    "caller-id" => "C8:3A:35:1E:ED:F0"
+    "service" => "pppoe"
+  ]
+  "gabriel" => array:4 [
+    "address" => "10.0.206.198"
+    "uptime" => "2d5h50m27s"
+    "caller-id" => "00:1A:3F:94:E0:CC"
+    "service" => "pppoe"
+  ]
+  "simonej" => array:4 [
+    "address" => "10.0.206.195"
+    "uptime" => "2d5h50m27s"
+    "caller-id" => "C8:3A:35:2E:1C:C8"
+    "service" => "pppoe"
+  ]
+  "psfagamenon" => array:4 [
+    "address" => "10.0.250.215"
+    "uptime" => "2d5h50m26s"
+    "caller-id" => "18:A6:F7:E4:96:99"
+    "service" => "pppoe"
+  ]
+  "vinicius" => array:4 [
+    "address" => "10.0.206.189"
+    "uptime" => "2d5h50m26s"
+    "caller-id" => "C8:3A:35:38:0D:28"
+    "service" => "pppoe"
+  ]
+  "jussara" => array:4 [
+    "address" => "10.0.206.188"
+    "uptime" => "2d5h50m26s"
+    "caller-id" => "00:1A:3F:94:8B:BA"
+    "service" => "pppoe"
+  ]
+  "joseg" => array:4 [
+    "address" => "10.0.206.187"
+    "uptime" => "2d5h50m26s"
+    "caller-id" => "C8:3A:35:21:A1:F8"
+    "service" => "pppoe"
+  ]
+  "cirio" => array:4 [
+    "address" => "10.0.206.183"
+    "uptime" => "2d5h50m25s"
+    "caller-id" => "C8:3A:35:49:21:70"
+    "service" => "pppoe"
+  ]
+  "psftaepe" => array:4 [
+    "address" => "10.0.250.214"
+    "uptime" => "2d5h50m25s"
+    "caller-id" => "18:A6:F7:E4:97:89"
+    "service" => "pppoe"
+  ]
+  "odete" => array:4 [
+    "address" => "10.0.206.180"
+    "uptime" => "2d5h50m24s"
+    "caller-id" => "C8:3A:35:4A:10:18"
+    "service" => "pppoe"
+  ]
+  "andreia" => array:4 [
+    "address" => "10.0.206.179"
+    "uptime" => "2d5h50m23s"
+    "caller-id" => "C8:3A:35:DF:5E:B0"
+    "service" => "pppoe"
+  ]
+  "cintia" => array:4 [
+    "address" => "10.0.206.177"
+    "uptime" => "2d5h50m23s"
+    "caller-id" => "C8:3A:35:5A:A7:40"
+    "service" => "pppoe"
+  ]
+  "josue" => array:4 [
+    "address" => "10.0.206.176"
+    "uptime" => "2d5h50m23s"
+    "caller-id" => "18:A6:F7:AE:0B:A9"
+    "service" => "pppoe"
+  ]
+  "lenilson" => array:4 [
+    "address" => "10.0.206.174"
+    "uptime" => "2d5h50m23s"
+    "caller-id" => "C8:3A:35:6F:74:98"
+    "service" => "pppoe"
+  ]
+  "priscilla" => array:4 [
+    "address" => "10.0.206.169"
+    "uptime" => "2d5h50m20s"
+    "caller-id" => "C8:3A:35:4B:F5:C8"
+    "service" => "pppoe"
+  ]
+  "financeirosaude" => array:4 [
+    "address" => "10.0.250.211"
+    "uptime" => "2d5h50m20s"
+    "caller-id" => "50:0F:F5:00:58:30"
+    "service" => "pppoe"
+  ]
+  "kilma" => array:4 [
+    "address" => "10.10.10.44"
+    "uptime" => "2d5h50m19s"
+    "caller-id" => "50:0F:F5:01:FF:F8"
+    "service" => "pppoe"
+  ]
+  "hevilma" => array:4 [
+    "address" => "10.0.206.162"
+    "uptime" => "2d5h50m19s"
+    "caller-id" => "C8:3A:35:DF:7C:08"
+    "service" => "pppoe"
+  ]
+  "elaine" => array:4 [
+    "address" => "10.0.206.160"
+    "uptime" => "2d5h50m19s"
+    "caller-id" => "C8:3A:35:21:F6:A8"
+    "service" => "pppoe"
+  ]
+  "thamires" => array:4 [
+    "address" => "10.0.206.159"
+    "uptime" => "2d5h50m18s"
+    "caller-id" => "C8:3A:35:24:73:48"
+    "service" => "pppoe"
+  ]
+  "barbara" => array:4 [
+    "address" => "10.0.206.158"
+    "uptime" => "2d5h50m18s"
+    "caller-id" => "C8:3A:35:21:9D:F8"
+    "service" => "pppoe"
+  ]
+  "ewerton" => array:4 [
+    "address" => "10.0.206.155"
+    "uptime" => "2d5h50m18s"
+    "caller-id" => "C8:3A:35:2A:C7:80"
+    "service" => "pppoe"
+  ]
+  "biomed" => array:4 [
+    "address" => "10.0.252.252"
+    "uptime" => "2d5h50m16s"
+    "caller-id" => "50:0F:F5:00:1C:D0"
+    "service" => "pppoe"
+  ]
+  "ely" => array:4 [
+    "address" => "10.0.206.153"
+    "uptime" => "2d5h50m15s"
+    "caller-id" => "C8:3A:35:90:CB:30"
+    "service" => "pppoe"
+  ]
+  "leonardo" => array:4 [
+    "address" => "10.0.206.152"
+    "uptime" => "2d5h50m13s"
+    "caller-id" => "C8:3A:35:34:70:D8"
+    "service" => "pppoe"
+  ]
+  "adilsonc" => array:4 [
+    "address" => "10.0.206.151"
+    "uptime" => "2d5h50m12s"
+    "caller-id" => "18:A6:F7:62:F0:45"
+    "service" => "pppoe"
+  ]
+  "nalva" => array:4 [
+    "address" => "10.10.10.43"
+    "uptime" => "2d5h50m10s"
+    "caller-id" => "50:0F:F5:02:DB:B0"
+    "service" => "pppoe"
+  ]
+  "joselia" => array:4 [
+    "address" => "10.0.206.149"
+    "uptime" => "2d5h50m8s"
+    "caller-id" => "C8:BE:19:B1:3C:4B"
+    "service" => "pppoe"
+  ]
+  "edsonm" => array:4 [
+    "address" => "10.0.206.144"
+    "uptime" => "2d5h49m59s"
+    "caller-id" => "00:1A:3F:DB:F1:C9"
+    "service" => "pppoe"
+  ]
+  "luizc" => array:4 [
+    "address" => "10.0.206.143"
+    "uptime" => "2d5h49m58s"
+    "caller-id" => "18:D6:C7:31:38:11"
+    "service" => "pppoe"
+  ]
+  "renaton" => array:4 [
+    "address" => "10.0.206.138"
+    "uptime" => "2d5h49m55s"
+    "caller-id" => "00:E0:4C:64:70:DF"
+    "service" => "pppoe"
+  ]
+  "marioricardo2" => array:4 [
+    "address" => "10.0.206.136"
+    "uptime" => "2d5h49m54s"
+    "caller-id" => "18:A6:F7:9F:D1:99"
+    "service" => "pppoe"
+  ]
+  "deborac" => array:4 [
+    "address" => "10.0.206.135"
+    "uptime" => "2d5h49m54s"
+    "caller-id" => "00:E0:4C:0D:C7:EB"
+    "service" => "pppoe"
+  ]
+  "luiz" => array:4 [
+    "address" => "10.0.206.134"
+    "uptime" => "2d5h49m54s"
+    "caller-id" => "18:A6:F7:97:53:AB"
+    "service" => "pppoe"
+  ]
+  "daniela" => array:4 [
+    "address" => "10.0.206.133"
+    "uptime" => "2d5h49m53s"
+    "caller-id" => "60:E3:27:A8:15:5B"
+    "service" => "pppoe"
+  ]
+  "ademir" => array:4 [
+    "address" => "10.0.206.131"
+    "uptime" => "2d5h49m52s"
+    "caller-id" => "C8:D7:19:62:67:37"
+    "service" => "pppoe"
+  ]
+  "karlac" => array:4 [
+    "address" => "10.0.206.130"
+    "uptime" => "2d5h49m51s"
+    "caller-id" => "14:CC:20:6A:9F:37"
+    "service" => "pppoe"
+  ]
+  "ibsom" => array:4 [
+    "address" => "10.0.206.124"
+    "uptime" => "2d5h49m43s"
+    "caller-id" => "F4:F2:6D:8B:AD:99"
+    "service" => "pppoe"
+  ]
+  "herman" => array:4 [
+    "address" => "10.0.206.119"
+    "uptime" => "2d5h49m27s"
+    "caller-id" => "28:3B:82:3F:92:85"
+    "service" => "pppoe"
+  ]
+  "wanderson" => array:4 [
+    "address" => "10.0.206.118"
+    "uptime" => "2d5h49m15s"
+    "caller-id" => "AC:84:C6:AF:64:D5"
+    "service" => "pppoe"
+  ]
+  "ismar" => array:4 [
+    "address" => "10.0.206.117"
+    "uptime" => "2d5h49m13s"
+    "caller-id" => "18:D6:C7:E4:86:19"
+    "service" => "pppoe"
+  ]
+  "igaprev" => array:4 [
+    "address" => "10.0.252.199"
+    "uptime" => "2d5h49m7s"
+    "caller-id" => "64:66:B3:9B:BE:2D"
+    "service" => "pppoe"
+  ]
+  "geisiane" => array:4 [
+    "address" => "10.0.206.115"
+    "uptime" => "2d5h49m4s"
+    "caller-id" => "D4:6E:0E:E1:84:75"
+    "service" => "pppoe"
+  ]
+  "sergio" => array:4 [
+    "address" => "10.0.206.113"
+    "uptime" => "2d5h49m3s"
+    "caller-id" => "98:DE:D0:FC:CC:C3"
+    "service" => "pppoe"
+  ]
+  "erivaldo" => array:4 [
+    "address" => "10.0.206.111"
+    "uptime" => "2d5h48m58s"
+    "caller-id" => "B0:4E:26:B1:BB:B5"
+    "service" => "pppoe"
+  ]
+  "thiagos" => array:4 [
+    "address" => "10.0.206.108"
+    "uptime" => "2d5h48m54s"
+    "caller-id" => "70:4F:57:07:47:FB"
+    "service" => "pppoe"
+  ]
+  "marivaldo" => array:4 [
+    "address" => "10.0.206.106"
+    "uptime" => "2d5h48m53s"
+    "caller-id" => "50:C7:BF:F7:D9:4D"
+    "service" => "pppoe"
+  ]
+  "everton" => array:4 [
+    "address" => "10.0.206.105"
+    "uptime" => "2d5h48m53s"
+    "caller-id" => "0C:80:63:15:DA:A7"
+    "service" => "pppoe"
+  ]
+  "simoneg" => array:4 [
+    "address" => "10.0.206.104"
+    "uptime" => "2d5h48m50s"
+    "caller-id" => "70:4F:57:3D:7E:45"
+    "service" => "pppoe"
+  ]
+  "luizf" => array:4 [
+    "address" => "10.0.206.102"
+    "uptime" => "2d5h48m49s"
+    "caller-id" => "70:4F:57:53:ED:2B"
+    "service" => "pppoe"
+  ]
+  "marcoss" => array:4 [
+    "address" => "10.0.206.100"
+    "uptime" => "2d5h48m41s"
+    "caller-id" => "B0:4E:26:52:F8:A9"
+    "service" => "pppoe"
+  ]
+  "acoigarassu" => array:4 [
+    "address" => "10.0.252.253"
+    "uptime" => "2d5h48m36s"
+    "caller-id" => "18:D6:C7:7E:5B:8A"
+    "service" => "pppoe"
+  ]
+  "angelo" => array:4 [
+    "address" => "10.0.206.99"
+    "uptime" => "2d5h48m34s"
+    "caller-id" => "70:4F:57:39:89:6F"
+    "service" => "pppoe"
+  ]
+  "setrans" => array:4 [
+    "address" => "10.0.252.254"
+    "uptime" => "2d5h48m33s"
+    "caller-id" => "B0:4E:26:B1:A8:C7"
+    "service" => "pppoe"
+  ]
+  "danielej" => array:4 [
+    "address" => "10.0.206.97"
+    "uptime" => "2d5h48m28s"
+    "caller-id" => "D8:0D:17:05:27:53"
+    "service" => "pppoe"
+  ]
+  "josenildo" => array:4 [
+    "address" => "10.0.206.96"
+    "uptime" => "2d5h48m28s"
+    "caller-id" => "18:D6:C7:BF:43:7F"
+    "service" => "pppoe"
+  ]
+  "brunal" => array:4 [
+    "address" => "10.0.206.95"
+    "uptime" => "2d5h48m28s"
+    "caller-id" => "D4:6E:0E:2E:5C:6F"
+    "service" => "pppoe"
+  ]
+  "antonioh" => array:4 [
+    "address" => "10.0.206.93"
+    "uptime" => "2d5h48m23s"
+    "caller-id" => "70:4F:57:4D:E4:43"
+    "service" => "pppoe"
+  ]
+  "edeilson" => array:4 [
+    "address" => "10.0.207.137"
+    "uptime" => "2d5h14m56s"
+    "caller-id" => "90:F6:52:4E:01:03"
+    "service" => "pppoe"
+  ]
+  "deivis" => array:4 [
+    "address" => "10.0.207.8"
+    "uptime" => "2d5h8m7s"
+    "caller-id" => "C8:3A:35:5B:93:80"
+    "service" => "pppoe"
+  ]
+  "paular" => array:4 [
+    "address" => "10.0.206.88"
+    "uptime" => "2d4h17m2s"
+    "caller-id" => "78:54:2E:EB:CD:A9"
+    "service" => "pppoe"
+  ]
+  "ricardo" => array:4 [
+    "address" => "10.0.206.163"
+    "uptime" => "2d3h32m23s"
+    "caller-id" => "C8:3A:35:34:71:00"
+    "service" => "pppoe"
+  ]
+  "celia" => array:4 [
+    "address" => "10.0.207.62"
+    "uptime" => "2d2h34m49s"
+    "caller-id" => "C8:3A:35:12:3A:C8"
+    "service" => "pppoe"
+  ]
+  "diolanda" => array:4 [
+    "address" => "10.0.206.167"
+    "uptime" => "2d2h2m46s"
+    "caller-id" => "C8:3A:35:1B:E4:10"
+    "service" => "pppoe"
+  ]
+  "katiane" => array:4 [
+    "address" => "10.0.207.32"
+    "uptime" => "2d1h48m20s"
+    "caller-id" => "C8:3A:35:2A:FD:38"
+    "service" => "pppoe"
+  ]
+  "irani" => array:4 [
+    "address" => "10.0.207.219"
+    "uptime" => "2d1h14m36s"
+    "caller-id" => "18:0D:2C:37:A9:DC"
+    "service" => "pppoe"
+  ]
+  "elianev" => array:4 [
+    "address" => "10.0.207.168"
+    "uptime" => "2d52m4s"
+    "caller-id" => "E4:BE:ED:1C:8A:E9"
+    "service" => "pppoe"
+  ]
+  "edilma" => array:4 [
+    "address" => "10.0.206.191"
+    "uptime" => "2d46m59s"
+    "caller-id" => "00:1A:3F:91:6E:F2"
+    "service" => "pppoe"
+  ]
+  "evertons" => array:4 [
+    "address" => "10.0.206.228"
+    "uptime" => "2d14m10s"
+    "caller-id" => "10:BE:F5:D5:A6:0B"
+    "service" => "pppoe"
+  ]
+  "luanam" => array:4 [
+    "address" => "10.0.206.146"
+    "uptime" => "1d23h32m19s"
+    "caller-id" => "18:D6:C7:70:6F:73"
+    "service" => "pppoe"
+  ]
+  "thiagos3" => array:4 [
+    "address" => "10.0.207.26"
+    "uptime" => "1d23h9m6s"
+    "caller-id" => "C8:3A:35:09:5E:30"
+    "service" => "pppoe"
+  ]
+  "allefi" => array:4 [
+    "address" => "10.0.207.162"
+    "uptime" => "1d22h53m59s"
+    "caller-id" => "04:8D:39:43:F1:0B"
+    "service" => "pppoe"
+  ]
+  "mariane" => array:4 [
+    "address" => "10.0.207.196"
+    "uptime" => "1d22h45m31s"
+    "caller-id" => "58:10:8C:78:4E:78"
+    "service" => "pppoe"
+  ]
+  "baducr" => array:4 [
+    "address" => "10.0.206.237"
+    "uptime" => "1d22h39m41s"
+    "caller-id" => "C8:3A:35:54:AB:B8"
+    "service" => "pppoe"
+  ]
+  "marceloc" => array:4 [
+    "address" => "10.0.206.157"
+    "uptime" => "1d22h39m40s"
+    "caller-id" => "C8:3A:35:8F:09:B8"
+    "service" => "pppoe"
+  ]
+  "ando" => array:4 [
+    "address" => "10.0.206.209"
+    "uptime" => "1d22h39m38s"
+    "caller-id" => "00:1A:3F:D2:47:9A"
+    "service" => "pppoe"
+  ]
+  "valda" => array:4 [
+    "address" => "10.10.10.47"
+    "uptime" => "1d22h39m37s"
+    "caller-id" => "C8:3A:35:0D:9A:B0"
+    "service" => "pppoe"
+  ]
+  "master" => array:4 [
+    "address" => "10.0.251.254"
+    "uptime" => "1d22h39m37s"
+    "caller-id" => "00:72:63:2D:D5:71"
+    "service" => "pppoe"
+  ]
+  "cefop2" => array:4 [
+    "address" => "10.0.250.247"
+    "uptime" => "1d22h39m37s"
+    "caller-id" => "00:72:63:2D:B8:0A"
+    "service" => "pppoe"
+  ]
+  "tais" => array:4 [
+    "address" => "10.0.207.177"
+    "uptime" => "1d22h39m12s"
+    "caller-id" => "E8:94:F6:CC:04:93"
+    "service" => "pppoe"
+  ]
+  "psfsitiolira" => array:4 [
+    "address" => "10.0.250.239"
+    "uptime" => "1d22h38m34s"
+    "caller-id" => "84:16:F9:88:8D:2F"
+    "service" => "pppoe"
+  ]
+  "escalbin" => array:4 [
+    "address" => "10.0.250.235"
+    "uptime" => "1d22h37m46s"
+    "caller-id" => "DC:9F:DB:78:C5:1D"
+    "service" => "pppoe"
+  ]
+  "psfrubina" => array:4 [
+    "address" => "10.0.250.241"
+    "uptime" => "1d22h37m40s"
+    "caller-id" => "80:2A:A8:62:F8:7F"
+    "service" => "pppoe"
+  ]
+  "lurdiane" => array:4 [
+    "address" => "10.0.207.180"
+    "uptime" => "1d21h22m32s"
+    "caller-id" => "04:8D:38:EC:F9:41"
+    "service" => "pppoe"
+  ]
+  "astrogilda" => array:4 [
+    "address" => "10.0.206.110"
+    "uptime" => "1d21h5m9s"
+    "caller-id" => "D4:6E:0E:73:E6:A5"
+    "service" => "pppoe"
+  ]
+  "artur" => array:4 [
+    "address" => "10.0.206.168"
+    "uptime" => "1d20h3m53s"
+    "caller-id" => "C8:3A:35:DF:BA:B8"
+    "service" => "pppoe"
+  ]
+  "antonioc" => array:4 [
+    "address" => "10.0.207.140"
+    "uptime" => "1d19h8m44s"
+    "caller-id" => "C0:4A:00:BD:7A:BB"
+    "service" => "pppoe"
+  ]
+  "dany" => array:4 [
+    "address" => "10.0.207.212"
+    "uptime" => "1d18h54m4s"
+    "caller-id" => "58:10:8C:74:EF:2C"
+    "service" => "pppoe"
+  ]
+  "elizangela" => array:4 [
+    "address" => "10.0.206.217"
+    "uptime" => "1d18h52m28s"
+    "caller-id" => "50:0F:F5:00:9E:58"
+    "service" => "pppoe"
+  ]
+  "thiago" => array:4 [
+    "address" => "10.0.206.165"
+    "uptime" => "1d18h23m13s"
+    "caller-id" => "C8:3A:35:DD:C0:C0"
+    "service" => "pppoe"
+  ]
+  "psfmagda" => array:4 [
+    "address" => "10.0.250.240"
+    "uptime" => "1d18h21m53s"
+    "caller-id" => "E4:BE:ED:7C:97:14"
+    "service" => "pppoe"
+  ]
+  "lucas" => array:4 [
+    "address" => "10.0.206.98"
+    "uptime" => "1d18h14m52s"
+    "caller-id" => "B0:4E:26:24:21:0F"
+    "service" => "pppoe"
+  ]
+  "clenio" => array:4 [
+    "address" => "10.0.206.122"
+    "uptime" => "1d17h27m41s"
+    "caller-id" => "18:A6:F7:8F:75:13"
+    "service" => "pppoe"
+  ]
+  "anapaulap" => array:4 [
+    "address" => "10.0.206.75"
+    "uptime" => "1d17h5m43s"
+    "caller-id" => "00:72:63:31:72:2F"
+    "service" => "pppoe"
+  ]
+  "sirlaine" => array:4 [
+    "address" => "10.0.207.31"
+    "uptime" => "1d16h34m48s"
+    "caller-id" => "00:1A:3F:67:4B:51"
+    "service" => "pppoe"
+  ]
+  "mariliacl" => array:4 [
+    "address" => "10.0.207.223"
+    "uptime" => "1d16h24m6s"
+    "caller-id" => "C4:A8:1D:3B:8E:38"
+    "service" => "pppoe"
+  ]
+  "phoenix" => array:4 [
+    "address" => "10.0.207.235"
+    "uptime" => "1d15h20m24s"
+    "caller-id" => "58:10:8C:87:CD:3C"
+    "service" => "pppoe"
+  ]
+  "sayonara" => array:4 [
+    "address" => "10.0.207.17"
+    "uptime" => "1d14h28m30s"
+    "caller-id" => "C8:3A:35:50:BC:F0"
+    "service" => "pppoe"
+  ]
+  "sergioc" => array:4 [
+    "address" => "10.0.206.226"
+    "uptime" => "1d14h23m13s"
+    "caller-id" => "00:1A:3F:1A:09:93"
+    "service" => "pppoe"
+  ]
+  "larissa" => array:4 [
+    "address" => "10.0.206.233"
+    "uptime" => "1d13h32m42s"
+    "caller-id" => "C8:3A:35:22:01:78"
+    "service" => "pppoe"
+  ]
+  "vancleide" => array:4 [
+    "address" => "10.0.206.202"
+    "uptime" => "1d13h12m24s"
+    "caller-id" => "C8:3A:35:0F:F9:A0"
+    "service" => "pppoe"
+  ]
+  "saymon" => array:4 [
+    "address" => "10.0.207.96"
+    "uptime" => "1d13h3m6s"
+    "caller-id" => "AC:84:C6:6E:20:FF"
+    "service" => "pppoe"
+  ]
+  "eliane" => array:4 [
+    "address" => "10.0.206.70"
+    "uptime" => "1d12h35m53s"
+    "caller-id" => "00:72:63:2D:C0:8F"
+    "service" => "pppoe"
+  ]
+  "anderson" => array:4 [
+    "address" => "10.0.206.255"
+    "uptime" => "1d12h15m14s"
+    "caller-id" => "70:4D:7B:CE:67:7F"
+    "service" => "pppoe"
+  ]
+  "clinicadeolhos" => array:4 [
+    "address" => "10.0.207.200"
+    "uptime" => "1d12h6m26s"
+    "caller-id" => "00:1A:3F:91:C6:FA"
+    "service" => "pppoe"
+  ]
+  "sandra" => array:4 [
+    "address" => "10.0.207.64"
+    "uptime" => "1d11h57m11s"
+    "caller-id" => "C8:3A:35:48:37:B0"
+    "service" => "pppoe"
+  ]
+  "robsonj" => array:4 [
+    "address" => "10.0.207.86"
+    "uptime" => "1d11h26m35s"
+    "caller-id" => "00:1A:3F:8E:5D:B4"
+    "service" => "pppoe"
+  ]
+  "victor" => array:4 [
+    "address" => "10.0.207.242"
+    "uptime" => "1d11h5m50s"
+    "caller-id" => "6C:72:20:D0:E8:15"
+    "service" => "pppoe"
+  ]
+  "sandro" => array:4 [
+    "address" => "10.0.206.197"
+    "uptime" => "1d10h47m17s"
+    "caller-id" => "C8:3A:35:25:A8:18"
+    "service" => "pppoe"
+  ]
+  "yuri" => array:4 [
+    "address" => "10.0.206.171"
+    "uptime" => "1d10h31m21s"
+    "caller-id" => "C8:3A:35:34:0D:10"
+    "service" => "pppoe"
+  ]
+  "susy" => array:4 [
+    "address" => "10.0.207.73"
+    "uptime" => "1d10h4m43s"
+    "caller-id" => "C8:3A:35:3B:19:A8"
+    "service" => "pppoe"
+  ]
+  "albertina" => array:4 [
+    "address" => "10.0.207.117"
+    "uptime" => "1d8h23m27s"
+    "caller-id" => "C8:E7:D8:AA:89:41"
+    "service" => "pppoe"
+  ]
+  "creas" => array:4 [
+    "address" => "10.0.250.226"
+    "uptime" => "1d8h23m25s"
+    "caller-id" => "AC:84:C6:F2:62:9F"
+    "service" => "pppoe"
+  ]
+  "defesacivil" => array:4 [
+    "address" => "10.0.206.239"
+    "uptime" => "1d8h23m24s"
+    "caller-id" => "C8:3A:35:27:92:30"
+    "service" => "pppoe"
+  ]
+  "jamilda" => array:4 [
+    "address" => "10.0.206.193"
+    "uptime" => "1d8h23m24s"
+    "caller-id" => "C8:3A:35:12:F7:E0"
+    "service" => "pppoe"
+  ]
+  "mauro" => array:4 [
+    "address" => "10.0.206.254"
+    "uptime" => "1d8h23m24s"
+    "caller-id" => "C8:3A:35:20:41:08"
+    "service" => "pppoe"
+  ]
+  "vilarino" => array:4 [
+    "address" => "10.0.206.190"
+    "uptime" => "1d8h23m24s"
+    "caller-id" => "C8:3A:35:22:05:58"
+    "service" => "pppoe"
+  ]
+  "tributacao2" => array:4 [
+    "address" => "10.0.250.212"
+    "uptime" => "1d8h23m24s"
+    "caller-id" => "C8:3A:35:3A:9F:80"
+    "service" => "pppoe"
+  ]
+  "ademigp" => array:4 [
+    "address" => "10.0.250.218"
+    "uptime" => "1d8h23m23s"
+    "caller-id" => "C8:3A:35:29:B9:18"
+    "service" => "pppoe"
+  ]
+  "educacao" => array:4 [
+    "address" => "10.0.250.203"
+    "uptime" => "1d8h23m23s"
+    "caller-id" => "64:70:02:B5:B8:DF"
+    "service" => "pppoe"
+  ]
+  "gustavo" => array:4 [
+    "address" => "10.0.206.141"
+    "uptime" => "1d8h23m23s"
+    "caller-id" => "64:70:02:F3:25:17"
+    "service" => "pppoe"
+  ]
+  "streaming" => array:4 [
+    "address" => "10.0.207.197"
+    "uptime" => "1d8h23m22s"
+    "caller-id" => "E4:BE:ED:DE:EA:5D"
+    "service" => "pppoe"
+  ]
+  "zeza" => array:4 [
+    "address" => "10.0.207.67"
+    "uptime" => "1d8h23m22s"
+    "caller-id" => "C8:3A:35:08:93:E0"
+    "service" => "pppoe"
+  ]
+  "comunicacao" => array:4 [
+    "address" => "10.0.250.223"
+    "uptime" => "1d8h23m22s"
+    "caller-id" => "C8:3A:35:1F:1B:58"
+    "service" => "pppoe"
+  ]
+  "delegacia" => array:4 [
+    "address" => "10.0.250.209"
+    "uptime" => "1d8h23m21s"
+    "caller-id" => "30:B5:C2:DF:6E:09"
+    "service" => "pppoe"
+  ]
+  "karinac" => array:4 [
+    "address" => "10.0.206.170"
+    "uptime" => "1d8h23m21s"
+    "caller-id" => "C8:3A:35:21:9F:88"
+    "service" => "pppoe"
+  ]
+  "antoniom" => array:4 [
+    "address" => "10.0.206.164"
+    "uptime" => "1d8h23m21s"
+    "caller-id" => "50:0F:F5:00:04:50"
+    "service" => "pppoe"
+  ]
+  "amaury" => array:4 [
+    "address" => "10.0.207.82"
+    "uptime" => "1d8h23m21s"
+    "caller-id" => "58:10:8C:2D:EB:21"
+    "service" => "pppoe"
+  ]
+  "planejamento_10" => array:4 [
+    "address" => "10.0.250.220"
+    "uptime" => "1d8h23m21s"
+    "caller-id" => "C8:3A:35:90:C3:10"
+    "service" => "pppoe"
+  ]
+  "neuma" => array:4 [
+    "address" => "10.0.207.30"
+    "uptime" => "1d8h23m20s"
+    "caller-id" => "50:0F:F5:01:37:68"
+    "service" => "pppoe"
+  ]
+  "seccidade" => array:4 [
+    "address" => "10.0.250.207"
+    "uptime" => "1d8h23m20s"
+    "caller-id" => "00:E0:4C:29:96:7B"
+    "service" => "pppoe"
+  ]
+  "psfbeiramar1" => array:4 [
+    "address" => "10.0.250.252"
+    "uptime" => "1d8h23m18s"
+    "caller-id" => "18:0D:2C:1F:CA:BE"
+    "service" => "pppoe"
+  ]
+  "sindnorte" => array:4 [
+    "address" => "10.0.207.105"
+    "uptime" => "1d8h23m17s"
+    "caller-id" => "AC:84:C6:7A:29:57"
+    "service" => "pppoe"
+  ]
+  "psfvigilancia" => array:4 [
+    "address" => "10.0.250.208"
+    "uptime" => "1d8h23m14s"
+    "caller-id" => "00:1A:3F:9F:D5:D7"
+    "service" => "pppoe"
+  ]
+  "ccip" => array:4 [
+    "address" => "10.0.250.234"
+    "uptime" => "1d8h23m14s"
+    "caller-id" => "AC:84:C6:5F:95:3D"
+    "service" => "pppoe"
+  ]
+  "Rodrigo" => array:4 [
+    "address" => "10.0.252.200"
+    "uptime" => "1d8h23m14s"
+    "caller-id" => "E4:BE:ED:2B:C6:AB"
+    "service" => "pppoe"
+  ]
+  "certames" => array:4 [
+    "address" => "10.0.250.210"
+    "uptime" => "1d8h23m13s"
+    "caller-id" => "E4:6F:13:F5:CA:DF"
+    "service" => "pppoe"
+  ]
+  "lindinalva1" => array:4 [
+    "address" => "10.0.207.218"
+    "uptime" => "1d8h23m12s"
+    "caller-id" => "10:BE:F5:8E:7D:34"
+    "service" => "pppoe"
+  ]
+  "edvaldoc" => array:4 [
+    "address" => "10.0.207.225"
+    "uptime" => "1d8h23m12s"
+    "caller-id" => "10:BE:F5:8F:52:F4"
+    "service" => "pppoe"
+  ]
+  "guardas" => array:4 [
+    "address" => "10.0.250.204"
+    "uptime" => "1d8h23m12s"
+    "caller-id" => "E4:BE:ED:82:6C:2B"
+    "service" => "pppoe"
+  ]
+  "financas" => array:4 [
+    "address" => "10.0.250.249"
+    "uptime" => "1d8h23m12s"
+    "caller-id" => "10:BE:F5:9E:C3:26"
+    "service" => "pppoe"
+  ]
+  "adm" => array:4 [
+    "address" => "10.0.250.227"
+    "uptime" => "1d8h23m11s"
+    "caller-id" => "30:B5:C2:95:A2:D1"
+    "service" => "pppoe"
+  ]
+  "depatran" => array:4 [
+    "address" => "10.0.250.242"
+    "uptime" => "1d8h23m10s"
+    "caller-id" => "04:8D:38:0D:F1:44"
+    "service" => "pppoe"
+  ]
+  "caf" => array:4 [
+    "address" => "10.0.250.246"
+    "uptime" => "1d8h23m9s"
+    "caller-id" => "70:62:B8:87:88:76"
+    "service" => "pppoe"
+  ]
+  "mercia2" => array:4 [
+    "address" => "10.0.206.116"
+    "uptime" => "1d8h23m4s"
+    "caller-id" => "C0:25:E9:38:6D:E3"
+    "service" => "pppoe"
+  ]
+  "wilsonj" => array:4 [
+    "address" => "10.0.206.243"
+    "uptime" => "1d8h23m"
+    "caller-id" => "84:16:F9:97:66:31"
+    "service" => "pppoe"
+  ]
+  "escqueiroz" => array:4 [
+    "address" => "10.0.250.248"
+    "uptime" => "1d8h22m59s"
+    "caller-id" => "90:8D:78:86:D4:87"
+    "service" => "pppoe"
+  ]
+  "roberto" => array:4 [
+    "address" => "10.0.206.214"
+    "uptime" => "1d8h22m56s"
+    "caller-id" => "EC:08:6B:4F:D6:BF"
+    "service" => "pppoe"
+  ]
+  "flaviac" => array:4 [
+    "address" => "10.0.207.25"
+    "uptime" => "1d8h22m56s"
+    "caller-id" => "54:E6:FC:BC:E7:07"
+    "service" => "pppoe"
+  ]
+  "popo" => array:4 [
+    "address" => "10.0.207.134"
+    "uptime" => "1d8h22m56s"
+    "caller-id" => "30:B5:C2:BC:BE:ED"
+    "service" => "pppoe"
+  ]
+  "claudeni" => array:4 [
+    "address" => "10.0.207.99"
+    "uptime" => "1d8h22m54s"
+    "caller-id" => "F8:1A:67:81:FC:43"
+    "service" => "pppoe"
+  ]
+  "bolsafamilia" => array:4 [
+    "address" => "10.0.250.245"
+    "uptime" => "1d8h22m41s"
+    "caller-id" => "B8:55:10:0A:A0:94"
+    "service" => "pppoe"
+  ]
+  "acaosocial" => array:4 [
+    "address" => "10.0.250.221"
+    "uptime" => "1d8h22m24s"
+    "caller-id" => "C4:12:F5:D3:03:6B"
+    "service" => "pppoe"
+  ]
+  "glenda" => array:4 [
+    "address" => "10.0.207.216"
+    "uptime" => "1d5h35m3s"
+    "caller-id" => "EC:22:80:8B:E0:37"
+    "service" => "pppoe"
+  ]
+  "autoescola" => array:4 [
+    "address" => "10.0.207.19"
+    "uptime" => "1d4h48m19s"
+    "caller-id" => "78:44:76:5A:99:98"
+    "service" => "pppoe"
+  ]
+  "audeli" => array:4 [
+    "address" => "10.0.206.68"
+    "uptime" => "1d4h44m21s"
+    "caller-id" => "50:0F:F5:00:B1:60"
+    "service" => "pppoe"
+  ]
+  "irla" => array:4 [
+    "address" => "10.0.206.223"
+    "uptime" => "1d3h40m6s"
+    "caller-id" => "00:1A:3F:A6:DA:74"
+    "service" => "pppoe"
+  ]
+  "pablof" => array:4 [
+    "address" => "10.0.207.124"
+    "uptime" => "1d3h30m5s"
+    "caller-id" => "90:F6:52:A6:0F:69"
+    "service" => "pppoe"
+  ]
+  "elton" => array:4 [
+    "address" => "10.0.206.103"
+    "uptime" => "1d3h15m55s"
+    "caller-id" => "70:4F:57:57:C9:97"
+    "service" => "pppoe"
+  ]
+  "alexandrelira" => array:4 [
+    "address" => "10.0.207.90"
+    "uptime" => "1d3h15m2s"
+    "caller-id" => "CC:2D:21:3C:81:E0"
+    "service" => "pppoe"
+  ]
+  "thais" => array:4 [
+    "address" => "10.0.207.29"
+    "uptime" => "1d3h14m37s"
+    "caller-id" => "58:10:8C:B8:3A:ED"
+    "service" => "pppoe"
+  ]
+  "alan" => array:4 [
+    "address" => "10.0.207.41"
+    "uptime" => "1d3h12m38s"
+    "caller-id" => "58:10:8C:40:E3:B7"
+    "service" => "pppoe"
+  ]
+  "espedita" => array:4 [
+    "address" => "10.0.207.131"
+    "uptime" => "1d3h1m34s"
+    "caller-id" => "14:CC:20:D3:B8:35"
+    "service" => "pppoe"
+  ]
+  "psf_manancial" => array:4 [
+    "address" => "10.0.250.213"
+    "uptime" => "1d2h31m33s"
+    "caller-id" => "80:2A:A8:2E:26:E2"
+    "service" => "pppoe"
+  ]
+  "eventosp" => array:4 [
+    "address" => "10.0.207.10"
+    "uptime" => "1d2h27m40s"
+    "caller-id" => "C8:3A:35:AA:F6:D8"
+    "service" => "pppoe"
+  ]
+  "ribeiro" => array:4 [
+    "address" => "10.0.206.238"
+    "uptime" => "1d2h22m19s"
+    "caller-id" => "50:0F:F5:02:E5:F8"
+    "service" => "pppoe"
+  ]
+  "martins" => array:4 [
+    "address" => "10.0.206.166"
+    "uptime" => "1d2h18m"
+    "caller-id" => "C8:3A:35:DE:B0:E8"
+    "service" => "pppoe"
+  ]
+  "alexandrer" => array:4 [
+    "address" => "10.0.206.156"
+    "uptime" => "1d1h40m55s"
+    "caller-id" => "58:10:8C:1B:CF:87"
+    "service" => "pppoe"
+  ]
+  "julianab" => array:4 [
+    "address" => "10.0.207.241"
+    "uptime" => "1d1h39m51s"
+    "caller-id" => "78:44:76:16:C6:1B"
+    "service" => "pppoe"
+  ]
+  "cefopi" => array:4 [
+    "address" => "10.0.250.219"
+    "uptime" => "1d1h33m15s"
+    "caller-id" => "00:1A:3F:A4:21:31"
+    "service" => "pppoe"
+  ]
+  "procuradoria" => array:4 [
+    "address" => "10.0.250.231"
+    "uptime" => "1d1h18m36s"
+    "caller-id" => "C4:6E:1F:5D:88:D1"
+    "service" => "pppoe"
+  ]
+  "rodrigov" => array:4 [
+    "address" => "10.0.207.28"
+    "uptime" => "1d1h13m20s"
+    "caller-id" => "C8:3A:35:46:61:10"
+    "service" => "pppoe"
+  ]
+  "eliete1" => array:4 [
+    "address" => "10.0.207.9"
+    "uptime" => "1d1h8m31s"
+    "caller-id" => "C8:3A:35:0A:43:88"
+    "service" => "pppoe"
+  ]
+  "eventossv2" => array:4 [
+    "address" => "10.0.207.238"
+    "uptime" => "1d57m33s"
+    "caller-id" => "78:44:76:23:59:91"
+    "service" => "pppoe"
+  ]
+  "mirelly" => array:4 [
+    "address" => "10.0.207.252"
+    "uptime" => "1d53m26s"
+    "caller-id" => "58:10:8C:99:D6:4A"
+    "service" => "pppoe"
+  ]
+  "herbalife" => array:4 [
+    "address" => "10.0.207.246"
+    "uptime" => "1d45m56s"
+    "caller-id" => "00:1A:3F:FA:8E:D4"
+    "service" => "pppoe"
+  ]
+  "jobson" => array:4 [
+    "address" => "10.0.207.47"
+    "uptime" => "1d30m27s"
+    "caller-id" => "58:10:8C:BB:20:98"
+    "service" => "pppoe"
+  ]
+  "vandoc" => array:4 [
+    "address" => "10.0.206.62"
+    "uptime" => "1d22m26s"
+    "caller-id" => "C8:3A:35:45:8A:88"
+    "service" => "pppoe"
+  ]
+  "melo" => array:4 [
+    "address" => "10.0.206.192"
+    "uptime" => "1d19m54s"
+    "caller-id" => "C8:3A:35:A0:2D:E8"
+    "service" => "pppoe"
+  ]
+  "hotifruti" => array:4 [
+    "address" => "10.0.206.61"
+    "uptime" => "1d7m24s"
+    "caller-id" => "C8:3A:35:DF:B9:20"
+    "service" => "pppoe"
+  ]
+  "dulce" => array:4 [
+    "address" => "10.10.10.37"
+    "uptime" => "23h52m18s"
+    "caller-id" => "18:D6:C7:67:5D:51"
+    "service" => "pppoe"
+  ]
+  "suelyg" => array:4 [
+    "address" => "10.10.10.34"
+    "uptime" => "23h51m5s"
+    "caller-id" => "AC:84:C6:01:71:AF"
+    "service" => "pppoe"
+  ]
+  "robertam" => array:4 [
+    "address" => "10.0.206.150"
+    "uptime" => "23h27m29s"
+    "caller-id" => "C8:3A:35:8E:A8:A8"
+    "service" => "pppoe"
+  ]
+  "cibely" => array:4 [
+    "address" => "10.0.206.236"
+    "uptime" => "23h13m20s"
+    "caller-id" => "C8:3A:35:11:6B:08"
+    "service" => "pppoe"
+  ]
+  "rodrigos" => array:4 [
+    "address" => "10.0.206.145"
+    "uptime" => "23h11m8s"
+    "caller-id" => "18:A6:F7:76:99:F5"
+    "service" => "pppoe"
+  ]
+  "bianca" => array:4 [
+    "address" => "10.0.207.12"
+    "uptime" => "23h3m57s"
+    "caller-id" => "C8:3A:35:1D:BC:48"
+    "service" => "pppoe"
+  ]
+  "leandro" => array:4 [
+    "address" => "10.0.206.92"
+    "uptime" => "23h2m2s"
+    "caller-id" => "50:C7:BF:B3:1E:CF"
+    "service" => "pppoe"
+  ]
+  "rogerio" => array:4 [
+    "address" => "10.0.207.127"
+    "uptime" => "22h57m39s"
+    "caller-id" => "C8:E7:D8:73:09:25"
+    "service" => "pppoe"
+  ]
+  "suzanav" => array:4 [
+    "address" => "10.0.206.94"
+    "uptime" => "22h57m23s"
+    "caller-id" => "C0:25:E9:65:56:6F"
+    "service" => "pppoe"
+  ]
+  "valdilene" => array:4 [
+    "address" => "10.0.206.222"
+    "uptime" => "22h57m8s"
+    "caller-id" => "C8:3A:35:1F:F6:D0"
+    "service" => "pppoe"
+  ]
+  "ananeri" => array:4 [
+    "address" => "10.10.10.35"
+    "uptime" => "22h52m48s"
+    "caller-id" => "C8:3A:35:04:CF:40"
+    "service" => "pppoe"
+  ]
+  "cefopipadaria" => array:4 [
+    "address" => "10.0.250.230"
+    "uptime" => "22h44m25s"
+    "caller-id" => "AC:84:C6:07:EA:A5"
+    "service" => "pppoe"
+  ]
+  "agenciatrabalho" => array:4 [
+    "address" => "10.0.250.253"
+    "uptime" => "22h23m49s"
+    "caller-id" => "1C:5F:2B:52:7B:0E"
+    "service" => "pppoe"
+  ]
+  "patrimonio" => array:4 [
+    "address" => "10.0.250.193"
+    "uptime" => "22h2m56s"
+    "caller-id" => "00:1A:3F:DF:6F:79"
+    "service" => "pppoe"
+  ]
+  "evandrot" => array:4 [
+    "address" => "10.0.207.143"
+    "uptime" => "21h57m4s"
+    "caller-id" => "1C:7E:E5:C6:3F:FB"
+    "service" => "pppoe"
+  ]
+  "dalva" => array:4 [
+    "address" => "10.0.206.147"
+    "uptime" => "21h25m24s"
+    "caller-id" => "00:1A:3F:D7:AA:45"
+    "service" => "pppoe"
+  ]
+  "distigarassu" => array:4 [
+    "address" => "10.0.206.196"
+    "uptime" => "21h9m11s"
+    "caller-id" => "C8:3A:35:5B:D3:78"
+    "service" => "pppoe"
+  ]
+  "cta" => array:4 [
+    "address" => "10.0.207.115"
+    "uptime" => "20h57m17s"
+    "caller-id" => "30:B5:C2:51:A0:AB"
+    "service" => "pppoe"
+  ]
+  "welma" => array:4 [
+    "address" => "10.0.206.85"
+    "uptime" => "20h54m32s"
+    "caller-id" => "C0:25:E9:37:B2:6F"
+    "service" => "pppoe"
+  ]
+  "vera" => array:4 [
+    "address" => "10.0.206.173"
+    "uptime" => "20h25m36s"
+    "caller-id" => "00:1A:3F:22:E4:63"
+    "service" => "pppoe"
+  ]
+  "mariac" => array:4 [
+    "address" => "10.0.207.114"
+    "uptime" => "19h55m35s"
+    "caller-id" => "B8:55:10:52:8A:DD"
+    "service" => "pppoe"
+  ]
+  "eveline" => array:4 [
+    "address" => "10.0.207.122"
+    "uptime" => "19h50m54s"
+    "caller-id" => "AC:84:C6:48:46:17"
+    "service" => "pppoe"
+  ]
+  "josec" => array:4 [
+    "address" => "10.0.207.181"
+    "uptime" => "19h43m37s"
+    "caller-id" => "00:72:63:0E:C6:1E"
+    "service" => "pppoe"
+  ]
+  "eudesv" => array:4 [
+    "address" => "10.10.10.33"
+    "uptime" => "19h42m43s"
+    "caller-id" => "C8:3A:35:51:D3:80"
+    "service" => "pppoe"
+  ]
+  "manoel" => array:4 [
+    "address" => "10.0.206.123"
+    "uptime" => "19h27m46s"
+    "caller-id" => "00:E0:4B:DA:5F:B1"
+    "service" => "pppoe"
+  ]
+  "nazarec" => array:4 [
+    "address" => "10.0.206.211"
+    "uptime" => "19h23m49s"
+    "caller-id" => "58:10:8C:4E:5B:29"
+    "service" => "pppoe"
+  ]
+  "sandroc" => array:4 [
+    "address" => "10.0.207.141"
+    "uptime" => "19h14m49s"
+    "caller-id" => "84:16:F9:8C:F5:33"
+    "service" => "pppoe"
+  ]
+  "baducentro" => array:4 [
+    "address" => "10.0.207.148"
+    "uptime" => "19h11m54s"
+    "caller-id" => "00:1A:3F:EB:38:1C"
+    "service" => "pppoe"
+  ]
+  "gabinete" => array:4 [
+    "address" => "10.0.250.236"
+    "uptime" => "19h8m56s"
+    "caller-id" => "00:19:5B:00:63:CC"
+    "service" => "pppoe"
+  ]
+  "creche1" => array:4 [
+    "address" => "10.0.250.197"
+    "uptime" => "18h41m59s"
+    "caller-id" => "AC:84:C6:1D:16:63"
+    "service" => "pppoe"
+  ]
+  "laiz" => array:4 [
+    "address" => "10.0.206.109"
+    "uptime" => "18h34m1s"
+    "caller-id" => "A0:F3:C1:31:08:EB"
+    "service" => "pppoe"
+  ]
+  "geyson" => array:4 [
+    "address" => "10.0.207.227"
+    "uptime" => "18h28m7s"
+    "caller-id" => "00:1A:3F:85:B4:E2"
+    "service" => "pppoe"
+  ]
+  "luciana" => array:4 [
+    "address" => "10.0.206.204"
+    "uptime" => "18h24m32s"
+    "caller-id" => "00:1A:3F:78:6E:90"
+    "service" => "pppoe"
+  ]
+  "alanr" => array:4 [
+    "address" => "10.0.206.219"
+    "uptime" => "18h21m35s"
+    "caller-id" => "C8:3A:35:1A:3A:08"
+    "service" => "pppoe"
+  ]
+  "aldo" => array:4 [
+    "address" => "10.0.207.43"
+    "uptime" => "18h21m20s"
+    "caller-id" => "70:4F:57:4D:EE:8B"
+    "service" => "pppoe"
+  ]
+  "radio1" => array:4 [
+    "address" => "10.0.252.198"
+    "uptime" => "18h20m21s"
+    "caller-id" => "18:A6:F7:97:57:DD"
+    "service" => "pppoe"
+  ]
+  "marksom" => array:4 [
+    "address" => "10.0.206.194"
+    "uptime" => "18h7m16s"
+    "caller-id" => "C8:3A:35:28:76:60"
+    "service" => "pppoe"
+  ]
+  "mariaeduarda" => array:4 [
+    "address" => "10.0.206.56"
+    "uptime" => "18h2m38s"
+    "caller-id" => "E4:BE:ED:2A:BC:DE"
+    "service" => "pppoe"
+  ]
+  "wellington" => array:4 [
+    "address" => "10.0.207.201"
+    "uptime" => "17h56m35s"
+    "caller-id" => "00:1A:3F:F6:A8:EC"
+    "service" => "pppoe"
+  ]
+  "glendac" => array:4 [
+    "address" => "10.0.207.189"
+    "uptime" => "17h42m36s"
+    "caller-id" => "48:EE:0C:C8:8D:6D"
+    "service" => "pppoe"
+  ]
+  "jeane" => array:4 [
+    "address" => "10.0.207.199"
+    "uptime" => "17h35m47s"
+    "caller-id" => "90:8D:78:8E:51:C1"
+    "service" => "pppoe"
+  ]
+  "elisilva" => array:4 [
+    "address" => "10.0.207.146"
+    "uptime" => "17h18m58s"
+    "caller-id" => "C0:4A:00:4F:14:7F"
+    "service" => "pppoe"
+  ]
+  "paulad" => array:4 [
+    "address" => "10.0.206.127"
+    "uptime" => "17h3m48s"
+    "caller-id" => "00:E0:4B:D4:23:31"
+    "service" => "pppoe"
+  ]
+  "evertonm" => array:4 [
+    "address" => "10.0.206.213"
+    "uptime" => "16h52m47s"
+    "caller-id" => "C8:3A:35:4F:AC:70"
+    "service" => "pppoe"
+  ]
+  "nataliac" => array:4 [
+    "address" => "10.0.207.24"
+    "uptime" => "16h23m26s"
+    "caller-id" => "C8:3A:35:35:00:C8"
+    "service" => "pppoe"
+  ]
+  "jance" => array:4 [
+    "address" => "10.0.206.139"
+    "uptime" => "16h13m1s"
+    "caller-id" => "00:E0:4C:59:CA:0B"
+    "service" => "pppoe"
+  ]
+  "farmacia" => array:4 [
+    "address" => "10.0.206.203"
+    "uptime" => "15h58m33s"
+    "caller-id" => "C8:3A:35:7C:A1:68"
+    "service" => "pppoe"
+  ]
+  "zaianne" => array:4 [
+    "address" => "10.0.207.139"
+    "uptime" => "15h38m39s"
+    "caller-id" => "B0:C5:54:DE:EA:3F"
+    "service" => "pppoe"
+  ]
+  "eli" => array:4 [
+    "address" => "10.0.207.59"
+    "uptime" => "15h31m14s"
+    "caller-id" => "C8:3A:35:27:D8:08"
+    "service" => "pppoe"
+  ]
+  "ingrid" => array:4 [
+    "address" => "10.0.206.221"
+    "uptime" => "15h21m21s"
+    "caller-id" => "C8:3A:35:25:C5:28"
+    "service" => "pppoe"
+  ]
+  "samille" => array:4 [
+    "address" => "10.0.207.60"
+    "uptime" => "15h18m29s"
+    "caller-id" => "C8:3A:35:36:2D:A0"
+    "service" => "pppoe"
+  ]
+  "carolyne" => array:4 [
+    "address" => "10.0.206.73"
+    "uptime" => "15h12m27s"
+    "caller-id" => "48:EE:0C:C3:48:B9"
+    "service" => "pppoe"
+  ]
+  "anamariaa" => array:4 [
+    "address" => "10.0.207.58"
+    "uptime" => "15h6m31s"
+    "caller-id" => "C8:3A:35:34:94:68"
+    "service" => "pppoe"
+  ]
+  "natalia" => array:4 [
+    "address" => "10.0.207.175"
+    "uptime" => "15h4m12s"
+    "caller-id" => "E4:BE:ED:57:D2:34"
+    "service" => "pppoe"
+  ]
+  "silvia" => array:4 [
+    "address" => "10.0.206.52"
+    "uptime" => "14h59m18s"
+    "caller-id" => "EC:08:6B:8E:8A:7F"
+    "service" => "pppoe"
+  ]
+  "clinicacso" => array:4 [
+    "address" => "10.0.207.215"
+     …3
+  ]
+  "adelma" => array:4 [ …4]
+  "tulio" => array:4 [ …4]
+  "rosa" => array:4 [ …4]
+  "tiagom" => array:4 [ …4]
+  "flavias" => array:4 [ …4]
+  "samuel" => array:4 [ …4]
+  "juliana" => array:4 [ …4]
+  "enio" => array:4 [ …4]
+  "funcional" => array:4 [ …4]
+  "mayara" => array:4 [ …4]
+  "monica" => array:4 [ …4]
+  "priscila" => array:4 [ …4]
+  "jraposo" => array:4 [ …4]
+  "thiagoc" => array:4 [ …4]
+  "abner" => array:4 [ …4]
+  "winston" => array:4 [ …4]
+  "brunojt" => array:4 [ …4]
+  "dayanem" => array:4 [ …4]
+  "lene" => array:4 [ …4]
+  "marcela" => array:4 [ …4]
+  "driely" => array:4 [ …4]
+  "aldivam" => array:4 [ …4]
+  "marcilio" => array:4 [ …4]
+  "julianal" => array:4 [ …4]
+  "sandram" => array:4 [ …4]
+  "antonio" => array:4 [ …4]
+  "ralf2" => array:4 [ …4]
+  "henrique" => array:4 [ …4]
+  "brunok" => array:4 [ …4]
+  "lelia" => array:4 [ …4]
+  "vilma" => array:4 [ …4]
+  "humbani" => array:4 [ …4]
+  "rodolfo" => array:4 [ …4]
+  "sammely" => array:4 [ …4]
+  "lenyane" => array:4 [ …4]
+  "luan" => array:4 [ …4]
+  "larissav" => array:4 [ …4]
+  "neves" => array:4 [ …4]
+  "leo" => array:4 [ …4]
+  "nidinho" => array:4 [ …4]
+  "rosineide" => array:4 [ …4]
+  "andress" => array:4 [ …4]
+  "psfbelavista" => array:4 [ …4]
+  "aslira1" => array:4 [ …4]
+  "adrianams" => array:4 [ …4]
+  "centerr" => array:4 [ …4]
+  "alex" => array:4 [ …4]
+  "file" => array:4 [ …4]
+  "andrews" => array:4 [ …4]
+  "jaqueline" => array:4 [ …4]
+  "natally3" => array:4 [ …4]
+  "mery" => array:4 [ …4]
+  "reinaldo" => array:4 [ …4]
+  "wallace" => array:4 [ …4]
+  "taugor" => array:4 [ …4]
+  "suzana" => array:4 [ …4]
+  "ninha" => array:4 [ …4]
+  "lucio" => array:4 [ …4]
+  "marcosv" => array:4 [ …4]
+  "narcizo" => array:4 [ …4]
+  "iracemav" => array:4 [ …4]
+  "gerlany" => array:4 [ …4]
+  "cicero" => array:4 [ …4]
+  "milanny" => array:4 [ …4]
+  "winanhara" => array:4 [ …4]
+  "acsa" => array:4 [ …4]
+  "escadolfo" => array:4 [ …4]
+  "samuelc" => array:4 [ …4]
+  "felipe" => array:4 [ …4]
+  "leandroc" => array:4 [ …4]
+  "cibele" => array:4 [ …4]
+  "hospitaliga" => array:4 [ …4]
+  "carmene" => array:4 [ …4]
+  "wenia" => array:4 [ …4]
+  "regulacao" => array:4 [ …4]
+  "erica" => array:4 [ …4]
+  "mariap" => array:4 [ …4]
+  "constutelar" => array:4 [ …4]
+  "cintya" => array:4 [ …4]
+  "loterica" => array:4 [ …4]
+  "creche2" => array:4 [ …4]
+  "escarthur" => array:4 [ …4]
+  "cicero1" => array:4 [ …4]
+  "drailton" => array:4 [ …4]
+  "mulher" => array:4 [ …4]
+  "thauany" => array:4 [ …4]
+  "edinaldo" => array:4 [ …4]
+  "douglas" => array:4 [ …4]
+  "klebson" => array:4 [ …4]
+  "marcioadv" => array:4 [ …4]
+  "condica" => array:4 [ …4]
+  "gugel" => array:4 [ …4]
+  "saolucas" => array:4 [ …4]
+  "ladeilton" => array:4 [ …4]
+  "charamba" => array:4 [ …4]
+  "auxiliadora" => array:4 [ …4]
+  "eduardo" => array:4 [ …4]
+  "elias" => array:4 [ …4]
+  "karla" => array:4 [ …4]
+  "cras01" => array:4 [ …4]
+  "danilol" => array:4 [ …4]
+  "paulor" => array:4 [ …4]
+  "vandamaria" => array:4 [ …4]
+  "keyla" => array:4 [ …4]
+  "samu" => array:4 [ …4]
+  "elizangelal" => array:4 [ …4]
+  "eventosnts" => array:4 [ …4]
+  "ada" => array:4 [ …4]
+  "arthur" => array:4 [ …4]
+  "romario" => array:4 [ …4]
+  "arnaldo" => array:4 [ …4]
+  "evanice" => array:4 [ …4]
+  "Rafael" => array:4 [ …4]
+  "junior" => array:4 [ …4]
+  "rosiane" => array:4 [ …4]
+  "escdalila" => array:4 [ …4]
+  "izaiasf" => array:4 [ …4]
+  "celiac" => array:4 [ …4]
+  "lilias" => array:4 [ …4]
+  "jadsonj" => array:4 [ …4]
+  "gemilton" => array:4 [ …4]
+  "cristian" => array:4 [ …4]
+  "jhonatas" => array:4 [ …4]
+  "isis" => array:4 [ …4]
+  "gleyce" => array:4 [ …4]
+  "luisedu" => array:4 [ …4]
+  "lame" => array:4 [ …4]
+  "brunas" => array:4 [ …4]
+  "pescadoresigarassu" => array:4 [ …4]
+  "grasieli" => array:4 [ …4]
+]

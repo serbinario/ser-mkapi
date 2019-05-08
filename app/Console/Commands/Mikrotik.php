@@ -60,10 +60,10 @@ class Mikrotik extends Command
             case "listclients":
                 $this->listClients();
                 break;
-                case "ssh";
+            case "ssh";
                 $this->ssh2();
-                    //$this->cfgssh('170.245.65.134', 'NetSerb', 'nets@2017#', 'ppp active print  without-paging', '22', 'TUDO');
-                    break;
+                //$this->cfgssh('170.245.65.134', 'NetSerb', 'nets@2017#', 'ppp active print  without-paging', '22', 'TUDO');
+                break;
             case "activeclients":
                 $this->activeClients();
             case "teste":
@@ -137,22 +137,116 @@ class Mikrotik extends Command
         $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
 
 
-        $router->write('/ppp/secret/print', true);
+        $router->write('/ppp/active/print', false);
+        $router->write('=.proplist=name,address,uptime,caller-id,service');
+
         $READ = $router->read(false);
-        $ARRAY = $router->parseResponse($READ);
+        $actives = $router->parseResponse($READ);
+
+        //Retorna os clients ativos
+        $users = \DB::table('mk_clientes')
+            ->where('is_ativo', 1)
+            ->select('login', 'senha')->get();
+
+
+        $clientes_full = array();
+        //dd($actives);
+        foreach ($users as $user){
+
+            //Retorna a chave
+            $key = array_search($user->login, array_column($actives, 'name'));
+
+            if($key){
+                array_push($clientes_full,
+                    [
+                        'nome' => $user->login,
+                        'senha' => $user->senha,
+                        'uptime' => $actives[$key]['uptime'],
+                        'address' => $actives[$key]['address'],
+                        'Latitude' => 'Latitude',
+                        'Longitude' => 'Longitude',
+                        'status' => 'conectado'
+                    ] );
+            }else{
+                array_push($clientes_full,
+                    [
+                        'nome' => $user->login,
+                        'senha' => $user->senha,
+                        'status' => 'desconectado',
+                        'Latitude' => 'Latitude',
+                        'Longitude' => 'Longitude'
+                    ] );
+            }
+
+            //$clientes_full['1'] = $actives[$key]['name'];
+
+
+        }
+
+        dd(json_encode($clientes_full));
+        return response()->json(
+            $clientes_full
+        );
+
+        dd($clientes_full);
+
+
+        //Fim dos clientes ativos
+        dd("teste");
 
         $list = array();
 
-        for ($i = 0; $i < count($ARRAY); $i++) {
-            //echo $i ." " . $list['login'] = $ARRAY[$i]['name'] . "\n";
-            //$list['senha'] = $ARRAY[$i]['password'];
-            //$coment = " \" " .  $ARRAY[$i]['comment'] . "\" ";
-            //S$list['obs'] = $coment;
-            // dd($list);
-            $this->seExisteNaBase($ARRAY[$i]['name'], $i);
+        $actives = $this->array_enkeyize($actives, 'name');
 
-            //$list = '';
+        //dd($actives);
+
+        //dd($secrets);
+        //$actives = $this->array_dekeyize($actives, 'name');
+
+
+
+
+
+    }
+
+    public function check_diff_multi($array1, $array2){
+        $result = array();
+        foreach($array1 as $key => $val) {
+            if(isset($array2[$key])){
+                if(is_array($val) && $array2[$key]){
+                    $result[$key] = $this->check_diff_multi($val, $array2[$key]);
+                }
+            } else {
+                $result[$key] = $val;
+            }
         }
+
+        return $result;
+    }
+
+    public function array_enkeyize($array, $iten) {
+        foreach ($array as $key => $value) {
+            foreach ($value as $v_key => $v_value) {
+                if ($v_key === $iten){
+                    $keized[$v_value] = $array[$key];
+                    unset($keized[$v_value][$iten]);
+                }
+            }
+        }
+
+        return $keized;
+    }
+
+
+    public function array_dekeyize($array, $iten) {
+        $i = 0;
+        dd($array);
+        foreach ($array as $key => $value) {
+            $dekeized[$i] = $array[$key];
+            $dekeized[$i++][$iten] = $key;
+        }
+
+        return $dekeized;
     }
 
     public function seExisteNaBase($login, $i)
@@ -231,18 +325,18 @@ class Mikrotik extends Command
         dd($rest);
         //dd("wwwwwwwwww");
         $this->set($router);
-       // $rest = $secret->getAll($router);
+        // $rest = $secret->getAll($router);
 
 
 
-       /* //Esse funciona
-        $router->comm("/ppp/secret/add", array(
-            "numbers"     => "paulovaz",
-            "profile" => "Bloqueados",
-            "remote-address" => "172.16.1.10",
-            "comment"  => "{new VPN user}",
-            "service"  => "pptp",
-        ));*/
+        /* //Esse funciona
+         $router->comm("/ppp/secret/add", array(
+             "numbers"     => "paulovaz",
+             "profile" => "Bloqueados",
+             "remote-address" => "172.16.1.10",
+             "comment"  => "{new VPN user}",
+             "service"  => "pptp",
+         ));*/
 
     }
 
@@ -268,16 +362,16 @@ class Mikrotik extends Command
 
 
 
-       /* $cobrancas =  Cobranca::where('mk_cliente_id', '=' , $cliente)->limit(1)->get();
-        //dd($cobrancas);
-        if($cobrancas->isNotEmpty()){
-            foreach ($cobrancas as $cobranca){
-                echo $cobranca->numero_cobranca . ";" . $cobranca->valor_debito . ";" . $cobranca->status . ";" . $cobranca->data_vencimento . ";" . $cobranca->data_pagamento . ";" . "\n";
-            };
-        }else{
+        /* $cobrancas =  Cobranca::where('mk_cliente_id', '=' , $cliente)->limit(1)->get();
+         //dd($cobrancas);
+         if($cobrancas->isNotEmpty()){
+             foreach ($cobrancas as $cobranca){
+                 echo $cobranca->numero_cobranca . ";" . $cobranca->valor_debito . ";" . $cobranca->status . ";" . $cobranca->data_vencimento . ";" . $cobranca->data_pagamento . ";" . "\n";
+             };
+         }else{
 
-            echo ";;;;;" . "\n";
-        }*/
+             echo ";;;;;" . "\n";
+         }*/
     }
 
     public function cobranca($cliente)

@@ -53,6 +53,9 @@ Route::group(
 
     Route::get('/clientesPorMes','MikrotikController@clientesPorMes')
         ->name('mikrotik.clientesPorMes');
+
+    Route::get('/activeDesactiveClients','MikrotikController@activeDesactiveClients')
+        ->name('mikrotik.activeDesactiveClients');
 });
 
 Route::group(
@@ -360,8 +363,11 @@ Route::group(
     Route::get('/grid', 'ClienteController@grid')
          ->name('cliente.cliente.grid');
 
-    Route::get('/show/{cliente}','ClienteController@show')
-         ->name('cliente.cliente.show')
+    Route::get('/grid', 'ClienteController@grid')
+        ->name('cliente.cliente.grid');
+
+    Route::get('/coordenadas','ClienteController@coordenadas')
+         ->name('cliente.coordenadas')
          ->where('id', '[0-9]+');
 
     Route::get('/{cliente}/edit','ClienteController@edit')

@@ -69,5 +69,16 @@ $(document).ready(function () {
             });
     });
 
+    $('#map_coordenadas').click(function () {
+        var width = (screen.availWidth - 100);
+        var height = (screen.availHeight - 100);
+        window.open("/cliente/coordenadas", "mpg_popup", "toolbar=0, location=0, directories=0, status=1, menubar=0, scrollbars=1, resizable=0, screenX=0, screenY=0, left=0, top=0, width=" + width + ", height=" + height);
+        return true;
+    })
+
+    function mapa_get(callback, servidor) {
+
+    }
+
 
 });

@@ -55,6 +55,18 @@ class ClienteController extends Controller
 
 
     /**
+     * Display a listing of the coordenadas.
+     *
+     * @return Illuminate\View\View
+     */
+    public function coordenadas()
+    {
+
+        return view('cliente.get_maps_coordenadas');
+    }
+
+
+    /**
      * Display a listing of the fornecedors.
      *
      * @return Illuminate\View\View
@@ -201,14 +213,18 @@ class ClienteController extends Controller
      * Store a new cliente in the storage.
      *
      * @param Illuminate\Http\Request $request
-     *
+     *RF014-RN001
      * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
      */
+
     public function store(Request $request)
     {
         try {
 
+            //Testa os campos "nome, nie,
             $this->affirm($request);
+
+
             $data = $this->getData($request);
 
             //Criptografo o cpf com os "." para a autenticaçao do usuario
@@ -271,6 +287,7 @@ class ClienteController extends Controller
             $data = $this->getData($request);
 
 
+
             $cliente = Cliente::findOrFail($id);
             //$pessoaFisica = PessoaFisica::find($cliente->clienteable_id);
 
@@ -285,7 +302,7 @@ class ClienteController extends Controller
             //Criptografo o cpf com os "." para a autenticaçao do usuario
             $cliente->password = bcrypt($request->get('cpf'));
             $cliente->update($data);
-
+           // dd($cliente);
             return redirect()->route('cliente.cliente.index')
                 ->with('success_message', 'Cliente was successfully updated!');
 
@@ -414,7 +431,7 @@ class ClienteController extends Controller
      */
     protected function getData(Request $request)
     {
-        $data = $request->only(['nome','login','senha','email','cpf', 'rg', 'insc_estadual','tipo','data_nascimento','cep', 'phone01', 'phone02','logradouro','complemanto','bairro','cidade', 'estado', 'numero_casa','data_instalacao','router_id', 'grupo_id','profile_id','tipo_autenticacao','ip_pppoe','ip_hotspot','mac','vencimento_dia_id','dias_bloqueio','dias_msg_pendencia','inseto_mensalidade','mensalidade_automatica','msg_bloqueio_automatica','msg_pendencia_automatica','perm_alter_senha','desconto_mensalidade','desconto_mensali_ate_venci','is_ativo','obs']);
+        $data = $request->only(['nome','login','senha','email','cpf', 'rg', 'insc_estadual','tipo','data_nascimento','cep','coordenadas', 'phone01', 'phone02','logradouro','complemanto','bairro','cidade', 'estado', 'numero_casa','data_instalacao','router_id', 'grupo_id','profile_id','tipo_autenticacao','ip_pppoe','ip_hotspot','mac','vencimento_dia_id','dias_bloqueio','dias_msg_pendencia','inseto_mensalidade','mensalidade_automatica','msg_bloqueio_automatica','msg_pendencia_automatica','perm_alter_senha','desconto_mensalidade','desconto_mensali_ate_venci','is_ativo','obs']);
         $data['inseto_mensalidade'] = $request->has('inseto_mensalidade');
         $data['mensalidade_automatica'] = $request->has('mensalidade_automatica');
         $data['msg_bloqueio_automatica'] = $request->has('msg_bloqueio_automatica');
