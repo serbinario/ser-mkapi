@@ -52,6 +52,11 @@ function carregarPontos() {
                 map: map
             });
 
+            if(ponto.status == "desconectado"){
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+
+
             var myOptions = {
                 content: "<p>" + "Nome:" + ponto.nome   + "<br>Login:" + ponto.login  + "<br>End.::" + ponto.Descricao + "<br>Tempo:" + ponto.uptime + "</p>",
                 pixelOffset: new google.maps.Size(-150, 0)
