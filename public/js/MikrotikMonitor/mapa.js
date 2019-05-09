@@ -48,7 +48,8 @@ function carregarPontos() {
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
                 title: "Nome:" + ponto.nome   + "\nLogin:" + ponto.login  + "\nEnd.::" + ponto.Descricao + "\nTempo:" + ponto.uptime,
-                icon: icon
+                icon: icon,
+                map: map
             });
 
             var myOptions = {
@@ -69,7 +70,8 @@ function carregarPontos() {
 
         });
 
-        var markerCluster = new MarkerClusterer(map, markers);
+        //Agrupa os makers
+        //var markerCluster = new MarkerClusterer(map, markers);
 
         map.fitBounds(latlngbounds);
     });
