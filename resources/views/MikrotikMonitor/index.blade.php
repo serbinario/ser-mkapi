@@ -25,6 +25,19 @@
             width: 600px;
             height: 400px;
         }
+        .my-custom-class-for-label {
+            height: 20px;
+
+            border: 1px solid #eb3a44;
+            border-radius: 5px;
+            background: #fee1d7;
+
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #eb3a44;
+        }
 
         .infoBox { background-color: #FFF; width: 300px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; border: 2px solid #3fa7d8; border-radius: 3px; margin-top: 10px }
         .infoBox p { padding: 0 15px }
@@ -70,6 +83,10 @@
 
     <!-- Agrupamento dos marcadores -->
     <script src="{{ asset('/js/MikrotikMonitor/markerclusterer.js')}}" type="text/javascript"></script>
+
+    <!-- Agrupamento dos marcadores -->
+    <script src="{{ asset('/js/MikrotikMonitor/markerwithlabel.js')}}" type="text/javascript"></script>
+
 
 
     <!-- Arquivo de inicialização do mapa -->

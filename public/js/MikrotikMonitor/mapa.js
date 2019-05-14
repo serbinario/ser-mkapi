@@ -39,7 +39,7 @@ function carregarPontos() {
         //console.log(retorno.clientes)
         $.each(retorno.clientes, function(index, ponto) {
 
-            console.log(ponto.Id)
+            //console.log(ponto.Id)
             if(ponto.status == "desconectado"){
                 icon = '/img/desconectado.png'
             }else{
@@ -54,6 +54,7 @@ function carregarPontos() {
 
             if(ponto.status == "desconectado"){
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+                marker.labelContent = ponto.login;
             }
 
 
