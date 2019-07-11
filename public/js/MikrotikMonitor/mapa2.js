@@ -1038,11 +1038,15 @@ function carregarPontos() {
             var latitude = retorno[0]
             var longitude = retorno[1]
             console.log(retorno[0])
-            var marker = new google.maps.Marker({
+           
+            var marker = new MarkerWithLabel({
                 position: new google.maps.LatLng(latitude, longitude),
-                title: "Nome:" + ponto.nome   + "\nLogin:" + ponto.PONTO  + "\nEnd.::" + ponto.ENDEREÇO,
+                map: map,
                 icon: icon,
-                map: map
+                labelContent: "" + ponto.QTD,
+                labelAnchor: new google.maps.Point(22, 0),
+                labelClass: "labels", // the CSS class for the label
+                labelStyle: {opacity: 0.75}
             });
 
             //if(ponto.status == "desconectado"){
