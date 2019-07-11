@@ -106,49 +106,12 @@ class ClienteController extends Controller
 
                 #condição
                 $query->where(function ($where) use ($localizar) {
-                    $where->orWhere('mk_clientes.nome', 'like', "%$localizar%")
-                        ->orWhere('mk_clientes.cpf', 'like', "%$localizar%")
-                        ->orWhere('mk_clientes.login', 'like', "%$localizar%")
-                        ->orWhere('mk_profiles.nome', 'like', "%$localizar%");
+
                 });
 
-                if ($request->has('status')){
-                    $query->where('mk_clientes.status_secret', '=', $status);
-                }
 
-                if ($request->has('grupo_id')){
-                    $query->where('mk_clientes.grupo_id', '=', $grupo_id);
-                }
 
-                if ($request->has('inativo')){
-                    $query->where('mk_clientes.is_ativo', '=', '0');
-                }else{
-                    $query->where('mk_clientes.is_ativo', '=', '1');
-                }
 
-                if ($request->has('data_instalacao_ini') && $request->has('data_instalacao_fin')){
-                    $query->whereBetween('mk_clientes.data_instalacao', [$data_instalacao_ini, $data_instalacao_fin]);
-                }
-
-                if ($request->has('vencimento')){
-                    if($vencimento == "NULL"){
-                        $query->whereNull('mk_clientes.vencimento_dia_id');
-
-                    }
-                    if($vencimento == "ALL"){
-                       $query->whereNotNull('mk_clientes.vencimento_dia_id');
-                    }
-                    if($vencimento != "ALL" && $vencimento != "NULL" && $vencimento != "ALL-AT"){
-                        $query->where('mk_vencimento_dia.nome', '=', $vencimento);
-                    }
-                    if($vencimento == "ALL-AT"){
-                        //So retorna os clientes com vencimento + ativos - os isentos de mensalidade
-                        $query->whereNotNull('mk_clientes.vencimento_dia_id');
-                        $query->where('mk_clientes.is_ativo', '=', '1');
-                        $query->where('mk_clientes.inseto_mensalidade', '<>', '1');
-                    }
-
-                }
             })
 
             ->addColumn('status', function ($row) {

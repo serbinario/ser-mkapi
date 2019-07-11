@@ -27,7 +27,7 @@ function abrirInfoBox(id, marker) {
 }
 
 function carregarPontos() {
-    console.log("ddddd")
+    //console.log("ddddd")
     jQuery.ajax({
         type: 'GET',
         url: '/mikrotik/activeDesactiveClients/',

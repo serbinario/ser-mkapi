@@ -80,6 +80,9 @@ Route::group(
 
     Route::get('/', 'MikrotikMonitorController@index')
         ->name('mikrotikMonitor.index');
+
+    Route::get('/prefietura', 'MikrotikMonitorController@index2')
+        ->name('mikrotikMonitor.index2');
 });
 
 

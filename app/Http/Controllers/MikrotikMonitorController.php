@@ -36,6 +36,16 @@ class MikrotikMonitorController extends Controller
 
         return view('MikrotikMonitor.index');
     }
+    /**
+     * Display a listing of the clientes.
+     *
+     * @return Illuminate\View\View
+     */
+    public function index2()
+    {
+
+        return view('MikrotikMonitor.index2');
+    }
 
     /*
      * Este metodo retrona o status do pppoe de cada cliente a partir da tabela SystemEvents, que ela e

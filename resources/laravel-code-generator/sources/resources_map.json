@@ -42,5 +42,10 @@
         "model-name": "Log",
         "resource-file": "syslog.json",
         "table-name": "SystemEvents"
+    },
+    {
+        "model-name": "Aditivo",
+        "resource-file": "aditivo.json",
+        "table-name": "aditivo_tipossssssss"
     }
 ]
