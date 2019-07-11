@@ -209,6 +209,7 @@
 									<!--start submenu -->
 									<ul>
 										<li><a href="{{ route('mikrotikMonitor.index') }}" class="active"><span class="title">Map</span></a></li>
+										<li><a href="{{ route('mikrotikMonitor.index2') }}" class="active"><span class="title">Projeto</span></a></li>
 									</ul><!--end /submenu -->
 								</li><!--end /menu-li -->
 							</ul><!--end /submenu -->
