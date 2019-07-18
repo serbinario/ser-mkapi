@@ -47,7 +47,7 @@ class MikrotikController extends Controller
             //dd($profileNome);
             $router = new RouterosService();
             $router->debug = false;
-            $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+            $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
             //Altera o profile do cliente
             $rest = $router->comm("/ppp/secret/set", array(
@@ -93,7 +93,7 @@ class MikrotikController extends Controller
             //dd($profileNome);
             $router = new RouterosService();
             $router->debug = false;
-            $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+            $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
             //Altera o profile do cliente
             $rest = $router->comm("/ppp/secret/set", array(
@@ -126,7 +126,7 @@ class MikrotikController extends Controller
 
         $router = new RouterosService();
         $router->debug = false;
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+        $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
 
         $router->write('/ppp/active/print', false);

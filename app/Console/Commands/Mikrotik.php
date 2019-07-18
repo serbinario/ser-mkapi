@@ -77,7 +77,7 @@ class Mikrotik extends Command
         $router = new RouterosService();
         $router->debug = false;
 
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+        $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
         $router->write('/ppp/secret/print',true);
         $READ = $router->read(false);
@@ -117,7 +117,7 @@ class Mikrotik extends Command
         $router = new RouterosService();
         $router->debug = false;
 
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+        $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
         $router->write('/ppp/secret/print',true);
         //$router->write('=count-only=',true);
@@ -134,7 +134,7 @@ class Mikrotik extends Command
 
         $router = new RouterosService();
         $router->debug = false;
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+        $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
 
         $router->write('/ppp/active/print', false);
@@ -282,7 +282,7 @@ class Mikrotik extends Command
 
         $router = new RouterosService();
         $router->debug = false;
-        $router->connect('170.245.65.134', 'NetSerb', 'nets@2017#');
+        $router->connect('170.245.65.134', 'NetRb', 'nets!2010#');
 
 
 
